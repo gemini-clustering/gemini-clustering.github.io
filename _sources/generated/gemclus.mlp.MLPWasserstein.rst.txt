@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.mlp`.MLPWasserstein
+========================================
+
+.. currentmodule:: gemclus.mlp
+
+.. autoclass:: MLPWasserstein
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.mlp.MLPWasserstein.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

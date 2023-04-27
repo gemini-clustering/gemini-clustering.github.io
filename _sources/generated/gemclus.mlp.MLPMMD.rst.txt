@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.mlp`.MLPMMD
+================================
+
+.. currentmodule:: gemclus.mlp
+
+.. autoclass:: MLPMMD
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.mlp.MLPMMD.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

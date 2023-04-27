@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.linear`.LinearMMD
+======================================
+
+.. currentmodule:: gemclus.linear
+
+.. autoclass:: LinearMMD
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.linear.LinearMMD.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

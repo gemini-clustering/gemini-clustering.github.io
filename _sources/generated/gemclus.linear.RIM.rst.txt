@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.linear`.RIM
+================================
+
+.. currentmodule:: gemclus.linear
+
+.. autoclass:: RIM
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.linear.RIM.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

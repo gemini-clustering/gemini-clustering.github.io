@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.sparse`.SparseLinearMMD
+============================================
+
+.. currentmodule:: gemclus.sparse
+
+.. autoclass:: SparseLinearMMD
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.sparse.SparseLinearMMD.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

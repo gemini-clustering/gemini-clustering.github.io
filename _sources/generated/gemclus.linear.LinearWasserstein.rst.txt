@@ -1,0 +1,17 @@
+﻿:mod:`gemclus.linear`.LinearWasserstein
+==============================================
+
+.. currentmodule:: gemclus.linear
+
+.. autoclass:: LinearWasserstein
+   :members:
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.linear.LinearWasserstein.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

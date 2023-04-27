@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemclus.linear.LinearMMD &mdash; gemclus 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/js/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gemclus.linear.LinearWasserstein" href="gemclus.linear.LinearWasserstein.html" />
+    <link rel="prev" title="GEMCLUS API" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#dense-models">Dense models</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearWasserstein</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.RIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#dataset-generation">Dataset generation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">GEMCLUS API</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/gemclus.linear.LinearMMD.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gemclus-linear-linearmmd">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD<a class="headerlink" href="#gemclus-linear-linearmmd" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gemclus.linear.LinearMMD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.linear.</span></span><span class="sig-name descname"><span class="pre">LinearMMD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#LinearMMD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.LinearMMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of the maximisation of the MMD-OvA GEMINI using a logistic regression as a clustering
+distribution <img class="math" src="../_images/math/b0647485e5b9bc8173d0db93eb8eaf223877cc6b.png" alt="p(y|x)"/>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_clusters</strong><span class="classifier">int, default=3</span></dt><dd><p>The maximum number of clusters to form as well as the number of output neurons in the neural network.</p>
+</dd>
+<dt><strong>max_iter: int, default=1000</strong></dt><dd><p>Maximum number of epochs to perform gradient descent in a single run.</p>
+</dd>
+<dt><strong>learning_rate: float, default=1e-3</strong></dt><dd><p>Initial learning rate used. It controls the step-size in updating the weights.</p>
+</dd>
+<dt><strong>kernel: {‘additive_chi2’, ‘chi2’, ‘cosine’,’linear’,’poly’,’polynomial’,’rbf’,’laplacian’,’sigmoid’},</strong></dt><dd><p>default=’linear’
+The kernel to use in combination with the MMD objective. It corresponds to one value of <cite>KERNEL_PARAMS</cite>.
+Currently, all kernel parameters are the default ones.</p>
+</dd>
+<dt><strong>ovo: bool, default=False</strong></dt><dd><p>Whether to run the model using the MMD OvA (False) or the MMD OvO (True).</p>
+</dd>
+<dt><strong>solver: {‘sgd’,’adam’}, default=’adam’</strong></dt><dd><p>The solver for weight optimisation.</p>
+<ul class="simple">
+<li><p>‘sgd’ refers to stochastic gradient descent.</p></li>
+<li><p>‘adam’ refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</p></li>
+</ul>
+</dd>
+<dt><strong>verbose: bool, default=False</strong></dt><dd><p>Whether to print progress messages to stdout</p>
+</dd>
+<dt><strong>random_state: int, RandomState instance, default=None</strong></dt><dd><p>Determines random number generation for weights and bias initialisation.
+Pass an int for reproducible results across multiple function calls.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein" title="gemclus.linear.LinearWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearWasserstein</span></code></a></dt><dd><p>logistic regression trained for clustering with the Wasserstein GEMINI</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>GEMINI - Generalised Mutual Information for Discriminative Clustering</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,
+Arnaud Droit, Frederic Preciosio</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gemclus.linear</span> <span class="kn">import</span> <span class="n">LinearMMD</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">LinearMMD</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span>
+<span class="go">array([0, 0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="go">1.6949190522657158</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>W_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
+</dd>
+<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
+</dd>
+<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
+</dd>
+<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code> method.</p>
+</dd>
+<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.linear.LinearMMD.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#LinearMMD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.LinearMMD.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<div style='clear:both'></div></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api.html" class="btn btn-neutral float-left" title="GEMCLUS API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.linear.LinearWasserstein.html" class="btn btn-neutral float-right" title="gemclus.linear.LinearWasserstein" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
