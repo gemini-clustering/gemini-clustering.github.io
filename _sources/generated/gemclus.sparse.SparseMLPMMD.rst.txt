@@ -5,6 +5,7 @@
 
 .. autoclass:: SparseMLPMMD
    :members:
+   :inherited-members: set_params, get_params
 
    
    .. automethod:: __init__

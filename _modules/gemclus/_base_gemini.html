@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemclus._base_gemini &mdash; gemclus 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/gemclus.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/js/copybutton.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">GEMCLUS API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">gemclus._base_gemini</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for gemclus._base_gemini</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module implements clustering with 2-layer dense neural networks using the MMD OvA/OvO objectives.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span><span class="p">,</span> <span class="n">Real</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">ClusterMixin</span><span class="p">,</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">KERNEL_PARAMS</span><span class="p">,</span> <span class="n">PAIRED_DISTANCES</span><span class="p">,</span> <span class="n">pairwise_kernels</span><span class="p">,</span> <span class="n">pairwise_distances</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network._stochastic_optimizers</span> <span class="kn">import</span> <span class="n">AdamOptimizer</span><span class="p">,</span> <span class="n">SGDOptimizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">StrOptions</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span>
+
+<span class="kn">from</span> <span class="nn">gemclus._gemini_grads</span> <span class="kn">import</span> <span class="n">mmd_ovo</span><span class="p">,</span> <span class="n">mmd_ova</span><span class="p">,</span> <span class="n">wasserstein_ovo</span><span class="p">,</span> <span class="n">wasserstein_ova</span>
+
+
+<span class="k">class</span> <span class="nc">_BaseGEMINI</span><span class="p">(</span><span class="n">ClusterMixin</span><span class="p">,</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the BaseGEMINI to derive to create a GEMINI MLP or linear clustering model.</span>
+<span class="sd">     When deriving this class, there are a couple methods to override depending on the design of a discriminative model</span>
+<span class="sd">     :math:`p(y|x)` or a specific GEMINI.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_clusters : int, default=3</span>
+<span class="sd">        The maximum number of clusters to form as well as the number of output neurons in the neural network.</span>
+
+<span class="sd">    max_iter: int, default=1000</span>
+<span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
+
+<span class="sd">    learning_rate: float, default=1e-3</span>
+<span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
+
+<span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
+<span class="sd">        The solver for weight optimisation.</span>
+
+<span class="sd">        - &#39;sgd&#39; refers to stochastic gradient descent.</span>
+<span class="sd">        - &#39;adam&#39; refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</span>
+
+<span class="sd">    verbose: bool, default=False</span>
+<span class="sd">        Whether to print progress messages to stdout</span>
+
+<span class="sd">    random_state: int, RandomState instance, default=None</span>
+<span class="sd">        Determines random number generation for weights and bias initialisation.</span>
+<span class="sd">        Pass an int for reproducible results across multiple function calls.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimiser_: `AdamOptimizer` or `SGDOptimizer`</span>
+<span class="sd">        The optimisation algorithm used for training depending on the chosen solver parameter.</span>
+<span class="sd">    labels_: ndarray of shape (n_samples)</span>
+<span class="sd">        The labels that were assigned to the samples passed to the :meth:`fit` method.</span>
+<span class="sd">    n_iter_: int</span>
+<span class="sd">        The number of iterations that the model took for converging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;n_clusters&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;max_iter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;solver&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">StrOptions</span><span class="p">({</span><span class="s2">&quot;sgd&quot;</span><span class="p">,</span> <span class="s2">&quot;adam&quot;</span><span class="p">})],</span>
+        <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+        <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">n_clusters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="n">solver</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise the set of parameters :math:`\theta` parameters of the model that are used to compute</span>
+<span class="sd">        :math:`p_\theta(y|x)`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        random_state: RandomState instance</span>
+<span class="sd">            Determines random number generation for weights and bias initialisation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the GEMINI objective given the predictions :math:`p_\theta(y|x)` and an affinity matrix. The computation</span>
+<span class="sd">        must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,</span>
+<span class="sd">        the affinity matrix :ref:`K` can be either a kernel matrix or a distance matrix resulting from the</span>
+<span class="sd">        :ref:`_compute_affinity` method.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y_pred: ndarray of shape (n_samples, n_clusters)</span>
+<span class="sd">            The conditional distribution (prediction) of clustering assignment per sample.</span>
+<span class="sd">        K: ndarray of shape (n_samples, n_samples)</span>
+<span class="sd">            The affinity matrix resulting from the :ref:`_compute_affinity` method. The matrix must be symmetric.</span>
+<span class="sd">        return_grad: bool, default=False</span>
+<span class="sd">            If True, the method should return the gradient of the GEMINI w.r.t. the predictions :math:`p_\theta(y|x)`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gemclus: float</span>
+<span class="sd">            The gemclus score I of the model given the predictions and affinities.</span>
+<span class="sd">        gradients: ndarray of shape (n_samples, n_clusters)</span>
+<span class="sd">            The derivative :math:`\nabla_{p_\theta(y|x)}I` of the GEMINI.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the gradient of each parameter of the model according to the input, output and</span>
+<span class="sd">        GEMINI gradient of the model. Overall, this method implements model backpropagation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        X: ndarray of shape (n_samples, n_features)</span>
+<span class="sd">            The passed data inputs from the forward pass</span>
+<span class="sd">        y_pred: ndarray of shape (n_samples, n_clusters)</span>
+<span class="sd">            The prediction of the model for the inputs `X`.</span>
+<span class="sd">        gradient: ndarray of shape (n_samples, n_clusters)</span>
+<span class="sd">            The gradient of the GEMINI w.r.t. y_pred</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        gradients: list of ndarrays of various shapes</span>
+<span class="sd">            A list containing the gradient for each weight of the model. The gradients must be ordered as the weights</span>
+<span class="sd">            returned by the method :ref:`_get_weights`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_update_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns all parameters of the model inside a list.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        weights: list of ndarrays of various shapes</span>
+<span class="sd">            A list containing all parameters of the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform the forward pass of the model and return the clustering conditional probabilities of the model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X: ndarray of shape (n_samples, n_features)</span>
+<span class="sd">            The samples to cluster</span>
+<span class="sd">        retain: bool, default=True</span>
+<span class="sd">            if True, all intermediate states that will be useful for backpropagation must be saved in attributes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_pred:  ndarray of shape (n_samples, n_clusters)</span>
+<span class="sd">            The prediction :math:`p_\theta(y|x)` probabilities of the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the affinity (kernel function or distance function_ between all samples of X.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X: ndarray of shape (n_samples, n_features)</span>
+<span class="sd">            The samples between which all affinities must be compute</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        K: ndarray of shape (n_samples, n_samples)</span>
+<span class="sd">            The symmetric affinity matrix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute GEMINI clustering.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : {array-like, sparse matrix} of shape (n_samples, n_features)</span>
+<span class="sd">            Training instances to cluster.</span>
+<span class="sd">        y : Ignored</span>
+<span class="sd">            Not used, present here for API consistency by convention.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : object</span>
+<span class="sd">            Fitted estimator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+
+        <span class="c1"># Check that X has the correct shape</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">ensure_min_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">)</span>
+
+        <span class="c1"># Fix the random seed</span>
+        <span class="n">random_state</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
+
+        <span class="c1"># Initialise the weights</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialising parameters&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_init_params</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_weights</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">==</span> <span class="s2">&quot;sgd&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span> <span class="o">=</span> <span class="n">SGDOptimizer</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span> <span class="o">=</span> <span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computing affinity&quot;</span><span class="p">)</span>
+
+        <span class="n">affinity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_affinity</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting training over </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="si">}</span><span class="s2"> iterations.&quot;</span><span class="p">)</span>
+        <span class="c1"># Now, iterate for gradient descent</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">grads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_gemini</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">grads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_grads</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">grads</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">grads</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Return the classifier</span>
+
+        <span class="c1"># Must save the labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iter_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute GEMINI clustering and returns the predicted clusters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : {array-like, sparse matrix} of shape (n_samples, n_features)</span>
+<span class="sd">            Training instances to cluster.</span>
+<span class="sd">        y : Ignored</span>
+<span class="sd">            Not used, present here for API consistency by convention.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_pred : ndarray of shape (n_samples,)</span>
+<span class="sd">            Vector containing the cluster label for each sample.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Probability estimates that are the output of the neural network p(y|x).</span>
+<span class="sd">        The returned estimates for all classes are ordered by the</span>
+<span class="sd">        label of classes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : {array-like, sparse matrix} of shape (n_samples, n_features)</span>
+<span class="sd">            Vector to be scored, where `n_samples` is the number of samples and</span>
+<span class="sd">            `n_features` is the number of features.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        T : array-like of shape (n_samples, n_clusters)</span>
+<span class="sd">            Returns the probability of the sample for each cluster in the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check is fit had been called</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Input validation</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y_pred</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; A reference implementation of a prediction for a classifier.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : {array-like, sparse matrix}, shape (n_samples, n_features)</span>
+<span class="sd">            The input samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y : ndarray of shape (n_samples,)</span>
+<span class="sd">            The label for each sample is the label of the closest sample</span>
+<span class="sd">            seen during fit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check is fit had been called</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># Input validation</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the value of the GEMINI evaluated on the given test data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : {array-like, sparse matrix} of shape (n_samples, n_features)</span>
+<span class="sd">            Test samples.</span>
+<span class="sd">        y : Ignored</span>
+<span class="sd">            Not used, present here for API consistency by convention.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        score : float</span>
+<span class="sd">            GEMINI evaluated on the output of ``self.predict(X)``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_affinity</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_gemini</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">_BaseMMD</span><span class="p">(</span><span class="n">_BaseGEMINI</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds the MMD GEMINI to the base model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_clusters : int, default=3</span>
+<span class="sd">        The maximum number of clusters to form as well as the number of output neurons in the neural network.</span>
+
+<span class="sd">    max_iter: int, default=1000</span>
+<span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
+
+<span class="sd">    learning_rate: float, default=1e-3</span>
+<span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
+
+<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;},</span>
+<span class="sd">        default=&#39;linear&#39;</span>
+<span class="sd">        The kernel to use in combination with the MMD objective. It corresponds to one value of `KERNEL_PARAMS`.</span>
+<span class="sd">        Currently, all kernel parameters are the default ones.</span>
+
+<span class="sd">    ovo: bool, default=False</span>
+<span class="sd">        Whether to run the model using the MMD OvA (False) or the MMD OvO (True).</span>
+
+<span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
+<span class="sd">        The solver for weight optimisation.</span>
+
+<span class="sd">        - &#39;sgd&#39; refers to stochastic gradient descent.</span>
+<span class="sd">        - &#39;adam&#39; refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</span>
+
+<span class="sd">    verbose: bool, default=False</span>
+<span class="sd">        Whether to print progress messages to stdout</span>
+
+<span class="sd">    random_state: int, RandomState instance, default=None</span>
+<span class="sd">        Determines random number generation for weights and bias initialisation.</span>
+<span class="sd">        Pass an int for reproducible results across multiple function calls.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimiser_: `AdamOptimizer` or `SGDOptimizer`</span>
+<span class="sd">        The optimisation algorithm used for training depending on the chosen solver parameter.</span>
+<span class="sd">    labels_: ndarray of shape (n_samples)</span>
+<span class="sd">        The labels that were assigned to the samples passed to the :meth:`fit` method.</span>
+<span class="sd">    n_iter_: int</span>
+<span class="sd">        The number of iterations that the model took for converging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">_BaseGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
+        <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">StrOptions</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">KERNEL_PARAMS</span><span class="p">))],</span>
+        <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span>
+
+    <span class="k">def</span> <span class="nf">_compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pairwise_kernels</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_compute_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mmd_ovo</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">mmd_ova</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_BaseWasserstein</span><span class="p">(</span><span class="n">_BaseGEMINI</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds the Wasserstein GEMINI to the base model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_clusters : int, default=3</span>
+<span class="sd">        The maximum number of clusters to form as well as the number of output neurons in the neural network.</span>
+
+<span class="sd">    max_iter: int, default=1000</span>
+<span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
+
+<span class="sd">    learning_rate: float, default=1e-3</span>
+<span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
+
+<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;},</span>
+<span class="sd">        default=&#39;euclidean&#39;</span>
+<span class="sd">        The metric to use in combination with the Wasserstein objective. It corresponds to one value of `PAIRED_DISTANCES`.</span>
+<span class="sd">        Currently, all metric parameters are the default ones.</span>
+
+<span class="sd">    ovo: bool, default=False</span>
+<span class="sd">        Whether to run the model using the Wasserstein OvA (False) or the Wasserstein OvO (True).</span>
+
+<span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
+<span class="sd">        The solver for weight optimisation.</span>
+
+<span class="sd">        - &#39;sgd&#39; refers to stochastic gradient descent.</span>
+<span class="sd">        - &#39;adam&#39; refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</span>
+
+<span class="sd">    verbose: bool, default=False</span>
+<span class="sd">        Whether to print progress messages to stdout</span>
+
+<span class="sd">    random_state: int, RandomState instance, default=None</span>
+<span class="sd">        Determines random number generation for weights and bias initialisation.</span>
+<span class="sd">        Pass an int for reproducible results across multiple function calls.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimiser_: `AdamOptimizer` or `SGDOptimizer`</span>
+<span class="sd">        The optimisation algorithm used for training depending on the chosen solver parameter.</span>
+<span class="sd">    labels_: ndarray of shape (n_samples)</span>
+<span class="sd">        The labels that were assigned to the samples passed to the :meth:`fit` method.</span>
+<span class="sd">    n_iter_: int</span>
+<span class="sd">        The number of iterations that the model took for converging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">_BaseGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
+        <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">StrOptions</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">PAIRED_DISTANCES</span><span class="p">))],</span>
+        <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span>
+
+    <span class="k">def</span> <span class="nf">_compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_compute_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">wasserstein_ovo</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">wasserstein_ova</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">return_grad</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
