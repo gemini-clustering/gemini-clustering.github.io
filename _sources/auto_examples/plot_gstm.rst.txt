@@ -28,14 +28,16 @@ distribution generates sample that may seem like outliers if we are to expect on
 
 Unlike the paper, this example here is done with the `gemclus.linear.LinearWasserstein` instead of an MLP.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-17
+.. GENERATED FROM PYTHON SOURCE LINES 12-19
 
 .. code-block:: default
 
 
-    from matplotlib import pyplot as plt
-    from gemclus.linear import LinearWasserstein
     import numpy as np
+    from matplotlib import pyplot as plt
+
+    from gemclus.data import gstm
+    from gemclus.linear import LinearWasserstein
 
 
 
@@ -44,47 +46,21 @@ Unlike the paper, this example here is done with the `gemclus.linear.LinearWasse
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
+.. GENERATED FROM PYTHON SOURCE LINES 20-23
 
 Generate the data
 -----------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-24
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Taking 200 samples, 1 degree of freedom and not-so-far apart means
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-52
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 .. code-block:: default
 
-    N=200
-    alpha = 3
-    df = 1
-
-    # Generate first the multivariate Gaussian distribution
-    np.random.seed(0)
-
-    py = np.ones(4) / 4
-    means = np.array([[1, 1], [1, -1], [-1, 1], [-1, -1]]) * alpha
-
-    y = np.random.multinomial(1, py, size=N).argmax(1)
-    proportions = np.bincount(y)
-    y.sort()
-
-    covariance = np.eye(2)
-
-    X = []
-    for k in range(3):
-        X += [np.random.multivariate_normal(means[k], covariance, size=proportions[k])]
-
-    # Sample from the student t distribution
-    nx = np.random.multivariate_normal(np.zeros(2), covariance, size=proportions[-1])
-    u = np.random.chisquare(df, proportions[-1]).reshape((-1, 1))
-    x = np.sqrt(df / u) * nx + np.expand_dims(means[-1], axis=0)
-    X += [x]
-
-    X = np.concatenate(X, axis=0)
+    X, y = gstm(n=200, alpha=3, df=1, random_state=0)
 
 
 
@@ -93,18 +69,18 @@ Taking 200 samples, 1 degree of freedom and not-so-far apart means
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-56
+.. GENERATED FROM PYTHON SOURCE LINES 29-32
 
 Train the model for clustering
 -------------------------------
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-63
+.. GENERATED FROM PYTHON SOURCE LINES 34-38
 
 .. code-block:: default
 
 
-    clf = LinearWasserstein(n_clusters=4, random_state=0)
+    clf = LinearWasserstein(n_clusters=4, random_state=0, batch_size=50)
     y_pred = clf.fit_predict(X)
 
 
@@ -114,30 +90,29 @@ Train the model for clustering
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 Final Clustering
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-87
+.. GENERATED FROM PYTHON SOURCE LINES 43-62
 
 .. code-block:: default
 
 
     # Now, generate as well grid inputs to help drawing the decision boundary
-    x_vals = np.linspace(-10,10,num=50)
-    y_vals = np.linspace(-10,10,num=50)
-    xx,yy=np.meshgrid(x_vals,y_vals)
-    grid_inputs = np.c_[xx.ravel(),yy.ravel()]
-    zz = clf.predict(grid_inputs).reshape((50,50))
+    x_vals = np.linspace(-10, 10, num=50)
+    y_vals = np.linspace(-10, 10, num=50)
+    xx, yy = np.meshgrid(x_vals, y_vals)
+    grid_inputs = np.c_[xx.ravel(), yy.ravel()]
+    zz = clf.predict(grid_inputs).reshape((50, 50))
 
     # Plot decision boundary with predictions on top
-    plt.contourf(xx,yy,zz,alpha=0.5,cmap="Blues")
-    plt.scatter(X[:,0],X[:,1],c=y_pred,cmap="Reds_r")
+    plt.contourf(xx, yy, zz, alpha=0.5, cmap="Blues")
+    plt.scatter(X[:, 0], X[:, 1], c=y_pred, cmap="Reds_r")
 
-    plt.xlim(-10,10)
-    plt.ylim(-10,10)
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
 
     plt.xlabel('Feature 1')
     plt.ylabel('Feature 2')
@@ -158,7 +133,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.278 seconds)
+   **Total running time of the script:** ( 0 minutes  6.762 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_gstm.py:

@@ -31,11 +31,11 @@ Gaussian mixture using RIM.
 .. code-block:: default
 
 
-
-    from matplotlib import pyplot as plt
-    from gemclus.linear import RIM
-    from sklearn import datasets
     import numpy as np
+    from matplotlib import pyplot as plt
+    from sklearn import datasets
+
+    from gemclus.linear import RIM
 
 
 
@@ -70,14 +70,13 @@ Train the model
 --------------------------------------------------------------
 Create the RIM clustering model (just a logistic regression) and fit it to the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-37
+.. GENERATED FROM PYTHON SOURCE LINES 32-36
 
 .. code-block:: default
 
 
     clf = RIM(n_clusters=3, random_state=0)
     clf.fit(X)
-
 
 
 
@@ -92,29 +91,29 @@ Create the RIM clustering model (just a logistic regression) and fit it to the d
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-41
+.. GENERATED FROM PYTHON SOURCE LINES 37-40
 
 Final Clustering
 -----------------
 Let us take a look at the decision boundaries according to the probabilities
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-78
+.. GENERATED FROM PYTHON SOURCE LINES 42-77
 
 .. code-block:: default
 
 
     # Predict a grad of inputs
-    x_vals = np.linspace(X[:,0].min()-0.5, X[:,0].max()+0.5, num=50)
-    y_vals = np.linspace(X[:,1].min()-0.5, X[:,1].max()+0.5, num=50)
-    xx,yy = np.meshgrid(x_vals, y_vals)
-    grid_inputs = np.c_[xx.ravel(),yy.ravel()]
+    x_vals = np.linspace(X[:, 0].min() - 0.5, X[:, 0].max() + 0.5, num=50)
+    y_vals = np.linspace(X[:, 1].min() - 0.5, X[:, 1].max() + 0.5, num=50)
+    xx, yy = np.meshgrid(x_vals, y_vals)
+    grid_inputs = np.c_[xx.ravel(), yy.ravel()]
     grid_pred = clf.predict_proba(grid_inputs)
 
     # Isolate probability of the argmax
     zz = grid_pred.max(1)
-    zz = zz.reshape((50,50))
+    zz = zz.reshape((50, 50))
 
-    plt.contourf(xx,yy,zz, alpha=0.3, levels=10)
+    plt.contourf(xx, yy, zz, alpha=0.3, levels=10)
 
     # Now, show the cluster predictions
     y_pred = clf.predict(X)
@@ -158,7 +157,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.427 seconds)
+   **Total running time of the script:** ( 0 minutes  0.305 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_rim.py:

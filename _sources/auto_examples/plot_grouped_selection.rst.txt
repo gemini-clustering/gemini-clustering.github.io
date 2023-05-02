@@ -22,8 +22,8 @@
 Grouped Feature selection with a linear model
 =================================================================
 
-In this example, we ask the :class:`gemclus.sparse.SparseLinearMMD` to perform a path where the regularisation penalty is
-progressively increased until all features but 2 are discarded. Moreover, we will produce some categorical variables
+In this example, we ask the :class:`gemclus.sparse.SparseLinearMMD` to perform a path where the regularisation penalty
+is progressively increased until all features but 2 are discarded. Moreover, we will produce some categorical variables
 that are one-hot-encoded and constrain the model to consider these features altogether using the `groups` option of the
 model.
 
@@ -31,14 +31,15 @@ The dataset consists of 2 binomial variables which parameters depend on the clus
 variables. Thus, the optimal solution should find that only 2 features are relevant and sufficient to get the correct
 clustering.
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-22
+.. GENERATED FROM PYTHON SOURCE LINES 15-23
 
 .. code-block:: default
 
 
-    from matplotlib import pyplot as plt
-    from gemclus.sparse import SparseLinearMMD
     import numpy as np
+    from matplotlib import pyplot as plt
+
+    from gemclus.sparse import SparseLinearMMD
 
     np.random.seed(0)
 
@@ -49,24 +50,24 @@ clustering.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
 
 Load a simple synthetic dataset
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-60
+.. GENERATED FROM PYTHON SOURCE LINES 28-63
 
 .. code-block:: default
 
 
     # Generate the informative variables that will be the outcome of multinomial distributions
     X1_class_1 = np.random.multinomial(n=1, pvals=np.array([0.05, 0.45, 0.45, 0.05]), size=(50,))
-    X2_class_1 = np.random.multinomial(n=1, pvals=np.array([0.1,0.1,0.8]), size=(50,))
+    X2_class_1 = np.random.multinomial(n=1, pvals=np.array([0.1, 0.1, 0.8]), size=(50,))
     X_class_1 = np.concatenate([X1_class_1, X2_class_1], axis=1)
     X1_class_2 = np.random.multinomial(n=1, pvals=np.array([0.45, 0.05, 0.05, 0.45]), size=(50,))
     X2_class_2 = np.random.multinomial(n=1, pvals=np.array([0.8, 0.1, 0.1]), size=(50,))
     X_class_2 = np.concatenate([X1_class_2, X2_class_2], axis=1)
-    X_informative = np.concatenate([X_class_1, X_class_2], axis=0)*2
+    X_informative = np.concatenate([X_class_1, X_class_2], axis=0) * 2
 
     # Generate noisy variables
     X_noise = np.random.normal(size=(100, 8))
@@ -83,9 +84,11 @@ Load a simple synthetic dataset
 
     print(groups, X.shape)
 
+
     # Visualise clusters
-    def rand_jitter(X):
-        return X + np.random.randn(len(X))*0.01
+    def rand_jitter(data):
+        return data + np.random.randn(len(data)) * 0.01
+
 
     plt.scatter(rand_jitter(X1_class_1.argmax(1)), rand_jitter(X2_class_1.argmax(1)), c="red")
     plt.scatter(rand_jitter(X1_class_2.argmax(1)), rand_jitter(X2_class_2.argmax(1)), c="blue")
@@ -109,14 +112,14 @@ Load a simple synthetic dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-65
+.. GENERATED FROM PYTHON SOURCE LINES 64-68
 
 Train the model
 --------------------------------------------------------------
 Create the GEMINI clustering model (just a logistic regression) and call the .path method to iteratively select
 features through gradient descent.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-73
+.. GENERATED FROM PYTHON SOURCE LINES 70-76
 
 .. code-block:: default
 
@@ -133,14 +136,14 @@ features through gradient descent.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-78
+.. GENERATED FROM PYTHON SOURCE LINES 77-81
 
 Path results
 ------------
 
 Take a look at how our features are distributed
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-84
+.. GENERATED FROM PYTHON SOURCE LINES 83-87
 
 .. code-block:: default
 
@@ -157,7 +160,7 @@ Take a look at how our features are distributed
  .. code-block:: none
 
     Selected features: (array([0, 1, 2, 3, 4, 5, 6]),)
-    The model score is 1.3027278385416854
+    The model score is 1.302727838541685
     Top gemclus was 1.5893356021541236, which settles an optimum of 1.4304020419387113
 
 
@@ -166,7 +169,7 @@ Take a look at how our features are distributed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.981 seconds)
+   **Total running time of the script:** ( 0 minutes  4.333 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grouped_selection.py:

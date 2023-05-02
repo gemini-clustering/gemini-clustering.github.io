@@ -1,0 +1,12 @@
+﻿:mod:`gemclus.data`.multivariate_student_t
+=======================================================
+
+.. currentmodule:: gemclus.data
+
+.. autofunction:: multivariate_student_t
+
+.. include:: gemclus.data.multivariate_student_t.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

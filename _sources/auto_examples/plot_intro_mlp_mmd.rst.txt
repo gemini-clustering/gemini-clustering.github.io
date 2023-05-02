@@ -24,15 +24,15 @@ An introducing example to clustering with an MLP and the MMD GEMINI
 
 An example plot of :class:`gemclus.base_gemini.DenseMMDOvO`
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-13
+.. GENERATED FROM PYTHON SOURCE LINES 8-14
 
 .. code-block:: default
 
 
     from matplotlib import pyplot as plt
-    from gemclus.mlp import MLPMMD
     from sklearn import datasets
 
+    from gemclus.mlp import MLPMMD
 
 
 
@@ -40,18 +40,18 @@ An example plot of :class:`gemclus.base_gemini.DenseMMDOvO`
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-16
+
+.. GENERATED FROM PYTHON SOURCE LINES 15-17
 
 Generate data
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-22
+.. GENERATED FROM PYTHON SOURCE LINES 19-22
 
 .. code-block:: default
 
 
-    X,y=datasets.make_blobs(centers=3,cluster_std=0.5,n_samples=200,random_state=0)
-
+    X, y = datasets.make_blobs(centers=3, cluster_std=0.5, n_samples=200, random_state=0)
 
 
 
@@ -128,7 +128,7 @@ Plot the final clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.673 seconds)
+   **Total running time of the script:** ( 0 minutes  0.655 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_intro_mlp_mmd.py:

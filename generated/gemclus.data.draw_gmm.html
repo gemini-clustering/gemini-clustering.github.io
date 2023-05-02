@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.data.draw_gmm &mdash; gemclus 0.0.1 documentation</title>
+  <title>gemclus.data.draw_gmm &mdash; gemclus 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gemclus.data.celeux_one" href="gemclus.data.celeux_one.html" />
+    <link rel="next" title="gemclus.data.multivariate_student_t" href="gemclus.data.multivariate_student_t.html" />
     <link rel="prev" title="gemclus.sparse.SparseMLPMMD" href="gemclus.sparse.SparseMLPMMD.html" /> 
 </head>
 
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,6 +62,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#gemclus.data.draw_gmm"><code class="docutils literal notranslate"><span class="pre">draw_gmm()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.multivariate_student_t.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.multivariate_student_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.gstm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.gstm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemclus.data.celeux_one.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_one</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemclus.data.celeux_two.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_two</a></li>
 </ul>
@@ -103,7 +105,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.draw_gmm<a class="headerlink" href="#gemclus-data-draw-gmm" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="gemclus.data.draw_gmm">
-<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigmas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <img class="math" src="../_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/> samples drawn from a mixture of Gaussian distributions. The number of components
 is determined by the number of elements in the lists of the parameters.</p>
 <dl class="field-list simple">
@@ -111,11 +113,11 @@ is determined by the number of elements in the lists of the parameters.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>n: int</strong></dt><dd><p>The number of samples to draw from the GMM.</p>
 </dd>
-<dt><strong>mus: list of 1d ndarray</strong></dt><dd><p>A list containing the means of all components of the Gaussian mixture distributions.</p>
+<dt><strong>loc: list of 1d ndarray</strong></dt><dd><p>A list containing the means of all components of the Gaussian mixture distributions.</p>
 </dd>
-<dt><strong>sigmas: list of 2d ndarray</strong></dt><dd><p>A list containing the covariances of all components of the Gaussian mixture distribution.</p>
+<dt><strong>scale: list of 2d ndarray</strong></dt><dd><p>A list containing the covariances of all components of the Gaussian mixture distribution.</p>
 </dd>
-<dt><strong>pis: 1d ndarray</strong></dt><dd><p>The proportions of each component of the Gaussian mixture.</p>
+<dt><strong>pvals: 1d ndarray</strong></dt><dd><p>The proportions of each component of the Gaussian mixture.</p>
 </dd>
 <dt><strong>random_state: int, RandomState instance or None, default=None</strong></dt><dd><p>Determines random number generation for dataset creation. Pass an int for reproducible output across
 multiple runs.</p>
@@ -140,7 +142,7 @@ multiple runs.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="gemclus.sparse.SparseMLPMMD.html" class="btn btn-neutral float-left" title="gemclus.sparse.SparseMLPMMD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gemclus.data.celeux_one.html" class="btn btn-neutral float-right" title="gemclus.data.celeux_one" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gemclus.data.multivariate_student_t.html" class="btn btn-neutral float-right" title="gemclus.data.multivariate_student_t" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

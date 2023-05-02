@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse.SparseMLPMMD &mdash; gemclus 0.0.1 documentation</title>
+  <title>gemclus.sparse.SparseMLPMMD &mdash; gemclus 0.0.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.1
+                0.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -103,7 +103,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD<a class="headerlink" href="#gemclus-sparse-sparsemlpmmd" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.sparse.</span></span><span class="sig-name descname"><span class="pre">SparseMLPMMD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.sparse.</span></span><span class="sig-name descname"><span class="pre">SparseMLPMMD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the Sparse Version of the MLP MMD model.</p>
 <p>On top of the vanilla MLP GEMINI model, this variation brings a skip connection from the data to the cluster
 output. This skip connection ensures a sparsity constraint through a group-lasso penalty and a proximal gradient
@@ -115,8 +115,8 @@ that eliminates input features as well in the first layer of the MLP.</p>
 <dt><strong>n_clusters</strong><span class="classifier">int, default=3</span></dt><dd><p>The maximum number of clusters to form as well as the number of output neurons in the neural network.</p>
 </dd>
 <dt><strong>groups: list of arrays of various shapes, default=None</strong></dt><dd><p>if groups is set, it must describe a partition of the indices of variables. This will be used for performing
-variable selection with groups of features considered to represent one variables. This option can typically be used
-for one-hot-encoded variables.</p>
+variable selection with groups of features considered to represent one variables. This option can typically be
+used for one-hot-encoded variables.</p>
 </dd>
 <dt><strong>max_iter: int, default=1000</strong></dt><dd><p>Maximum number of epochs to perform gradient descent in a single run.</p>
 </dd>
@@ -139,6 +139,8 @@ Currently, all kernel parameters are the default ones.</p>
 <dt><strong>alpha: float, default=1e-2</strong></dt><dd><p>The weight of the group-lasso penalty in the optimisation scheme.</p>
 </dd>
 <dt><strong>M: float, default=10 The hierarchy coefficient that controls the relative strength between the group-lasso</strong></dt><dd><p>penalty of the skip connection and the sparsity of the first layer of the MLP.</p>
+</dd>
+<dt><strong>batch_size: int, default=None</strong></dt><dd><p>The size of batches during gradient descent training. If set to None, the whole data will be considered.</p>
 </dd>
 <dt><strong>verbose: bool, default=False</strong></dt><dd><p>Whether to print progress messages to stdout</p>
 </dd>
@@ -205,7 +207,7 @@ Arnaud Droit, Frederic Preciosio</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -217,7 +219,8 @@ Arnaud Droit, Frederic Preciosio</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Training instances to cluster.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present here for API consistency by convention.</p>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
 </dd>
 </dl>
 </dd>
@@ -239,7 +242,8 @@ Arnaud Droit, Frederic Preciosio</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Training instances to cluster.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present here for API consistency by convention.</p>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
 </dd>
 </dl>
 </dd>
@@ -267,6 +271,20 @@ contained subobjects that are estimators.</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_selection">
+<span class="sig-name descname"><span class="pre">get_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the indices of features that were selected by the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ind: ndarray</dt><dd><p>The indices of the selected features.</p>
 </dd>
 </dl>
 </dd>
@@ -374,7 +392,8 @@ label of classes.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Test samples.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Ignored</span></dt><dd><p>Not used, present here for API consistency by convention.</p>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
 </dd>
 </dl>
 </dd>

@@ -1,0 +1,12 @@
+﻿:mod:`gemclus.data`.gstm
+=====================================
+
+.. currentmodule:: gemclus.data
+
+.. autofunction:: gstm
+
+.. include:: gemclus.data.gstm.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
