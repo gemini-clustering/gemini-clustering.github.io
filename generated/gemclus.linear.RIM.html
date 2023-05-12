@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.linear.RIM &mdash; gemclus 0.0.2 documentation</title>
+  <title>gemclus.linear.RIM &mdash; gemclus 0.1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.2
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,6 +56,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#dense-models">Dense models</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
@@ -65,6 +66,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#nonparametric-models">Nonparametric models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a></li>
 </ul>
 </li>
@@ -224,6 +226,19 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <dd class="field-even"><dl class="simple">
 <dt><strong>y_pred</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>Vector containing the cluster label for each sample.</p>
 </dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.linear.RIM.get_gemini">
+<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM.get_gemini"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM.get_gemini" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialises a <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance that will be used to train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>gemini: <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance</dt><dd></dd>
 </dl>
 </dd>
 </dl>

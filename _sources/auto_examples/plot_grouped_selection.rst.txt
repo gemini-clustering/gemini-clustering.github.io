@@ -150,7 +150,7 @@ Take a look at how our features are distributed
 
     print(f"Selected features: {np.where(np.linalg.norm(best_weights[0], axis=1, ord=2) != 0)}")
     print(f"The model score is {clf.score(X)}")
-    print(f"Top gemclus was {max(geminis)}, which settles an optimum of {0.9 * max(geminis)}")
+    print(f"Top gemini score was {max(geminis)}, which settles an optimum of {0.9 * max(geminis)}")
 
 
 
@@ -160,8 +160,8 @@ Take a look at how our features are distributed
  .. code-block:: none
 
     Selected features: (array([0, 1, 2, 3, 4, 5, 6]),)
-    The model score is 1.302727838541685
-    Top gemclus was 1.5893356021541236, which settles an optimum of 1.4304020419387113
+    The model score is 1.311179979944961
+    Top gemini score was 1.5884698387322587, which settles an optimum of 1.4296228548590328
 
 
 
@@ -169,7 +169,7 @@ Take a look at how our features are distributed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.333 seconds)
+   **Total running time of the script:** ( 0 minutes  9.640 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_grouped_selection.py:

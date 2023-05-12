@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEMCLUS API &mdash; gemclus 0.0.2 documentation</title>
+  <title>GEMCLUS API &mdash; gemclus 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="gemclus.linear.LinearMMD" href="generated/gemclus.linear.LinearMMD.html" />
+    <link rel="next" title="gemclus.gemini.MMDOvA" href="generated/gemclus.gemini.MMDOvA.html" />
     <link rel="prev" title="User Guide" href="user_guide.html" /> 
 </head>
 
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.2
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,6 +56,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">GEMCLUS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scoring-with-gemini">Scoring with GEMINI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.MMDOvA.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.MMDOvO.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.WassersteinOvA.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.WassersteinOvO.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.MI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#clustering-models">Clustering models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dense-models">Dense models</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
@@ -63,6 +71,11 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.linear.RIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nonparametric-models">Nonparametric models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.nonparametric.CategoricalMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.nonparametric</span></code>.CategoricalMMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.nonparametric.CategoricalWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.nonparametric</span></code>.CategoricalWasserstein</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#sparse-models">Sparse models</a><ul>
@@ -116,10 +129,36 @@
 <h1>GEMCLUS API<a class="headerlink" href="#gemclus-api" title="Permalink to this heading">¶</a></h1>
 <p>The GEMINI-clustering package currently contains simple MLP and logistic regression for all-feature clustering as well as
 sparsity-constrained variants of these models.</p>
+<section id="scoring-with-gemini">
+<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Permalink to this heading">¶</a></h2>
+<p>The following classes implement the basic GEMINIs for scoring and evaluating any conditional distribution for
+clustering.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA" title="gemclus.gemini.MMDOvA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.MMDOvA</span></code></a>([kernel, epsilon])</p></td>
+<td><p>Implements the one-vs-all MMD GEMINI which compares the maximum mean discrepancy between a cluster distribution and the data distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO" title="gemclus.gemini.MMDOvO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.MMDOvO</span></code></a>([kernel, epsilon])</p></td>
+<td><p>Implements the one-vs-one MMD GEMINI which compares the maximum mean discrepancy between two cluster distributions:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.WassersteinOvA</span></code></a>([metric, epsilon])</p></td>
+<td><p>Implements the one-vs-all Wasserstein GEMINI which compares the Wasserstein distance between a cluster distribution and the data distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO" title="gemclus.gemini.WassersteinOvO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.WassersteinOvO</span></code></a>([metric, epsilon])</p></td>
+<td><p>Implements the one-vs-one Wasserstein GEMINI which compares the Wasserstein distance between two cluster distributions:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.gemini.MI.html#gemclus.gemini.MI" title="gemclus.gemini.MI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.MI</span></code></a>([epsilon])</p></td>
+<td><p>Implements the classical mutual information between cluster conditional probabilities and the complete data probabilities:</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="clustering-models">
 <h2>Clustering models<a class="headerlink" href="#clustering-models" title="Permalink to this heading">¶</a></h2>
 <section id="dense-models">
 <h3>Dense models<a class="headerlink" href="#dense-models" title="Permalink to this heading">¶</a></h3>
+<p>These models are based on standard distributions like the logistic regression or the one-hidden-layer neural network for
+clustering.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD" title="gemclus.linear.LinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.LinearMMD</span></code></a>([n_clusters, max_iter, ...])</p></td>
@@ -140,8 +179,27 @@ sparsity-constrained variants of these models.</p>
 </tbody>
 </table>
 </section>
+<section id="nonparametric-models">
+<h3>Nonparametric models<a class="headerlink" href="#nonparametric-models" title="Permalink to this heading">¶</a></h3>
+<p>These models have parameters that are assigned to the data samples according to their indices. Consequently, the
+parameters do not have any dependence on the location of the samples. Overall, these models can be used to model
+any decision boundary and do not have hyper parameters. However, the underlying distribution cannot be used on
+unseen samples for prediction.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD" title="gemclus.nonparametric.CategoricalMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonparametric.CategoricalMMD</span></code></a>([n_clusters, ...])</p></td>
+<td><p>The CategoricalMMD is a nonparametric model where each sample is directly assign a probability vector of as conditional clustering distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein" title="gemclus.nonparametric.CategoricalWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nonparametric.CategoricalWasserstein</span></code></a>([...])</p></td>
+<td><p>The CategoricalWasserstein is a nonparametric model where each sample is directly assign a probability vector of as conditional clustering distribution.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="sparse-models">
 <h3>Sparse models<a class="headerlink" href="#sparse-models" title="Permalink to this heading">¶</a></h3>
+<p>These models can be trained to progressively remove features in the conditional cluster distribution. They are useful
+for selecting a subset of features which may enhance interpretability of clustering.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseLinearMMD</span></code></a>([n_clusters, groups, ...])</p></td>
@@ -156,6 +214,7 @@ sparsity-constrained variants of these models.</p>
 </section>
 <section id="dataset-generation">
 <h2>Dataset generation<a class="headerlink" href="#dataset-generation" title="Permalink to this heading">¶</a></h2>
+<p>This package contains simple functions for generating synthetic datasets.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.data.draw_gmm.html#gemclus.data.draw_gmm" title="gemclus.data.draw_gmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.draw_gmm</span></code></a>(n, loc, scale, pvals[, ...])</p></td>
@@ -183,7 +242,7 @@ sparsity-constrained variants of these models.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="user_guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generated/gemclus.linear.LinearMMD.html" class="btn btn-neutral float-right" title="gemclus.linear.LinearMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generated/gemclus.gemini.MMDOvA.html" class="btn btn-neutral float-right" title="gemclus.gemini.MMDOvA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

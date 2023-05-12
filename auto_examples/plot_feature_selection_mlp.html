@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feature selection using the Sparse MMD OvA (MLP) &mdash; gemclus 0.0.2 documentation</title>
+  <title>Feature selection using the Sparse MMD OvA (MLP) &mdash; gemclus 0.1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Grouped Feature selection with a linear model" href="plot_grouped_selection.html" /> 
+    <link rel="prev" title="Graph node clustering with a nonparametric model" href="plot_graph_node_clustering.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +37,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.2
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,11 +61,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#basic-gemini">Basic GEMINI</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="plot_intro_mlp_mmd.html">An introducing example to clustering with an MLP and the MMD GEMINI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_nonparametric_clustering.html">Non parametric clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_gstm.html">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_moon_clustering.html">Drawing a decision boundary between two interlacing moons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_rim.html">Simple logistic regression with RIM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_grouped_selection.html">Grouped Feature selection with a linear model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_graph_node_clustering.html">Graph node clustering with a nonparametric model</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Feature selection using the Sparse MMD OvA (MLP)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#load-a-simple-synthetic-dataset">Load a simple synthetic dataset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
@@ -177,12 +179,12 @@ features through gradient descent.</p>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The model score is </span><span class="si">{</span><a href="../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD.score" title="gemclus.sparse.SparseMLPMMD.score" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top gemclus was </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">, which settles an optimum of </span><span class="si">{</span><span class="mf">0.9</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top gemini score was </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">, which settles an optimum of </span><span class="si">{</span><span class="mf">0.9</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../_images/sphx_glr_plot_feature_selection_mlp_001.png" srcset="../_images/sphx_glr_plot_feature_selection_mlp_001.png" alt="Number of features depending on $\alpha$, GEMINI score depending on $\alpha$, Group-Lasso penalty depending on $\alpha$, Total score depending on $\alpha$" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features: (array([0, 1]),)
-The model score is 1.5192633113381595
-Top gemclus was 1.6735427201341286, which settles an optimum of 1.5061884481207157
+The model score is 1.5235047290982509
+Top gemini score was 1.6299622724113934, which settles an optimum of 1.466966045170254
 </pre></div>
 </div>
 </section>
@@ -209,7 +211,7 @@ Top gemclus was 1.6735427201341286, which settles an optimum of 1.50618844812071
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_feature_selection_mlp_002.png" srcset="../_images/sphx_glr_plot_feature_selection_mlp_002.png" alt="plot feature selection mlp" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.162 seconds)</p>
+<img src="../_images/sphx_glr_plot_feature_selection_mlp_002.png" srcset="../_images/sphx_glr_plot_feature_selection_mlp_002.png" alt="plot feature selection mlp" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.247 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-feature-selection-mlp-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/5c03b7edd4659f8d51c324fe19f86470/plot_feature_selection_mlp.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_feature_selection_mlp.py</span></code></a></p>
@@ -226,7 +228,7 @@ Top gemclus was 1.6735427201341286, which settles an optimum of 1.50618844812071
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_grouped_selection.html" class="btn btn-neutral float-left" title="Grouped Feature selection with a linear model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_graph_node_clustering.html" class="btn btn-neutral float-left" title="Graph node clustering with a nonparametric model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

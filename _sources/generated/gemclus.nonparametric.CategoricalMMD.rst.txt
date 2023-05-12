@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.nonparametric`.CategoricalMMD
+==================================================
+
+.. currentmodule:: gemclus.nonparametric
+
+.. autoclass:: CategoricalMMD
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.nonparametric.CategoricalMMD.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

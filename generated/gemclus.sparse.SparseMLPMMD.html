@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse.SparseMLPMMD &mdash; gemclus 0.0.2 documentation</title>
+  <title>gemclus.sparse.SparseMLPMMD &mdash; gemclus 0.1.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.2
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,8 +56,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../api.html#dense-models">Dense models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#nonparametric-models">Nonparametric models</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMMD</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
@@ -178,7 +180,7 @@ Arnaud Droit, Frederic Preciosio</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="go">1.7664211836410726</span>
+<span class="go">1.766421183641077</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -257,6 +259,19 @@ construction. Otherwise, it is not used and present here for API consistency by 
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_gemini">
+<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_gemini" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialises a <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance that will be used to train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>gemini: <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_params">
 <span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
@@ -296,7 +311,7 @@ contained subobjects that are estimators.</p>
 <span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restore_best_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unfold the progressive geometric increase of the penalty weight starting from the initial alpha until
 there remains only a specified amount of features.</p>
-<p>The history of the different gemclus scores are kept as well as the best weights with minimum of features
+<p>The history of the different gemini scores are kept as well as the best weights with minimum of features
 ensuring that the GEMINI score remains at a certain percentage of the maximum GEMINI score seen during the
 path.</p>
 <dl class="field-list simple">
@@ -317,7 +332,7 @@ are restored to the model.</p>
 <dt><strong>early_stopping_factor: float, default=0.99</strong></dt><dd><p>The percentage factor beyond which upgrades of the GEMINI or the group-lasso penalty are considered
 too small for early stopping.</p>
 </dd>
-<dt><strong>max_patience:</strong></dt><dd><p>The maximum number of iterations to wait without any improvements in either the gemclus score or the
+<dt><strong>max_patience:</strong></dt><dd><p>The maximum number of iterations to wait without any improvements in either the gemini score or the
 group-lasso penalty before stopping the current step.</p>
 </dd>
 </dl>
@@ -326,7 +341,7 @@ group-lasso penalty before stopping the current step.</p>
 <dd class="field-even"><dl class="simple">
 <dt>best_weights: list of ndarray of various shapes of length 5</dt><dd><p>The list containing the best weights during the path. Sequentially: <cite>W1_</cite>, <cite>W2_</cite>, <cite>W_skip_</cite>, <cite>b1_</cite>, <cite>b2_</cite></p>
 </dd>
-<dt>geminis: list of float of length T</dt><dd><p>The history of the gemclus scores as the penalty alpha was increased.</p>
+<dt>geminis: list of float of length T</dt><dd><p>The history of the gemini scores as the penalty alpha was increased.</p>
 </dd>
 <dt>group_penalties: list of float of length T</dt><dd><p>The history of the group-lasso penalties</p>
 </dd>

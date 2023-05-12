@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.WassersteinOvO
+===========================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: WassersteinOvO
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.WassersteinOvO.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
