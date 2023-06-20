@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse._linear_sparse &mdash; gemclus 0.0.1 documentation</title>
+  <title>gemclus.sparse._linear_sparse &mdash; gemclus 0.1.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.1
+                0.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -84,8 +84,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gemclus.sparse._linear_sparse</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">..sparse._base_sparse</span> <span class="kn">import</span> <span class="n">_SparseLinearGEMINI</span>
-<span class="kn">from</span> <span class="nn">.._base_gemini</span> <span class="kn">import</span> <span class="n">_BaseMMD</span>
+<span></span><span class="kn">from</span> <span class="nn">.._base_gemini</span> <span class="kn">import</span> <span class="n">_BaseMMD</span>
+<span class="kn">from</span> <span class="nn">..sparse._base_sparse</span> <span class="kn">import</span> <span class="n">_SparseLinearGEMINI</span>
 
 
 <div class="viewcode-block" id="SparseLinearMMD"><a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD">[docs]</a><span class="k">class</span> <span class="nc">SparseLinearMMD</span><span class="p">(</span><span class="n">_SparseLinearGEMINI</span><span class="p">,</span> <span class="n">_BaseMMD</span><span class="p">):</span>
@@ -101,8 +101,8 @@
 
 <span class="sd">    groups: list of arrays of various shapes, default=None</span>
 <span class="sd">        if groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
-<span class="sd">        variable selection with groups of features considered to represent one variables. This option can typically be used</span>
-<span class="sd">        for one-hot-encoded variables.</span>
+<span class="sd">        variable selection with groups of features considered to represent one variables. This option can typically be</span>
+<span class="sd">        used for one-hot-encoded variables.</span>
 <span class="sd">        </span>
 <span class="sd">    max_iter: int, default=1000</span>
 <span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
@@ -126,6 +126,9 @@
 
 <span class="sd">    alpha: float, default=1e-2</span>
 <span class="sd">        The weight of the group-lasso penalty in the optimisation scheme.</span>
+
+<span class="sd">    batch_size: int, default=None</span>
+<span class="sd">        The size of batches during gradient descent training. If set to None, the whole data will be considered.</span>
 
 <span class="sd">    verbose: bool, default=False</span>
 <span class="sd">        Whether to print progress messages to stdout</span>
@@ -182,13 +185,14 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="SparseLinearMMD.__init__"><a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_SparseLinearGEMINI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                                      <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
                                      <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
                                      <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
                                      <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
                                      <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+                                     <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
                                      <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
                                      <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
                                      <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
@@ -200,6 +204,7 @@
                           <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
                           <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span>
                           <span class="n">ovo</span><span class="o">=</span><span class="n">ovo</span><span class="p">,</span>
+                          <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
                           <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
                           <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
                           <span class="p">)</span></div></div>

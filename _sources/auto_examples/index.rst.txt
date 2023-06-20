@@ -5,10 +5,7 @@
 General examples
 ================
 
-We give here some examples on how to use our base model with GEMINI
-
-Basic GEMINI
--------------
+We give here some examples on how to use our base model with GEMINI.
 
 
 .. raw:: html
@@ -120,6 +117,23 @@ Basic GEMINI
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no...">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_gemini_scoring_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_gemini_scoring.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
 
 .. only:: html
@@ -183,6 +197,7 @@ Basic GEMINI
    /auto_examples/plot_feature_selection_linear
    /auto_examples/plot_moon_clustering
    /auto_examples/plot_rim
+   /auto_examples/plot_gemini_scoring
    /auto_examples/plot_grouped_selection
    /auto_examples/plot_graph_node_clustering
    /auto_examples/plot_feature_selection_mlp

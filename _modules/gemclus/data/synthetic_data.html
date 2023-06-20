@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.data.synthetic_data &mdash; gemclus 0.0.1 documentation</title>
+  <title>gemclus.data.synthetic_data &mdash; gemclus 0.1.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -35,7 +35,7 @@
             gemclus
           </a>
               <div class="version">
-                0.0.1
+                0.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -85,25 +85,24 @@
              
   <h1>Source code for gemclus.data.synthetic_data</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Integral</span><span class="p">,</span> <span class="n">Real</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">block_diag</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span><span class="p">,</span> <span class="n">check_array</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">Iterable</span>
 
 
 <div class="viewcode-block" id="draw_gmm"><a class="viewcode-back" href="../../../generated/gemclus.data.draw_gmm.html#gemclus.data.draw_gmm">[docs]</a><span class="nd">@validate_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
-        <span class="s2">&quot;mus&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;sigmas&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;pis&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+        <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;pvals&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
         <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;random_state&quot;</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">)</span>
-<span class="k">def</span> <span class="nf">draw_gmm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">mus</span><span class="p">,</span> <span class="n">sigmas</span><span class="p">,</span> <span class="n">pis</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">draw_gmm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">pvals</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns :math:`n` samples drawn from a mixture of Gaussian distributions. The number of components</span>
 <span class="sd">    is determined by the number of elements in the lists of the parameters.</span>
@@ -112,11 +111,11 @@
 <span class="sd">    ----------</span>
 <span class="sd">    n: int</span>
 <span class="sd">        The number of samples to draw from the GMM.</span>
-<span class="sd">    mus: list of 1d ndarray</span>
+<span class="sd">    loc: list of 1d ndarray</span>
 <span class="sd">        A list containing the means of all components of the Gaussian mixture distributions.</span>
-<span class="sd">    sigmas: list of 2d ndarray</span>
+<span class="sd">    scale: list of 2d ndarray</span>
 <span class="sd">        A list containing the covariances of all components of the Gaussian mixture distribution.</span>
-<span class="sd">    pis: 1d ndarray</span>
+<span class="sd">    pvals: 1d ndarray</span>
 <span class="sd">        The proportions of each component of the Gaussian mixture.</span>
 <span class="sd">    random_state: int, RandomState instance or None, default=None</span>
 <span class="sd">        Determines random number generation for dataset creation. Pass an int for reproducible output across</span>
@@ -129,38 +128,152 @@
 <span class="sd">    y: ndarray</span>
 <span class="sd">        The component from which each sample originates.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ensure_min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Means&quot;</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">allow_nd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ensure_min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Covariances&quot;</span><span class="p">)</span>
+    <span class="n">pvals</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ensure_min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Proportions&quot;</span><span class="p">)</span>
 
     <span class="c1"># Check that the parameters have satisfying properties</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">),</span> <span class="s2">&quot;The means and the covariances do not contain the same number of components&quot;</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pis</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">),</span> <span class="s2">&quot;The proportions and the covariances do not contain the same number of components&quot;</span>
-    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pis</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The gmm requires at least two components.&quot;</span>
-    <span class="n">main_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pis</span><span class="p">)):</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span> <span class="sa">f</span><span class="s2">&quot;Inconsistent shape between of </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">-th means and covariances&quot;</span>
-        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">==</span> <span class="n">main_dim</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Inconsistent dimensions between all components. Should be </span><span class="si">{</span><span class="n">main_dim</span><span class="si">}</span><span class="s2"> or&quot;</span> \
-                                        <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="si">}</span><span class="s2"> everywhere.&quot;</span>
-        <span class="k">assert</span> <span class="n">pis</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Proportions or components should be positive.&quot;</span>
-        <span class="c1"># Other checks regarding psd for covariances are included in the multivariate_normal function</span>
-
-    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pis</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Proportions of components do not add up to one.&quot;</span>
+    <span class="n">K</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">assert</span> <span class="n">K</span> <span class="o">==</span> <span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;The means and the covariances do not contain the same number of components&quot;</span>
+    <span class="k">assert</span> <span class="n">d</span> <span class="o">==</span> <span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">d</span> <span class="o">==</span> <span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;The covariances should be square matrices&quot;</span>
+    <span class="k">assert</span> <span class="n">K</span> <span class="o">==</span> <span class="n">pvals</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;The proportions and the means do not contain the same number of components&quot;</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">pvals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;Proportions or components should be positive.&quot;</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pvals</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Proportions of components do not add up to one.&quot;</span>
 
     <span class="n">generator</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
 
     <span class="c1"># Draw samples from each distribution</span>
 
     <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">main_dim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">X</span> <span class="o">+=</span> <span class="p">[</span><span class="n">generator</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">sigmas</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">)):</span>
-            <span class="n">X</span> <span class="o">+=</span> <span class="p">[</span><span class="n">generator</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">sigmas</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))]</span>
 
     <span class="c1"># Draw the true cluster from which to draw</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mus</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">pis</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">pvals</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">loc</span><span class="p">)):</span>
+            <span class="n">X</span> <span class="o">+=</span> <span class="p">[</span><span class="n">generator</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">scale</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">loc</span><span class="p">)):</span>
+            <span class="n">X</span> <span class="o">+=</span> <span class="p">[</span><span class="n">generator</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">scale</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))]</span>
 
     <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">)]</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="multivariate_student_t"><a class="viewcode-back" href="../../../generated/gemclus.data.multivariate_student_t.html#gemclus.data.multivariate_student_t">[docs]</a><span class="nd">@validate_params</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;scale&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;random_state&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">multivariate_student_t</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws :math:`n` samples from a multivariate Student-t distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n: int</span>
+<span class="sd">        The number of samples to draw from the distribution.</span>
+
+<span class="sd">    loc: ndarray of shape (d,)</span>
+<span class="sd">        The position of the distribution to sample from.</span>
+
+<span class="sd">    scale: ndarray of shape (d,d)</span>
+<span class="sd">        Positive semi-definite scale matrix.</span>
+
+<span class="sd">    df: int, default=10</span>
+<span class="sd">        Degrees of freedom of the distribution. Controls the spread of the samples.</span>
+
+<span class="sd">    random_state: int, RandomState instance or None, default=None</span>
+<span class="sd">        Determines random number generation for dataset creation. Pass an int for reproducible output across</span>
+<span class="sd">        multiple runs.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X: ndarray of shape (n,d)</span>
+<span class="sd">        The samples drawn from the Student-t distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Location&quot;</span><span class="p">)</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Scale&quot;</span><span class="p">)</span>
+
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span> <span class="ow">and</span> <span class="n">scale</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">d</span><span class="p">,</span> <span class="s2">&quot;Please provide a mean and scale with consistent shapes&quot;</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+    <span class="c1"># Start the sampling process by generating from a 0-mean multivariate distribution</span>
+    <span class="n">nx</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span> <span class="o">/</span> <span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">loc</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">X</span></div>
+
+
+<div class="viewcode-block" id="gstm"><a class="viewcode-back" href="../../../generated/gemclus.data.gstm.html#gemclus.data.gstm">[docs]</a><span class="nd">@validate_params</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;random_state&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">gstm</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reproduces the Gaussian-Student Mixture dataset from the GEMINI article.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n: int, default=500</span>
+<span class="sd">        The number of samples to draw from the dataset.</span>
+
+<span class="sd">    alpha: float, default=2:</span>
+<span class="sd">        This parameter controls how close the means of the Gaussian distribution and the location of the Student-t</span>
+<span class="sd">        distribution are.</span>
+
+<span class="sd">    df: float, default=1</span>
+<span class="sd">        The degrees of freedom for the Student-t distribution.</span>
+
+<span class="sd">    random_state: int, RandomState instance or None, default=None</span>
+<span class="sd">        Determines random number generation for dataset creation. Pass an int for reproducible output across</span>
+<span class="sd">        multiple runs.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X: ndarray</span>
+<span class="sd">        The samples of the dataset in an array of shape n_samples x n_features</span>
+<span class="sd">    y: ndarray</span>
+<span class="sd">        The component of the GMM from which each sample was drawn.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    GEMINI - Ohl, L., Mattei, P. A., Bouveyron, C., Harchaoui, W., Leclercq, M., Droit, A., &amp; Precioso, F.</span>
+<span class="sd">        (2022, October). Generalised Mutual Information for Discriminative Clustering. In Advances in Neural</span>
+<span class="sd">        Information Processing Systems.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+    <span class="c1"># Build the location and scale of each distribution</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span> <span class="o">*</span> <span class="n">alpha</span>
+    <span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># For the 3 Gaussian distribution, we draw the samples using a GMM with proportions 1/3 on 3/4 of the samples</span>
+    <span class="n">n_gaussian</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">4</span>
+    <span class="n">X_gaussian</span><span class="p">,</span> <span class="n">y_gaussian</span> <span class="o">=</span> <span class="n">draw_gmm</span><span class="p">(</span><span class="n">n_gaussian</span><span class="p">,</span> <span class="n">locations</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">covariance</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+
+    <span class="c1"># Then we sample the student-t distribution</span>
+    <span class="n">n_student</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">n_gaussian</span>
+    <span class="n">X_student</span> <span class="o">=</span> <span class="n">multivariate_student_t</span><span class="p">(</span><span class="n">n_student</span><span class="p">,</span> <span class="n">locations</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">X_gaussian</span><span class="p">,</span> <span class="n">X_student</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_gaussian</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_student</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">])</span>
+
+    <span class="c1"># Apply one final random permutation to shuffle the data</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">[</span><span class="n">order</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">order</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="celeux_one"><a class="viewcode-back" href="../../../generated/gemclus.data.celeux_one.html#gemclus.data.celeux_one">[docs]</a><span class="nd">@validate_params</span><span class="p">(</span>
@@ -197,7 +310,7 @@
 <span class="sd">        The component of the GMM from which each sample was drawn.</span>
 
 <span class="sd">    References</span>
-<span class="sd">    -----------</span>
+<span class="sd">    ----------</span>
 <span class="sd">    Dataset - Celeux, G., Martin-Magniette, M. L., Maugis-Rabusseau, C., &amp; Raftery, A. E. (2014). Comparing model</span>
 <span class="sd">        selection and regularization approaches to variable selection in model-based clustering.</span>
 <span class="sd">        Journal de la Societe francaise de statistique, 155(2), 57-71.</span>
@@ -246,7 +359,7 @@
 <span class="sd">        The component of the GMM from which each sample was drawn.</span>
 
 <span class="sd">    References</span>
-<span class="sd">    -----------</span>
+<span class="sd">    ----------</span>
 <span class="sd">    Dataset - Celeux, G., Martin-Magniette, M. L., Maugis-Rabusseau, C., &amp; Raftery, A. E. (2014). Comparing model</span>
 <span class="sd">        selection and regularization approaches to variable selection in model-based clustering.</span>
 <span class="sd">        Journal de la Societe francaise de statistique, 155(2), 57-71.</span>
