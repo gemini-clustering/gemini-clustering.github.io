@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.MMDOvO
+===================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: MMDOvO
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.MMDOvO.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

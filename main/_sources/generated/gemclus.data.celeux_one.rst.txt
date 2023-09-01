@@ -1,0 +1,12 @@
+﻿:mod:`gemclus.data`.celeux_one
+===========================================
+
+.. currentmodule:: gemclus.data
+
+.. autofunction:: celeux_one
+
+.. include:: gemclus.data.celeux_one.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

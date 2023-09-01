@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.linear`.RIM
+================================
+
+.. currentmodule:: gemclus.linear
+
+.. autoclass:: RIM
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.linear.RIM.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

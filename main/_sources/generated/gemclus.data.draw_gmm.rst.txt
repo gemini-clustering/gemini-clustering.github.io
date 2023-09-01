@@ -1,0 +1,12 @@
+﻿:mod:`gemclus.data`.draw_gmm
+=========================================
+
+.. currentmodule:: gemclus.data
+
+.. autofunction:: draw_gmm
+
+.. include:: gemclus.data.draw_gmm.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

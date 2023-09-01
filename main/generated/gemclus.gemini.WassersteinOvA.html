@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemclus.gemini.WassersteinOvA &mdash; gemclus 0.1.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gemclus.gemini.WassersteinOvO" href="gemclus.gemini.WassersteinOvO.html" />
+    <link rel="prev" title="gemclus.gemini.MMDOvO" href="gemclus.gemini.MMDOvO.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                0.1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#scoring-with-gemini">Scoring with GEMINI</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.MMDOvA.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.MMDOvO.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvO</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gemclus.gemini.WassersteinOvA"><code class="docutils literal notranslate"><span class="pre">WassersteinOvA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples-using-gemclus-gemini-wassersteinova">Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.gemini.WassersteinOvA</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.WassersteinOvO.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.MI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#dataset-generation">Dataset generation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">GEMCLUS API</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/gemclus.gemini.WassersteinOvA.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gemclus-gemini-wassersteinova">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinOvA<a class="headerlink" href="#gemclus-gemini-wassersteinova" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gemclus.gemini.WassersteinOvA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">WassersteinOvA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#WassersteinOvA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.WassersteinOvA" title="Link to this definition">¶</a></dt>
+<dd><p>Implements the one-vs-all Wasserstein GEMINI which compares the Wasserstein distance between a cluster distribution
+and the data distribution.</p>
+<div class="math">
+<p><span class="math">\mathcal{I} = \mathbb{E}_{y \sim p(y)}[\mathcal{W}_\delta(p(x|y)\|p(x|y))]</span></p>
+</div><p>where <span class="math">\delta</span> is a metric defined between the samples of the data space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>metric: {‘cosine’, ‘euclidean’, ‘l2’,’l1’,’manhattan’,’cityblock’, ‘precomputed’}, default=’euclidean’</strong></dt><dd><p>The metric to use in combination with the Wasserstein objective. It corresponds to one value of
+<cite>PAIRED_DISTANCES</cite>. Currently, all metric parameters are the default ones.
+If the metric is set to ‘precomputed’, then a custom distance matrix must be passed to the argument <cite>affinity</cite>
+of the <cite>evaluate</cite> method.</p>
+</dd>
+<dt><strong>epsilon: float, default=1e-12</strong></dt><dd><p>The precision for clipping the prediction values in order to avoid numerical instabilities.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.gemini.WassersteinOvA.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#WassersteinOvA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.WassersteinOvA.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.gemini.WassersteinOvA.compute_affinity">
+<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.WassersteinOvA.compute_affinity" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the distance between all samples of X.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X: ndarray of shape (n_samples, n_features)</strong></dt><dd><p>The samples between which all affinities must be computed</p>
+</dd>
+<dt><strong>y: ndarray of shape (n_samples, n_samples), default=None</strong></dt><dd><p>Values of the affinity between samples in case of a “precomputed” affinity. Ignored if None and the affinity
+is not precomputed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>affinity: ndarray of shape (n_samples, n_samples)</dt><dd><p>The distance between all samples if it is needed for the GEMINI computations, None otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.gemini.WassersteinOvA.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#WassersteinOvA.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.WassersteinOvA.evaluate" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the GEMINI objective given the predictions <span class="math">$p(y|x)$</span> and an affinity matrix. The
+computation must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,
+the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a distance matrix resulting from the
+<cite>compute_affinity</cite> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y_pred: ndarray of shape (n_samples, n_clusters)</strong></dt><dd><p>The conditional distribution (prediction) of clustering assignment per sample.</p>
+</dd>
+<dt><strong>affinity: ndarray of shape (n_samples, n_samples)</strong></dt><dd><p>The affinity matrix resulting from the <cite>compute_affinity</cite> method. The matrix must be symmetric.</p>
+</dd>
+<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <span class="math">$p(y|x)$</span>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>gemini: float</dt><dd><p>The gemini score of the model given the predictions and affinities.</p>
+</dd>
+<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <span class="math">$\nabla_{p (y|x)} \mathcal{I} $</span></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="examples-using-gemclus-gemini-wassersteinova">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.gemini.WassersteinOvA</span></code><a class="headerlink" href="#examples-using-gemclus-gemini-wassersteinova" title="Link to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no..."><img alt="" src="../_images/sphx_glr_plot_gemini_scoring_thumb.png" />
+<p><a class="reference internal" href="../auto_examples/plot_gemini_scoring.html#sphx-glr-auto-examples-plot-gemini-scoring-py"><span class="std std-ref">Scoring any model with GEMINI</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
+</div></div><div style='clear:both'></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gemclus.gemini.MMDOvO.html" class="btn btn-neutral float-left" title="gemclus.gemini.MMDOvO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.gemini.WassersteinOvO.html" class="btn btn-neutral float-right" title="gemclus.gemini.WassersteinOvO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
