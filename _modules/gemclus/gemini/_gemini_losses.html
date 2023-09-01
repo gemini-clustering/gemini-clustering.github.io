@@ -14,10 +14,10 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
-        <script src="../../../_static/js/copybutton.js"></script>
+        <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -169,7 +169,7 @@
 
     <span class="nd">@validate_params</span><span class="p">(</span>
         <span class="p">{</span>
-            <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">StrOptions</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;precomputed&quot;</span><span class="p">])),</span> <span class="n">callable</span><span class="p">],</span>
+            <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">StrOptions</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;precomputed&quot;</span><span class="p">])),</span> <span class="nb">callable</span><span class="p">],</span>
             <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
         <span class="p">}</span>
     <span class="p">)</span>
@@ -195,7 +195,7 @@
 <span class="sd">        affinity: ndarray of shape (n_samples, n_samples)</span>
 <span class="sd">            The kernel between all samples  if it is needed for the GEMINI computations, None otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">==</span> <span class="s2">&quot;precomputed&quot;</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Kernel should be precomputed, yet no kernel was passed as parameters: y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -232,7 +232,7 @@
 <span class="sd">        affinity: ndarray of shape (n_samples, n_samples)</span>
 <span class="sd">            The distance between all samples if it is needed for the GEMINI computations, None otherwise.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s2">&quot;precomputed&quot;</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Kernel should be precomputed, yet no kernel was passed as parameters: y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -240,31 +240,40 @@
         <span class="k">return</span> <span class="n">pairwise_distances</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="MMDOvA"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA">[docs]</a><span class="k">class</span> <span class="nc">MMDOvA</span><span class="p">(</span><span class="n">MMDGEMINI</span><span class="p">):</span>
+<div class="viewcode-block" id="MMDOvA">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA">[docs]</a>
+<span class="k">class</span> <span class="nc">MMDOvA</span><span class="p">(</span><span class="n">MMDGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all MMD GEMINI which compares the maximum mean discrepancy between a cluster distribution</span>
 <span class="sd">    and the data distribution.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{MMD}_\kappa(p(x|y)\|p(x|y))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{MMD}_\kappa(p(x|y)\|p(x|y))]</span>
 
 <span class="sd">    where :math:`\kappa` is a kernel defined between the samples of the data space.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;},</span>
+<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;linear&#39;</span>
 <span class="sd">        The kernel to use in combination with the MMD objective. It corresponds to one value of `KERNEL_PARAMS`.</span>
 <span class="sd">        Currently, all kernel parameters are the default ones.</span>
+<span class="sd">        If the kernel is set to &#39;precomputed&#39;, then a custom kernel matrix must be passed to the argument `affinity`</span>
+<span class="sd">        of the `evaluate` method.</span>
 
 <span class="sd">    epsilon: float, default=1e-12</span>
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MMDOvA.__init__"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<div class="viewcode-block" id="MMDOvA.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MMDOvA.evaluate"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MMDOvA.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvA.html#gemclus.gemini.MMDOvA.evaluate">[docs]</a>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">))</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
 
@@ -292,34 +301,45 @@
             <span class="n">gradient</span><span class="p">[:,</span> <span class="n">delta_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">return</span> <span class="n">mmd_ova_value</span><span class="p">,</span> <span class="n">gradient</span> <span class="o">*</span> <span class="n">clip_mask</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">mmd_ova_value</span></div></div>
+            <span class="k">return</span> <span class="n">mmd_ova_value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="MMDOvO"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO">[docs]</a><span class="k">class</span> <span class="nc">MMDOvO</span><span class="p">(</span><span class="n">MMDGEMINI</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MMDOvO">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO">[docs]</a>
+<span class="k">class</span> <span class="nc">MMDOvO</span><span class="p">(</span><span class="n">MMDGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-one MMD GEMINI which compares the maximum mean discrepancy between two cluster</span>
 <span class="sd">    distributions:</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\text{MMD}_\kappa(p(x|y_a)\|p(x|y_b))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\\text{MMD}_\kappa(p(x|y_a)\|p(x|y_b))]</span>
 
 <span class="sd">    where :math:`\kappa` is a kernel defined between the samples of the data space.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;},</span>
+<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;linear&#39;</span>
 <span class="sd">        The kernel to use in combination with the MMD objective. It corresponds to one value of `KERNEL_PARAMS`.</span>
 <span class="sd">        Currently, all kernel parameters are the default ones.</span>
+<span class="sd">        If the kernel is set to &#39;precomputed&#39;, then a custom kernel matrix must be passed to the argument `affinity`</span>
+<span class="sd">        of the `evaluate` method.</span>
 
 <span class="sd">    epsilon: float, default=1e-12</span>
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MMDOvO.__init__"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<div class="viewcode-block" id="MMDOvO.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MMDOvO.evaluate"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MMDOvO.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDOvO.html#gemclus.gemini.MMDOvO.evaluate">[docs]</a>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
 
@@ -355,10 +375,14 @@
 
             <span class="k">return</span> <span class="n">mmd_ovo_value</span><span class="p">,</span> <span class="n">gradient</span> <span class="o">*</span> <span class="n">clip_mask</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">mmd_ovo_value</span></div></div>
+            <span class="k">return</span> <span class="n">mmd_ovo_value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="WassersteinOvA"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA">[docs]</a><span class="k">class</span> <span class="nc">WassersteinOvA</span><span class="p">(</span><span class="n">WassersteinGEMINI</span><span class="p">):</span>
+
+<div class="viewcode-block" id="WassersteinOvA">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA">[docs]</a>
+<span class="k">class</span> <span class="nc">WassersteinOvA</span><span class="p">(</span><span class="n">WassersteinGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all Wasserstein GEMINI which compares the Wasserstein distance between a cluster distribution</span>
 <span class="sd">    and the data distribution.</span>
@@ -370,18 +394,25 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;}, default=&#39;euclidean&#39;</span>
+<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;, &#39;precomputed&#39;}, default=&#39;euclidean&#39;</span>
 <span class="sd">        The metric to use in combination with the Wasserstein objective. It corresponds to one value of</span>
 <span class="sd">        `PAIRED_DISTANCES`. Currently, all metric parameters are the default ones.</span>
+<span class="sd">        If the metric is set to &#39;precomputed&#39;, then a custom distance matrix must be passed to the argument `affinity`</span>
+<span class="sd">        of the `evaluate` method.</span>
 
 <span class="sd">    epsilon: float, default=1e-12</span>
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="WassersteinOvA.__init__"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<div class="viewcode-block" id="WassersteinOvA.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="WassersteinOvA.evaluate"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="WassersteinOvA.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate">[docs]</a>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span>
 
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -406,10 +437,14 @@
             <span class="n">grads</span> <span class="o">-=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">*</span> <span class="n">u_bar</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">wasserstein_ova_value</span><span class="p">,</span> <span class="n">grads</span> <span class="o">*</span> <span class="n">clip_mask</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">wasserstein_ova_value</span></div></div>
+            <span class="k">return</span> <span class="n">wasserstein_ova_value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="WassersteinOvO"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO">[docs]</a><span class="k">class</span> <span class="nc">WassersteinOvO</span><span class="p">(</span><span class="n">WassersteinGEMINI</span><span class="p">):</span>
+
+<div class="viewcode-block" id="WassersteinOvO">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO">[docs]</a>
+<span class="k">class</span> <span class="nc">WassersteinOvO</span><span class="p">(</span><span class="n">WassersteinGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-one Wasserstein GEMINI which compares the Wasserstein distance between two cluster</span>
 <span class="sd">    distributions:</span>
@@ -421,18 +456,25 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;}, default=&#39;euclidean&#39;</span>
+<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;, &#39;precomputed&#39;}, default=&#39;euclidean&#39;</span>
 <span class="sd">        The metric to use in combination with the Wasserstein objective. It corresponds to one value of</span>
 <span class="sd">        `PAIRED_DISTANCES`. Currently, all metric parameters are the default ones.</span>
+<span class="sd">        If the metric is set to &#39;precomputed&#39;, then a custom distance matrix must be passed to the argument `affinity`</span>
+<span class="sd">        of the `evaluate` method.</span>
 
 <span class="sd">    epsilon: float, default=1e-12</span>
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="WassersteinOvO.__init__"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<div class="viewcode-block" id="WassersteinOvO.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="WassersteinOvO.evaluate"><a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="WassersteinOvO.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinOvO.html#gemclus.gemini.WassersteinOvO.evaluate">[docs]</a>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span>
 
         <span class="k">if</span> <span class="n">return_grad</span><span class="p">:</span>
@@ -465,16 +507,20 @@
             <span class="n">grads</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">wasserstein_distances</span><span class="p">,</span> <span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
             <span class="k">return</span> <span class="n">wasserstein_ovo_value</span><span class="p">,</span> <span class="n">grads</span> <span class="o">*</span> <span class="n">clip_mask</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">wasserstein_ovo_value</span></div></div>
+            <span class="k">return</span> <span class="n">wasserstein_ovo_value</span></div>
+</div>
 
 
-<div class="viewcode-block" id="MI"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI">[docs]</a><span class="k">class</span> <span class="nc">MI</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MI">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI">[docs]</a>
+<span class="k">class</span> <span class="nc">MI</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the classical mutual information between cluster conditional probabilities and the complete data</span>
 <span class="sd">    probabilities:</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[D_\text{KL}(p(x|y)\|p(x))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{KL}(p(x|y)\|p(x))]</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -482,10 +528,15 @@
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MI.__init__"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+<div class="viewcode-block" id="MI.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MI.evaluate"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+<div class="viewcode-block" id="MI.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.evaluate">[docs]</a>
+    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Start by computing mutual information</span>
         <span class="n">p_y_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="n">p_y</span> <span class="o">=</span> <span class="n">p_y_x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -504,8 +555,13 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">mutual_information</span></div>
 
-<div class="viewcode-block" id="MI.compute_affinity"><a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.compute_affinity">[docs]</a>    <span class="k">def</span> <span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="kc">None</span></div></div>
+
+<div class="viewcode-block" id="MI.compute_affinity">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.compute_affinity">[docs]</a>
+    <span class="k">def</span> <span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
 </pre></div>
 
            </div>

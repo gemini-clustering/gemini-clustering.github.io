@@ -14,10 +14,10 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
-        <script src="../../../_static/js/copybutton.js"></script>
+        <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -137,8 +137,10 @@
         <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="LinearMMD"><a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD">[docs]</a><span class="k">class</span> <span class="nc">LinearMMD</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">,</span> <span class="n">_BaseMMD</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the MMD-OvA GEMINI using a logistic regression as a clustering</span>
+<div class="viewcode-block" id="LinearMMD">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD">[docs]</a>
+<span class="k">class</span> <span class="nc">LinearMMD</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">,</span> <span class="n">_BaseMMD</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the MMD GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
 
 <span class="sd">    Parameters</span>
@@ -152,10 +154,12 @@
 <span class="sd">    learning_rate: float, default=1e-3</span>
 <span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
 
-<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;},</span>
+<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;linear&#39;</span>
 <span class="sd">        The kernel to use in combination with the MMD objective. It corresponds to one value of `KERNEL_PARAMS`.</span>
 <span class="sd">        Currently, all kernel parameters are the default ones.</span>
+<span class="sd">        If the kernel is set to &#39;precomputed&#39;, then a custom kernel matrix must be passed to the argument `y` of</span>
+<span class="sd">        `fit`, `fit_predict` and/or `score`.</span>
 
 <span class="sd">    ovo: bool, default=False</span>
 <span class="sd">        Whether to run the model using the MMD OvA (False) or the MMD OvO (True).</span>
@@ -217,7 +221,9 @@
         <span class="o">**</span><span class="n">_LinearGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="LinearMMD.__init__"><a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="LinearMMD.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_BaseMMD</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -230,11 +236,15 @@
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
             <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
+</div>
 
 
-<div class="viewcode-block" id="LinearWasserstein"><a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein">[docs]</a><span class="k">class</span> <span class="nc">LinearWasserstein</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">,</span> <span class="n">_BaseWasserstein</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the Wasserstein GEMINI using a logisti regression as a clustering</span>
+
+<div class="viewcode-block" id="LinearWasserstein">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein">[docs]</a>
+<span class="k">class</span> <span class="nc">LinearWasserstein</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">,</span> <span class="n">_BaseWasserstein</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the Wasserstein GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
 
 <span class="sd">    Parameters</span>
@@ -248,10 +258,15 @@
 <span class="sd">    learning_rate: float, default=1e-3</span>
 <span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
 
-<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;},</span>
+<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;euclidean&#39;</span>
 <span class="sd">        The metric to use in combination with the Wasserstein objective. It corresponds to one value of</span>
 <span class="sd">        `PAIRED_DISTANCES`. Currently, all metric parameters are the default ones.</span>
+<span class="sd">        If the metric is set to &#39;precomputed&#39;, then a custom distance matrix must be passed to the argument `y` of</span>
+<span class="sd">        `fit`, `fit_predict` and/or `score`.</span>
+
+<span class="sd">    ovo: bool, default=False</span>
+<span class="sd">        Whether to run the model using the Wasserstein OvA (False) or the Wasserstein OvO (True).</span>
 
 <span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
 <span class="sd">        The solver for weight optimisation.</span>
@@ -310,7 +325,9 @@
         <span class="o">**</span><span class="n">_LinearGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="LinearWasserstein.__init__"><a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="LinearWasserstein.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_BaseWasserstein</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -323,11 +340,15 @@
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
             <span class="n">metric</span><span class="o">=</span><span class="n">metric</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
+</div>
+
 
 
 <span class="c1"># noinspection PyPep8</span>
-<div class="viewcode-block" id="RIM"><a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM">[docs]</a><span class="k">class</span> <span class="nc">RIM</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">):</span>
+<div class="viewcode-block" id="RIM">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM">[docs]</a>
+<span class="k">class</span> <span class="nc">RIM</span><span class="p">(</span><span class="n">_LinearGEMINI</span><span class="p">):</span>
     <span class="c1"># noinspection PyPep8</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a logistic regression with an</span>
 <span class="sd">        :math:`\ell_2` penalty on the weights. This implementation follows the framework described by Krause et al. in the</span>
@@ -404,7 +425,9 @@
         <span class="s2">&quot;reg&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)]</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="RIM.__init__"><a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<div class="viewcode-block" id="RIM.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_LinearGEMINI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -418,13 +441,18 @@
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">=</span> <span class="n">reg</span></div>
 
-<div class="viewcode-block" id="RIM.get_gemini"><a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.get_gemini">[docs]</a>    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<div class="viewcode-block" id="RIM.get_gemini">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.get_gemini">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MI</span><span class="p">()</span></div>
+
 
     <span class="k">def</span> <span class="nf">_update_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
         <span class="c1"># Add the regularisation gradient on the weight matrix</span>
         <span class="n">gradients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span></div>
+
 </pre></div>
 
            </div>

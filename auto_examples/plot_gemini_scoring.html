@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -111,7 +111,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="scoring-any-model-with-gemini">
-<span id="sphx-glr-auto-examples-plot-gemini-scoring-py"></span><h1>Scoring any model with GEMINI<a class="headerlink" href="#scoring-any-model-with-gemini" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-gemini-scoring-py"></span><h1>Scoring any model with GEMINI<a class="headerlink" href="#scoring-any-model-with-gemini" title="Link to this heading">¶</a></h1>
 <p>We show in this example how we can score the prediction of another model using GEMINI. We do not seek to perform
 clustering but rather to evaluate.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -120,7 +120,7 @@ clustering but rather to evaluate.</p>
 </pre></div>
 </div>
 <section id="load-a-simple-real-dataset">
-<h2>Load a simple real dataset<a class="headerlink" href="#load-a-simple-real-dataset" title="Permalink to this heading">¶</a></h2>
+<h2>Load a simple real dataset<a class="headerlink" href="#load-a-simple-real-dataset" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" title="sklearn.datasets.load_breast_cancer" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span></a><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Preprocess this dataset</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html#sklearn.preprocessing.RobustScaler" title="sklearn.preprocessing.RobustScaler" class="sphx-glr-backref-module-sklearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">preprocessing</span><span class="o">.</span><span class="n">RobustScaler</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
@@ -128,7 +128,7 @@ clustering but rather to evaluate.</p>
 </div>
 </section>
 <section id="train-two-supervised-models">
-<h2>Train two supervised models<a class="headerlink" href="#train-two-supervised-models" title="Permalink to this heading">¶</a></h2>
+<h2>Train two supervised models<a class="headerlink" href="#train-two-supervised-models" title="Link to this heading">¶</a></h2>
 <p>We will train two different models on the breast cancer dataset</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first model is a simple logistic regression with l2 penalty</span>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf1</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
@@ -141,7 +141,7 @@ clustering but rather to evaluate.</p>
 </div>
 </section>
 <section id="scoring-with-gemini">
-<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Permalink to this heading">¶</a></h2>
+<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Link to this heading">¶</a></h2>
 <p>We can now score the clustering performances of both model with GEMINI.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with the WassersteinGEMINI (one-vs-all) and the Euclidean distance</span>
 <a href="../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">wasserstein_scoring</span></a> <span class="o">=</span> <a href="../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class"><span class="n">gemini</span><span class="o">.</span><span class="n">WassersteinOvA</span></a><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">)</span>
@@ -163,7 +163,7 @@ clustering but rather to evaluate.</p>
 </div>
 </section>
 <section id="supervised-scoring-with-gemini">
-<h2>Supervised Scoring with GEMINI<a class="headerlink" href="#supervised-scoring-with-gemini" title="Permalink to this heading">¶</a></h2>
+<h2>Supervised Scoring with GEMINI<a class="headerlink" href="#supervised-scoring-with-gemini" title="Link to this heading">¶</a></h2>
 <p>By replacing the Euclidean distance for a label-informed distance
 we can obtain a supervised metric.</p>
 <p>We now specify that the metric is precomputed instead</p>
@@ -185,7 +185,7 @@ we can obtain a supervised metric.</p>
         =&gt;Naive Bayes: 0.403
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.430 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.179 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-gemini-scoring-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d0f9e070251174f4ec9a989a5d5eff2c/plot_gemini_scoring.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_gemini_scoring.py</span></code></a></p>

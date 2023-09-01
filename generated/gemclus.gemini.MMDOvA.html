@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -103,21 +103,23 @@
            <div itemprop="articleBody">
              
   <section id="gemclus-gemini-mmdova">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvA<a class="headerlink" href="#gemclus-gemini-mmdova" title="Permalink to this heading">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDOvA<a class="headerlink" href="#gemclus-gemini-mmdova" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="gemclus.gemini.MMDOvA">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">MMDOvA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">MMDOvA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA" title="Link to this definition">¶</a></dt>
 <dd><p>Implements the one-vs-all MMD GEMINI which compares the maximum mean discrepancy between a cluster distribution
 and the data distribution.</p>
 <div class="math">
-<p><img src="../_images/math/a85c1c87ff152f2068f4b379fb760a6b80ef5f44.png" alt="\mathcal{I} = \mathbb{E}_{y \sim p(y)}[ ext{MMD}_\kappa(p(x|y)\|p(x|y))]"/></p>
-</div><p>where <img class="math" src="../_images/math/261e3eb56c1757dd003745ee4cc53aa595565af1.png" alt="\kappa"/> is a kernel defined between the samples of the data space.</p>
+<p><span class="math">\mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{MMD}_\kappa(p(x|y)\|p(x|y))]</span></p>
+</div><p>where <span class="math">\kappa</span> is a kernel defined between the samples of the data space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>kernel: {‘additive_chi2’, ‘chi2’, ‘cosine’,’linear’,’poly’,’polynomial’,’rbf’,’laplacian’,’sigmoid’},</strong></dt><dd><p>default=’linear’
+<dt><strong>kernel: {‘additive_chi2’, ‘chi2’, ‘cosine’,’linear’,’poly’,’polynomial’,’rbf’,’laplacian’,’sigmoid’, ‘precomputed’},</strong></dt><dd><p>default=’linear’
 The kernel to use in combination with the MMD objective. It corresponds to one value of <cite>KERNEL_PARAMS</cite>.
-Currently, all kernel parameters are the default ones.</p>
+Currently, all kernel parameters are the default ones.
+If the kernel is set to ‘precomputed’, then a custom kernel matrix must be passed to the argument <cite>affinity</cite>
+of the <cite>evaluate</cite> method.</p>
 </dd>
 <dt><strong>epsilon: float, default=1e-12</strong></dt><dd><p>The precision for clipping the prediction values in order to avoid numerical instabilities.</p>
 </dd>
@@ -126,12 +128,12 @@ Currently, all kernel parameters are the default ones.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MMDOvA.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MMDOvA.compute_affinity">
-<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.MMDOvA.compute_affinity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.MMDOvA.compute_affinity" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the kernel between all samples of X.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -154,8 +156,8 @@ is not precomputed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MMDOvA.evaluate">
-<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA.evaluate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the GEMINI objective given the predictions <img class="math" src="../_images/math/8b76ee6fcc4065d3f33ab45c17ee204e6fda0c20.png" alt="$p(y|x)$"/> and an affinity matrix. The
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MMDOvA.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MMDOvA.evaluate" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the GEMINI objective given the predictions <span class="math">$p(y|x)$</span> and an affinity matrix. The
 computation must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,
 the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a distance matrix resulting from the
 <cite>compute_affinity</cite> method.</p>
@@ -166,7 +168,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 </dd>
 <dt><strong>affinity: ndarray of shape (n_samples, n_samples)</strong></dt><dd><p>The affinity matrix resulting from the <cite>compute_affinity</cite> method. The matrix must be symmetric.</p>
 </dd>
-<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <img class="math" src="../_images/math/8b76ee6fcc4065d3f33ab45c17ee204e6fda0c20.png" alt="$p(y|x)$"/>.</p>
+<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <span class="math">$p(y|x)$</span>.</p>
 </dd>
 </dl>
 </dd>
@@ -174,7 +176,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 <dd class="field-even"><dl class="simple">
 <dt>gemini: float</dt><dd><p>The gemini score of the model given the predictions and affinities.</p>
 </dd>
-<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <img class="math" src="../_images/math/3f03fe12e22b9685557296efb344d29c6b09b416.png" alt="$\nabla_{p (y|x)} \mathcal{I} $"/></p>
+<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <span class="math">$\nabla_{p (y|x)} \mathcal{I} $</span></p>
 </dd>
 </dl>
 </dd>

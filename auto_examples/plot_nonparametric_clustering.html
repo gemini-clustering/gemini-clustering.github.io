@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -110,7 +110,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="non-parametric-clustering">
-<span id="sphx-glr-auto-examples-plot-nonparametric-clustering-py"></span><h1>Non parametric clustering<a class="headerlink" href="#non-parametric-clustering" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-nonparametric-clustering-py"></span><h1>Non parametric clustering<a class="headerlink" href="#non-parametric-clustering" title="Link to this heading">¶</a></h1>
 <p>This example illustrates how we can run nonparametric clustering using GEMINI.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -121,7 +121,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <section id="draw-samples-from-a-gmm">
-<h2>Draw samples from a GMM<a class="headerlink" href="#draw-samples-from-a-gmm" title="Permalink to this heading">¶</a></h2>
+<h2>Draw samples from a GMM<a class="headerlink" href="#draw-samples-from-a-gmm" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate samples on that are simple to separate</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N</span></a> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Number of nodes in the graph</span>
 <span class="c1"># GMM parameters</span>
@@ -132,7 +132,7 @@ to download the full example code</p>
 </div>
 </section>
 <section id="train-the-model">
-<h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this heading">¶</a></h2>
+<h2>Train the model<a class="headerlink" href="#train-the-model" title="Link to this heading">¶</a></h2>
 <p>Create the Non parametric GEMINI clustering model and call the .fit method to optimise the cluster
 assignment of the nodes</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD" title="gemclus.nonparametric.CategoricalMMD" class="sphx-glr-backref-module-gemclus-nonparametric sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a> <span class="o">=</span> <a href="../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD" title="gemclus.nonparametric.CategoricalMMD" class="sphx-glr-backref-module-gemclus-nonparametric sphx-glr-backref-type-py-class"><span class="n">CategoricalMMD</span></a><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
@@ -141,7 +141,7 @@ assignment of the nodes</p>
 </div>
 </section>
 <section id="final-clustering">
-<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="matplotlib.pyplot.scatter" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 
@@ -155,7 +155,7 @@ assignment of the nodes</p>
 GEMINI score is 3.328
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.373 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.460 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-nonparametric-clustering-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/775ce17b5631f9da9cef7bf8948f017a/plot_nonparametric_clustering.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_nonparametric_clustering.py</span></code></a></p>

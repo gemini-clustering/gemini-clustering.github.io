@@ -15,10 +15,10 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/copybutton.js"></script>
+        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/copybutton.js?v=26522df0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -93,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section id="quick-start-on-gemclus">
-<h1>Quick start on gemclus<a class="headerlink" href="#quick-start-on-gemclus" title="Permalink to this heading">¶</a></h1>
+<h1>Quick start on gemclus<a class="headerlink" href="#quick-start-on-gemclus" title="Link to this heading">¶</a></h1>
 <p>We provide here a short description of the GEMINI clustering package and hints about what it can do or not.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -101,22 +101,22 @@
 publication</a> by Ohl et al [1].</p>
 </div>
 <section id="what-is-gemini">
-<h2>What is GEMINI<a class="headerlink" href="#what-is-gemini" title="Permalink to this heading">¶</a></h2>
+<h2>What is GEMINI<a class="headerlink" href="#what-is-gemini" title="Link to this heading">¶</a></h2>
 <p>GEMINI stands for <cite>Generalised Mutual Information</cite>, a novel type of information theory score that can be used as an
-objective to maximise to perform clustering. GEMINI consists in measuring the expectation of a distance <img class="math" src="_images/math/c4760839add915b866dbc984bd0588490af987d2.png" alt="$D$"/>
-between custer distributions. For a set of clustering distributions <img class="math" src="_images/math/5d9a1ec9ad21327d091c4cfc8fe25d0e24476d1d.png" alt="$p_\theta(x|y)$"/>, GEMINI has two definitions.
+objective to maximise to perform clustering. GEMINI consists in measuring the expectation of a distance <span class="math">$D$</span>
+between custer distributions. For a set of clustering distributions <span class="math">$p_\theta(x|y)$</span>, GEMINI has two definitions.
 The first one is the one-vs-all (OvA) which compares the cluster distribution to the data distribution:</p>
 <div class="math">
-<p><img src="_images/math/7605aad76223ab511f3bc8360a89e8890d5ef09f.png" alt="\mathbb{E}_{y \sim p_\theta(y)} \left[ D(p_\theta(x|y) \| p(x))\right],"/></p>
+<p><span class="math">\mathbb{E}_{y \sim p_\theta(y)} \left[ D(p_\theta(x|y) \| p(x))\right],</span></p>
 </div><p>and the one-vs-one (OvO) version which compares two independently drawn cluster distributions:</p>
 <div class="math">
-<p><img src="_images/math/5271eb94ef087865501a9659755b44fc44287b0c.png" alt="\mathbb{E}_{y_1, y_2 \sim p_\theta(y)} \left[ D(p_\theta(x|y_1) \| p_\theta(x | y_2))\right]."/></p>
+<p><span class="math">\mathbb{E}_{y_1, y_2 \sim p_\theta(y)} \left[ D(p_\theta(x|y_1) \| p_\theta(x | y_2))\right].</span></p>
 </div><p>The specificity of GEMINI is that it involves distances in which the Bayes Theorem can easily be performed to get
 a tractable objective that we cane valuate using only clustering probabilities. Hence, models trained with GEMINI
-are discriminative models <img class="math" src="_images/math/e59fee16ae799baef4a208f1c9e20c778681e6cc.png" alt="p_\theta(y|x)"/> without any parametric assumption.</p>
+are discriminative models <span class="math">p_\theta(y|x)</span> without any parametric assumption.</p>
 </section>
 <section id="doing-discriminative-clustering">
-<h2>Doing discriminative clustering<a class="headerlink" href="#doing-discriminative-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Doing discriminative clustering<a class="headerlink" href="#doing-discriminative-clustering" title="Link to this heading">¶</a></h2>
 <p>The package respects the <cite>scikit-learn</cite> conventions for models API. Thus, doing clustering with the GEMINI looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the model and a simple datasets</span>
 <span class="kn">from</span> <span class="nn">gemclus.mlp</span> <span class="kn">import</span> <span class="n">MLPMMD</span>
@@ -137,13 +137,13 @@ It is thus a good practice to get models to run several times and get a good mer
 give additional hints on how to derive your own model from the base classes in the <a class="reference external" href="user_guide.html">User Guide</a>.</p>
 </section>
 <section id="selecting-features-in-clustering">
-<h2>Selecting features in clustering<a class="headerlink" href="#selecting-features-in-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Selecting features in clustering<a class="headerlink" href="#selecting-features-in-clustering" title="Link to this heading">¶</a></h2>
 <p>We further propose an improvement of the GEMINI clustering to bring feature selection. This is mainly inspired from
 [2] and was proposed in [3]. If you feel interested in feature selection, take a look at our
 <a class="reference external" href="api.html#sparse-clustering-models">sparse models</a>.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id1" role="note">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>

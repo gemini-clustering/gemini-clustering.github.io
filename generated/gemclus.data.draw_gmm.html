@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,22 +104,22 @@
            <div itemprop="articleBody">
              
   <section id="gemclus-data-draw-gmm">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.draw_gmm<a class="headerlink" href="#gemclus-data-draw-gmm" title="Permalink to this heading">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.draw_gmm<a class="headerlink" href="#gemclus-data-draw-gmm" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="gemclus.data.draw_gmm">
-<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <img class="math" src="../_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/> samples drawn from a mixture of Gaussian distributions. The number of components
+<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.11)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Link to this definition">¶</a></dt>
+<dd><p>Returns <span class="math">n</span> samples drawn from a mixture of Gaussian distributions. The number of components
 is determined by the number of elements in the lists of the parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>n: int</strong></dt><dd><p>The number of samples to draw from the GMM.</p>
 </dd>
-<dt><strong>loc: list of 1d ndarray</strong></dt><dd><p>A list containing the means of all components of the Gaussian mixture distributions.</p>
+<dt><strong>loc: list of K ndarray of shape (d,)</strong></dt><dd><p>A list containing the means of all components of the Gaussian mixture distributions.</p>
 </dd>
-<dt><strong>scale: list of 2d ndarray</strong></dt><dd><p>A list containing the covariances of all components of the Gaussian mixture distribution.</p>
+<dt><strong>scale: list of K ndarray of shape (d,d)</strong></dt><dd><p>A list containing the covariances of all components of the Gaussian mixture distribution.</p>
 </dd>
-<dt><strong>pvals: 1d ndarray</strong></dt><dd><p>The proportions of each component of the Gaussian mixture.</p>
+<dt><strong>pvals: ndarray of shape (K,)</strong></dt><dd><p>The proportions of each component of the Gaussian mixture.</p>
 </dd>
 <dt><strong>random_state: int, RandomState instance or None, default=None</strong></dt><dd><p>Determines random number generation for dataset creation. Pass an int for reproducible output across
 multiple runs.</p>
@@ -128,9 +128,9 @@ multiple runs.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>X: ndarray</dt><dd><p>The array containing the samples drawn from the mixture model.</p>
+<dt>X: ndarray of shape (n, d)</dt><dd><p>The array containing the samples drawn from the mixture model. d is the</p>
 </dd>
-<dt>y: ndarray</dt><dd><p>The component from which each sample originates.</p>
+<dt>y: ndarray of shape (n,)</dt><dd><p>The component from which each sample originates.</p>
 </dd>
 </dl>
 </dd>
@@ -138,7 +138,7 @@ multiple runs.</p>
 </dd></dl>
 
 <section id="examples-using-gemclus-data-draw-gmm">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.data.draw_gmm</span></code><a class="headerlink" href="#examples-using-gemclus-data-draw-gmm" title="Permalink to this heading">¶</a></h2>
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.data.draw_gmm</span></code><a class="headerlink" href="#examples-using-gemclus-data-draw-gmm" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI."><img alt="" src="../_images/sphx_glr_plot_nonparametric_clustering_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/plot_nonparametric_clustering.html#sphx-glr-auto-examples-plot-nonparametric-clustering-py"><span class="std std-ref">Non parametric clustering</span></a></p>
   <div class="sphx-glr-thumbnail-title">Non parametric clustering</div>

@@ -15,10 +15,10 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/copybutton.js"></script>
+        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/copybutton.js?v=26522df0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -95,11 +95,11 @@
            <div itemprop="articleBody">
              
   <section id="user-guide">
-<span id="id1"></span><h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">¶</a></h1>
 <section id="content-of-the-package">
-<h2>Content of the package<a class="headerlink" href="#content-of-the-package" title="Permalink to this heading">¶</a></h2>
+<h2>Content of the package<a class="headerlink" href="#content-of-the-package" title="Link to this heading">¶</a></h2>
 <section id="which-geminis-are-implemented">
-<h3>Which GEMINIs are implemented<a class="headerlink" href="#which-geminis-are-implemented" title="Permalink to this heading">¶</a></h3>
+<h3>Which GEMINIs are implemented<a class="headerlink" href="#which-geminis-are-implemented" title="Link to this heading">¶</a></h3>
 <p>Currently, the <cite>gemclus</cite> package implements both the MMD and Wasserstein distances between the cluster distributions as
 in the original paper. Both OvA and OvO implementations are present in all models. The OvO mode can be set in any
 clustering model by adding <code class="code docutils literal notranslate"><span class="pre">ovo=True</span></code> in the constructor of a model.</p>
@@ -113,9 +113,9 @@ from <code class="xref py py-class docutils literal notranslate"><span class="pr
 sample.</p>
 </section>
 <section id="what-discriminative-distributions-are-available">
-<h3>What discriminative distributions are available<a class="headerlink" href="#what-discriminative-distributions-are-available" title="Permalink to this heading">¶</a></h3>
+<h3>What discriminative distributions are available<a class="headerlink" href="#what-discriminative-distributions-are-available" title="Link to this heading">¶</a></h3>
 <p>We made the choice to force in this library the usage of 2-layers Multi-Layered-Perceptrons to keep the discriminative
-distribution <img class="math" src="_images/math/e59fee16ae799baef4a208f1c9e20c778681e6cc.png" alt="p_\theta(y|x)"/> flexible yet expressive enough in terms of decision boundaries. We provide as well
+distribution <span class="math">p_\theta(y|x)</span> flexible yet expressive enough in terms of decision boundaries. We provide as well
 logistic regression models in case you want a simpler decision boundary.</p>
 <p>For the sparse version of the algorithm, the architecture is inspired from <a class="reference external" href="https://lassonet.ml/">LassoNet</a> which
 adds a linear skip connection between the inputs and clustering output. Note that there is as well a more simple
@@ -125,7 +125,7 @@ classes and rewrite their hidden method <code class="code docutils literal notra
 </section>
 </section>
 <section id="basic-examples">
-<h2>Basic examples<a class="headerlink" href="#basic-examples" title="Permalink to this heading">¶</a></h2>
+<h2>Basic examples<a class="headerlink" href="#basic-examples" title="Link to this heading">¶</a></h2>
 <p>We provide some basic examples in the <a class="reference external" href="auto_examples/index.html">Example gallery</a>, including clustering of simple distribution
 and how to perform feature selection using sparse models from <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.</p>
 </section>

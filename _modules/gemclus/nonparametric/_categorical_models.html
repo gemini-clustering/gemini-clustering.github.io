@@ -14,10 +14,10 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
-        <script src="../../../_static/js/copybutton.js"></script>
+        <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -152,7 +152,9 @@
         <span class="k">yield</span> <span class="n">X</span><span class="p">,</span> <span class="n">affinity_matrix</span>
 
 
-<div class="viewcode-block" id="CategoricalMMD"><a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD">[docs]</a><span class="k">class</span> <span class="nc">CategoricalMMD</span><span class="p">(</span><span class="n">_CategoricalGEMINI</span><span class="p">,</span> <span class="n">_BaseMMD</span><span class="p">):</span>
+<div class="viewcode-block" id="CategoricalMMD">
+<a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD">[docs]</a>
+<span class="k">class</span> <span class="nc">CategoricalMMD</span><span class="p">(</span><span class="n">_CategoricalGEMINI</span><span class="p">,</span> <span class="n">_BaseMMD</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; The CategoricalMMD is a nonparametric model where each sample is directly assign a probability vector of</span>
 <span class="sd">    as conditional clustering distribution. Consequently, the parameters do not depend on the value of :math:`$x$`.</span>
 
@@ -175,10 +177,12 @@
 <span class="sd">    learning_rate: float, default=1e-3</span>
 <span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
 
-<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;},</span>
+<span class="sd">    kernel: {&#39;additive_chi2&#39;, &#39;chi2&#39;, &#39;cosine&#39;,&#39;linear&#39;,&#39;poly&#39;,&#39;polynomial&#39;,&#39;rbf&#39;,&#39;laplacian&#39;,&#39;sigmoid&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;linear&#39;</span>
 <span class="sd">        The kernel to use in combination with the MMD objective. It corresponds to one value of `KERNEL_PARAMS`.</span>
 <span class="sd">        Currently, all kernel parameters are the default ones.</span>
+<span class="sd">        If the kernel is set to &#39;precomputed&#39;, then a custom kernel matrix must be passed to the argument `y` of</span>
+<span class="sd">        `fit`, `fit_predict` and/or `score`.</span>
 
 <span class="sd">    ovo: bool, default=False</span>
 <span class="sd">        Whether to run the model using the MMD OvA (False) or the MMD OvO (True).</span>
@@ -210,7 +214,9 @@
         <span class="o">**</span><span class="n">_BaseMMD</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="CategoricalMMD.__init__"><a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="CategoricalMMD.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_BaseMMD</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -222,10 +228,14 @@
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
             <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
+</div>
 
 
-<div class="viewcode-block" id="CategoricalWasserstein"><a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein">[docs]</a><span class="k">class</span> <span class="nc">CategoricalWasserstein</span><span class="p">(</span><span class="n">_CategoricalGEMINI</span><span class="p">,</span> <span class="n">_BaseWasserstein</span><span class="p">):</span>
+
+<div class="viewcode-block" id="CategoricalWasserstein">
+<a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein">[docs]</a>
+<span class="k">class</span> <span class="nc">CategoricalWasserstein</span><span class="p">(</span><span class="n">_CategoricalGEMINI</span><span class="p">,</span> <span class="n">_BaseWasserstein</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; The CategoricalWasserstein is a nonparametric model where each sample is directly assign a probability vector of</span>
 <span class="sd">    as conditional clustering distribution. Consequently, the parameters do not depend on the value of :math:`$x$`.</span>
 
@@ -248,10 +258,12 @@
 <span class="sd">    learning_rate: float, default=1e-3</span>
 <span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
 
-<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;},</span>
+<span class="sd">    metric: {&#39;cosine&#39;, &#39;euclidean&#39;, &#39;l2&#39;,&#39;l1&#39;,&#39;manhattan&#39;,&#39;cityblock&#39;, &#39;precomputed&#39;},</span>
 <span class="sd">        default=&#39;euclidean&#39;</span>
 <span class="sd">        The metric to use in combination with the Wasserstein objective. It corresponds to one value of</span>
 <span class="sd">        `PAIRED_DISTANCES`. Currently, all metric parameters are the default ones.</span>
+<span class="sd">        If the metric is set to &#39;precomputed&#39;, then a custom distance matrix must be passed to the argument `y` of</span>
+<span class="sd">        `fit`, `fit_predict` and/or `score`.</span>
 
 <span class="sd">    ovo: bool, default=False</span>
 <span class="sd">        Whether to run the model using the Wasserstein OvA (False) or the Wasserstein OvO (True).</span>
@@ -283,7 +295,9 @@
         <span class="o">**</span><span class="n">_BaseWasserstein</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="CategoricalWasserstein.__init__"><a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<div class="viewcode-block" id="CategoricalWasserstein.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_BaseWasserstein</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -295,7 +309,9 @@
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
             <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
             <span class="n">metric</span><span class="o">=</span><span class="n">metric</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
+</div>
+
 </pre></div>
 
            </div>

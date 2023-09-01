@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,10 +104,10 @@
            <div itemprop="articleBody">
              
   <section id="gemclus-data-gstm">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.gstm<a class="headerlink" href="#gemclus-data-gstm" title="Permalink to this heading">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.gstm<a class="headerlink" href="#gemclus-data-gstm" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="gemclus.data.gstm">
-<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">gstm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#gstm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.gstm" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">gstm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#gstm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.gstm" title="Link to this definition">¶</a></dt>
 <dd><p>Reproduces the Gaussian-Student Mixture dataset from the GEMINI article.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -126,9 +126,9 @@ multiple runs.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>X: ndarray</dt><dd><p>The samples of the dataset in an array of shape n_samples x n_features</p>
+<dt>X: ndarray of shape (n,2)</dt><dd><p>The samples of the dataset in an array of shape n_samples x n_features</p>
 </dd>
-<dt>y: ndarray</dt><dd><p>The component of the GMM from which each sample was drawn.</p>
+<dt>y: ndarray of shape (n,)</dt><dd><p>The component of the GMM from which each sample was drawn.</p>
 </dd>
 </dl>
 </dd>
@@ -142,7 +142,7 @@ Information Processing Systems.</p>
 </dd></dl>
 
 <section id="examples-using-gemclus-data-gstm">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.data.gstm</span></code><a class="headerlink" href="#examples-using-gemclus-data-gstm" title="Permalink to this heading">¶</a></h2>
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.data.gstm</span></code><a class="headerlink" href="#examples-using-gemclus-data-gstm" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find..."><img alt="" src="../_images/sphx_glr_plot_gstm_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/plot_gstm.html#sphx-glr-auto-examples-plot-gstm-py"><span class="std std-ref">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</span></a></p>
   <div class="sphx-glr-thumbnail-title">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</div>

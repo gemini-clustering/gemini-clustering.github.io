@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -110,9 +110,9 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="simple-logistic-regression-with-rim">
-<span id="sphx-glr-auto-examples-plot-rim-py"></span><h1>Simple logistic regression with RIM<a class="headerlink" href="#simple-logistic-regression-with-rim" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-rim-py"></span><h1>Simple logistic regression with RIM<a class="headerlink" href="#simple-logistic-regression-with-rim" title="Link to this heading">¶</a></h1>
 <p>RIM (regularised mutual information) is a proposal of model by Krause et al. (2010) which consists in
-maximising for a linear model under <img class="math" src="../_images/math/dc087f78b39c7a4b25b63ee0c21729bc4cb4f54c.png" alt="\ell_2"/> penalty. In this example, we show how to do clustering of a
+maximising for a linear model under <span class="math">\ell_2</span> penalty. In this example, we show how to do clustering of a
 Gaussian mixture using RIM.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -122,14 +122,14 @@ Gaussian mixture using RIM.</p>
 </pre></div>
 </div>
 <section id="load-a-simple-synthetic-dataset">
-<h2>Load a simple synthetic dataset<a class="headerlink" href="#load-a-simple-synthetic-dataset" title="Permalink to this heading">¶</a></h2>
+<h2>Load a simple synthetic dataset<a class="headerlink" href="#load-a-simple-synthetic-dataset" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate samples on that are simple to separate</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs" title="sklearn.datasets.make_blobs" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span></a><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="train-the-model">
-<h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this heading">¶</a></h2>
+<h2>Train the model<a class="headerlink" href="#train-the-model" title="Link to this heading">¶</a></h2>
 <p>Create the RIM clustering model (just a logistic regression) and fit it to the data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../generated/gemclus.linear.RIM.html#gemclus.linear.RIM" title="gemclus.linear.RIM" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../generated/gemclus.linear.RIM.html#gemclus.linear.RIM" title="gemclus.linear.RIM" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class"><span class="n">RIM</span></a><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <a href="../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.fit" title="gemclus.linear.RIM.fit" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
@@ -141,7 +141,7 @@ Gaussian mixture using RIM.</p>
 <br />
 <br /></section>
 <section id="final-clustering">
-<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Link to this heading">¶</a></h2>
 <p>Let us take a look at the decision boundaries according to the probabilities</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict a grad of inputs</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_vals</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -179,10 +179,10 @@ Gaussian mixture using RIM.</p>
 <span class="nb">print</span><span class="p">(</span><a href="../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.score" title="gemclus.linear.RIM.score" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_rim_001.png" srcset="../_images/sphx_glr_plot_rim_001.png" alt="plot rim" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.021396049320560717
+<img src="../_images/sphx_glr_plot_rim_001.png" srcset="../_images/sphx_glr_plot_rim_001.png" alt="plot rim" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.02139604932056094
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.337 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.449 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-rim-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d98b8268881babfa7f2c84e141617a78/plot_rim.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_rim.py</span></code></a></p>

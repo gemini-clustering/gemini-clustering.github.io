@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -110,7 +110,7 @@
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="example-of-decision-boundary-map-for-a-mixture-of-gaussian-and-low-degree-student-distributions">
-<span id="sphx-glr-auto-examples-plot-gstm-py"></span><h1>Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions<a class="headerlink" href="#example-of-decision-boundary-map-for-a-mixture-of-gaussian-and-low-degree-student-distributions" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-plot-gstm-py"></span><h1>Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions<a class="headerlink" href="#example-of-decision-boundary-map-for-a-mixture-of-gaussian-and-low-degree-student-distributions" title="Link to this heading">¶</a></h1>
 <p>This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters
 in a mixture of Gaussian that incorporates a low-degree-of-freedom student t-distribution. Consequently, this
 distribution generates sample that may seem like outliers if we are to expect only Gaussian distribution.</p>
@@ -123,21 +123,21 @@ distribution generates sample that may seem like outliers if we are to expect on
 </pre></div>
 </div>
 <section id="generate-the-data">
-<h2>Generate the data<a class="headerlink" href="#generate-the-data" title="Permalink to this heading">¶</a></h2>
+<h2>Generate the data<a class="headerlink" href="#generate-the-data" title="Link to this heading">¶</a></h2>
 <p>Taking 200 samples, 1 degree of freedom and not-so-far apart means</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="../generated/gemclus.data.gstm.html#gemclus.data.gstm" title="gemclus.data.gstm" class="sphx-glr-backref-module-gemclus-data sphx-glr-backref-type-py-function"><span class="n">gstm</span></a><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="train-the-model-for-clustering">
-<h2>Train the model for clustering<a class="headerlink" href="#train-the-model-for-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Train the model for clustering<a class="headerlink" href="#train-the-model-for-clustering" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein" title="gemclus.linear.LinearWasserstein" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein" title="gemclus.linear.LinearWasserstein" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class"><span class="n">LinearWasserstein</span></a><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.fit_predict" title="gemclus.linear.LinearWasserstein.fit_predict" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">fit_predict</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="final-clustering">
-<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Permalink to this heading">¶</a></h2>
+<h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Link to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, generate as well grid inputs to help drawing the decision boundary</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_vals</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_vals</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -158,7 +158,7 @@ distribution generates sample that may seem like outliers if we are to expect on
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_gstm_001.png" srcset="../_images/sphx_glr_plot_gstm_001.png" alt="plot gstm" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.340 seconds)</p>
+<img src="../_images/sphx_glr_plot_gstm_001.png" srcset="../_images/sphx_glr_plot_gstm_001.png" alt="plot gstm" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.037 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-gstm-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/862bc00cda1bcfbe053c638ab211f1c6/plot_gstm.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_gstm.py</span></code></a></p>

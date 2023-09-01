@@ -15,10 +15,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/js/copybutton.js"></script>
+        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -103,14 +103,14 @@
            <div itemprop="articleBody">
              
   <section id="gemclus-gemini-mi">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI<a class="headerlink" href="#gemclus-gemini-mi" title="Permalink to this heading">¶</a></h1>
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI<a class="headerlink" href="#gemclus-gemini-mi" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="gemclus.gemini.MI">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">MI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">MI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI" title="Link to this definition">¶</a></dt>
 <dd><p>Implements the classical mutual information between cluster conditional probabilities and the complete data
 probabilities:</p>
 <div class="math">
-<p><img src="../_images/math/83ce370ab6a11f2a51a16f10907d6a0176483627.png" alt="\mathcal{I} = \mathbb{E}_{y \sim p(y)}[D_       ext{KL}(p(x|y)\|p(x))]"/></p>
+<p><span class="math">\mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{KL}(p(x|y)\|p(x))]</span></p>
 </div><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -121,12 +121,12 @@ probabilities:</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MI.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MI.compute_affinity">
-<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.compute_affinity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.compute_affinity" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.compute_affinity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.compute_affinity" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the affinity (kernel function or distance function) between all samples of X. If the GEMINI does not
 compute any affinity, returns None.</p>
 <dl class="field-list simple">
@@ -150,8 +150,8 @@ is not precomputed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.MI.evaluate">
-<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.evaluate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the GEMINI objective given the predictions <img class="math" src="../_images/math/8b76ee6fcc4065d3f33ab45c17ee204e6fda0c20.png" alt="$p(y|x)$"/> and an affinity matrix. The
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_gemini_losses.html#MI.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.evaluate" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the GEMINI objective given the predictions <span class="math">$p(y|x)$</span> and an affinity matrix. The
 computation must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,
 the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a distance matrix resulting from the
 <cite>compute_affinity</cite> method.</p>
@@ -162,7 +162,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 </dd>
 <dt><strong>affinity: ndarray of shape (n_samples, n_samples)</strong></dt><dd><p>The affinity matrix resulting from the <cite>compute_affinity</cite> method. The matrix must be symmetric.</p>
 </dd>
-<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <img class="math" src="../_images/math/8b76ee6fcc4065d3f33ab45c17ee204e6fda0c20.png" alt="$p(y|x)$"/>.</p>
+<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <span class="math">$p(y|x)$</span>.</p>
 </dd>
 </dl>
 </dd>
@@ -170,7 +170,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 <dd class="field-even"><dl class="simple">
 <dt>gemini: float</dt><dd><p>The gemini score of the model given the predictions and affinities.</p>
 </dd>
-<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <img class="math" src="../_images/math/3f03fe12e22b9685557296efb344d29c6b09b416.png" alt="$\nabla_{p (y|x)} \mathcal{I} $"/></p>
+<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <span class="math">$\nabla_{p (y|x)} \mathcal{I} $</span></p>
 </dd>
 </dl>
 </dd>

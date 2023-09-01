@@ -15,10 +15,10 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/js/copybutton.js"></script>
+        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/js/copybutton.js?v=26522df0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -126,11 +126,11 @@
            <div itemprop="articleBody">
              
   <section id="gemclus-api">
-<h1>GEMCLUS API<a class="headerlink" href="#gemclus-api" title="Permalink to this heading">¶</a></h1>
+<h1>GEMCLUS API<a class="headerlink" href="#gemclus-api" title="Link to this heading">¶</a></h1>
 <p>The GEMINI-clustering package currently contains simple MLP and logistic regression for all-feature clustering as well as
 sparsity-constrained variants of these models.</p>
 <section id="scoring-with-gemini">
-<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Permalink to this heading">¶</a></h2>
+<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Link to this heading">¶</a></h2>
 <p>The following classes implement the basic GEMINIs for scoring and evaluating any conditional distribution for
 clustering.</p>
 <table class="autosummary longtable docutils align-default">
@@ -154,33 +154,33 @@ clustering.</p>
 </table>
 </section>
 <section id="clustering-models">
-<h2>Clustering models<a class="headerlink" href="#clustering-models" title="Permalink to this heading">¶</a></h2>
+<h2>Clustering models<a class="headerlink" href="#clustering-models" title="Link to this heading">¶</a></h2>
 <section id="dense-models">
-<h3>Dense models<a class="headerlink" href="#dense-models" title="Permalink to this heading">¶</a></h3>
+<h3>Dense models<a class="headerlink" href="#dense-models" title="Link to this heading">¶</a></h3>
 <p>These models are based on standard distributions like the logistic regression or the one-hidden-layer neural network for
 clustering.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD" title="gemclus.linear.LinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.LinearMMD</span></code></a>([n_clusters, max_iter, ...])</p></td>
-<td><p>Implementation of the maximisation of the MMD-OvA GEMINI using a logistic regression as a clustering distribution <img class="math" src="_images/math/b0647485e5b9bc8173d0db93eb8eaf223877cc6b.png" alt="p(y|x)"/>.</p></td>
+<td><p>Implementation of the maximisation of the MMD GEMINI using a logistic regression as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein" title="gemclus.linear.LinearWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.LinearWasserstein</span></code></a>([n_clusters, ...])</p></td>
-<td><p>Implementation of the maximisation of the Wasserstein GEMINI using a logisti regression as a clustering distribution <img class="math" src="_images/math/b0647485e5b9bc8173d0db93eb8eaf223877cc6b.png" alt="p(y|x)"/>.</p></td>
+<td><p>Implementation of the maximisation of the Wasserstein GEMINI using a logistic regression as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.linear.RIM.html#gemclus.linear.RIM" title="gemclus.linear.RIM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.RIM</span></code></a>([n_clusters, max_iter, ...])</p></td>
-<td><p>Implementation of the maximisation of the classical mutual information using a logistic regression with an <img class="math" src="_images/math/dc087f78b39c7a4b25b63ee0c21729bc4cb4f54c.png" alt="\ell_2"/> penalty on the weights.</p></td>
+<td><p>Implementation of the maximisation of the classical mutual information using a logistic regression with an <span class="math">\ell_2</span> penalty on the weights.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.mlp.MLPMMD.html#gemclus.mlp.MLPMMD" title="gemclus.mlp.MLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPMMD</span></code></a>([n_clusters, max_iter, ...])</p></td>
-<td><p>Implementation of the maximisation of the MMD-OvA GEMINI using a two-layer neural network as a clustering distribution <img class="math" src="_images/math/b0647485e5b9bc8173d0db93eb8eaf223877cc6b.png" alt="p(y|x)"/>.</p></td>
+<td><p>Implementation of the maximisation of the MMD GEMINI using a two-layer neural network as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPWasserstein</span></code></a>([n_clusters, max_iter, ...])</p></td>
-<td><p>Implementation of the maximisation of the Wasserstein GEMINI using a two-layer neural network as a clustering distribution <img class="math" src="_images/math/b0647485e5b9bc8173d0db93eb8eaf223877cc6b.png" alt="p(y|x)"/>.</p></td>
+<td><p>Implementation of the maximisation of the Wasserstein GEMINI using a two-layer neural network as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="nonparametric-models">
-<h3>Nonparametric models<a class="headerlink" href="#nonparametric-models" title="Permalink to this heading">¶</a></h3>
+<h3>Nonparametric models<a class="headerlink" href="#nonparametric-models" title="Link to this heading">¶</a></h3>
 <p>These models have parameters that are assigned to the data samples according to their indices. Consequently, the
 parameters do not have any dependence on the location of the samples. Overall, these models can be used to model
 any decision boundary and do not have hyper parameters. However, the underlying distribution cannot be used on
@@ -197,7 +197,7 @@ unseen samples for prediction.</p>
 </table>
 </section>
 <section id="sparse-models">
-<h3>Sparse models<a class="headerlink" href="#sparse-models" title="Permalink to this heading">¶</a></h3>
+<h3>Sparse models<a class="headerlink" href="#sparse-models" title="Link to this heading">¶</a></h3>
 <p>These models can be trained to progressively remove features in the conditional cluster distribution. They are useful
 for selecting a subset of features which may enhance interpretability of clustering.</p>
 <table class="autosummary longtable docutils align-default">
@@ -213,21 +213,21 @@ for selecting a subset of features which may enhance interpretability of cluster
 </section>
 </section>
 <section id="dataset-generation">
-<h2>Dataset generation<a class="headerlink" href="#dataset-generation" title="Permalink to this heading">¶</a></h2>
+<h2>Dataset generation<a class="headerlink" href="#dataset-generation" title="Link to this heading">¶</a></h2>
 <p>This package contains simple functions for generating synthetic datasets.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.data.draw_gmm.html#gemclus.data.draw_gmm" title="gemclus.data.draw_gmm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.draw_gmm</span></code></a>(n, loc, scale, pvals[, ...])</p></td>
-<td><p>Returns <img class="math" src="_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/> samples drawn from a mixture of Gaussian distributions.</p></td>
+<td><p>Returns <span class="math">n</span> samples drawn from a mixture of Gaussian distributions.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.data.multivariate_student_t.html#gemclus.data.multivariate_student_t" title="gemclus.data.multivariate_student_t"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.multivariate_student_t</span></code></a>(n, loc, scale[, ...])</p></td>
-<td><p>Draws <img class="math" src="_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/> samples from a multivariate Student-t distribution.</p></td>
+<td><p>Draws <span class="math">n</span> samples from a multivariate Student-t distribution.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.data.gstm.html#gemclus.data.gstm" title="gemclus.data.gstm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.gstm</span></code></a>([n, alpha, df, random_state])</p></td>
 <td><p>Reproduces the Gaussian-Student Mixture dataset from the GEMINI article.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.data.celeux_one.html#gemclus.data.celeux_one" title="gemclus.data.celeux_one"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.celeux_one</span></code></a>([n, p, mu, random_state])</p></td>
-<td><p>Draws <img class="math" src="_images/math/5a939c5280da7202ca4531f175a7780ad5e1f80a.png" alt="n"/> samples from a Gaussian mixture with 3 isotropic components of respective means 1, 0 and 1 over 5 dimensions scaled by <img class="math" src="_images/math/4a3598141469c2555591e66606a1b86d4ec6dca9.png" alt="\mu"/>.</p></td>
+<td><p>Draws <span class="math">n</span> samples from a Gaussian mixture with 3 isotropic components of respective means 1, 0 and 1 over 5 dimensions scaled by <span class="math">\mu</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.data.celeux_two.html#gemclus.data.celeux_two" title="gemclus.data.celeux_two"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data.celeux_two</span></code></a>([n, random_state])</p></td>
 <td><p>Draws samples from a mixture of 4 Gaussian distributions in 2d with additional variables linearly dependent of the informative variables and non-informative noisy variables.</p></td>
