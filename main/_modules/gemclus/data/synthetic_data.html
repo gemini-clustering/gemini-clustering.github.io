@@ -90,12 +90,12 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">block_diag</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span><span class="p">,</span> <span class="n">check_array</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">validate_params</span><span class="p">,</span> <span class="n">Interval</span>
-
+<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span>
+<span class="kn">from</span> <span class="nn">.._constraints</span> <span class="kn">import</span> <span class="n">constraint_params</span>
 
 <div class="viewcode-block" id="draw_gmm">
 <a class="viewcode-back" href="../../../generated/gemclus.data.draw_gmm.html#gemclus.data.draw_gmm">[docs]</a>
-<span class="nd">@validate_params</span><span class="p">(</span>
+<span class="nd">@constraint_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
@@ -165,7 +165,7 @@
 
 <div class="viewcode-block" id="multivariate_student_t">
 <a class="viewcode-back" href="../../../generated/gemclus.data.multivariate_student_t.html#gemclus.data.multivariate_student_t">[docs]</a>
-<span class="nd">@validate_params</span><span class="p">(</span>
+<span class="nd">@constraint_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">],</span>
@@ -220,7 +220,7 @@
 
 <div class="viewcode-block" id="gstm">
 <a class="viewcode-back" href="../../../generated/gemclus.data.gstm.html#gemclus.data.gstm">[docs]</a>
-<span class="nd">@validate_params</span><span class="p">(</span>
+<span class="nd">@constraint_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)],</span>
@@ -287,7 +287,7 @@
 
 <div class="viewcode-block" id="celeux_one">
 <a class="viewcode-back" href="../../../generated/gemclus.data.celeux_one.html#gemclus.data.celeux_one">[docs]</a>
-<span class="nd">@validate_params</span><span class="p">(</span>
+<span class="nd">@constraint_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
@@ -345,7 +345,7 @@
 
 <div class="viewcode-block" id="celeux_two">
 <a class="viewcode-back" href="../../../generated/gemclus.data.celeux_two.html#gemclus.data.celeux_two">[docs]</a>
-<span class="nd">@validate_params</span><span class="p">(</span>
+<span class="nd">@constraint_params</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;random_state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;random_state&quot;</span><span class="p">]</span>
