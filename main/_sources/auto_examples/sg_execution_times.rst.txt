@@ -6,26 +6,18 @@
 
 Computation times
 =================
-**21:21.794** total execution time for **auto_examples** files:
+**00:27.309** total execution time for **auto_examples** files:
 
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_feature_selection_mlp.py` (``plot_feature_selection_mlp.py``)       | 11:14.166 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_gstm.py` (``plot_gstm.py``)                                         | 00:09.219 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_grouped_selection.py` (``plot_grouped_selection.py``)               | 09:10.887 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_moon_clustering.py` (``plot_moon_clustering.py``)                   | 00:08.372 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_feature_selection_linear.py` (``plot_feature_selection_linear.py``) | 00:27.864 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_graph_node_clustering.py` (``plot_graph_node_clustering.py``)       | 00:08.129 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_gstm.py` (``plot_gstm.py``)                                         | 00:09.772 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_intro_mlp_mmd.py` (``plot_intro_mlp_mmd.py``)                       | 00:00.819 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_moon_clustering.py` (``plot_moon_clustering.py``)                   | 00:08.246 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_nonparametric_clustering.py` (``plot_nonparametric_clustering.py``) | 00:00.400 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_graph_node_clustering.py` (``plot_graph_node_clustering.py``)       | 00:07.893 | 0.0 MB |
-+-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_gemini_scoring.py` (``plot_gemini_scoring.py``)                     | 00:01.389 | 0.0 MB |
-+-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_intro_mlp_mmd.py` (``plot_intro_mlp_mmd.py``)                       | 00:00.873 | 0.0 MB |
-+-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_nonparametric_clustering.py` (``plot_nonparametric_clustering.py``) | 00:00.373 | 0.0 MB |
-+-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_rim.py` (``plot_rim.py``)                                           | 00:00.331 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_rim.py` (``plot_rim.py``)                                           | 00:00.369 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+

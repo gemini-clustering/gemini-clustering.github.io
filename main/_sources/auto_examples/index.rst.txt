@@ -1,11 +1,13 @@
 :orphan:
 
-.. _general_examples:
-
 General examples
 ================
 
 We give here some examples on how to use our base model with GEMINI.
+
+Discriminative clustering
+-------------------------
+
 
 
 .. raw:: html
@@ -66,23 +68,6 @@ We give here some examples on how to use our base model with GEMINI.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_feature_selection_linear_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_plot_feature_selection_linear.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvO (Logistic regression)</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find...">
 
 .. only:: html
@@ -117,40 +102,6 @@ We give here some examples on how to use our base model with GEMINI.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no...">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_gemini_scoring_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_plot_gemini_scoring.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
-    </div>
-
-
-.. raw:: html
-
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_grouped_selection_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_plot_grouped_selection.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Grouped Feature selection with a linear model</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="We create here a random graph by following a simplified version of the Latent Position Model ge...">
 
 .. only:: html
@@ -168,14 +119,73 @@ We give here some examples on how to use our base model with GEMINI.
 
 .. raw:: html
 
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_intro_mlp_mmd
+   /auto_examples/plot_nonparametric_clustering
+   /auto_examples/plot_gstm
+   /auto_examples/plot_moon_clustering
+   /auto_examples/plot_rim
+   /auto_examples/plot_graph_node_clustering
+
+
+Feature selection
+-----------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
+
+.. only:: html
+
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_plot_feature_selection_linear_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_linear.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvO (Logistic regression)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
+
+.. only:: html
+
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_plot_grouped_selection_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_feature_selection_plot_grouped_selection.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Grouped Feature selection with a linear model</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseMLPMMD to perform a path where the regularisat...">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_feature_selection_mlp_thumb.png
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_plot_feature_selection_mlp_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_feature_selection_mlp.py`
+  :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_mlp.py`
 
 .. raw:: html
 
@@ -187,20 +197,44 @@ We give here some examples on how to use our base model with GEMINI.
 
     </div>
 
+Scoring with GEMINI
+-------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no...">
+
+.. only:: html
+
+  .. image:: /auto_examples/scoring/images/thumb/sphx_glr_plot_gemini_scoring_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
 
 .. toctree::
    :hidden:
+   :includehidden:
 
-   /auto_examples/plot_intro_mlp_mmd
-   /auto_examples/plot_nonparametric_clustering
-   /auto_examples/plot_gstm
-   /auto_examples/plot_feature_selection_linear
-   /auto_examples/plot_moon_clustering
-   /auto_examples/plot_rim
-   /auto_examples/plot_gemini_scoring
-   /auto_examples/plot_grouped_selection
-   /auto_examples/plot_graph_node_clustering
-   /auto_examples/plot_feature_selection_mlp
+
+   /auto_examples/feature_selection/index.rst
+   /auto_examples/scoring/index.rst
 
 
 .. only:: html

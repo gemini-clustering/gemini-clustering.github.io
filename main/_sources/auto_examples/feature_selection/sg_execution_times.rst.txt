@@ -1,0 +1,17 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_feature_selection_sg_execution_times:
+
+
+Computation times
+=================
+**00:39.107** total execution time for **auto_examples_feature_selection** files:
+
++-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_linear.py` (``plot_feature_selection_linear.py``) | 00:28.377 | 0.0 MB |
++-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_mlp.py` (``plot_feature_selection_mlp.py``)       | 00:06.431 | 0.0 MB |
++-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_feature_selection_plot_grouped_selection.py` (``plot_grouped_selection.py``)               | 00:04.299 | 0.0 MB |
++-------------------------------------------------------------------------------------------------------------------------+-----------+--------+
