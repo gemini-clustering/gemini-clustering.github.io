@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.tree`.Douglas
+==================================
+
+.. currentmodule:: gemclus.tree
+
+.. autoclass:: Douglas
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.tree.Douglas.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

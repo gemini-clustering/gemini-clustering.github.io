@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse._linear_sparse &mdash; gemclus 0.1.1 documentation</title>
+  <title>gemclus.sparse._linear_sparse &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../../../_static/documentation_options.js?v=938c9ccc"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
@@ -35,7 +35,7 @@
             gemclus
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -85,6 +85,7 @@
              
   <h1>Source code for gemclus.sparse._linear_sparse</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.._base_gemini</span> <span class="kn">import</span> <span class="n">_BaseMMD</span>
+<span class="kn">from</span> <span class="nn">..gemini</span> <span class="kn">import</span> <span class="n">MI</span>
 <span class="kn">from</span> <span class="nn">..sparse._base_sparse</span> <span class="kn">import</span> <span class="n">_SparseLinearGEMINI</span>
 
 
@@ -103,7 +104,7 @@
 
 <span class="sd">    groups: list of arrays of various shapes, default=None</span>
 <span class="sd">        if groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
-<span class="sd">        variable selection with groups of features considered to represent one variables. This option can typically be</span>
+<span class="sd">        variable selection with groups of features considered to represent one variable. This option can typically be</span>
 <span class="sd">        used for one-hot-encoded variables.</span>
 <span class="sd">        </span>
 <span class="sd">    max_iter: int, default=1000</span>
@@ -158,12 +159,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    GEMINI - Generalised Mutual Information for Discriminative Clustering</span>
 <span class="sd">        Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,</span>
-<span class="sd">        Arnaud Droit, Frederic Preciosio</span>
-<span class="sd">    LassoNet architecture - LassoNet: A Neural Network with Feature Sparsity.</span>
-<span class="sd">        Lemhadri, I., Ruan, F., Abraham, L., &amp; Tibshirani, R.</span>
+<span class="sd">        Arnaud Droit, Frederic Precioso</span>
 <span class="sd">    Sparse GEMINI - Sparse GEMINI for joint discriminative clustering and feature selection</span>
 <span class="sd">        Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Mickaël Leclercq,</span>
-<span class="sd">        Arnaud Droit, Frederic Preciosio</span>
+<span class="sd">        Arnaud Droit, Frederic Precioso</span>
 
 
 <span class="sd">    See Also</span>
@@ -216,6 +215,112 @@
                           <span class="p">)</span></div>
 </div>
 
+
+
+<span class="k">class</span> <span class="nc">SparseLinearMI</span><span class="p">(</span><span class="n">_SparseLinearGEMINI</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the Sparse version of the logistic regression trained with mutual information for clustering.</span>
+
+<span class="sd">    On top of the vanilla logistic regression model, this variation brings a group-lasso penalty constraint to ensure</span>
+<span class="sd">    feature selection via a proximal gradient during training. The objective function is the mutual information.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_clusters : int, default=3</span>
+<span class="sd">        The maximum number of clusters to form as well as the number of output neurons in the neural network.</span>
+
+<span class="sd">    groups: list of arrays of various shapes, default=None</span>
+<span class="sd">        if groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
+<span class="sd">        variable selection with groups of features considered to represent one variable. This option can typically be</span>
+<span class="sd">        used for one-hot-encoded variables.</span>
+
+<span class="sd">    max_iter: int, default=1000</span>
+<span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
+
+<span class="sd">    learning_rate: float, default=1e-3</span>
+<span class="sd">        Initial learning rate used. It controls the step-size in updating the weights.</span>
+
+<span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
+<span class="sd">        The solver for weight optimisation.</span>
+
+<span class="sd">        - &#39;sgd&#39; refers to stochastic gradient descent.</span>
+<span class="sd">        - &#39;adam&#39; refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</span>
+
+<span class="sd">    alpha: float, default=1e-2</span>
+<span class="sd">        The weight of the group-lasso penalty in the optimisation scheme.</span>
+
+<span class="sd">    batch_size: int, default=None</span>
+<span class="sd">        The size of batches during gradient descent training. If set to None, the whole data will be considered.</span>
+
+<span class="sd">    verbose: bool, default=False</span>
+<span class="sd">        Whether to print progress messages to stdout</span>
+
+<span class="sd">    random_state: int, RandomState instance, default=None</span>
+<span class="sd">        Determines random number generation for weights and bias initialisation.</span>
+<span class="sd">        Pass an int for reproducible results across multiple function calls.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    W_: ndarray of shape (n_features, n_clusters)</span>
+<span class="sd">        The linear weights of model</span>
+<span class="sd">    b_: ndarray of shape (1, n_clusters)</span>
+<span class="sd">        The biases of the model</span>
+<span class="sd">    optimiser_: `AdamOptimizer` or `SGDOptimizer`</span>
+<span class="sd">        The optimisation algorithm used for training depending on the chosen solver parameter.</span>
+<span class="sd">    labels_: ndarray of shape (n_samples)</span>
+<span class="sd">        The labels that were assigned to the samples passed to the :meth:`fit` method.</span>
+<span class="sd">    n_iter_: int</span>
+<span class="sd">        The number of iterations that the model took for converging.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    GEMINI - Generalised Mutual Information for Discriminative Clustering</span>
+<span class="sd">        Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,</span>
+<span class="sd">        Arnaud Droit, Frederic Precioso</span>
+<span class="sd">    Sparse GEMINI - Sparse GEMINI for joint discriminative clustering and feature selection</span>
+<span class="sd">        Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Mickaël Leclercq,</span>
+<span class="sd">        Arnaud Droit, Frederic Precioso</span>
+<span class="sd">    Sparse MI logistic regression - Discriminative Clustering and Feature Selection for Brain MRI Segmentation</span>
+<span class="sd">        Youyong Kong, Yue Deng, Qionghai Dai</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    SparseMLPMMD: sparse two-layer neural network trained for clustering with the MMD GEMINI</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from sklearn.datasets import load_iris</span>
+<span class="sd">    &gt;&gt;&gt; from gemclus.sparse import SparseLinearMI</span>
+<span class="sd">    &gt;&gt;&gt; X,y=load_iris(return_X_y=True)</span>
+<span class="sd">    &gt;&gt;&gt; clf = SparseLinearMI(random_state=0).fit(X)</span>
+<span class="sd">    &gt;&gt;&gt; clf.predict(X[:2,:])</span>
+<span class="sd">    array([0, 0])</span>
+<span class="sd">    &gt;&gt;&gt; clf.predict_proba(X[:2,:]).shape</span>
+<span class="sd">    (2, 3)</span>
+<span class="sd">    &gt;&gt;&gt; clf.score(X)</span>
+<span class="sd">    1.6940342321220005</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="n">_SparseLinearGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">_SparseLinearGEMINI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                     <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
+                                     <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span>
+                                     <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+                                     <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+                                     <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
+                                     <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                     <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+                                     <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+                                     <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+                                     <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MI</span><span class="p">()</span>
 </pre></div>
 
            </div>

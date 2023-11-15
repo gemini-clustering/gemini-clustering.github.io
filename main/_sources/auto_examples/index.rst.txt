@@ -179,6 +179,23 @@ Feature selection
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMI to perform a path where the regularis...">
+
+.. only:: html
+
+  .. image:: /auto_examples/feature_selection/images/thumb/sphx_glr_plot_feature_selection_logreg_mi_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_logreg_mi.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse Linear MI (Logistic regression)</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
 
 .. only:: html
@@ -208,6 +225,36 @@ Feature selection
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvA (MLP)</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+Consensus clustering
+---------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how to:">
+
+.. only:: html
+
+  .. image:: /auto_examples/mlcl/images/thumb/sphx_glr_plot_semi_supervised_consensus_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_mlcl_plot_semi_supervised_consensus.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Consensus clustering with linking constraints on sample pairs</div>
     </div>
 
 
@@ -245,6 +292,53 @@ Scoring with GEMINI
 
     </div>
 
+Trees
+------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example shows how to use the Douglas tree for a dataset with few features.">
+
+.. only:: html
+
+  .. image:: /auto_examples/trees/images/thumb/sphx_glr_plot_douglas_example_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Building a differentiable unsupervised tree: DOUGLAS</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We show here how to obtain two different decision trees for clustering using two different kern...">
+
+.. only:: html
+
+  .. image:: /auto_examples/trees/images/thumb/sphx_glr_plot_kauri_example_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Building an unsupervised tree with kernel-kmeans objective: KAURI</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
 
 .. toctree::
    :hidden:
@@ -252,7 +346,9 @@ Scoring with GEMINI
 
 
    /auto_examples/feature_selection/index.rst
+   /auto_examples/mlcl/index.rst
    /auto_examples/scoring/index.rst
+   /auto_examples/trees/index.rst
 
 
 .. only:: html

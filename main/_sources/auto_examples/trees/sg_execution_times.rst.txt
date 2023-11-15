@@ -1,0 +1,15 @@
+
+:orphan:
+
+.. _sphx_glr_auto_examples_trees_sg_execution_times:
+
+
+Computation times
+=================
+**00:07.418** total execution time for **auto_examples_trees** files:
+
++-------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py` (``plot_douglas_example.py``) | 00:07.204 | 0.0 MB |
++-------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py` (``plot_kauri_example.py``)     | 00:00.214 | 0.0 MB |
++-------------------------------------------------------------------------------------------+-----------+--------+

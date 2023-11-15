@@ -6,8 +6,8 @@
 
 Computation times
 =================
-**00:00.880** total execution time for **auto_examples_scoring** files:
+**00:00.929** total execution time for **auto_examples_scoring** files:
 
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``plot_gemini_scoring.py``) | 00:00.880 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``plot_gemini_scoring.py``) | 00:00.929 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+

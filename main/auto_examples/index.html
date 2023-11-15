@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>General examples &mdash; gemclus 0.1.1 documentation</title>
+  <title>General examples &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/js/copybutton.js?v=26522df0"></script>
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -71,9 +71,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#feature-selection">Feature selection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scoring-with-gemini">Scoring with GEMINI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#consensus-clustering">Consensus clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scoring-with-gemini">Scoring with GEMINI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trees">Trees</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="feature_selection/index.html">Feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlcl/index.html">Consensus clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scoring/index.html">Scoring with GEMINI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trees/index.html">Trees</a></li>
 </ul>
 </li>
 </ul>
@@ -138,6 +142,9 @@
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_linear_thumb.png" />
 <p><a class="reference internal" href="feature_selection/plot_feature_selection_linear.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-linear-py"><span class="std std-ref">Feature selection using the Sparse MMD OvO (Logistic regression)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvO (Logistic regression)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMI to perform a path where the regularis..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_logreg_mi_thumb.png" />
+<p><a class="reference internal" href="feature_selection/plot_feature_selection_logreg_mi.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-logreg-mi-py"><span class="std std-ref">Feature selection using the Sparse Linear MI (Logistic regression)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse Linear MI (Logistic regression)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_grouped_selection_thumb.png" />
 <p><a class="reference internal" href="feature_selection/plot_grouped_selection.html#sphx-glr-auto-examples-feature-selection-plot-grouped-selection-py"><span class="std std-ref">Grouped Feature selection with a linear model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Grouped Feature selection with a linear model</div>
@@ -145,11 +152,26 @@
 <p><a class="reference internal" href="feature_selection/plot_feature_selection_mlp.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-mlp-py"><span class="std std-ref">Feature selection using the Sparse MMD OvA (MLP)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvA (MLP)</div>
 </div></div></section>
+<section id="consensus-clustering">
+<h2>Consensus clustering<a class="headerlink" href="#consensus-clustering" title="Link to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="We show in this example how to:"><img alt="" src="../_images/sphx_glr_plot_semi_supervised_consensus_thumb.png" />
+<p><a class="reference internal" href="mlcl/plot_semi_supervised_consensus.html#sphx-glr-auto-examples-mlcl-plot-semi-supervised-consensus-py"><span class="std std-ref">Consensus clustering with linking constraints on sample pairs</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Consensus clustering with linking constraints on sample pairs</div>
+</div></div></section>
 <section id="scoring-with-gemini">
 <h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no..."><img alt="" src="../_images/sphx_glr_plot_gemini_scoring_thumb.png" />
 <p><a class="reference internal" href="scoring/plot_gemini_scoring.html#sphx-glr-auto-examples-scoring-plot-gemini-scoring-py"><span class="std std-ref">Scoring any model with GEMINI</span></a></p>
   <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
+</div></div></section>
+<section id="trees">
+<h2>Trees<a class="headerlink" href="#trees" title="Link to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to use the Douglas tree for a dataset with few features."><img alt="" src="../_images/sphx_glr_plot_douglas_example_thumb.png" />
+<p><a class="reference internal" href="trees/plot_douglas_example.html#sphx-glr-auto-examples-trees-plot-douglas-example-py"><span class="std std-ref">Building a differentiable unsupervised tree: DOUGLAS</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Building a differentiable unsupervised tree: DOUGLAS</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="We show here how to obtain two different decision trees for clustering using two different kern..."><img alt="" src="../_images/sphx_glr_plot_kauri_example_thumb.png" />
+<p><a class="reference internal" href="trees/plot_kauri_example.html#sphx-glr-auto-examples-trees-plot-kauri-example-py"><span class="std std-ref">Building an unsupervised tree with kernel-kmeans objective: KAURI</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Building an unsupervised tree with kernel-kmeans objective: KAURI</div>
 </div></div><div class="toctree-wrapper compound">
 </div>
 <div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">

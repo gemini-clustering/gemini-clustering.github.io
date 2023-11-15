@@ -1,0 +1,12 @@
+﻿:mod:`gemclus.tree`.print_kauri_tree
+=================================================
+
+.. currentmodule:: gemclus.tree
+
+.. autofunction:: print_kauri_tree
+
+.. include:: gemclus.tree.print_kauri_tree.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
