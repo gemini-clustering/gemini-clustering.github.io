@@ -159,8 +159,8 @@ Take a look at how our features are distributed
  .. code-block:: none
 
     Selected features: [0 1 2 3 4 5 6]
-    The model score is 1.4323062818447518
-    Top gemini score was 0.8434561566009591, which settles an optimum of 0.6747649252807673
+    The model score is 1.4935152433868388
+    Top gemini score was 0.8084378363828286, which settles an optimum of 0.646750269106263
 
 
 
@@ -168,7 +168,7 @@ Take a look at how our features are distributed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 4.042 seconds)
+   **Total running time of the script:** (0 minutes 2.828 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_plot_grouped_selection.py:

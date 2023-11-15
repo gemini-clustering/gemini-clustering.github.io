@@ -6,10 +6,10 @@
 
 Computation times
 =================
-**00:06.772** total execution time for **auto_examples_trees** files:
+**00:05.155** total execution time for **auto_examples_trees** files:
 
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py` (``plot_douglas_example.py``) | 00:06.610 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py` (``plot_douglas_example.py``) | 00:05.027 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py` (``plot_kauri_example.py``)     | 00:00.163 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py` (``plot_kauri_example.py``)     | 00:00.128 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+

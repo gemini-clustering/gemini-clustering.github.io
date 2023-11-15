@@ -121,7 +121,8 @@ logistic regression models in case you want a simpler decision boundary.</p>
 adds a linear skip connection between the inputs and clustering output. Note that there is as well a more simple
 logistic regression model with group-lasso penalty to induce sparsity with <a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code></a>.</p>
 <p>If you want to use another model, you can derive one of the <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseMMD</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseWasserstein</span></code>
-classes and rewrite their hidden method <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code> and <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code>.</p>
+classes and rewrite their hidden method <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code> and <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code>. An example
+of extension is given <a class="reference external" href="auto_examples/plot_custom_model.html">Here</a></p>
 </section>
 </section>
 <section id="basic-examples">

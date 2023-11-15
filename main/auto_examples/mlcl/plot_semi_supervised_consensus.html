@@ -160,10 +160,10 @@ can go together or not.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sub-model ARI: &quot;</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score" title="sklearn.metrics.adjusted_rand_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span></a><span class="p">(</span><a href="../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.predict" title="gemclus.linear.LinearMMD.predict" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-method"><span class="n">model</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Sub-model ARI:  0.12303001585156739
-Sub-model ARI:  0.1283284165744985
-Sub-model ARI:  0.12182895336472732
-Sub-model ARI:  0.2306942272279108
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Sub-model ARI:  0.11914066061963555
+Sub-model ARI:  0.11176053892324672
+Sub-model ARI:  0.11421905413971052
+Sub-model ARI:  0.22472124150185058
 </pre></div>
 </div>
 </section>
@@ -195,7 +195,7 @@ superfluous</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consensus ARI: &quot;</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score" title="sklearn.metrics.adjusted_rand_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred_consensus</span></a><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Consensus ARI:  0.0874162803551509
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Consensus ARI:  0.10728640074310927
 </pre></div>
 </div>
 </section>
@@ -240,7 +240,7 @@ such knowledge.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ARI of constrained consensus: &quot;</span><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score" title="sklearn.metrics.adjusted_rand_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred_mlcl_consensus</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI of constrained consensus:  0.31701486004565943
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI of constrained consensus:  0.16976700304809886
 </pre></div>
 </div>
 </section>
@@ -251,7 +251,7 @@ such knowledge.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_semi_supervised_consensus_001.png" srcset="../../_images/sphx_glr_plot_semi_supervised_consensus_001.png" alt="plot semi supervised consensus" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.555 seconds)</p>
+<img src="../../_images/sphx_glr_plot_semi_supervised_consensus_001.png" srcset="../../_images/sphx_glr_plot_semi_supervised_consensus_001.png" alt="plot semi supervised consensus" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.144 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-mlcl-plot-semi-supervised-consensus-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/857018b304f4b7c5697327095e699fb7/plot_semi_supervised_consensus.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_semi_supervised_consensus.py</span></code></a></p>

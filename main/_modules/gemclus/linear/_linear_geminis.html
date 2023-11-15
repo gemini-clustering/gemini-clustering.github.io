@@ -133,7 +133,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">((</span><span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span>
         <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 
 

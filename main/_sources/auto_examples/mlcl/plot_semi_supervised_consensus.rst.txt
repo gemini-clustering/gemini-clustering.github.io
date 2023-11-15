@@ -112,10 +112,10 @@ Multiple model clustering
 
  .. code-block:: none
 
-    Sub-model ARI:  0.12303001585156739
-    Sub-model ARI:  0.1283284165744985
-    Sub-model ARI:  0.12182895336472732
-    Sub-model ARI:  0.2306942272279108
+    Sub-model ARI:  0.11914066061963555
+    Sub-model ARI:  0.11176053892324672
+    Sub-model ARI:  0.11421905413971052
+    Sub-model ARI:  0.22472124150185058
 
 
 
@@ -177,7 +177,7 @@ superfluous
 
  .. code-block:: none
 
-    Consensus ARI:  0.0874162803551509
+    Consensus ARI:  0.10728640074310927
 
 
 
@@ -254,7 +254,7 @@ We start over with the same model for consensus
 
  .. code-block:: none
 
-    ARI of constrained consensus:  0.31701486004565943
+    ARI of constrained consensus:  0.16976700304809886
 
 
 
@@ -287,7 +287,7 @@ Plotting the consensus matrix
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 8.555 seconds)
+   **Total running time of the script:** (0 minutes 8.144 seconds)
 
 
 .. _sphx_glr_download_auto_examples_mlcl_plot_semi_supervised_consensus.py:
