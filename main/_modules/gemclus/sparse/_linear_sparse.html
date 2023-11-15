@@ -217,6 +217,8 @@
 
 
 
+<div class="viewcode-block" id="SparseLinearMI">
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI">[docs]</a>
 <span class="k">class</span> <span class="nc">SparseLinearMI</span><span class="p">(</span><span class="n">_SparseLinearGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the Sparse version of the logistic regression trained with mutual information for clustering.</span>
 
@@ -305,6 +307,8 @@
         <span class="o">**</span><span class="n">_SparseLinearGEMINI</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
     <span class="p">}</span>
 
+<div class="viewcode-block" id="SparseLinearMI.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
                  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">_SparseLinearGEMINI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -317,10 +321,15 @@
                                      <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
                                      <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
                                      <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
-                                     <span class="p">)</span>
+                                     <span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="SparseLinearMI.get_gemini">
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI.get_gemini">[docs]</a>
     <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">MI</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">MI</span><span class="p">()</span></div>
+</div>
+
 </pre></div>
 
            </div>

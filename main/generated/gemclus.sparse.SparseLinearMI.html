@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse.SparseMLPMMD &mdash; gemclus 0.2.0 documentation</title>
+  <title>gemclus.sparse.SparseLinearMI &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gemclus.tree.Kauri" href="gemclus.tree.Kauri.html" />
-    <link rel="prev" title="gemclus.sparse.SparseLinearMMD" href="gemclus.sparse.SparseLinearMMD.html" /> 
+    <link rel="next" title="gemclus.sparse.SparseLinearMMD" href="gemclus.sparse.SparseLinearMMD.html" />
+    <link rel="prev" title="gemclus.nonparametric.CategoricalWasserstein" href="gemclus.nonparametric.CategoricalWasserstein.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,9 +61,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../api.html#dense-models">Dense models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#nonparametric-models">Nonparametric models</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMMD</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseMLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#tree-models">Tree models</a></li>
@@ -94,9 +94,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../api.html">GEMCLUS API</a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generated/gemclus.sparse.SparseMLPMMD.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/generated/gemclus.sparse.SparseLinearMI.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -104,38 +104,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="gemclus-sparse-sparsemlpmmd">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD<a class="headerlink" href="#gemclus-sparse-sparsemlpmmd" title="Link to this heading">¶</a></h1>
+  <section id="gemclus-sparse-sparselinearmi">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI<a class="headerlink" href="#gemclus-sparse-sparselinearmi" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.sparse.</span></span><span class="sig-name descname"><span class="pre">SparseMLPMMD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD" title="Link to this definition">¶</a></dt>
-<dd><p>This is the Sparse Version of the MLP MMD model.</p>
-<p>On top of the vanilla MLP GEMINI model, this variation brings a skip connection from the data to the cluster
-output. This skip connection ensures a sparsity constraint through a group-lasso penalty and a proximal gradient
-that eliminates input features as well in the first layer of the MLP.</p>
-<p>This architecture is inspired from LassoNet by Lemhadri et al (2021).</p>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.sparse.</span></span><span class="sig-name descname"><span class="pre">SparseLinearMI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_linear_sparse.html#SparseLinearMI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseLinearMI" title="Link to this definition">¶</a></dt>
+<dd><p>This is the Sparse version of the logistic regression trained with mutual information for clustering.</p>
+<p>On top of the vanilla logistic regression model, this variation brings a group-lasso penalty constraint to ensure
+feature selection via a proximal gradient during training. The objective function is the mutual information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>n_clusters</strong><span class="classifier">int, default=3</span></dt><dd><p>The maximum number of clusters to form as well as the number of output neurons in the neural network.</p>
 </dd>
 <dt><strong>groups: list of arrays of various shapes, default=None</strong></dt><dd><p>if groups is set, it must describe a partition of the indices of variables. This will be used for performing
-variable selection with groups of features considered to represent one variables. This option can typically be
+variable selection with groups of features considered to represent one variable. This option can typically be
 used for one-hot-encoded variables.</p>
 </dd>
 <dt><strong>max_iter: int, default=1000</strong></dt><dd><p>Maximum number of epochs to perform gradient descent in a single run.</p>
 </dd>
 <dt><strong>learning_rate: float, default=1e-3</strong></dt><dd><p>Initial learning rate used. It controls the step-size in updating the weights.</p>
-</dd>
-<dt><strong>n_hidden_dim: int, default=20</strong></dt><dd><p>The number of neurons in the hidden layer of the neural network.</p>
-</dd>
-<dt><strong>kernel: {‘additive_chi2’, ‘chi2’, ‘cosine’,’linear’,’poly’,’polynomial’,’rbf’,’laplacian’,’sigmoid’, ‘precomputed’},</strong></dt><dd><p>default=’linear’
-The kernel to use in combination with the MMD objective. It corresponds to one value of <cite>KERNEL_PARAMS</cite>.
-Currently, all kernel parameters are the default ones.
-If the kernel is set to ‘precomputed’, then a custom kernel matrix must be passed to the argument <cite>y</cite> of
-<cite>fit</cite>, <cite>fit_predict</cite> and/or <cite>score</cite>.</p>
-</dd>
-<dt><strong>ovo: bool, default=False</strong></dt><dd><p>Whether to run the model using the MMD OvA (False) or the MMD OvO (True).</p>
 </dd>
 <dt><strong>solver: {‘sgd’,’adam’}, default=’adam’</strong></dt><dd><p>The solver for weight optimisation.</p>
 <ul class="simple">
@@ -144,8 +132,6 @@ If the kernel is set to ‘precomputed’, then a custom kernel matrix must be p
 </ul>
 </dd>
 <dt><strong>alpha: float, default=1e-2</strong></dt><dd><p>The weight of the group-lasso penalty in the optimisation scheme.</p>
-</dd>
-<dt><strong>M: float, default=10 The hierarchy coefficient that controls the relative strength between the group-lasso</strong></dt><dd><p>penalty of the skip connection and the sparsity of the first layer of the MLP.</p>
 </dd>
 <dt><strong>batch_size: int, default=None</strong></dt><dd><p>The size of batches during gradient descent training. If set to None, the whole data will be considered.</p>
 </dd>
@@ -160,7 +146,7 @@ Pass an int for reproducible results across multiple function calls.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><a class="reference internal" href="gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseLinearMMD</span></code></a></dt><dd><p>sparse logistic regression trained for clustering with the MMD GEMINI</p>
+<dt><a class="reference internal" href="gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseMLPMMD</span></code></a></dt><dd><p>sparse two-layer neural network trained for clustering with the MMD GEMINI</p>
 </dd>
 </dl>
 </div>
@@ -169,57 +155,49 @@ Pass an int for reproducible results across multiple function calls.</p>
 <dt>GEMINI - Generalised Mutual Information for Discriminative Clustering</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,
 Arnaud Droit, Frederic Precioso</p>
 </dd>
-<dt>LassoNet architecture - LassoNet: A Neural Network with Feature Sparsity.</dt><dd><p>Lemhadri, I., Ruan, F., Abraham, L., &amp; Tibshirani, R.</p>
-</dd>
 <dt>Sparse GEMINI - Sparse GEMINI for joint discriminative clustering and feature selection</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Mickaël Leclercq,
 Arnaud Droit, Frederic Precioso</p>
+</dd>
+<dt>Sparse MI logistic regression - Discriminative Clustering and Feature Selection for Brain MRI Segmentation</dt><dd><p>Youyong Kong, Yue Deng, Qionghai Dai</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gemclus.sparse</span> <span class="kn">import</span> <span class="n">SparseMLPMMD</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gemclus.sparse</span> <span class="kn">import</span> <span class="n">SparseLinearMI</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">SparseMLPMMD</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">SparseLinearMI</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span>
 <span class="go">array([0, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="go">1.766421183641077</span>
+<span class="go">1.6940342321220005</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>W1_: ndarray, shape (n_features, n_hidden_dim)</strong></dt><dd><p>The linear weights of the first layer</p>
+<dt><strong>W_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
 </dd>
-<dt><strong>b1_: ndarray of shape (1, n_hidden_dim)</strong></dt><dd><p>The biases of the first layer</p>
-</dd>
-<dt><strong>W2_: ndarray of shape (n_hidden_dim, n_clusters)</strong></dt><dd><p>The linear weights of the hidden layer</p>
-</dd>
-<dt><strong>b2_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the hidden layer</p>
-</dd>
-<dt><strong>W_skip_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of the skip connection</p>
+<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
 </dd>
 <dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
 </dd>
-<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.sparse.SparseMLPMMD.fit" title="gemclus.sparse.SparseMLPMMD.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
+<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.sparse.SparseLinearMI.fit" title="gemclus.sparse.SparseLinearMI.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
 </dd>
 <dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
 </dd>
-<dt><strong>H_: ndarray of shape (n_samples, n_hidden_dim)</strong></dt><dd><p>The hidden representation of the samples after fitting.</p>
-</dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPMMD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.__init__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_linear_sparse.html#SparseLinearMI.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.fit" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.fit" title="Link to this definition">¶</a></dt>
 <dd><p>Compute GEMINI clustering.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -241,8 +219,8 @@ construction. Otherwise, it is not used and present here for API consistency by 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.fit_predict">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.fit_predict" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.fit_predict">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.fit_predict" title="Link to this definition">¶</a></dt>
 <dd><p>Compute GEMINI clustering and returns the predicted clusters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -264,8 +242,8 @@ construction. Otherwise, it is not used and present here for API consistency by 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_gemini">
-<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_gemini" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.get_gemini">
+<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_linear_sparse.html#SparseLinearMI.get_gemini"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.get_gemini" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise a <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance that will be used to train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -277,8 +255,8 @@ construction. Otherwise, it is not used and present here for API consistency by 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_params">
-<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_params" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.get_params" title="Link to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -298,8 +276,8 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.get_selection">
-<span class="sig-name descname"><span class="pre">get_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.get_selection" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.get_selection">
+<span class="sig-name descname"><span class="pre">get_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.get_selection" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves the indices of features that were selected by the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -312,8 +290,8 @@ contained subobjects that are estimators.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.path">
-<span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restore_best_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.path" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.path">
+<span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restore_best_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.path" title="Link to this definition">¶</a></dt>
 <dd><p>Unfold the progressive geometric increase of the penalty weight starting from the initial alpha until
 there remains only a specified amount of features.</p>
 <p>The history of the different gemini scores are kept as well as the best weights with minimum of features
@@ -344,7 +322,7 @@ group-lasso penalty before stopping the current step.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>best_weights: list of ndarray of various shapes of length 5</dt><dd><p>The list containing the best weights during the path. Sequentially: <cite>W1_</cite>, <cite>W2_</cite>, <cite>W_skip_</cite>, <cite>b1_</cite>, <cite>b2_</cite></p>
+<dt>best_weights: list of ndarray of various shapes of length 5</dt><dd><p>The list containing the best weights during the path. Sequentially: <cite>W_</cite>, <cite>b_</cite></p>
 </dd>
 <dt>geminis: list of float of length T</dt><dd><p>The history of the gemini scores as the penalty alpha was increased.</p>
 </dd>
@@ -360,8 +338,8 @@ group-lasso penalty before stopping the current step.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.predict" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.predict" title="Link to this definition">¶</a></dt>
 <dd><p>Return the cluster membership of samples. This can only be called after the model was fit to some data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -381,8 +359,8 @@ seen during fit.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.predict_proba">
-<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.predict_proba" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.predict_proba" title="Link to this definition">¶</a></dt>
 <dd><p>Probability estimates that are the output of the neural network p(y|x).
 The returned estimates for all classes are ordered by the
 label of classes.</p>
@@ -404,8 +382,8 @@ label of classes.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.score">
-<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.score" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.score" title="Link to this definition">¶</a></dt>
 <dd><p>Return the value of the GEMINI evaluated on the given test data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -427,8 +405,8 @@ construction. Otherwise, it is not used and present here for API consistency by 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPMMD.set_params">
-<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPMMD.set_params" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMI.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMI.set_params" title="Link to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
@@ -452,11 +430,11 @@ possible to update each component of a nested object.</p>
 
 </dd></dl>
 
-<section id="examples-using-gemclus-sparse-sparsemlpmmd">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.sparse.SparseMLPMMD</span></code><a class="headerlink" href="#examples-using-gemclus-sparse-sparsemlpmmd" title="Link to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseMLPMMD to perform a path where the regularisat..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_mlp_thumb.png" />
-<p><a class="reference internal" href="../auto_examples/feature_selection/plot_feature_selection_mlp.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-mlp-py"><span class="std std-ref">Feature selection using the Sparse MMD OvA (MLP)</span></a></p>
-  <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvA (MLP)</div>
+<section id="examples-using-gemclus-sparse-sparselinearmi">
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMI</span></code><a class="headerlink" href="#examples-using-gemclus-sparse-sparselinearmi" title="Link to this heading">¶</a></h2>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMI to perform a path where the regularis..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_logreg_mi_thumb.png" />
+<p><a class="reference internal" href="../auto_examples/feature_selection/plot_feature_selection_logreg_mi.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-logreg-mi-py"><span class="std std-ref">Feature selection using the Sparse Linear MI (Logistic regression)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse Linear MI (Logistic regression)</div>
 </div></div><div style='clear:both'></div></section>
 </section>
 
@@ -464,8 +442,8 @@ possible to update each component of a nested object.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gemclus.sparse.SparseLinearMMD.html" class="btn btn-neutral float-left" title="gemclus.sparse.SparseLinearMMD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gemclus.tree.Kauri.html" class="btn btn-neutral float-right" title="gemclus.tree.Kauri" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gemclus.nonparametric.CategoricalWasserstein.html" class="btn btn-neutral float-left" title="gemclus.nonparametric.CategoricalWasserstein" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.sparse.SparseLinearMMD.html" class="btn btn-neutral float-right" title="gemclus.sparse.SparseLinearMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
