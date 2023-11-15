@@ -1,0 +1,40 @@
+
+
+.. _sphx_glr_auto_examples_scoring:
+
+Scoring with GEMINI
+-------------------
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no...">
+
+.. only:: html
+
+  .. image:: /auto_examples/scoring/images/thumb/sphx_glr_plot_gemini_scoring_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
+    </div>
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/scoring/plot_gemini_scoring
+

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple logistic regression with RIM &mdash; gemclus 0.1.1 documentation</title>
+  <title>Simple logistic regression with RIM &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -15,14 +15,14 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Scoring any model with GEMINI" href="plot_gemini_scoring.html" />
+    <link rel="next" title="Graph node clustering with a nonparametric model" href="plot_graph_node_clustering.html" />
     <link rel="prev" title="Drawing a decision boundary between two interlacing moons" href="plot_moon_clustering.html" /> 
 </head>
 
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -60,21 +60,26 @@
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="plot_intro_mlp_mmd.html">An introducing example to clustering with an MLP and the MMD GEMINI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_nonparametric_clustering.html">Non parametric clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_gstm.html">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_moon_clustering.html">Drawing a decision boundary between two interlacing moons</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Simple logistic regression with RIM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#load-a-simple-synthetic-dataset">Load a simple synthetic dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#train-the-model">Train the model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#final-clustering">Final Clustering</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#discriminative-clustering">Discriminative clustering</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_intro_mlp_mmd.html">An introducing example to clustering with an MLP and the MMD GEMINI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_nonparametric_clustering.html">Non parametric clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_gstm.html">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_moon_clustering.html">Drawing a decision boundary between two interlacing moons</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Simple logistic regression with RIM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#load-a-simple-synthetic-dataset">Load a simple synthetic dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#final-clustering">Final Clustering</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="plot_gemini_scoring.html">Scoring any model with GEMINI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_grouped_selection.html">Grouped Feature selection with a linear model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_graph_node_clustering.html">Graph node clustering with a nonparametric model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_feature_selection_mlp.html">Feature selection using the Sparse MMD OvA (MLP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_graph_node_clustering.html">Graph node clustering with a nonparametric model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_circles.html">Comparative clustering of circles dataset with kernel change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_custom_model.html">Extending GemClus to build your own discriminative clustering model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#feature-selection">Feature selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#consensus-clustering">Consensus clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#scoring-with-gemini">Scoring with GEMINI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#trees">Trees</a></li>
 </ul>
 </li>
 </ul>
@@ -179,10 +184,10 @@ Gaussian mixture using RIM.</p>
 <span class="nb">print</span><span class="p">(</span><a href="../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.score" title="gemclus.linear.RIM.score" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_rim_001.png" srcset="../_images/sphx_glr_plot_rim_001.png" alt="plot rim" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.02139604932056094
+<img src="../_images/sphx_glr_plot_rim_001.png" srcset="../_images/sphx_glr_plot_rim_001.png" alt="plot rim" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.02554995289356299
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.449 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.322 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-rim-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d98b8268881babfa7f2c84e141617a78/plot_rim.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_rim.py</span></code></a></p>
@@ -200,7 +205,7 @@ Gaussian mixture using RIM.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_moon_clustering.html" class="btn btn-neutral float-left" title="Drawing a decision boundary between two interlacing moons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_gemini_scoring.html" class="btn btn-neutral float-right" title="Scoring any model with GEMINI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_graph_node_clustering.html" class="btn btn-neutral float-right" title="Graph node clustering with a nonparametric model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse.SparseLinearMMD &mdash; gemclus 0.1.1 documentation</title>
+  <title>gemclus.sparse.SparseLinearMMD &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/js/copybutton.js?v=26522df0"></script>
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="gemclus.sparse.SparseMLPMMD" href="gemclus.sparse.SparseMLPMMD.html" />
-    <link rel="prev" title="gemclus.nonparametric.CategoricalWasserstein" href="gemclus.nonparametric.CategoricalWasserstein.html" /> 
+    <link rel="prev" title="gemclus.sparse.SparseLinearMI" href="gemclus.sparse.SparseLinearMI.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,12 +61,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../api.html#dense-models">Dense models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#nonparametric-models">Nonparametric models</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseMLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#tree-models">Tree models</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#dataset-generation">Dataset generation</a></li>
 </ul>
 </li>
@@ -115,7 +118,7 @@ feature selection via a proximal gradient during training.</p>
 <dt><strong>n_clusters</strong><span class="classifier">int, default=3</span></dt><dd><p>The maximum number of clusters to form as well as the number of output neurons in the neural network.</p>
 </dd>
 <dt><strong>groups: list of arrays of various shapes, default=None</strong></dt><dd><p>if groups is set, it must describe a partition of the indices of variables. This will be used for performing
-variable selection with groups of features considered to represent one variables. This option can typically be
+variable selection with groups of features considered to represent one variable. This option can typically be
 used for one-hot-encoded variables.</p>
 </dd>
 <dt><strong>max_iter: int, default=1000</strong></dt><dd><p>Maximum number of epochs to perform gradient descent in a single run.</p>
@@ -158,12 +161,10 @@ Pass an int for reproducible results across multiple function calls.</p>
 <p class="rubric">References</p>
 <dl class="simple">
 <dt>GEMINI - Generalised Mutual Information for Discriminative Clustering</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,
-Arnaud Droit, Frederic Preciosio</p>
-</dd>
-<dt>LassoNet architecture - LassoNet: A Neural Network with Feature Sparsity.</dt><dd><p>Lemhadri, I., Ruan, F., Abraham, L., &amp; Tibshirani, R.</p>
+Arnaud Droit, Frederic Precioso</p>
 </dd>
 <dt>Sparse GEMINI - Sparse GEMINI for joint discriminative clustering and feature selection</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Mickaël Leclercq,
-Arnaud Droit, Frederic Preciosio</p>
+Arnaud Droit, Frederic Precioso</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -438,10 +439,10 @@ possible to update each component of a nested object.</p>
 <section id="examples-using-gemclus-sparse-sparselinearmmd">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code><a class="headerlink" href="#examples-using-gemclus-sparse-sparselinearmmd" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_linear_thumb.png" />
-<p><a class="reference internal" href="../auto_examples/plot_feature_selection_linear.html#sphx-glr-auto-examples-plot-feature-selection-linear-py"><span class="std std-ref">Feature selection using the Sparse MMD OvO (Logistic regression)</span></a></p>
+<p><a class="reference internal" href="../auto_examples/feature_selection/plot_feature_selection_linear.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-linear-py"><span class="std std-ref">Feature selection using the Sparse MMD OvO (Logistic regression)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvO (Logistic regression)</div>
 </div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_grouped_selection_thumb.png" />
-<p><a class="reference internal" href="../auto_examples/plot_grouped_selection.html#sphx-glr-auto-examples-plot-grouped-selection-py"><span class="std std-ref">Grouped Feature selection with a linear model</span></a></p>
+<p><a class="reference internal" href="../auto_examples/feature_selection/plot_grouped_selection.html#sphx-glr-auto-examples-feature-selection-plot-grouped-selection-py"><span class="std std-ref">Grouped Feature selection with a linear model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Grouped Feature selection with a linear model</div>
 </div></div><div style='clear:both'></div></section>
 </section>
@@ -450,7 +451,7 @@ possible to update each component of a nested object.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gemclus.nonparametric.CategoricalWasserstein.html" class="btn btn-neutral float-left" title="gemclus.nonparametric.CategoricalWasserstein" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.sparse.SparseLinearMI.html" class="btn btn-neutral float-left" title="gemclus.sparse.SparseLinearMI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="gemclus.sparse.SparseMLPMMD.html" class="btn btn-neutral float-right" title="gemclus.sparse.SparseMLPMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

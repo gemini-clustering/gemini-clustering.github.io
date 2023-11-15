@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEMCLUS API &mdash; gemclus 0.1.1 documentation</title>
+  <title>GEMCLUS API &mdash; gemclus 0.2.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/gemclus.css" type="text/css" />
       <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/js/copybutton.js?v=26522df0"></script>
@@ -38,7 +38,7 @@
             gemclus
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -79,10 +79,21 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#sparse-models">Sparse models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/gemclus.sparse.SparseMLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#tree-models">Tree models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.tree.Kauri.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.tree</span></code>.Kauri</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.tree.Douglas.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.tree</span></code>.Douglas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/gemclus.tree.print_kauri_tree.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.tree</span></code>.print_kauri_tree</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.add_mlcl_constraint.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus</span></code>.add_mlcl_constraint</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#dataset-generation">Dataset generation</a><ul>
@@ -202,15 +213,53 @@ unseen samples for prediction.</p>
 for selecting a subset of features which may enhance interpretability of clustering.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseLinearMMD</span></code></a>([n_clusters, groups, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI" title="gemclus.sparse.SparseLinearMI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseLinearMI</span></code></a>([n_clusters, groups, ...])</p></td>
+<td><p>This is the Sparse version of the logistic regression trained with mutual information for clustering.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseLinearMMD</span></code></a>([n_clusters, groups, ...])</p></td>
 <td><p>This is the Sparse version of the LinearMMD clustering model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseMLPMMD</span></code></a>([n_clusters, groups, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparse.SparseMLPMMD</span></code></a>([n_clusters, groups, ...])</p></td>
 <td><p>This is the Sparse Version of the MLP MMD model.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="tree-models">
+<h3>Tree models<a class="headerlink" href="#tree-models" title="Link to this heading">¶</a></h3>
+<p>We propose clustering methods based on tree architectures. Thus rules are simultaneously constructed as the clustering
+is learnt.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri" title="gemclus.tree.Kauri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree.Kauri</span></code></a>([max_clusters, max_depth, ...])</p></td>
+<td><p>Implementation of the <cite>KMeans as unsupervised reward ideal</cite> tree algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.tree.Douglas.html#gemclus.tree.Douglas" title="gemclus.tree.Douglas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree.Douglas</span></code></a>([n_clusters, n_cuts, ...])</p></td>
+<td><p>Implementation of the <cite>DNDTs optimised using GEMINI leveraging apprised splits</cite> tree algorithm.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following functions are intended to help understanding the structure of the above models by printing their
+inner rules.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.tree.print_kauri_tree.html#gemclus.tree.print_kauri_tree" title="gemclus.tree.print_kauri_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree.print_kauri_tree</span></code></a>(kauri_tree[, ...])</p></td>
+<td><p>Prints the binary tree structure of a trained KAURI tree.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="constraints">
+<h2>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">¶</a></h2>
+<p>This method aims at decorating the GEMINI models to give further guidance on the desired clustering.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.add_mlcl_constraint.html#gemclus.add_mlcl_constraint" title="gemclus.add_mlcl_constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_mlcl_constraint</span></code></a>(gemini_model[, ...])</p></td>
+<td><p>Adds must-link and/or cannot-link constraints to a discriminative clustering model.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="dataset-generation">
 <h2>Dataset generation<a class="headerlink" href="#dataset-generation" title="Link to this heading">¶</a></h2>

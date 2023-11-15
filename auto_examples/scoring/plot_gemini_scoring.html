@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoring any model with GEMINI &mdash; gemclus 0.2.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/gemclus.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Trees" href="../trees/index.html" />
+    <link rel="prev" title="Scoring with GEMINI" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                0.2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">GEMCLUS API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#discriminative-clustering">Discriminative clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#feature-selection">Feature selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#consensus-clustering">Consensus clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#scoring-with-gemini">Scoring with GEMINI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#trees">Trees</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../feature_selection/index.html">Feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mlcl/index.html">Consensus clustering</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Scoring with GEMINI</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Scoring any model with GEMINI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../trees/index.html">Trees</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General examples</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Scoring with GEMINI</a></li>
+      <li class="breadcrumb-item active">Scoring any model with GEMINI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/auto_examples/scoring/plot_gemini_scoring.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-scoring-plot-gemini-scoring-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="scoring-any-model-with-gemini">
+<span id="sphx-glr-auto-examples-scoring-plot-gemini-scoring-py"></span><h1>Scoring any model with GEMINI<a class="headerlink" href="#scoring-any-model-with-gemini" title="Link to this heading">¶</a></h1>
+<p>We show in this example how we can score the prediction of another model using GEMINI. We do not seek to perform
+clustering but rather to evaluate.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">naive_bayes</span>
+<span class="kn">from</span> <span class="nn">gemclus</span> <span class="kn">import</span> <span class="n">gemini</span>
+</pre></div>
+</div>
+<section id="load-a-simple-real-dataset">
+<h2>Load a simple real dataset<a class="headerlink" href="#load-a-simple-real-dataset" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html#sklearn.datasets.load_breast_cancer" title="sklearn.datasets.load_breast_cancer" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span></a><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Preprocess this dataset</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html#sklearn.preprocessing.RobustScaler" title="sklearn.preprocessing.RobustScaler" class="sphx-glr-backref-module-sklearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">preprocessing</span><span class="o">.</span><span class="n">RobustScaler</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="train-two-supervised-models">
+<h2>Train two supervised models<a class="headerlink" href="#train-two-supervised-models" title="Link to this heading">¶</a></h2>
+<p>We will train two different models on the breast cancer dataset</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first model is a simple logistic regression with l2 penalty</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf1</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" title="sklearn.linear_model.LogisticRegression" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_1</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression.predict_proba" title="sklearn.linear_model.LogisticRegression.predict_proba" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-method"><span class="n">clf1</span><span class="o">.</span><span class="n">predict_proba</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
+
+<span class="c1"># The second model is naive Bayes using Gaussian hypotheses on the data</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB" title="sklearn.naive_bayes.GaussianNB" class="sphx-glr-backref-module-sklearn-naive_bayes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf2</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB" title="sklearn.naive_bayes.GaussianNB" class="sphx-glr-backref-module-sklearn-naive_bayes sphx-glr-backref-type-py-class"><span class="n">naive_bayes</span><span class="o">.</span><span class="n">GaussianNB</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_2</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB.predict_proba" title="sklearn.naive_bayes.GaussianNB.predict_proba" class="sphx-glr-backref-module-sklearn-naive_bayes sphx-glr-backref-type-py-method"><span class="n">clf2</span><span class="o">.</span><span class="n">predict_proba</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="scoring-with-gemini">
+<h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Link to this heading">¶</a></h2>
+<p>We can now score the clustering performances of both model with GEMINI.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with the WassersteinGEMINI (one-vs-all) and the Euclidean distance</span>
+<a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">wasserstein_scoring</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class"><span class="n">gemini</span><span class="o">.</span><span class="n">WassersteinOvA</span></a><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">)</span>
+
+<span class="c1"># We need to precompute the affinity matching this Wasserstein (will be the Euclidean metric here)</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">affinity</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.compute_affinity" title="gemclus.gemini.WassersteinOvA.compute_affinity" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-method"><span class="n">wasserstein_scoring</span><span class="o">.</span><span class="n">compute_affinity</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf1_score</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate" title="gemclus.gemini.WassersteinOvA.evaluate" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-method"><span class="n">wasserstein_scoring</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_1</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">affinity</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf2_score</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate" title="gemclus.gemini.WassersteinOvA.evaluate" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-method"><span class="n">wasserstein_scoring</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_2</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">affinity</span></a><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wasserstein OvA (Euclidean):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">=&gt;Linear regression: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf1_score</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">=&gt;Naive Bayes: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf2_score</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Wasserstein OvA (Euclidean):
+        =&gt;Linear regression: 2.878
+        =&gt;Naive Bayes: 3.005
+</pre></div>
+</div>
+</section>
+<section id="supervised-scoring-with-gemini">
+<h2>Supervised Scoring with GEMINI<a class="headerlink" href="#supervised-scoring-with-gemini" title="Link to this heading">¶</a></h2>
+<p>By replacing the Euclidean distance for a label-informed distance
+we can obtain a supervised metric.</p>
+<p>We now specify that the metric is precomputed instead</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">wasserstein_scoring</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA" title="gemclus.gemini.WassersteinOvA" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-class"><span class="n">gemini</span><span class="o">.</span><span class="n">WassersteinOvA</span></a><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s2">&quot;precomputed&quot;</span><span class="p">)</span>
+
+<span class="c1"># So, we precompute a distance where samples have distance 0 if they share the same label, 1 otherwise</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_one_hot</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html#numpy.eye" title="numpy.eye" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">eye</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">]</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">precomputed_distance</span></a> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">matmul</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_one_hot</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_one_hot</span><span class="o">.</span><span class="n">T</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf1_score</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate" title="gemclus.gemini.WassersteinOvA.evaluate" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-method"><span class="n">wasserstein_scoring</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_1</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">precomputed_distance</span></a><span class="p">)</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf2_score</span></a> <span class="o">=</span> <a href="../../generated/gemclus.gemini.WassersteinOvA.html#gemclus.gemini.WassersteinOvA.evaluate" title="gemclus.gemini.WassersteinOvA.evaluate" class="sphx-glr-backref-module-gemclus-gemini sphx-glr-backref-type-py-method"><span class="n">wasserstein_scoring</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p_y_given_x_2</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">precomputed_distance</span></a><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wasserstein OvA (Supervised):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">=&gt;Linear regression: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf1_score</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">=&gt;Naive Bayes: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">clf2_score</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Wasserstein OvA (Supervised):
+        =&gt;Linear regression: 0.431
+        =&gt;Naive Bayes: 0.403
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.977 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-scoring-plot-gemini-scoring-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/37555ca472dba83f54d387bd8a5e3032/plot_gemini_scoring.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_gemini_scoring.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/096d4f7a070045f1cf0e80516d1dea0a/plot_gemini_scoring.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_gemini_scoring.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Scoring with GEMINI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../trees/index.html" class="btn btn-neutral float-right" title="Trees" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
