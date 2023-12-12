@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemclus.data.celeux_two &mdash; gemclus 1.0.0.dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/documentation_options.js?v=b4592755"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RELEASES" href="../../history.html" />
+    <link rel="prev" title="gemclus.data.celeux_one" href="gemclus.data.celeux_one.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                1.0.0.dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#clustering-models">Clustering models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#constraints">Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html#dataset-generation">Dataset generation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.draw_gmm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.draw_gmm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.multivariate_student_t.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.multivariate_student_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.gstm.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.gstm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.data.celeux_one.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_one</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_two</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gemclus.data.celeux_two"><code class="docutils literal notranslate"><span class="pre">celeux_two()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">RELEASES</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">GEMCLUS API</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_two</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/generated/data/gemclus.data.celeux_two.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gemclus-data-celeux-two">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.celeux_two<a class="headerlink" href="#gemclus-data-celeux-two" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="gemclus.data.celeux_two">
+<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">celeux_two</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/gemclus/data/synthetic_data.html#celeux_two"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.celeux_two" title="Link to this definition">¶</a></dt>
+<dd><p>Draws samples from a mixture of 4 Gaussian distributions in 2d with additional variables
+linearly dependent of the informative variables and non-informative noisy variables. This dataset is
+taken from Celeux et al., section 3.2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n: int, default=2000</strong></dt><dd><p>The number of samples to draw.</p>
+</dd>
+<dt><strong>random_state: int, RandomState instance or None, default=None</strong></dt><dd><p>Determines random number generation for dataset creation. Pass an int for reproducible output across
+multiple runs.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>X: ndarray of shape (n, 14)</dt><dd><p>The samples of the dataset in an array of shape n_samples x n_features</p>
+</dd>
+<dt>y: ndarray of shape (n,)</dt><dd><p>The component of the GMM from which each sample was drawn.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>Dataset - Celeux, G., Martin-Magniette, M. L., Maugis-Rabusseau, C., &amp; Raftery, A. E. (2014). Comparing model</dt><dd><p>selection and regularization approaches to variable selection in model-based clustering.
+Journal de la Societe francaise de statistique, 155(2), 57-71.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div style='clear:both'></div></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gemclus.data.celeux_one.html" class="btn btn-neutral float-left" title="gemclus.data.celeux_one" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../history.html" class="btn btn-neutral float-right" title="RELEASES" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

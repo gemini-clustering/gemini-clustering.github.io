@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.tree.kauri &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>gemclus.tree.kauri &mdash; gemclus 1.0.0.dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../../_static/documentation_options.js?v=b4592755"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
@@ -35,7 +37,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0.dev
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -53,6 +55,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
@@ -164,7 +167,7 @@
 
 
 <div class="viewcode-block" id="Kauri">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri">[docs]</a>
 <span class="k">class</span> <span class="nc">Kauri</span><span class="p">(</span><span class="n">ClusterMixin</span><span class="p">,</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implementation of the `KMeans as unsupervised reward ideal` tree algorithm. This model learns clusters by</span>
@@ -236,7 +239,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="Kauri.__init__">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">max_leaves</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_clusters</span> <span class="o">=</span> <span class="n">max_clusters</span>
@@ -263,7 +266,7 @@
         <span class="k">return</span> <span class="n">kernel</span>
 
 <div class="viewcode-block" id="Kauri.fit">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.fit">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri.fit">[docs]</a>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the KAURI algorithm by repeatedly choosing leaves, evaluating best gain and increasing the tree</span>
 <span class="sd">        structure until structural limits or maximal gains are reached.</span>
@@ -413,7 +416,7 @@
 
 
 <div class="viewcode-block" id="Kauri.fit_predict">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.fit_predict">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri.fit_predict">[docs]</a>
     <span class="k">def</span> <span class="nf">fit_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the KAURI algorithm by repeatedly choosing leaves, evaluating best gain and increasing the tree</span>
 <span class="sd">        structure until structural limits or maximal gains are reached. Returns the assigned clusters to the data</span>
@@ -436,7 +439,7 @@
 
 
 <div class="viewcode-block" id="Kauri.predict">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.predict">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri.predict">[docs]</a>
     <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Passes the data samples `X` through the tree structure to assign cluster membership.</span>
 <span class="sd">        This method can be called only once `fit` or `fit_predict` was performed.</span>
@@ -461,7 +464,7 @@
 
 
 <div class="viewcode-block" id="Kauri.score">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.score">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Kauri.html#gemclus.tree.Kauri.score">[docs]</a>
     <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the value of the GEMINI evaluated on the given test data. Note that this GEMINI is a special variation</span>
@@ -489,7 +492,7 @@
 
 
 <div class="viewcode-block" id="print_kauri_tree">
-<a class="viewcode-back" href="../../../generated/gemclus.tree.print_kauri_tree.html#gemclus.tree.print_kauri_tree">[docs]</a>
+<a class="viewcode-back" href="../../../generated/models/gemclus.tree.print_kauri_tree.html#gemclus.tree.print_kauri_tree">[docs]</a>
 <span class="nd">@constraint_params</span><span class="p">({</span>
     <span class="s2">&quot;kauri_tree&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Kauri</span><span class="p">],</span>
     <span class="s2">&quot;feature_names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>

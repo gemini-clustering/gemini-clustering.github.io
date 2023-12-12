@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gemclus.sparse.SparseMLPModel &mdash; gemclus 1.0.0.dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/documentation_options.js?v=b4592755"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="gemclus.sparse.SparseMLPMMD" href="gemclus.sparse.SparseMLPMMD.html" />
+    <link rel="prev" title="gemclus.sparse.SparseLinearMMD" href="gemclus.sparse.SparseLinearMMD.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            gemclus
+          </a>
+              <div class="version">
+                1.0.0.dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../api.html#clustering-models">Clustering models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#dense-models">Dense models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#nonparametric-models">Nonparametric models</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../api.html#sparse-models">Sparse models</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearModel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseLinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseLinearMMD</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.sparse.SparseMLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPMMD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api.html#tree-models">Tree models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#constraints">Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api.html#dataset-generation">Dataset generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">RELEASES</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gemclus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">GEMCLUS API</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPModel</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/generated/models/gemclus.sparse.SparseMLPModel.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gemclus-sparse-sparsemlpmodel">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.SparseMLPModel<a class="headerlink" href="#gemclus-sparse-sparsemlpmodel" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.sparse.</span></span><span class="sig-name descname"><span class="pre">SparseMLPModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gemini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mmd_ova'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPModel" title="Link to this definition">¶</a></dt>
+<dd><p>This is the BaseSparseGEMINI template to derive to create a Sparse GEMINI MLP clustering model.
+When deriving, the only methods to adapt is the _compute_gemini methods which
+should be able to return the gradient with respect to the conditional distribution p(y|x).</p>
+<p>On top of the vanilla MLP GEMINI model, this variation brings a skip connection from the data to the cluster
+output. This skip connection ensures a sparsity constraint through a group-lasso penalty and a proximal gradient
+that eliminates input features as well in the first layer of the MLP.</p>
+<p>This architecture is inspired from LassoNet by Lemhadri et al. (2021).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n_clusters</strong><span class="classifier">int, default=3</span></dt><dd><p>The maximum number of clusters to form as well as the number of output neurons in the neural network.</p>
+</dd>
+<dt><strong>groups: list of arrays of various shapes, default=None</strong></dt><dd><p>If groups is set, it must describe a partition of the indices of variables. This will be used for performing
+variable selection with groups of features considered to represent one variables. This option can typically be
+used for one-hot-encoded variables.</p>
+</dd>
+<dt><strong>max_iter: int, default=1000</strong></dt><dd><p>Maximum number of epochs to perform gradient descent in a single run.</p>
+</dd>
+<dt><strong>learning_rate: float, default=1e-3</strong></dt><dd><p>Initial learning rate used. It controls the step-size in updating the weights.</p>
+</dd>
+<dt><strong>n_hidden_dim: int, default=20</strong></dt><dd><p>The number of neurons in the hidden layer of the neural network.</p>
+</dd>
+<dt><strong>solver: {‘sgd’,’adam’}, default=’adam’</strong></dt><dd><p>The solver for weight optimisation.</p>
+<ul class="simple">
+<li><p>‘sgd’ refers to stochastic gradient descent.</p></li>
+<li><p>‘adam’ refers to a stochastic gradient-based optimiser proposed by Kingma, Diederik and Jimmy Ba.</p></li>
+</ul>
+</dd>
+<dt><strong>alpha: float, default=1e-2</strong></dt><dd><p>The weight of the group-lasso penalty in the optimisation scheme.</p>
+</dd>
+<dt><strong>M: float, default=10 The hierarchy coefficient that controls the relative strength between the group-lasso</strong></dt><dd><p>penalty of the skip connection and the sparsity of the first layer of the MLP.</p>
+</dd>
+<dt><strong>batch_size: int, default=None</strong></dt><dd><p>The size of batches during gradient descent training. If set to None, the whole data will be considered.</p>
+</dd>
+<dt><strong>verbose: bool, default=False</strong></dt><dd><p>Whether to print progress messages to stdout</p>
+</dd>
+<dt><strong>random_state: int, RandomState instance, default=None</strong></dt><dd><p>Determines random number generation for weights and bias initialisation.
+Pass an int for reproducible results across multiple function calls.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SparseMLPMMD</span></code></a></dt><dd><p>sparse logistic regression trained for clustering with the MMD GEMINI</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>GEMINI - Generalised Mutual Information for Discriminative Clustering</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Warith Harchaoui, Mickaël Leclercq,
+Arnaud Droit, Frederic Precioso</p>
+</dd>
+<dt>LassoNet architecture - LassoNet: A Neural Network with Feature Sparsity.</dt><dd><p>Lemhadri, I., Ruan, F., Abraham, L., &amp; Tibshirani, R.</p>
+</dd>
+<dt>Sparse GEMINI - Sparse GEMINI for joint discriminative clustering and feature selection</dt><dd><p>Louis Ohl, Pierre-Alexandre Mattei, Charles Bouveyron, Mickaël Leclercq,
+Arnaud Droit, Frederic Precioso</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>W1_: ndarray, shape (n_features, n_hidden_dim)</strong></dt><dd><p>The linear weights of the first layer</p>
+</dd>
+<dt><strong>b1_: ndarray of shape (1, n_hidden_dim)</strong></dt><dd><p>The biases of the first layer</p>
+</dd>
+<dt><strong>W2_: ndarray of shape (n_hidden_dim, n_clusters)</strong></dt><dd><p>The linear weights of the hidden layer</p>
+</dd>
+<dt><strong>b2_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the hidden layer</p>
+</dd>
+<dt><strong>W_skip_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of the skip connection</p>
+</dd>
+<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
+</dd>
+<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.sparse.SparseMLPModel.fit" title="gemclus.sparse.SparseMLPModel.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
+</dd>
+<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
+</dd>
+<dt><strong>H_: ndarray of shape (n_samples, n_hidden_dim)</strong></dt><dd><p>The hidden representation of the samples after fitting.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gemini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mmd_ova'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.fit" title="Link to this definition">¶</a></dt>
+<dd><p>Compute GEMINI clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Training instances to cluster.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Fitted estimator.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.fit_predict">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.fit_predict" title="Link to this definition">¶</a></dt>
+<dd><p>Compute GEMINI clustering and returns the predicted clusters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Training instances to cluster.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y_pred</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>Vector containing the cluster label for each sample.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.get_gemini">
+<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.get_gemini" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise a <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance that will be used to train the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>gemini: a GEMINI instance</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.get_params" title="Link to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>deep</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Parameter names mapped to their values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.get_selection">
+<span class="sig-name descname"><span class="pre">get_selection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPModel.get_selection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.get_selection" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the indices of features that were selected by the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ind: ndarray</dt><dd><p>The indices of the selected features.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.path">
+<span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restore_best_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_patience</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/sparse/_mlp_sparse.html#SparseMLPModel.path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.path" title="Link to this definition">¶</a></dt>
+<dd><p>Unfold the progressive geometric increase of the penalty weight starting from the initial alpha until
+there remains only a specified amount of features.</p>
+<p>The history of the different gemini scores are kept as well as the best weights with minimum of features
+ensuring that the GEMINI score remains at a certain percentage of the maximum GEMINI score seen during the
+path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Test samples on which the feature reduction will be made.</p>
+</dd>
+<dt><strong>alpha_multiplier</strong><span class="classifier">float, default=1.05</span></dt><dd><p>The geometric increase of the group-lasso penalty at each-retraining. It must be greater than 1.</p>
+</dd>
+<dt><strong>min_features: int, default=2</strong></dt><dd><p>The number of features that must remain at best to stop performing the path.</p>
+</dd>
+<dt><strong>keep_threshold: float, default=0.9</strong></dt><dd><p>The percentage of the maximal GEMINI under which any solution with a minimal number of features is deemed
+best.</p>
+</dd>
+<dt><strong>restore_best_weights: bool, default=True</strong></dt><dd><p>After performing the path, the best weights offering simultaneously good GEMINI score and few features
+are restored to the model.</p>
+</dd>
+<dt><strong>early_stopping_factor: float, default=0.99</strong></dt><dd><p>The percentage factor beyond which upgrades of the GEMINI or the group-lasso penalty are considered
+too small for early stopping.</p>
+</dd>
+<dt><strong>max_patience:</strong></dt><dd><p>The maximum number of iterations to wait without any improvements in either the gemini score or the
+group-lasso penalty before stopping the current step.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>best_weights: list of ndarray of various shapes of length 5</dt><dd><p>The list containing the best weights during the path. Sequentially: <cite>W1_</cite>, <cite>W2_</cite>, <cite>W_skip_</cite>, <cite>b1_</cite>, <cite>b2_</cite></p>
+</dd>
+<dt>geminis: list of float of length T</dt><dd><p>The history of the gemini scores as the penalty alpha was increased.</p>
+</dd>
+<dt>group_penalties: list of float of length T</dt><dd><p>The history of the group-lasso penalties</p>
+</dd>
+<dt>alphas: list of float of length T</dt><dd><p>The history of the penalty alphas during the path.</p>
+</dd>
+<dt>n_features: list of float of length T</dt><dd><p>The number of features that were selected at step t.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.predict" title="Link to this definition">¶</a></dt>
+<dd><p>Return the cluster membership of samples. This can only be called after the model was fit to some data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix}, shape (n_samples, n_features)</span></dt><dd><p>The input samples.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples,)</span></dt><dd><p>The label for each sample is the label of the closest sample
+seen during fit.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.predict_proba">
+<span class="sig-name descname"><span class="pre">predict_proba</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.predict_proba" title="Link to this definition">¶</a></dt>
+<dd><p>Probability estimates that are the output of the neural network p(y|x).
+The returned estimates for all classes are ordered by the
+label of classes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Vector to be scored, where <cite>n_samples</cite> is the number of samples and
+<cite>n_features</cite> is the number of features.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>T</strong><span class="classifier">array-like of shape (n_samples, n_clusters)</span></dt><dd><p>Returns the probability of the sample for each cluster in the model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.score">
+<span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.score" title="Link to this definition">¶</a></dt>
+<dd><p>Return the value of the GEMINI evaluated on the given test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{array-like, sparse matrix} of shape (n_samples, n_features)</span></dt><dd><p>Test samples.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">ndarray of shape (n_samples, n_samples), default=None</span></dt><dd><p>Use this parameter to give a precomputed affinity metric if the option “precomputed” was passed during
+construction. Otherwise, it is not used and present here for API consistency by convention.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>score</strong><span class="classifier">float</span></dt><dd><p>GEMINI evaluated on the output of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.sparse.SparseMLPModel.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseMLPModel.set_params" title="Link to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**params</strong><span class="classifier">dict</span></dt><dd><p>Estimator parameters.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">estimator instance</span></dt><dd><p>Estimator instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div style='clear:both'></div></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gemclus.sparse.SparseLinearMMD.html" class="btn btn-neutral float-left" title="gemclus.sparse.SparseLinearMMD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.sparse.SparseMLPMMD.html" class="btn btn-neutral float-right" title="gemclus.sparse.SparseMLPMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Louis Ohl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

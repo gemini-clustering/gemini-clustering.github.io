@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.mlp`.MLPWasserstein
+========================================
+
+.. currentmodule:: gemclus.mlp
+
+.. autoclass:: MLPWasserstein
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.mlp.MLPWasserstein.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

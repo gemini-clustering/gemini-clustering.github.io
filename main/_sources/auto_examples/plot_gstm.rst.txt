@@ -30,7 +30,7 @@ Unlike the paper, this example here is done with the `gemclus.linear.LinearWasse
 
 .. GENERATED FROM PYTHON SOURCE LINES 12-19
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -58,7 +58,7 @@ Taking 200 samples, 1 degree of freedom and not-so-far apart means
 
 .. GENERATED FROM PYTHON SOURCE LINES 26-28
 
-.. code-block:: default
+.. code-block:: Python
 
     X, y = gstm(n=200, alpha=3, df=1, random_state=0)
 
@@ -77,7 +77,7 @@ Train the model for clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 34-38
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clf = LinearWasserstein(n_clusters=4, random_state=0, batch_size=50)
@@ -97,7 +97,7 @@ Final Clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 43-62
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Now, generate as well grid inputs to help drawing the decision boundary
@@ -133,7 +133,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 9.115 seconds)
+   **Total running time of the script:** (0 minutes 10.970 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_gstm.py:
@@ -142,16 +142,13 @@ Final Clustering
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_gstm.ipynb <plot_gstm.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_gstm.py <plot_gstm.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_gstm.ipynb <plot_gstm.ipynb>`
 
 
 .. only:: html

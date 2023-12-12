@@ -28,7 +28,7 @@ Gaussian mixture using RIM.
 
 .. GENERATED FROM PYTHON SOURCE LINES 10-17
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -51,7 +51,7 @@ Load a simple synthetic dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 22-26
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Generate samples on that are simple to separate
@@ -72,10 +72,10 @@ Create the RIM clustering model (just a logistic regression) and fit it to the d
 
 .. GENERATED FROM PYTHON SOURCE LINES 32-36
 
-.. code-block:: default
+.. code-block:: Python
 
 
-    clf = RIM(n_clusters=3, random_state=0)
+    clf = RIM(n_clusters=3, reg=1e-1, random_state=0)
     clf.fit(X)
 
 
@@ -99,7 +99,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-77
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Predict a grad of inputs
@@ -149,7 +149,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
  .. code-block:: none
 
-    0.02554995289356299
+    0.4486538478231719
 
 
 
@@ -157,7 +157,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.321 seconds)
+   **Total running time of the script:** (0 minutes 0.436 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_rim.py:
@@ -166,16 +166,13 @@ Let us take a look at the decision boundaries according to the probabilities
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_rim.ipynb <plot_rim.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_rim.py <plot_rim.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_rim.ipynb <plot_rim.ipynb>`
 
 
 .. only:: html

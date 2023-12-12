@@ -27,13 +27,12 @@ This example shows how to use the Douglas tree for a dataset with few features.
 The DOUGLAS model builds a differentiable tree by associating different constructed binnings of the data per feature
 to clusters. The thresholds are learnt by GEMINI maximisation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-16
+.. GENERATED FROM PYTHON SOURCE LINES 11-15
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn import datasets, metrics
 
-    from gemclus.gemini import MMDOvA
     from gemclus.tree import Douglas
 
 
@@ -43,14 +42,14 @@ to clusters. The thresholds are learnt by GEMINI maximisation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-19
+.. GENERATED FROM PYTHON SOURCE LINES 16-18
 
 Load the dataset
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-26
+.. GENERATED FROM PYTHON SOURCE LINES 20-25
 
-.. code-block:: default
+.. code-block:: Python
 
 
     iris = datasets.load_iris()
@@ -64,17 +63,17 @@ Load the dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 Create the douglas tree and fit it
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-37
+.. GENERATED FROM PYTHON SOURCE LINES 30-36
 
-.. code-block:: default
+.. code-block:: Python
 
 
-    model = Douglas(n_clusters=3, gemini=MMDOvA(), max_iter=100, n_cuts=1)
+    model = Douglas(n_clusters=3, gemini="mmd_ova", max_iter=100, n_cuts=1)
     y_pred_linear = model.fit_predict(X)
 
     print("Score of model is: ", model.score(X))
@@ -96,7 +95,7 @@ Create the douglas tree and fit it
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.027 seconds)
+   **Total running time of the script:** (0 minutes 5.915 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_douglas_example.py:
@@ -105,16 +104,13 @@ Create the douglas tree and fit it
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_douglas_example.ipynb <plot_douglas_example.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_douglas_example.py <plot_douglas_example.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_douglas_example.ipynb <plot_douglas_example.ipynb>`
 
 
 .. only:: html

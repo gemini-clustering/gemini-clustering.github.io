@@ -26,7 +26,7 @@ An example plot of :class:`gemclus.base_gemini.DenseMMDOvO`
 
 .. GENERATED FROM PYTHON SOURCE LINES 8-14
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from matplotlib import pyplot as plt
@@ -48,7 +48,7 @@ Generate data
 
 .. GENERATED FROM PYTHON SOURCE LINES 19-22
 
-.. code-block:: default
+.. code-block:: Python
 
 
     X, y = datasets.make_blobs(centers=3, cluster_std=0.5, n_samples=200, random_state=0)
@@ -67,7 +67,7 @@ Create the MLP clustering model and fit it
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-30
 
-.. code-block:: default
+.. code-block:: Python
 
     clf = MLPMMD(random_state=0, ovo=True)
     clf.fit(X)
@@ -92,7 +92,7 @@ Plot the final clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 35-54
 
-.. code-block:: default
+.. code-block:: Python
 
 
     y_pred = clf.predict(X)
@@ -128,7 +128,7 @@ Plot the final clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.769 seconds)
+   **Total running time of the script:** (0 minutes 0.989 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_intro_mlp_mmd.py:
@@ -137,16 +137,13 @@ Plot the final clustering
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_intro_mlp_mmd.ipynb <plot_intro_mlp_mmd.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_intro_mlp_mmd.py <plot_intro_mlp_mmd.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_intro_mlp_mmd.ipynb <plot_intro_mlp_mmd.ipynb>`
 
 
 .. only:: html

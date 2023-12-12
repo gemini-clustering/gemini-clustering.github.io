@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.nonparametric`.CategoricalWasserstein
+==========================================================
+
+.. currentmodule:: gemclus.nonparametric
+
+.. autoclass:: CategoricalWasserstein
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.nonparametric.CategoricalWasserstein.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

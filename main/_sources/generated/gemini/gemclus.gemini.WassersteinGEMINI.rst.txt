@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.WassersteinGEMINI
+==============================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: WassersteinGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.WassersteinGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

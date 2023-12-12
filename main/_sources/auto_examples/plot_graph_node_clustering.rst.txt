@@ -32,7 +32,7 @@ the `fit` function instead of the data is a simple identity matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 14-24
 
-.. code-block:: default
+.. code-block:: Python
 
     import itertools
 
@@ -58,7 +58,7 @@ Draw samples from a GMM
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-37
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Generate samples on that are simple to separate
@@ -82,7 +82,7 @@ Create the graph edges
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-52
 
-.. code-block:: default
+.. code-block:: Python
 
 
     distances = metrics.pairwise_distances(X, metric="euclidean")
@@ -108,7 +108,7 @@ Pre-compute a specific metric between samples
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-64
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # compute the all-pairs shortest path in this graph
@@ -133,7 +133,7 @@ assignment of the nodes
 
 .. GENERATED FROM PYTHON SOURCE LINES 71-78
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We specify a custom metric and will pass the distance matrix to the `y` argument of `.fit`.
@@ -156,7 +156,7 @@ Final Clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 83-94
 
-.. code-block:: default
+.. code-block:: Python
 
 
     for node_i, node_j in itertools.combinations(range(N),2):
@@ -191,7 +191,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 7.617 seconds)
+   **Total running time of the script:** (0 minutes 8.140 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_graph_node_clustering.py:
@@ -200,16 +200,13 @@ Final Clustering
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_graph_node_clustering.ipynb <plot_graph_node_clustering.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_graph_node_clustering.py <plot_graph_node_clustering.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_graph_node_clustering.ipynb <plot_graph_node_clustering.ipynb>`
 
 
 .. only:: html

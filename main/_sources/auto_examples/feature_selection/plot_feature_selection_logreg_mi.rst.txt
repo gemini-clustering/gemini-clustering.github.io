@@ -36,7 +36,7 @@ the optimal solution should find that only 5 features are relevant and sufficien
 
 .. GENERATED FROM PYTHON SOURCE LINES 18-26
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -60,7 +60,7 @@ Load a simple synthetic dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-35
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Generate samples on that are simple to separate with additional p independent noisy variables
@@ -82,7 +82,7 @@ features through gradient descent.
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-51
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clf = SparseLinearMI(random_state=0, alpha=1)
@@ -101,7 +101,7 @@ features through gradient descent.
 
  .. code-block:: none
 
-    Selected features: (array([0, 1, 2, 3, 4, 7]),)
+    Selected features: (array([ 0,  1,  2,  3,  4,  6, 11]),)
 
 
 
@@ -113,7 +113,7 @@ Final Clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 56-70
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Now, evaluate the cluster predictions
@@ -142,7 +142,7 @@ Final Clustering
 
  .. code-block:: none
 
-    ARI score is 0.4104563447985772
+    ARI score is 0.458336976163333
 
 
 
@@ -150,7 +150,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.498 seconds)
+   **Total running time of the script:** (0 minutes 1.848 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_plot_feature_selection_logreg_mi.py:
@@ -159,16 +159,13 @@ Final Clustering
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_feature_selection_logreg_mi.ipynb <plot_feature_selection_logreg_mi.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_feature_selection_logreg_mi.py <plot_feature_selection_logreg_mi.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_feature_selection_logreg_mi.ipynb <plot_feature_selection_logreg_mi.ipynb>`
 
 
 .. only:: html

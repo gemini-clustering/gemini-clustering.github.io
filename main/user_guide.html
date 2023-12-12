@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User guide : contents &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>User guide : contents &mdash; gemclus 1.0.0.dev documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="_static/documentation_options.js?v=b4592755"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/js/copybutton.js?v=26522df0"></script>
@@ -38,7 +40,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0.dev
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -64,6 +66,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
@@ -101,12 +104,11 @@
 <section id="which-geminis-are-implemented">
 <h3>Which GEMINIs are implemented<a class="headerlink" href="#which-geminis-are-implemented" title="Link to this heading">¶</a></h3>
 <p>Currently, the <cite>gemclus</cite> package implements both the MMD and Wasserstein distances between the cluster distributions as
-in the original paper. Both OvA and OvO implementations are present in all models. The OvO mode can be set in any
+in the original paper. Both OvA and OvO implementations are present in all models. The OvO mode can be set in most
 clustering model by adding <code class="code docutils literal notranslate"><span class="pre">ovo=True</span></code> in the constructor of a model.</p>
 <p>We propose as well an extension of the base GEMINI algorithm with a sparsity-constrained model that adds a <cite>Group-Lasso</cite>
-penalty to achieve joint feature selection and discriminative clustering. However, regarding this specific version we
-chose so far to only implement it using the MMD-GEMINI because the Wasserstein distance seems to yield worst
-performances so far.</p>
+penalty to achieve joint feature selection and discriminative clustering. It is possible to fuse any GEMINI with any
+model.</p>
 <p>The Wasserstein distance requires a distance function in the data space to compute. We directly propose all distances
 available from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_distances</span></code>. In the same manner, we provide all kernels available
 from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_kernels</span></code> for the MMD. By default, all GEMINIs use the Euclidean norm between
@@ -119,9 +121,9 @@ distribution <span class="math">p_\theta(y|x)</span> flexible yet expressive eno
 logistic regression models in case you want a simpler decision boundary.</p>
 <p>For the sparse version of the algorithm, the architecture is inspired from <a class="reference external" href="https://lassonet.ml/">LassoNet</a> which
 adds a linear skip connection between the inputs and clustering output. Note that there is as well a more simple
-logistic regression model with group-lasso penalty to induce sparsity with <a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code></a>.</p>
-<p>If you want to use another model, you can derive one of the <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseMMD</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseWasserstein</span></code>
-classes and rewrite their hidden method <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code> and <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code>. An example
+logistic regression model with group-lasso penalty to induce sparsity with <a class="reference internal" href="generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel" title="gemclus.sparse.SparseLinearModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearModel</span></code></a>.</p>
+<p>If you want to use another model, you can derive the <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.DiscriminativeModel</span></code>
+class and rewrite its hidden methods <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code> and <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code>. An example
 of extension is given <a class="reference external" href="auto_examples/plot_custom_model.html">Here</a></p>
 </section>
 </section>

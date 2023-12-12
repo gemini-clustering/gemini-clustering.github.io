@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.tree`.Kauri
+================================
+
+.. currentmodule:: gemclus.tree
+
+.. autoclass:: Kauri
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.tree.Kauri.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

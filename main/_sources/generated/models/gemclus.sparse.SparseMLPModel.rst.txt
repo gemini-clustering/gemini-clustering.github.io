@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.sparse`.SparseMLPModel
+===========================================
+
+.. currentmodule:: gemclus.sparse
+
+.. autoclass:: SparseMLPModel
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.sparse.SparseMLPModel.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
