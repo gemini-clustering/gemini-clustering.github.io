@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.gemini.MI &mdash; gemclus 1.0.0.dev documentation</title>
+  <title>gemclus.gemini.KLGEMINI &mdash; gemclus 1.0.0.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
@@ -24,8 +24,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="gemclus.gemini.KLGEMINI" href="gemclus.gemini.KLGEMINI.html" />
-    <link rel="prev" title="gemclus.gemini.WassersteinGEMINI" href="gemclus.gemini.WassersteinGEMINI.html" /> 
+    <link rel="next" title="gemclus.gemini.TVGEMINI" href="gemclus.gemini.TVGEMINI.html" />
+    <link rel="prev" title="gemclus.gemini.MI" href="gemclus.gemini.MI.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,11 +61,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../api.html#scoring-with-gemini">Scoring with GEMINI</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.MMDGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MMDGEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.WassersteinGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.WassersteinGEMINI</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#gemclus.gemini.MI"><code class="docutils literal notranslate"><span class="pre">MI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.MI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.KLGEMINI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gemclus.gemini.KLGEMINI"><code class="docutils literal notranslate"><span class="pre">KLGEMINI</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.KLGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.KLGEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.TVGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.TVGEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.HellingerGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.HellingerGEMINI</a></li>
 </ul>
@@ -97,9 +97,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../api.html">GEMCLUS API</a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI</li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.KLGEMINI</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/generated/gemini/gemclus.gemini.MI.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/generated/gemini/gemclus.gemini.KLGEMINI.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -107,32 +107,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="gemclus-gemini-mi">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.MI<a class="headerlink" href="#gemclus-gemini-mi" title="Link to this heading">¶</a></h1>
+  <section id="gemclus-gemini-klgemini">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.KLGEMINI<a class="headerlink" href="#gemclus-gemini-klgemini" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="gemclus.gemini.MI">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">MI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/gemini/_fdivergences.html#MI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI" title="Link to this definition">¶</a></dt>
-<dd><p>Implements the classical mutual information between cluster conditional probabilities and the complete data
-probabilities:</p>
+<dt class="sig sig-object py" id="gemclus.gemini.KLGEMINI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">KLGEMINI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/gemini/_fdivergences.html#KLGEMINI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.KLGEMINI" title="Link to this definition">¶</a></dt>
+<dd><p>Implements the one-vs-all and one-vs-one KL GEMINI.</p>
+<p>The one-vs-all version compares the KL divergence between a cluster distribution
+and the data distribution. It is the classical mutual information.</p>
 <div class="math">
 <p><span class="math">\mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{KL}(p(x|y)\|p(x))]</span></p>
-</div><p>This class is a simplified shortcut for KLGEMINI(ovo=False).</p>
-<dl class="field-list simple">
+</div><p>The one-vs-one version compares the KL divergence between two cluster distributions.</p>
+<div class="math">
+<p><span class="math">\mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\text{KL}(p(x|y_a)\|p(x|y_b))]</span></p>
+</div><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>ovo: bool, default=False</strong></dt><dd><p>Whether to use the one-vs-all objective (False) or the one-vs-one objective (True).</p>
+</dd>
 <dt><strong>epsilon: float, default=1e-12</strong></dt><dd><p>The precision for clipping the prediction values in order to avoid numerical instabilities.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.gemini.MI.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/gemini/_fdivergences.html#MI.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.MI.__init__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.gemini.KLGEMINI.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/gemini/_fdivergences.html#KLGEMINI.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.KLGEMINI.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.gemini.MI.compute_affinity">
-<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.MI.compute_affinity" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.gemini.KLGEMINI.compute_affinity">
+<span class="sig-name descname"><span class="pre">compute_affinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.KLGEMINI.compute_affinity" title="Link to this definition">¶</a></dt>
 <dd><p>Unused for f-divergences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -144,8 +149,8 @@ probabilities:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gemclus.gemini.MI.evaluate">
-<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.gemini.MI.evaluate" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gemclus.gemini.KLGEMINI.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/gemclus/gemini/_fdivergences.html#KLGEMINI.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.KLGEMINI.evaluate" title="Link to this definition">¶</a></dt>
 <dd><p>Compute the GEMINI objective given the predictions <span class="math">$p(y|x)$</span> and an affinity matrix. The
 computation must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,
 the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a distance matrix resulting from the
@@ -180,8 +185,8 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gemclus.gemini.WassersteinGEMINI.html" class="btn btn-neutral float-left" title="gemclus.gemini.WassersteinGEMINI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gemclus.gemini.KLGEMINI.html" class="btn btn-neutral float-right" title="gemclus.gemini.KLGEMINI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gemclus.gemini.MI.html" class="btn btn-neutral float-left" title="gemclus.gemini.MI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.gemini.TVGEMINI.html" class="btn btn-neutral float-right" title="gemclus.gemini.TVGEMINI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

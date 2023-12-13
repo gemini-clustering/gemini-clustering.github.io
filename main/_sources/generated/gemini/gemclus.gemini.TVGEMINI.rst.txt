@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.TVGEMINI
+=====================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: TVGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.TVGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

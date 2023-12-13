@@ -20,6 +20,9 @@ clustering.
     gemini.MMDGEMINI
     gemini.WassersteinGEMINI
     gemini.MI
+    gemini.KLGEMINI
+    gemini.TVGEMINI
+    gemini.HellingerGEMINI
 
 Clustering models
 ==================
