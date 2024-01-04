@@ -104,9 +104,7 @@
 <div class="viewcode-block" id="SparseMLPModel">
 <a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseMLPModel.html#gemclus.sparse.SparseMLPModel">[docs]</a>
 <span class="k">class</span> <span class="nc">SparseMLPModel</span><span class="p">(</span><span class="n">MLPModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the BaseSparseGEMINI template to derive to create a Sparse GEMINI MLP clustering model.</span>
-<span class="sd">    When deriving, the only methods to adapt is the _compute_gemini methods which</span>
-<span class="sd">    should be able to return the gradient with respect to the conditional distribution p(y|x).</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of a neural network as a clustering distribution :math:`p(y|x)` with variable selection.</span>
 
 <span class="sd">    On top of the vanilla MLP GEMINI model, this variation brings a skip connection from the data to the cluster</span>
 <span class="sd">    output. This skip connection ensures a sparsity constraint through a group-lasso penalty and a proximal gradient</span>
