@@ -22,9 +22,12 @@
 An introducing example to clustering with an MLP and the MMD GEMINI
 =====================================================================
 
-An example plot of :class:`gemclus.base_gemini.DenseMMDOvO`
+We show in this example how to use the `gemclus.mlp.MLPMMD` to fit
+a simple mixture of Gaussian distributions. The architecture here
+is a two-layer neural network trained with the MMD GEMINI, an
+objective equivalent to kernel KMeans.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-14
+.. GENERATED FROM PYTHON SOURCE LINES 11-17
 
 .. code-block:: Python
 
@@ -41,12 +44,12 @@ An example plot of :class:`gemclus.base_gemini.DenseMMDOvO`
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-17
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 Generate data
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-22
+.. GENERATED FROM PYTHON SOURCE LINES 22-25
 
 .. code-block:: Python
 
@@ -60,12 +63,12 @@ Generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 Create the MLP clustering model and fit it
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-30
+.. GENERATED FROM PYTHON SOURCE LINES 30-33
 
 .. code-block:: Python
 
@@ -85,12 +88,12 @@ Create the MLP clustering model and fit it
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Plot the final clustering
 -------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-54
+.. GENERATED FROM PYTHON SOURCE LINES 38-57
 
 .. code-block:: Python
 
@@ -128,7 +131,7 @@ Plot the final clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.782 seconds)
+   **Total running time of the script:** (0 minutes 0.813 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_intro_mlp_mmd.py:

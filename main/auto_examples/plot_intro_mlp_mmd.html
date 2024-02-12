@@ -71,6 +71,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="plot_nonparametric_clustering.html">Non parametric clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_kernel_kmeans.html">Kernel KMeans clustering with GEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_gstm.html">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_moon_clustering.html">Drawing a decision boundary between two interlacing moons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_rim.html">Simple logistic regression with RIM</a></li>
@@ -119,7 +120,10 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="an-introducing-example-to-clustering-with-an-mlp-and-the-mmd-gemini">
 <span id="sphx-glr-auto-examples-plot-intro-mlp-mmd-py"></span><h1>An introducing example to clustering with an MLP and the MMD GEMINI<a class="headerlink" href="#an-introducing-example-to-clustering-with-an-mlp-and-the-mmd-gemini" title="Link to this heading">¶</a></h1>
-<p>An example plot of <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.base_gemini.DenseMMDOvO</span></code></p>
+<p>We show in this example how to use the <cite>gemclus.mlp.MLPMMD</cite> to fit
+a simple mixture of Gaussian distributions. The architecture here
+is a two-layer neural network trained with the MMD GEMINI, an
+objective equivalent to kernel KMeans.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -165,7 +169,7 @@ to download the full example code</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_intro_mlp_mmd_001.png" srcset="../_images/sphx_glr_plot_intro_mlp_mmd_001.png" alt="plot intro mlp mmd" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.782 seconds)</p>
+<img src="../_images/sphx_glr_plot_intro_mlp_mmd_001.png" srcset="../_images/sphx_glr_plot_intro_mlp_mmd_001.png" alt="plot intro mlp mmd" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.813 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-intro-mlp-mmd-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/54e8c0570933f7d0aedb2573b8469dbe/plot_intro_mlp_mmd.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_intro_mlp_mmd.ipynb</span></code></a></p>

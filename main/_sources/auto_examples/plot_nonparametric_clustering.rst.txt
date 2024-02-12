@@ -23,8 +23,11 @@ Non parametric clustering
 ==========================
 
 This example illustrates how we can run nonparametric clustering using GEMINI.
+The specificity of this model is that the decision of model is not dependent on the position of the inputs, but
+only on the parameters associated to the input. Consequently, this model cannot be used for unseen samples as
+it will always return the same predictions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-16
+.. GENERATED FROM PYTHON SOURCE LINES 11-19
 
 .. code-block:: Python
 
@@ -43,12 +46,12 @@ This example illustrates how we can run nonparametric clustering using GEMINI.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-19
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
 
 Draw samples from a GMM
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-29
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
 
 .. code-block:: Python
 
@@ -67,14 +70,14 @@ Draw samples from a GMM
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-34
+.. GENERATED FROM PYTHON SOURCE LINES 33-37
 
 Train the model
 --------------------------------------------------------------
 Create the Non parametric GEMINI clustering model and call the .fit method to optimise the cluster
 assignment of the nodes
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-40
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 .. code-block:: Python
 
@@ -89,12 +92,12 @@ assignment of the nodes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 Final Clustering
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-52
+.. GENERATED FROM PYTHON SOURCE LINES 48-55
 
 .. code-block:: Python
 
@@ -127,7 +130,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.379 seconds)
+   **Total running time of the script:** (0 minutes 0.389 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_nonparametric_clustering.py:

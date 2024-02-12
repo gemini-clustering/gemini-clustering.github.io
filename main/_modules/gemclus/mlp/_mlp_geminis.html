@@ -172,7 +172,7 @@
 <span class="sd">    MLPWasserstein: two-layer neural network trained for clustering with the Wasserstein GEMINI</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    -------- #TODO fix</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; from sklearn.datasets import load_iris</span>
 <span class="sd">    &gt;&gt;&gt; from gemclus.mlp import MLPModel</span>
 <span class="sd">    &gt;&gt;&gt; X,y=load_iris(return_X_y=True)</span>
@@ -186,7 +186,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="o">**</span><span class="n">DiscriminativeModel</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
-        <span class="s2">&quot;hidden_dim&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;n_hidden_dim&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
     <span class="p">}</span>
 
 <div class="viewcode-block" id="MLPModel.__init__">
@@ -321,7 +321,7 @@
 <span class="sd">    MLPWasserstein: two-layer neural network trained for clustering with the Wasserstein GEMINI</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    -------- #TODO fix</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; from sklearn.datasets import load_iris</span>
 <span class="sd">    &gt;&gt;&gt; from gemclus.mlp import MLPMMD</span>
 <span class="sd">    &gt;&gt;&gt; X,y=load_iris(return_X_y=True)</span>

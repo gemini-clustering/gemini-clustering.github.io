@@ -17,7 +17,7 @@ Discriminative clustering
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="An example plot of gemclus.base_gemini.DenseMMDOvO">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how to use the gemclus.mlp.MLPMMD to fit a simple mixture of Gaussian d...">
 
 .. only:: html
 
@@ -34,7 +34,7 @@ Discriminative clustering
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI.">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI. The specificity ...">
 
 .. only:: html
 
@@ -46,6 +46,23 @@ Discriminative clustering
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Non parametric clustering</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Since the MMD GEMINI objective is equivalent in OvO mode to a kernel KMeans objective, we can u...">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_kernel_kmeans_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_kernel_kmeans.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kernel KMeans clustering with GEMINI</div>
     </div>
 
 
@@ -161,6 +178,7 @@ Discriminative clustering
 
    /auto_examples/plot_intro_mlp_mmd
    /auto_examples/plot_nonparametric_clustering
+   /auto_examples/plot_kernel_kmeans
    /auto_examples/plot_gstm
    /auto_examples/plot_moon_clustering
    /auto_examples/plot_rim

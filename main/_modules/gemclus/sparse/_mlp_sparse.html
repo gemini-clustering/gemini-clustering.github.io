@@ -87,7 +87,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gemclus.sparse._mlp_sparse</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">PAIRWISE_KERNEL_FUNCTIONS</span>
@@ -95,7 +96,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">StrOptions</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils.extmath</span> <span class="kn">import</span> <span class="n">softmax</span>
 
-<span class="kn">from</span> <span class="nn">._base_sparse</span> <span class="kn">import</span> <span class="n">_path</span>
+<span class="kn">from</span> <span class="nn">._base_sparse</span> <span class="kn">import</span> <span class="n">_path</span><span class="p">,</span> <span class="n">check_groups</span>
 <span class="kn">from</span> <span class="nn">._prox_grad</span> <span class="kn">import</span> <span class="n">group_mlp_prox_grad</span><span class="p">,</span> <span class="n">mlp_prox_grad</span>
 <span class="kn">from</span> <span class="nn">..gemini</span> <span class="kn">import</span> <span class="n">MMDGEMINI</span>
 <span class="kn">from</span> <span class="nn">..mlp._mlp_geminis</span> <span class="kn">import</span> <span class="n">MLPModel</span>
@@ -119,8 +120,9 @@
 
 <span class="sd">    groups: list of arrays of various shapes, default=None</span>
 <span class="sd">        If groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
-<span class="sd">        variable selection with groups of features considered to represent one variables. This option can typically be</span>
-<span class="sd">        used for one-hot-encoded variables.</span>
+<span class="sd">        variable selection with groups of features considered to represent one variable. This option can typically be</span>
+<span class="sd">        used for one-hot-encoded variables. Variable indices that are not entered will be considered alone.</span>
+<span class="sd">        For example, with 3 features, accepted values can be [[0],[1],[2]], [[0,1],[2]] or [[0,1]].</span>
 
 <span class="sd">    max_iter: int, default=1000</span>
 <span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
@@ -130,6 +132,10 @@
 
 <span class="sd">    n_hidden_dim: int, default=20</span>
 <span class="sd">        The number of neurons in the hidden layer of the neural network.</span>
+
+<span class="sd">    dynamic: bool, default=False</span>
+<span class="sd">        Whether to run the path in dynamic mode or not. The dynamic mode consists of affinities computed using</span>
+<span class="sd">        only the subset of selected variables instead of all variables.</span>
 
 <span class="sd">    solver: {&#39;sgd&#39;,&#39;adam&#39;}, default=&#39;adam&#39;</span>
 <span class="sd">        The solver for weight optimisation.</span>
@@ -173,6 +179,8 @@
 <span class="sd">        The number of iterations that the model took for converging.</span>
 <span class="sd">    H_: ndarray of shape (n_samples, n_hidden_dim)</span>
 <span class="sd">        The hidden representation of the samples after fitting.</span>
+<span class="sd">    groups_: list of lists of int or None</span>
+<span class="sd">        The explicit partition of the variables formed by the groups parameter if it was not None.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -194,12 +202,13 @@
         <span class="o">**</span><span class="n">MLPModel</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
         <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
         <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)],</span>
+        <span class="s2">&quot;dynamic&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">]</span>
     <span class="p">}</span>
 
 <div class="viewcode-block" id="SparseMLPModel.__init__">
 <a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseMLPModel.html#gemclus.sparse.SparseMLPModel.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">n_hidden_dim</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-                 <span class="n">M</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">M</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
             <span class="n">gemini</span><span class="o">=</span><span class="n">gemini</span><span class="p">,</span>
@@ -213,7 +222,8 @@
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="n">groups</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groups</span> <span class="o">=</span> <span class="n">groups</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span> <span class="o">=</span> <span class="n">dynamic</span></div>
 
 
     <span class="k">def</span> <span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -259,11 +269,11 @@
 
         <span class="c1"># Then statisfy the sparsity constraint of the MLP by</span>
         <span class="c1"># evaluating the proximal gradient</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">new_W_skip</span><span class="p">,</span> <span class="n">new_W1</span> <span class="o">=</span> <span class="n">mlp_prox_grad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
                                                <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">new_W_skip</span><span class="p">,</span> <span class="n">new_W1</span> <span class="o">=</span> <span class="n">group_mlp_prox_grad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1_</span><span class="p">,</span>
+            <span class="n">new_W_skip</span><span class="p">,</span> <span class="n">new_W1</span> <span class="o">=</span> <span class="n">group_mlp_prox_grad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groups_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W1_</span><span class="p">,</span>
                                                      <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
 
         <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="n">new_W_skip</span><span class="p">)</span>
@@ -289,9 +299,17 @@
     <span class="k">def</span> <span class="nf">_group_lasso_penalty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
+<div class="viewcode-block" id="SparseMLPModel.fit">
+<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseMLPModel.html#gemclus.sparse.SparseMLPModel.fit">[docs]</a>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">groups_</span> <span class="o">=</span> <span class="n">check_groups</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Intercept to check that group forms a partition</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="SparseMLPModel.path">
 <a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseMLPModel.html#gemclus.sparse.SparseMLPModel.path">[docs]</a>
-    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha_multiplier</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">keep_threshold</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha_multiplier</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">keep_threshold</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
              <span class="n">early_stopping_factor</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">max_patience</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unfold the progressive geometric increase of the penalty weight starting from the initial alpha until</span>
@@ -305,6 +323,9 @@
 <span class="sd">        ----------</span>
 <span class="sd">        X : {array-like, sparse matrix} of shape (n_samples, n_features)</span>
 <span class="sd">            Test samples on which the feature reduction will be made.</span>
+<span class="sd">        y : ndarray of shape (n_samples, n_samples), default=None</span>
+<span class="sd">            Use this parameter to give a precomputed affinity metric if the option &quot;precomputed&quot; was passed during</span>
+<span class="sd">            construction. Otherwise, it is not used. This parameter is incompatible with the dynamic mode.</span>
 <span class="sd">        alpha_multiplier : float, default=1.05</span>
 <span class="sd">            The geometric increase of the group-lasso penalty at each-retraining. It must be greater than 1.</span>
 <span class="sd">        min_features: int, default=2</span>
@@ -314,7 +335,8 @@
 <span class="sd">            best.</span>
 <span class="sd">        restore_best_weights: bool, default=True</span>
 <span class="sd">            After performing the path, the best weights offering simultaneously good GEMINI score and few features</span>
-<span class="sd">            are restored to the model.</span>
+<span class="sd">            are restored to the model. If the model is set to `dynamic=True`, then this option will be ignored because</span>
+<span class="sd">            of the incomparable nature of GEMINIs when the number of selected variables change.</span>
 <span class="sd">        early_stopping_factor: float, default=0.99</span>
 <span class="sd">            The percentage factor beyond which upgrades of the GEMINI or the group-lasso penalty are considered</span>
 <span class="sd">            too small for early stopping.</span>
@@ -335,18 +357,25 @@
 <span class="sd">        n_features: list of float of length T</span>
 <span class="sd">            The number of features that were selected at step t.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">best_weights</span><span class="p">,</span> <span class="n">geminis</span><span class="p">,</span> <span class="n">group_lasso_penalties</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha_multiplier</span><span class="p">,</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Dynamic mode is incompatible with a precomputed metric. Ignoring dynamic mode.&quot;</span><span class="p">)</span>
+
+        <span class="n">best_weights</span><span class="p">,</span> <span class="n">geminis</span><span class="p">,</span> <span class="n">group_lasso_penalties</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha_multiplier</span><span class="p">,</span>
                                                                                  <span class="n">min_features</span><span class="p">,</span> <span class="n">keep_threshold</span><span class="p">,</span>
                                                                                  <span class="n">early_stopping_factor</span><span class="p">,</span> <span class="n">max_patience</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">restore_best_weights</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restoring best weights&quot;</span><span class="p">)</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W1_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W2_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b1_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b2_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restoring best weights&quot;</span><span class="p">)</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W1_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W2_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_skip_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b1_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">copyto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b2_</span><span class="p">,</span> <span class="n">best_weights</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;The option restore_best_weights is incompatible with the dynamic mode. The final model &quot;</span>
+                              <span class="s2">&quot;of the path will be kept.&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">best_weights</span><span class="p">,</span> <span class="n">geminis</span><span class="p">,</span> <span class="n">group_lasso_penalties</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">n_features</span></div>
 </div>
@@ -370,9 +399,10 @@
 <span class="sd">        The maximum number of clusters to form as well as the number of output neurons in the neural network.</span>
 
 <span class="sd">    groups: list of arrays of various shapes, default=None</span>
-<span class="sd">        if groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
-<span class="sd">        variable selection with groups of features considered to represent one variables. This option can typically be</span>
-<span class="sd">        used for one-hot-encoded variables.</span>
+<span class="sd">        If groups is set, it must describe a partition of the indices of variables. This will be used for performing</span>
+<span class="sd">        variable selection with groups of features considered to represent one variable. This option can typically be</span>
+<span class="sd">        used for one-hot-encoded variables. Variable indices that are not entered will be considered alone.</span>
+<span class="sd">        For example, with 3 features, accepted values can be [[0],[1],[2]], [[0,1],[2]] or [[0,1]].</span>
 
 <span class="sd">    max_iter: int, default=1000</span>
 <span class="sd">        Maximum number of epochs to perform gradient descent in a single run.</span>
@@ -405,6 +435,10 @@
 <span class="sd">    M: float, default=10 The hierarchy coefficient that controls the relative strength between the group-lasso</span>
 <span class="sd">        penalty of the skip connection and the sparsity of the first layer of the MLP.</span>
 
+<span class="sd">    dynamic: bool, default=False</span>
+<span class="sd">        Whether to run the path in dynamic mode or not. The dynamic mode consists of affinities computed using</span>
+<span class="sd">        only the subset of selected variables instead of all variables.</span>
+
 <span class="sd">    batch_size: int, default=None</span>
 <span class="sd">        The size of batches during gradient descent training. If set to None, the whole data will be considered.</span>
 
@@ -435,6 +469,8 @@
 <span class="sd">        The number of iterations that the model took for converging.</span>
 <span class="sd">    H_: ndarray of shape (n_samples, n_hidden_dim)</span>
 <span class="sd">        The hidden representation of the samples after fitting.</span>
+<span class="sd">    groups_: list of lists of int or None</span>
+<span class="sd">        The explicit partition of the variables formed by the groups parameter if it was not None.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -476,8 +512,8 @@
 <div class="viewcode-block" id="SparseMLPMMD.__init__">
 <a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">n_hidden_dim</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
-                 <span class="n">M</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">M</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
             <span class="n">gemini</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -485,6 +521,7 @@
             <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
             <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
             <span class="n">n_hidden_dim</span><span class="o">=</span><span class="n">n_hidden_dim</span><span class="p">,</span>
+            <span class="n">dynamic</span><span class="o">=</span><span class="n">dynamic</span><span class="p">,</span>
             <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span>
             <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
             <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
