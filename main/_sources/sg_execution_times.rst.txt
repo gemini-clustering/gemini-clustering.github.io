@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**08:02.792** total execution time for 17 files **from all galleries**:
+**09:06.708** total execution time for 17 files **from all galleries**:
 
 .. container::
 
@@ -33,53 +33,53 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_plot_circles.py` (``../examples/plot_circles.py``)
-     - 03:16.571
+     - 05:11.159
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_kernel_kmeans.py` (``../examples/plot_kernel_kmeans.py``)
-     - 03:08.912
+     - 02:30.488
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_linear.py` (``../examples/feature_selection/plot_feature_selection_linear.py``)
-     - 00:23.796
+     - 00:22.449
      - 0.0
    * - :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py` (``../examples/trees/plot_douglas_example.py``)
-     - 00:19.898
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_mlcl_plot_semi_supervised_consensus.py` (``../examples/mlcl/plot_semi_supervised_consensus.py``)
-     - 00:09.717
+     - 00:10.998
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_gstm.py` (``../examples/plot_gstm.py``)
-     - 00:09.423
+     - 00:09.448
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_mlcl_plot_semi_supervised_consensus.py` (``../examples/mlcl/plot_semi_supervised_consensus.py``)
+     - 00:09.429
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_moon_clustering.py` (``../examples/plot_moon_clustering.py``)
-     - 00:07.920
+     - 00:08.268
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_graph_node_clustering.py` (``../examples/plot_graph_node_clustering.py``)
-     - 00:07.790
+     - 00:08.006
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_mlp.py` (``../examples/feature_selection/plot_feature_selection_mlp.py``)
-     - 00:06.127
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``../examples/scoring/plot_gemini_scoring.py``)
-     - 00:03.589
+     - 00:05.593
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_grouped_selection.py` (``../examples/feature_selection/plot_grouped_selection.py``)
-     - 00:03.279
+     - 00:03.160
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_logreg_mi.py` (``../examples/feature_selection/plot_feature_selection_logreg_mi.py``)
-     - 00:02.356
+     - 00:02.247
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``../examples/scoring/plot_gemini_scoring.py``)
+     - 00:02.063
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_custom_model.py` (``../examples/plot_custom_model.py``)
-     - 00:01.741
+     - 00:01.792
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_intro_mlp_mmd.py` (``../examples/plot_intro_mlp_mmd.py``)
-     - 00:00.813
+     - 00:00.748
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_nonparametric_clustering.py` (``../examples/plot_nonparametric_clustering.py``)
-     - 00:00.389
+     - 00:00.392
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_rim.py` (``../examples/plot_rim.py``)
-     - 00:00.328
+     - 00:00.336
      - 0.0
    * - :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py` (``../examples/trees/plot_kauri_example.py``)
-     - 00:00.143
+     - 00:00.131
      - 0.0

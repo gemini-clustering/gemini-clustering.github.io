@@ -59,8 +59,8 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">GEMCLUS API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RELEASES</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#history-of-changes">History of changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#in-development">In development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#history-of-changes">History of changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-development">In development</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#latest">0.2.0 (Latest)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">0.1.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">0.1.0</a></li>
@@ -103,10 +103,12 @@
 <h1>RELEASES<a class="headerlink" href="#releases" title="Link to this heading">¶</a></h1>
 <section id="history-of-changes">
 <h2>History of changes<a class="headerlink" href="#history-of-changes" title="Link to this heading">¶</a></h2>
-</section>
 <section id="in-development">
-<h2>In development<a class="headerlink" href="#in-development" title="Link to this heading">¶</a></h2>
+<h3>In development<a class="headerlink" href="#in-development" title="Link to this heading">¶</a></h3>
 <ul class="simple">
+<li><p>Adding the dynamic version of paths for feature selection in sparse models. A simply argument <code class="docutils literal notranslate"><span class="pre">dynamic=True</span></code> activates the dynamic mode.</p></li>
+<li><p>Possibility of passing custom kernels and metrics to sparse models. This is not compatible with the dynamic mode.</p></li>
+<li><p>No need to specify any longer the full partition of the features in the <code class="docutils literal notranslate"><span class="pre">groups</span></code> arguments of the sparse models</p></li>
 <li><p>New GEMINIs: <code class="docutils literal notranslate"><span class="pre">HellingerGEMINI</span></code>, <code class="docutils literal notranslate"><span class="pre">TVGEMINI</span></code> and <code class="docutils literal notranslate"><span class="pre">KLGEMINI</span></code></p></li>
 <li><p>Introducing generic models that can be combined with any GEMINI</p>
 <ul>
@@ -125,6 +127,7 @@
 </li>
 <li><p>Fixing a gradient mistake in the <code class="docutils literal notranslate"><span class="pre">gemclus.MI</span></code></p></li>
 </ul>
+</section>
 <section id="latest">
 <h3>0.2.0 (Latest)<a class="headerlink" href="#latest" title="Link to this heading">¶</a></h3>
 <ul class="simple">
