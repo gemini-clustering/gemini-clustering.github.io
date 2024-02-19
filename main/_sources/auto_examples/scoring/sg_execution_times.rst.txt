@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.063** total execution time for 1 file **from auto_examples/scoring**:
+**00:01.888** total execution time for 1 file **from auto_examples/scoring**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``plot_gemini_scoring.py``)
-     - 00:02.063
+     - 00:01.888
      - 0.0
