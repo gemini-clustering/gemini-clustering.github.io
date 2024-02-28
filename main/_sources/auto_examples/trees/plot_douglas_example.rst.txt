@@ -86,7 +86,7 @@ Create the douglas tree and fit it
 
  .. code-block:: none
 
-    Score of model is:  1.474150686050238
+    Score of model is:  1.4741506860502533
     ARI of model is:  0.5681159420289855
 
 
@@ -95,7 +95,7 @@ Create the douglas tree and fit it
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 11.990 seconds)
+   **Total running time of the script:** (0 minutes 2.559 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_douglas_example.py:

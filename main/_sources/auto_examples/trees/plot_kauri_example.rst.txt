@@ -167,10 +167,10 @@ Visualise the tree structure
 
     Structure of the additive chi2 model
     Node 0
-    |=petal width (cm) <= 0.6
+    |=petal length (cm) <= 1.9
     | Node 1
-    |  Cluster: 0
-    |=petal width (cm) > 0.6
+    |  Cluster: 1
+    |=petal length (cm) > 1.9
     | Node 2
     | |=petal length (cm) <= 4.7
     | | Node 3
@@ -182,7 +182,7 @@ Visualise the tree structure
     | | |  Cluster: 2
     | | |=petal width (cm) > 1.5
     | | | Node 6
-    | | |  Cluster: 1
+    | | |  Cluster: 0
 
 
 
@@ -190,7 +190,7 @@ Visualise the tree structure
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.239 seconds)
+   **Total running time of the script:** (0 minutes 0.318 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_kauri_example.py:

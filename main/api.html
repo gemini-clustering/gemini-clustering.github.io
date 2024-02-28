@@ -73,6 +73,7 @@
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.linear.LinearWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearWasserstein</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.linear.RIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.linear.KernelRIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.KernelRIM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.mlp.MLPModel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPModel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="generated/models/gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
@@ -196,13 +197,16 @@ clustering.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/models/gemclus.linear.RIM.html#gemclus.linear.RIM" title="gemclus.linear.RIM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.RIM</span></code></a>([n_clusters, max_iter, ...])</p></td>
 <td><p>Implementation of the maximisation of the classical mutual information using a logistic regression with an <span class="math">\ell_2</span> penalty on the weights.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPModel.html#gemclus.mlp.MLPModel" title="gemclus.mlp.MLPModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPModel</span></code></a>([n_clusters, gemini, max_iter, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM" title="gemclus.linear.KernelRIM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear.KernelRIM</span></code></a>([n_clusters, max_iter, ...])</p></td>
+<td><p>Implementation of the maximisation of the classical mutual information using a kernelised version of the logistic regression with an <span class="math">\ell_2</span> penalty on the weights.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPModel.html#gemclus.mlp.MLPModel" title="gemclus.mlp.MLPModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPModel</span></code></a>([n_clusters, gemini, max_iter, ...])</p></td>
 <td><p>Implementation of a two-layer neural network as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPMMD.html#gemclus.mlp.MLPMMD" title="gemclus.mlp.MLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPMMD</span></code></a>([n_clusters, max_iter, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPMMD.html#gemclus.mlp.MLPMMD" title="gemclus.mlp.MLPMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPMMD</span></code></a>([n_clusters, max_iter, ...])</p></td>
 <td><p>Implementation of the maximisation of the MMD GEMINI using a two-layer neural network as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPWasserstein</span></code></a>([n_clusters, max_iter, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlp.MLPWasserstein</span></code></a>([n_clusters, max_iter, ...])</p></td>
 <td><p>Implementation of the maximisation of the Wasserstein GEMINI using a two-layer neural network as a clustering distribution <span class="math">p(y|x)</span>.</p></td>
 </tr>
 </tbody>

@@ -65,6 +65,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearWasserstein</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.RIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.KernelRIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.KernelRIM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPModel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPModel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
@@ -175,7 +176,7 @@ Arnaud Droit, Frederic Precioso</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="go">1.7550724287639448</span>
+<span class="go">1.7550724287</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -253,6 +254,23 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt>gemini: a GEMINI instance</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.linear.LinearModel.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.LinearModel.get_metadata_routing" title="Link to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.4)"><span class="xref std std-ref">User Guide</span></a> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
+routing information.</p>
+</dd>
 </dl>
 </dd>
 </dl>

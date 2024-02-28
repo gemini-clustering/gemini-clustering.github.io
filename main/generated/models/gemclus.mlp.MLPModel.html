@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="gemclus.mlp.MLPMMD" href="gemclus.mlp.MLPMMD.html" />
-    <link rel="prev" title="gemclus.linear.RIM" href="gemclus.linear.RIM.html" /> 
+    <link rel="prev" title="gemclus.linear.KernelRIM" href="gemclus.linear.KernelRIM.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -65,6 +65,7 @@
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearWasserstein</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.RIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.KernelRIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.KernelRIM</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPModel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
@@ -175,7 +176,7 @@ Arnaud Droit, Frederic Precioso</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="go">0.6325592616409484</span>
+<span class="go">0.6325592616</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -259,6 +260,23 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt>gemini: a GEMINI instance</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.mlp.MLPModel.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.mlp.MLPModel.get_metadata_routing" title="Link to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.4)"><span class="xref std std-ref">User Guide</span></a> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
+routing information.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -384,7 +402,7 @@ possible to update each component of a nested object.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gemclus.linear.RIM.html" class="btn btn-neutral float-left" title="gemclus.linear.RIM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.linear.KernelRIM.html" class="btn btn-neutral float-left" title="gemclus.linear.KernelRIM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="gemclus.mlp.MLPMMD.html" class="btn btn-neutral float-right" title="gemclus.mlp.MLPMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

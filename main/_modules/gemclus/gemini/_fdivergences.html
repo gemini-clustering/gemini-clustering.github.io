@@ -316,6 +316,7 @@
 <span class="sd">    epsilon: float, default=1e-12</span>
 <span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
 <div class="viewcode-block" id="HellingerGEMINI.__init__">
 <a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
@@ -346,9 +347,12 @@
         <span class="n">hellinger_gemini</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">return_grad</span><span class="p">:</span>
-            <span class="n">gradients</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">p_y</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_y_x</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">:</span>
-                <span class="n">gradients</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">estimates</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">sqrt_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">estimates</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+                <span class="n">gradients</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_y</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span> <span class="o">*</span> <span class="n">sqrt_estimates</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+                    <span class="n">p_y_x</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span> <span class="o">*</span> <span class="n">sqrt_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gradients</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">p_y</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_y_x</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
             <span class="n">gradients</span> <span class="o">/=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">hellinger_gemini</span><span class="p">,</span> <span class="n">gradients</span> <span class="o">*</span> <span class="n">clip_mask</span>
