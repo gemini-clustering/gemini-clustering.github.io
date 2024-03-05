@@ -49,17 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -111,7 +111,7 @@
 
 
 <div class="viewcode-block" id="KLGEMINI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI">[docs]</a>
 <span class="k">class</span> <span class="nc">KLGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one KL GEMINI.</span>
@@ -137,7 +137,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="KLGEMINI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
         <span class="p">{</span>
             <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
@@ -150,7 +150,7 @@
 
 
 <div class="viewcode-block" id="KLGEMINI.evaluate">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI.evaluate">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI.evaluate">[docs]</a>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -182,7 +182,7 @@
 
 
 <div class="viewcode-block" id="MI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MI.html#gemclus.gemini.MI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI">[docs]</a>
 <span class="k">class</span> <span class="nc">MI</span><span class="p">(</span><span class="n">KLGEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the classical mutual information between cluster conditional probabilities and the complete data</span>
@@ -200,7 +200,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="MI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MI.html#gemclus.gemini.MI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">)</span></div>
 </div>
@@ -208,7 +208,7 @@
 
 
 <div class="viewcode-block" id="TVGEMINI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI">[docs]</a>
 <span class="k">class</span> <span class="nc">TVGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one Total Variation distance GEMINI.</span>
@@ -234,7 +234,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TVGEMINI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
         <span class="p">{</span>
             <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
@@ -247,7 +247,7 @@
 
 
 <div class="viewcode-block" id="TVGEMINI.evaluate">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI.evaluate">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI.evaluate">[docs]</a>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -292,7 +292,7 @@
 
 
 <div class="viewcode-block" id="HellingerGEMINI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI">[docs]</a>
 <span class="k">class</span> <span class="nc">HellingerGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one Squared Hellinger distance GEMINI.</span>
@@ -318,7 +318,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="HellingerGEMINI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
         <span class="p">{</span>
             <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
@@ -331,7 +331,7 @@
 
 
 <div class="viewcode-block" id="HellingerGEMINI.evaluate">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.evaluate">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.evaluate">[docs]</a>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>

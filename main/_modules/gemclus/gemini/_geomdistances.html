@@ -49,17 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -102,7 +102,7 @@
 
 
 <div class="viewcode-block" id="MMDGEMINI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI">[docs]</a>
 <span class="k">class</span> <span class="nc">MMDGEMINI</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one MMD GEMINI.</span>
@@ -142,7 +142,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="MMDGEMINI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
         <span class="p">{</span>
             <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
@@ -159,7 +159,7 @@
 
 
 <div class="viewcode-block" id="MMDGEMINI.compute_affinity">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.compute_affinity">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.compute_affinity">[docs]</a>
     <span class="k">def</span> <span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the kernel between all samples of X.</span>
@@ -191,7 +191,7 @@
 
 
 <div class="viewcode-block" id="MMDGEMINI.evaluate">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.evaluate">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.MMDGEMINI.html#gemclus.gemini.MMDGEMINI.evaluate">[docs]</a>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">))</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">a_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">a_max</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -255,7 +255,7 @@
 
 
 <div class="viewcode-block" id="WassersteinGEMINI">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI">[docs]</a>
 <span class="k">class</span> <span class="nc">WassersteinGEMINI</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one Wasserstein GEMINI.</span>
@@ -292,7 +292,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="WassersteinGEMINI.__init__">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.__init__">[docs]</a>
     <span class="nd">@constraint_params</span><span class="p">(</span>
         <span class="p">{</span>
             <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
@@ -309,7 +309,7 @@
 
 
 <div class="viewcode-block" id="WassersteinGEMINI.compute_affinity">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.compute_affinity">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.compute_affinity">[docs]</a>
     <span class="k">def</span> <span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the distance between all samples of X.</span>
@@ -341,7 +341,7 @@
 
 
 <div class="viewcode-block" id="WassersteinGEMINI.evaluate">
-<a class="viewcode-back" href="../../../generated/gemini/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.evaluate">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.WassersteinGEMINI.html#gemclus.gemini.WassersteinGEMINI.evaluate">[docs]</a>
     <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span>
 

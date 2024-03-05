@@ -1,13 +1,22 @@
 :orphan:
 
-General examples
+Example gallery
 ================
 
-We give here some examples on how to use our base model with GEMINI.
+We provide here different examples on how to use the GemClus library, from clustering to variable selection.
 
-Discriminative clustering
--------------------------
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+
+.. raw:: html
+
+    </div>
+
+General examples
+----------------
 
 
 .. raw:: html
@@ -21,10 +30,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_intro_mlp_mmd_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_intro_mlp_mmd_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_intro_mlp_mmd.py`
+  :ref:`sphx_glr_auto_examples__general_plot_intro_mlp_mmd.py`
 
 .. raw:: html
 
@@ -38,10 +47,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_nonparametric_clustering_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_nonparametric_clustering_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_nonparametric_clustering.py`
+  :ref:`sphx_glr_auto_examples__general_plot_nonparametric_clustering.py`
 
 .. raw:: html
 
@@ -55,10 +64,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_kernel_kmeans_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_kernel_kmeans_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_kernel_kmeans.py`
+  :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py`
 
 .. raw:: html
 
@@ -72,10 +81,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_gstm_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_gstm_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_gstm.py`
+  :ref:`sphx_glr_auto_examples__general_plot_gstm.py`
 
 .. raw:: html
 
@@ -89,14 +98,14 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_kernel_rim_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_kernel_rim_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_kernel_rim.py`
+  :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Comparative clustering of circles dataset with kernel change</div>
+      <div class="sphx-glr-thumbnail-title">Clustering circles with kernel RIM</div>
     </div>
 
 
@@ -106,10 +115,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_moon_clustering_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_moon_clustering_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_moon_clustering.py`
+  :ref:`sphx_glr_auto_examples__general_plot_moon_clustering.py`
 
 .. raw:: html
 
@@ -123,10 +132,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_rim_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_rim_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_rim.py`
+  :ref:`sphx_glr_auto_examples__general_plot_rim.py`
 
 .. raw:: html
 
@@ -140,10 +149,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_graph_node_clustering_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_graph_node_clustering_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_graph_node_clustering.py`
+  :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py`
 
 .. raw:: html
 
@@ -157,10 +166,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_circles_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_circles_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_circles.py`
+  :ref:`sphx_glr_auto_examples__general_plot_circles.py`
 
 .. raw:: html
 
@@ -174,10 +183,10 @@ Discriminative clustering
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_custom_model_thumb.png
+  .. image:: /auto_examples/_general/images/thumb/sphx_glr_plot_custom_model_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_custom_model.py`
+  :ref:`sphx_glr_auto_examples__general_plot_custom_model.py`
 
 .. raw:: html
 
@@ -193,16 +202,16 @@ Discriminative clustering
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_intro_mlp_mmd
-   /auto_examples/plot_nonparametric_clustering
-   /auto_examples/plot_kernel_kmeans
-   /auto_examples/plot_gstm
-   /auto_examples/plot_kernel_rim
-   /auto_examples/plot_moon_clustering
-   /auto_examples/plot_rim
-   /auto_examples/plot_graph_node_clustering
-   /auto_examples/plot_circles
-   /auto_examples/plot_custom_model
+   /auto_examples/_general/plot_intro_mlp_mmd
+   /auto_examples/_general/plot_nonparametric_clustering
+   /auto_examples/_general/plot_kernel_kmeans
+   /auto_examples/_general/plot_gstm
+   /auto_examples/_general/plot_kernel_rim
+   /auto_examples/_general/plot_moon_clustering
+   /auto_examples/_general/plot_rim
+   /auto_examples/_general/plot_graph_node_clustering
+   /auto_examples/_general/plot_circles
+   /auto_examples/_general/plot_custom_model
 
 
 Feature selection
@@ -286,6 +295,15 @@ Feature selection
 
     </div>
 
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/feature_selection/plot_feature_selection_linear
+   /auto_examples/feature_selection/plot_feature_selection_logreg_mi
+   /auto_examples/feature_selection/plot_grouped_selection
+   /auto_examples/feature_selection/plot_feature_selection_mlp
+
 Consensus clustering
 ---------------------
 
@@ -316,6 +334,12 @@ Consensus clustering
 
     </div>
 
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/mlcl/plot_semi_supervised_consensus
+
 Scoring with GEMINI
 -------------------
 
@@ -345,6 +369,12 @@ Scoring with GEMINI
 .. raw:: html
 
     </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/scoring/plot_gemini_scoring
 
 Trees
 ------
@@ -396,13 +426,9 @@ Trees
 
 .. toctree::
    :hidden:
-   :includehidden:
 
-
-   /auto_examples/feature_selection/index.rst
-   /auto_examples/mlcl/index.rst
-   /auto_examples/scoring/index.rst
-   /auto_examples/trees/index.rst
+   /auto_examples/trees/plot_douglas_example
+   /auto_examples/trees/plot_kauri_example
 
 
 .. only:: html

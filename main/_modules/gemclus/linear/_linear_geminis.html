@@ -49,17 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -103,7 +103,7 @@
 
 
 <div class="viewcode-block" id="LinearModel">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel">[docs]</a>
 <span class="k">class</span> <span class="nc">LinearModel</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of a logistic regression as a clustering distribution :math:`p(y|x)`. Any GEMINI can be</span>
 <span class="sd">    used to train this model.</span>
@@ -184,7 +184,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="LinearModel.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -225,7 +225,7 @@
 
 
 <div class="viewcode-block" id="LinearMMD">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD">[docs]</a>
 <span class="k">class</span> <span class="nc">LinearMMD</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the MMD GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
@@ -316,7 +316,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="LinearMMD.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -335,7 +335,7 @@
 
 
 <div class="viewcode-block" id="LinearMMD.get_gemini">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.get_gemini">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.get_gemini">[docs]</a>
     <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MMDGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">)</span></div>
 </div>
@@ -343,7 +343,7 @@
 
 
 <div class="viewcode-block" id="LinearWasserstein">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein">[docs]</a>
 <span class="k">class</span> <span class="nc">LinearWasserstein</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the Wasserstein GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
@@ -434,7 +434,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="LinearWasserstein.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -453,7 +453,7 @@
 
 
 <div class="viewcode-block" id="LinearWasserstein.get_gemini">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.get_gemini">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.get_gemini">[docs]</a>
     <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">WassersteinGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span></div>
 </div>
@@ -461,7 +461,7 @@
 
 
 <div class="viewcode-block" id="RIM">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.RIM.html#gemclus.linear.RIM">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM">[docs]</a>
 <span class="k">class</span> <span class="nc">RIM</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a logistic regression with an</span>
 <span class="sd">        :math:`\ell_2` penalty on the weights. This implementation follows the framework described by Krause et al. in the</span>
@@ -541,7 +541,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="RIM.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.RIM.html#gemclus.linear.RIM.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">LinearModel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -566,7 +566,7 @@
 
 
 <div class="viewcode-block" id="KernelRIM">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM">[docs]</a>
 <span class="k">class</span> <span class="nc">KernelRIM</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a kernelised version of the</span>
 <span class="sd">        logistic regression with an :math:`\ell_2` penalty on the weights. This implementation follows the framework</span>
@@ -655,7 +655,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="KernelRIM.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">base_kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">base_kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -699,7 +699,7 @@
         <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
 
 <div class="viewcode-block" id="KernelRIM.fit">
-<a class="viewcode-back" href="../../../generated/models/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.fit">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.fit">[docs]</a>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># We start by storing the input data for later kernel computations</span>
         <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>

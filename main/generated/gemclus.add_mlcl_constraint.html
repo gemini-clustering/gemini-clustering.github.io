@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.add_mlcl_constraint &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>gemclus.add_mlcl_constraint &mdash; gemclus 1.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/documentation_options.js?v=608bb401"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/js/copybutton.js?v=26522df0"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="gemclus.data.draw_gmm" href="gemclus.data.draw_gmm.html" />
-    <link rel="prev" title="gemclus.tree.print_kauri_tree" href="gemclus.tree.print_kauri_tree.html" /> 
+    <link rel="prev" title="gemclus.DiscriminativeModel" href="gemclus.DiscriminativeModel.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +41,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -50,12 +53,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GemClus API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#constraints">Constraints</a><ul class="current">
@@ -69,10 +72,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../api.html#dataset-generation">Dataset generation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -89,7 +93,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../api.html">GEMCLUS API</a></li>
+          <li class="breadcrumb-item"><a href="../api.html">GemClus API</a></li>
       <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus</span></code>.add_mlcl_constraint</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/gemclus.add_mlcl_constraint.rst.txt" rel="nofollow"> View page source</a>
@@ -106,7 +110,7 @@
 <dt class="sig sig-object py" id="gemclus.add_mlcl_constraint">
 <span class="sig-prename descclassname"><span class="pre">gemclus.</span></span><span class="sig-name descname"><span class="pre">add_mlcl_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gemini_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cannot_link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/mlcl.html#add_mlcl_constraint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.add_mlcl_constraint" title="Link to this definition">¶</a></dt>
 <dd><p>Adds must-link and/or cannot-link constraints to a discriminative clustering model. The contraints are ensure by
-respectively minimising or maximising the <span class="math">\ell_2</span> norm between the prediction vectors. It is thus possible
+respectively minimising or maximising the <span class="math notranslate nohighlight">\(\ell_2\)</span> norm between the prediction vectors. It is thus possible
 that not all constraints are fully satisfied.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -145,7 +149,7 @@ If set to None, no cannot-link constraint is applied on the model.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gemclus.tree.print_kauri_tree.html" class="btn btn-neutral float-left" title="gemclus.tree.print_kauri_tree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gemclus.DiscriminativeModel.html" class="btn btn-neutral float-left" title="gemclus.DiscriminativeModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="gemclus.data.draw_gmm.html" class="btn btn-neutral float-right" title="gemclus.data.draw_gmm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

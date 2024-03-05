@@ -49,17 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -100,7 +100,7 @@
 
 
 <div class="viewcode-block" id="Douglas">
-<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Douglas.html#gemclus.tree.Douglas">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.tree.Douglas.html#gemclus.tree.Douglas">[docs]</a>
 <span class="k">class</span> <span class="nc">Douglas</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implementation of the `DNDTs optimised using GEMINI leveraging apprised splits` tree algorithm. This model learns</span>
@@ -172,7 +172,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="Douglas.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Douglas.html#gemclus.tree.Douglas.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.tree.Douglas.html#gemclus.tree.Douglas.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;wasserstein_ova&quot;</span><span class="p">,</span> <span class="n">n_cuts</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">feature_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                  <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -288,7 +288,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">leaf_scores_</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">cut_points_list_</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Douglas.find_active_points">
-<a class="viewcode-back" href="../../../generated/models/gemclus.tree.Douglas.html#gemclus.tree.Douglas.find_active_points">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.tree.Douglas.html#gemclus.tree.Douglas.find_active_points">[docs]</a>
     <span class="k">def</span> <span class="nf">find_active_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the list of cut points that are considered as active for a Douglas tree and some data X. A cut point</span>

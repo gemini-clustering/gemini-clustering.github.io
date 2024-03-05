@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.HellingerGEMINI
+============================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: HellingerGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.HellingerGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

@@ -52,34 +52,33 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#discriminative-clustering">Discriminative clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#feature-selection">Feature selection</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-examples">General examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature selection</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_logreg_mi.html">Feature selection using the Sparse Linear MI (Logistic regression)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Grouped Feature selection with a linear model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#load-a-simple-synthetic-dataset">Load a simple synthetic dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#path-results">Path results</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_mlp.html">Feature selection using the Sparse MMD OvA (MLP)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#consensus-clustering">Consensus clustering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scoring-with-gemini">Scoring with GEMINI</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#trees">Trees</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Feature selection</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_feature_selection_logreg_mi.html">Feature selection using the Sparse Linear MI (Logistic regression)</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Grouped Feature selection with a linear model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_feature_selection_mlp.html">Feature selection using the Sparse MMD OvA (MLP)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../mlcl/index.html">Consensus clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../scoring/index.html">Scoring with GEMINI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/index.html">Trees</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#trees">Trees</a></li>
 </ul>
 </li>
 </ul>
@@ -98,8 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">General examples</a></li>
-          <li class="breadcrumb-item"><a href="index.html">Feature selection</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
       <li class="breadcrumb-item active">Grouped Feature selection with a linear model</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/auto_examples/feature_selection/plot_grouped_selection.rst.txt" rel="nofollow"> View page source</a>
@@ -117,7 +115,7 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="grouped-feature-selection-with-a-linear-model">
 <span id="sphx-glr-auto-examples-feature-selection-plot-grouped-selection-py"></span><h1>Grouped Feature selection with a linear model<a class="headerlink" href="#grouped-feature-selection-with-a-linear-model" title="Link to this heading">¶</a></h1>
-<p>In this example, we ask the <a class="reference internal" href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code></a> to perform a path where the regularisation penalty
+<p>In this example, we ask the <a class="reference internal" href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code></a> to perform a path where the regularisation penalty
 is progressively increased until all features but 2 are discarded. Moreover, we will produce some categorical variables
 that are one-hot-encoded and constrain the model to consider these features altogether using the <cite>groups</cite> option of the
 model.</p>
@@ -127,7 +125,7 @@ clustering.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="kn">from</span> <span class="nn">gemclus.sparse</span> <span class="kn">import</span> <a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMMD</span></a>
+<span class="kn">from</span> <span class="nn">gemclus.sparse</span> <span class="kn">import</span> <a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMMD</span></a>
 
 <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.seed.html#numpy.random.seed" title="numpy.random.seed" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span></a><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -177,18 +175,18 @@ clustering.</p>
 <h2>Train the model<a class="headerlink" href="#train-the-model" title="Link to this heading">¶</a></h2>
 <p>Create the GEMINI clustering model (just a logistic regression) and call the .path method to iteratively select
 features through gradient descent.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMMD</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groups</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groups</span></a><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMMD</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groups</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">groups</span></a><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
 
 <span class="c1"># Perform a path search to eliminate all features, we lower the threshold to 80% of the max GEMINI in feature selection</span>
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">penalties</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">alphas</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a> <span class="o">=</span> <a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.path" title="gemclus.sparse.SparseLinearMMD.path" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">path</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <span class="n">keep_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">penalties</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">alphas</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.path" title="gemclus.sparse.SparseLinearMMD.path" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">path</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <span class="n">keep_threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="path-results">
 <h2>Path results<a class="headerlink" href="#path-results" title="Link to this heading">¶</a></h2>
 <p>Take a look at how our features are distributed</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.get_selection" title="gemclus.sparse.SparseLinearMMD.get_selection" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">get_selection</span></a><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The model score is </span><span class="si">{</span><a href="../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.score" title="gemclus.sparse.SparseLinearMMD.score" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.get_selection" title="gemclus.sparse.SparseLinearMMD.get_selection" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">get_selection</span></a><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The model score is </span><span class="si">{</span><a href="../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.score" title="gemclus.sparse.SparseLinearMMD.score" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top gemini score was </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">, which settles an optimum of </span><span class="si">{</span><span class="mf">0.8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -197,7 +195,7 @@ The model score is 1.4935152433868388
 Top gemini score was 0.8084378363828292, which settles an optimum of 0.6467502691062634
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.902 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 3.106 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-plot-grouped-selection-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/63be7ea1d4d86769057f92d0af68b92f/plot_grouped_selection.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_grouped_selection.ipynb</span></code></a></p>

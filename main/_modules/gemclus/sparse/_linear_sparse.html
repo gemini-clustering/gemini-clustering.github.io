@@ -49,17 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">GemClus API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -102,7 +102,7 @@
 
 
 <div class="viewcode-block" id="SparseLinearModel">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel">[docs]</a>
 <span class="k">class</span> <span class="nc">SparseLinearModel</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the SparseLinearModel clustering model.</span>
 <span class="sd">    When deriving, the only methods to adapt is the _compute_gemini methods which</span>
@@ -196,7 +196,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="SparseLinearModel.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -231,7 +231,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <div class="viewcode-block" id="SparseLinearModel.get_selection">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.get_selection">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.get_selection">[docs]</a>
     <span class="k">def</span> <span class="nf">get_selection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieves the indices of features that were selected by the model.</span>
@@ -248,7 +248,7 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <div class="viewcode-block" id="SparseLinearModel.fit">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.fit">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.fit">[docs]</a>
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">groups_</span> <span class="o">=</span> <span class="n">check_groups</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Intercept to check that group forms a partition</span>
@@ -256,7 +256,7 @@
 
 
 <div class="viewcode-block" id="SparseLinearModel.path">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.path">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearModel.html#gemclus.sparse.SparseLinearModel.path">[docs]</a>
     <span class="k">def</span> <span class="nf">path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha_multiplier</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">min_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">keep_threshold</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
              <span class="n">early_stopping_factor</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">max_patience</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -328,7 +328,7 @@
 
 
 <div class="viewcode-block" id="SparseLinearMMD">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD">[docs]</a>
 <span class="k">class</span> <span class="nc">SparseLinearMMD</span><span class="p">(</span><span class="n">SparseLinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Trains a logistic regression with sparse parameters using the MMD GEMINI.</span>
 
@@ -436,7 +436,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="SparseLinearMMD.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -459,7 +459,7 @@
 
 
 <div class="viewcode-block" id="SparseLinearMMD.get_gemini">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.get_gemini">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD.get_gemini">[docs]</a>
     <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MMDGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">)</span></div>
 </div>
@@ -467,7 +467,7 @@
 
 
 <div class="viewcode-block" id="SparseLinearMI">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI">[docs]</a>
 <span class="k">class</span> <span class="nc">SparseLinearMI</span><span class="p">(</span><span class="n">SparseLinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; This is the Sparse version of the logistic regression trained with mutual information for clustering.</span>
 
@@ -561,7 +561,7 @@
     <span class="p">}</span>
 
 <div class="viewcode-block" id="SparseLinearMI.__init__">
-<a class="viewcode-back" href="../../../generated/models/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
                  <span class="n">alpha</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>

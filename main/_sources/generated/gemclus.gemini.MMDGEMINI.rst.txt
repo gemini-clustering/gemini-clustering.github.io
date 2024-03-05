@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.MMDGEMINI
+======================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: MMDGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.MMDGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

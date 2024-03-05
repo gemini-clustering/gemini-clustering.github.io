@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.linear`.LinearModel
+========================================
+
+.. currentmodule:: gemclus.linear
+
+.. autoclass:: LinearModel
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.linear.LinearModel.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

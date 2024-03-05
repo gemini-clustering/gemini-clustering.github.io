@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.mlp`.MLPModel
+==================================
+
+.. currentmodule:: gemclus.mlp
+
+.. autoclass:: MLPModel
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.mlp.MLPModel.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
