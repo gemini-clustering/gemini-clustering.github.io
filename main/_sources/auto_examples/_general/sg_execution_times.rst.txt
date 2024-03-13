@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**02:32.566** total execution time for 10 files **from auto_examples/_general**:
+**01:20.361** total execution time for 10 files **from auto_examples/_general**:
 
 .. container::
 
@@ -33,32 +33,32 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples__general_plot_circles.py` (``plot_circles.py``)
-     - 01:33.569
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py` (``plot_kernel_kmeans.py``)
-     - 00:26.355
+     - 00:44.464
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_gstm.py` (``plot_gstm.py``)
-     - 00:09.331
+     - 00:09.235
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_moon_clustering.py` (``plot_moon_clustering.py``)
-     - 00:08.966
+     - 00:08.135
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py` (``plot_graph_node_clustering.py``)
-     - 00:08.675
+     - 00:07.901
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py` (``plot_kernel_kmeans.py``)
+     - 00:05.380
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py` (``plot_kernel_rim.py``)
-     - 00:02.389
+     - 00:02.178
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_custom_model.py` (``plot_custom_model.py``)
-     - 00:01.722
+     - 00:01.790
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_intro_mlp_mmd.py` (``plot_intro_mlp_mmd.py``)
-     - 00:00.801
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_nonparametric_clustering.py` (``plot_nonparametric_clustering.py``)
-     - 00:00.383
+     - 00:00.651
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_rim.py` (``plot_rim.py``)
-     - 00:00.375
+     - 00:00.340
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_nonparametric_clustering.py` (``plot_nonparametric_clustering.py``)
+     - 00:00.286
      - 0.0
