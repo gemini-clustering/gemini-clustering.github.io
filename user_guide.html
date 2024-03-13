@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User guide : contents &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>User guide : contents &mdash; gemclus 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/js/copybutton.js?v=26522df0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GEMCLUS API" href="api.html" />
-    <link rel="prev" title="Quick start on gemclus" href="quick_start.html" /> 
+    <link rel="next" title="GemClus API" href="api.html" />
+    <link rel="prev" title="Quick start on GemClus" href="quick_start.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,7 +40,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -50,7 +52,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
@@ -63,11 +65,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#basic-examples">Basic examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">GemClus API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -100,35 +103,54 @@
 <h2>Content of the package<a class="headerlink" href="#content-of-the-package" title="Link to this heading">¶</a></h2>
 <section id="which-geminis-are-implemented">
 <h3>Which GEMINIs are implemented<a class="headerlink" href="#which-geminis-are-implemented" title="Link to this heading">¶</a></h3>
-<p>Currently, the <cite>gemclus</cite> package implements both the MMD and Wasserstein distances between the cluster distributions as
-in the original paper. Both OvA and OvO implementations are present in all models. The OvO mode can be set in any
+<p>All GEMINIs from the initial work are available: MMD and Wasserstein distances are present for geometrical
+considerations, as well as Kullback-Leibler divergence, Total Variation distance and squared Hellinger distance.
+Both OvA and OvO implementations are present in all models. The OvO mode can be set in most
 clustering model by adding <code class="code docutils literal notranslate"><span class="pre">ovo=True</span></code> in the constructor of a model.</p>
-<p>We propose as well an extension of the base GEMINI algorithm with a sparsity-constrained model that adds a <cite>Group-Lasso</cite>
-penalty to achieve joint feature selection and discriminative clustering. However, regarding this specific version we
-chose so far to only implement it using the MMD-GEMINI because the Wasserstein distance seems to yield worst
-performances so far.</p>
+<p>Some models propose readily integrated GEMINIs, but it is also possible to set a custom GEMINI for some models.</p>
 <p>The Wasserstein distance requires a distance function in the data space to compute. We directly propose all distances
-available from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_distances</span></code>. In the same manner, we provide all kernels available
-from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_kernels</span></code> for the MMD. By default, all GEMINIs use the Euclidean norm between
-sample.</p>
+available from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_distances</span></code>, with the Euclidean distance by default.
+In the same manner, we provide all kernels available from <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.metrics.pairwise_kernels</span></code> for the MMD, with
+the linear kernel by default. For both GEMINIs, it is possible as well to involve a precomputed distance or kernel of
+your own that must be then passed to the GEMINI.</p>
 </section>
 <section id="what-discriminative-distributions-are-available">
 <h3>What discriminative distributions are available<a class="headerlink" href="#what-discriminative-distributions-are-available" title="Link to this heading">¶</a></h3>
-<p>We made the choice to force in this library the usage of 2-layers Multi-Layered-Perceptrons to keep the discriminative
-distribution <span class="math">p_\theta(y|x)</span> flexible yet expressive enough in terms of decision boundaries. We provide as well
-logistic regression models in case you want a simpler decision boundary.</p>
-<p>For the sparse version of the algorithm, the architecture is inspired from <a class="reference external" href="https://lassonet.ml/">LassoNet</a> which
-adds a linear skip connection between the inputs and clustering output. Note that there is as well a more simple
-logistic regression model with group-lasso penalty to induce sparsity with <a class="reference internal" href="generated/gemclus.sparse.SparseLinearMMD.html#gemclus.sparse.SparseLinearMMD" title="gemclus.sparse.SparseLinearMMD"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code></a>.</p>
-<p>If you want to use another model, you can derive one of the <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseMMD</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus._BaseWasserstein</span></code>
-classes and rewrite their hidden method <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code> and <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code>. An example
-of extension is given <a class="reference external" href="auto_examples/plot_custom_model.html">Here</a></p>
+<p>We propose several clustering distributions depending on the purpose:</p>
+<ul class="simple">
+<li><p>Logistic regressions</p></li>
+<li><p>2-layer Multi-Layered-Perceptrons with ReLU activations</p></li>
+<li><p>Decision trees (only compatible with the MMD GEMINI)</p></li>
+<li><p>Differentiable trees</p></li>
+</ul>
+<p>For the logistic regression and MLP, we also propose sparse versions to achieve feature selection along clustering.
+The sparse architecture of the MLP is inspired from <a class="reference external" href="https://lassonet.ml/">LassoNet</a> <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> which
+adds a linear skip connection between the inputs and clustering output.</p>
+<p>We also include other models taken from the litterature that fits the scope of discriminative clustering with mutual
+information, e.g. the regularized mutual information (RIM): <a class="reference internal" href="generated/gemclus.linear.RIM.html#gemclus.linear.RIM" title="gemclus.linear.RIM"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.linear.RIM</span></code></a> <a class="footnote-reference brackets" href="#id5" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>If you want to use another model, you can derive the <a class="reference internal" href="generated/gemclus.DiscriminativeModel.html#gemclus.DiscriminativeModel" title="gemclus.DiscriminativeModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.DiscriminativeModel</span></code></a>
+class and rewrite its hidden methods <code class="code docutils literal notranslate"><span class="pre">_infer</span></code>, <code class="code docutils literal notranslate"><span class="pre">_get_weights</span></code>, <code class="code docutils literal notranslate"><span class="pre">_init_params</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">_compute_grads</span></code>. An example
+of extension is given <a class="reference external" href="auto_examples/_general/plot_custom_model.html">Here</a></p>
 </section>
 </section>
 <section id="basic-examples">
 <h2>Basic examples<a class="headerlink" href="#basic-examples" title="Link to this heading">¶</a></h2>
 <p>We provide some basic examples in the <a class="reference external" href="auto_examples/index.html">Example gallery</a>, including clustering of simple distribution
 and how to perform feature selection using sparse models from <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.sparse</span></code>.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Lemhadri, I., Ruan, F., Abraham, L., &amp; Tibshirani, R. (2021). <a class="reference external" href="https://lassonet.ml/">LassoNet: A Neural Network with Feature Sparsity</a>. Journal of Machine Learning Research, 22(127), 1–29.</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Krause, A., Perona, P., &amp; Gomes, R. (2010).
+<a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2010/file/42998cf32d552343bc8e460416382dca-Paper.pdf">Discriminative Clustering by Regularized Information Maximization</a>.
+In J. Lafferty, C. Williams, J. Shawe-Taylor, R. Zemel, &amp; A. Culotta (Eds.), Advances in Neural Information
+Processing Systems (Vol. 23).</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -136,8 +158,8 @@ and how to perform feature selection using sparse models from <code class="xref 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quick start on gemclus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api.html" class="btn btn-neutral float-right" title="GEMCLUS API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quick_start.html" class="btn btn-neutral float-left" title="Quick start on GemClus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="GemClus API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

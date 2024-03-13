@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.sparse`.SparseLinearModel
+==============================================
+
+.. currentmodule:: gemclus.sparse
+
+.. autoclass:: SparseLinearModel
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.sparse.SparseLinearModel.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

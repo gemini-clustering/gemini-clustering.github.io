@@ -32,7 +32,7 @@ the optimal solution should find that only 2 features are relevant and sufficien
 
 .. GENERATED FROM PYTHON SOURCE LINES 14-21
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -55,7 +55,7 @@ Load a simple synthetic dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 26-34
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Generate samples on that are simple to separate
@@ -81,7 +81,7 @@ features through gradient descent.
 
 .. GENERATED FROM PYTHON SOURCE LINES 41-47
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clf = SparseMLPMMD(random_state=0, alpha=1, batch_size=50, max_iter=25, learning_rate=0.001)
@@ -105,7 +105,7 @@ Take a look at how our features are distributed
 
 .. GENERATED FROM PYTHON SOURCE LINES 54-85
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Highlight the number of selected features and the GEMINI along decreasing increasing alphas
@@ -153,7 +153,7 @@ Take a look at how our features are distributed
 
     Selected features: [0 1]
     The model score is 1.4596486286280377
-    Top gemini score was 1.5824499242836225, which settles an optimum of 1.4242049318552603
+    Top gemini score was 1.5824499242836227, which settles an optimum of 1.4242049318552605
 
 
 
@@ -165,7 +165,7 @@ Final Clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 90-110
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Now, show the cluster predictions
@@ -202,7 +202,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.295 seconds)
+   **Total running time of the script:** (0 minutes 5.613 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_plot_feature_selection_mlp.py:
@@ -211,16 +211,13 @@ Final Clustering
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_feature_selection_mlp.ipynb <plot_feature_selection_mlp.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_feature_selection_mlp.py <plot_feature_selection_mlp.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_feature_selection_mlp.ipynb <plot_feature_selection_mlp.ipynb>`
 
 
 .. only:: html

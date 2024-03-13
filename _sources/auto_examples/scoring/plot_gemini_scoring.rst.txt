@@ -27,7 +27,7 @@ clustering but rather to evaluate.
 
 .. GENERATED FROM PYTHON SOURCE LINES 9-13
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
     from sklearn import datasets, preprocessing, linear_model, naive_bayes
@@ -47,7 +47,7 @@ Load a simple real dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 18-23
 
-.. code-block:: default
+.. code-block:: Python
 
 
     X, y = datasets.load_breast_cancer(return_X_y=True)
@@ -69,7 +69,7 @@ We will train two different models on the breast cancer dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-38
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # The first model is a simple logistic regression with l2 penalty
@@ -95,11 +95,11 @@ We can now score the clustering performances of both model with GEMINI.
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-57
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Let's start with the WassersteinGEMINI (one-vs-all) and the Euclidean distance
-    wasserstein_scoring = gemini.WassersteinOvA(metric="euclidean")
+    wasserstein_scoring = gemini.WassersteinGEMINI(metric="euclidean")
 
     # We need to precompute the affinity matching this Wasserstein (will be the Euclidean metric here)
     affinity = wasserstein_scoring.compute_affinity(X)
@@ -138,9 +138,9 @@ We now specify that the metric is precomputed instead
 
 .. GENERATED FROM PYTHON SOURCE LINES 65-76
 
-.. code-block:: default
+.. code-block:: Python
 
-    wasserstein_scoring = gemini.WassersteinOvA(metric="precomputed")
+    wasserstein_scoring = gemini.WassersteinGEMINI(metric="precomputed")
 
     # So, we precompute a distance where samples have distance 0 if they share the same label, 1 otherwise
     y_one_hot = np.eye(2)[y]
@@ -169,7 +169,7 @@ We now specify that the metric is precomputed instead
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.977 seconds)
+   **Total running time of the script:** (0 minutes 0.568 seconds)
 
 
 .. _sphx_glr_download_auto_examples_scoring_plot_gemini_scoring.py:
@@ -178,16 +178,13 @@ We now specify that the metric is precomputed instead
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_gemini_scoring.ipynb <plot_gemini_scoring.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_gemini_scoring.py <plot_gemini_scoring.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_gemini_scoring.ipynb <plot_gemini_scoring.ipynb>`
 
 
 .. only:: html

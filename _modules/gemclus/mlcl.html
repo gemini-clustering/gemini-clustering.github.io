@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.mlcl &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>gemclus.mlcl &mdash; gemclus 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/js/copybutton.js?v=26522df0"></script>
@@ -35,7 +37,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -47,16 +49,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">GemClus API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -86,12 +89,14 @@
   <h1>Source code for gemclus.mlcl</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csgraph</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_array</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span>
 
-<span class="kn">from</span> <span class="nn">._base_gemini</span> <span class="kn">import</span> <span class="n">_BaseGEMINI</span>
+<span class="kn">from</span> <span class="nn">._base_gemini</span> <span class="kn">import</span> <span class="n">DiscriminativeModel</span>
 <span class="kn">from</span> <span class="nn">._constraints</span> <span class="kn">import</span> <span class="n">constraint_params</span>
 
 
@@ -120,8 +125,8 @@
 
             <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">cannot_link</span><span class="p">:</span>
                 <span class="n">pair_i</span><span class="p">,</span> <span class="n">pair_j</span> <span class="o">=</span> <span class="n">pair</span>
-                <span class="k">assert</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pair_i</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">pair_j</span><span class="p">,</span> <span class="s2">&quot;Triangular contradiction in Must-link / Cannot-link constraints&quot;</span>
-                <span class="k">assert</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">pair_j</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">pair_i</span><span class="p">,</span> <span class="s2">&quot;Triangular contradiction in Must-link / Cannot-link constraints&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">pair_i</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="n">pair_j</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">pair_j</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="n">pair_i</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Triangular contradiction in Must-link / Cannot-link constraints&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_check_linking_constraint</span><span class="p">(</span><span class="n">must_link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cannot_link</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -132,22 +137,19 @@
     <span class="k">if</span> <span class="n">must_link</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">must_link</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">must_link</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ensure_min_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
                                 <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Must-link constraint&quot;</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">must_link</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
         <span class="c1"># Check that we do not have any self-reference</span>
-        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">must_link</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">must_link</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;An element is necessary in the same cluster as itself, check&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot; constraints in must-link&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">must_link</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">must_link</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;An element is necessary in the same cluster as itself, check constraints in must-link&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">must_link</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">cannot_link</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">cannot_link</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">cannot_link</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ensure_min_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
                                   <span class="n">input_name</span><span class="o">=</span><span class="s2">&quot;Cannot-link constraint&quot;</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">cannot_link</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
 
         <span class="c1"># Check that we do not have any self-reference</span>
-        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">cannot_link</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">cannot_link</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;An element cannot be in a different cluster than itself, &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;check constraints in cannot-link&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">cannot_link</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">cannot_link</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;An element cannot be in a different cluster than itself, &quot;</span>
+                             <span class="s2">&quot;check constraints in cannot-link&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">cannot_link</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -159,8 +161,10 @@
 <div class="viewcode-block" id="add_mlcl_constraint">
 <a class="viewcode-back" href="../../generated/gemclus.add_mlcl_constraint.html#gemclus.add_mlcl_constraint">[docs]</a>
 <span class="nd">@constraint_params</span><span class="p">({</span>
+    <span class="s2">&quot;gemini_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">DiscriminativeModel</span><span class="p">],</span>
     <span class="s2">&quot;must-link&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
-    <span class="s2">&quot;cannot-link&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="s2">&quot;cannot-link&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;array-like&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="s2">&quot;factor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
 <span class="p">})</span>
 <span class="k">def</span> <span class="nf">add_mlcl_constraint</span><span class="p">(</span><span class="n">gemini_model</span><span class="p">,</span> <span class="n">must_link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cannot_link</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -172,6 +176,7 @@
 <span class="sd">    ----------</span>
 <span class="sd">    gemini_model: MLP___, Linear___ or Categorical___</span>
 <span class="sd">        A GemClus model that involves gemini maximisation with gradient descent.</span>
+
 <span class="sd">    must_link: ndarray of shape (n_constraints, 2) or None, default=None</span>
 <span class="sd">        The constraints of samples being together must be described by a list of pairs of indices</span>
 <span class="sd">        [(i1,j1),..., (iN, jN)].</span>
@@ -187,13 +192,12 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
 <span class="sd">    The model gemini model with decorated gradient functions to satisfy must-link / cannot-link constraints.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">gemini_model</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">_BaseGEMINI</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">factor</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">factor</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">gemini_model</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">DiscriminativeModel</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The passed model does not inherit from the DiscriminativeModel class: &quot;</span>
+                         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gemini_model</span><span class="o">.</span><span class="vm">__class__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="n">_check_linking_constraint</span><span class="p">(</span><span class="n">must_link</span><span class="p">,</span> <span class="n">cannot_link</span><span class="p">)</span>
 

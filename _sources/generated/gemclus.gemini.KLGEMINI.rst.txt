@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.KLGEMINI
+=====================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: KLGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.KLGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

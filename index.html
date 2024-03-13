@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to GemClus documentation! &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Welcome to GemClus documentation! &mdash; gemclus 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/js/copybutton.js?v=26522df0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick start on gemclus" href="quick_start.html" /> 
+    <link rel="next" title="Quick start on GemClus" href="quick_start.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +39,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,16 +51,17 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">GemClus API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -90,7 +93,8 @@
 <p>Welcome and thank you for checking GEMINI out, this really pleasures us.</p>
 <p>GEMINI is a clustering-dedicated function derived from information theory that allows to do clustering without hypotheses
 on the data distributions. We try to provide overall some implementations of small-scale discriminative clustering
-methods in this package.</p>
+methods in this package. These methods include small neural networks, logistic regression, decision trees and work from
+other paper that we will relevant to the discriminative clustering field in the GEMINI spirit.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -105,7 +109,11 @@ methods in this package.</p>
 <li><p><a class="reference external" href="api.html">API</a>.</p></li>
 <li><p><a class="reference external" href="auto_examples/index.html">Examples</a></p></li>
 </ul>
-<p><a class="reference external" href="https://dl.circleci.com/status-badge/redirect/gh/gemini-clustering/GemClus/tree/main"><img alt="CircleCI" src="https://dl.circleci.com/status-badge/img/gh/gemini-clustering/GemClus/tree/main.svg?style=svg" /></a></p>
+<p><a class="reference external" href="https://pypi.org/project/gemclus/"><img alt="Pypy" src="https://badge.fury.io/py/gemclus.svg" /></a>
+<a class="reference external" href="https://dl.circleci.com/status-badge/redirect/gh/gemini-clustering/GemClus/tree/main"><img alt="CircleCI" src="https://dl.circleci.com/status-badge/img/gh/gemini-clustering/GemClus/tree/main.svg?style=svg" /></a>
+<a class="reference external" href="https://pepy.tech/project/gemclus"><img alt="Downloads" src="https://static.pepy.tech/badge/gemclus" /></a>
+<a class="reference external" href="https://codecov.io/gh/gemini-clustering/GemClus"><img alt="codecov" src="https://codecov.io/gh/gemini-clustering/GemClus/graph/badge.svg?token=PBKYANOMWK" /></a>
+<a class="reference external" href="https://github.com/gemini-clustering/GemClus/actions/workflows/run_tests.yml"><img alt="Tests" src="https://github.com/gemini-clustering/GemClus/actions/workflows/run_tests.yml/badge.svg" /></a></p>
 <section id="gemclus-a-package-for-discriminative-clustering-using-gemini">
 <h3>GEMCLUS - A package for discriminative clustering using GEMINI<a class="headerlink" href="#gemclus-a-package-for-discriminative-clustering-using-gemini" title="Link to this heading">¶</a></h3>
 <p>The <strong>gemclus</strong>  package provides simple tools to perform discriminative clustering using the generalised mutual
@@ -161,6 +169,10 @@ pip install .
 </pre></div>
 </div>
 </section>
+<section id="contributing">
+<h4>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">¶</a></h4>
+<p>We are open to suggestions of models that can be relevant to the discriminative clustering spirit of <em>GemClus</em>.</p>
+</section>
 <section id="acknowledgements">
 <h4>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">¶</a></h4>
 <p>This work has been supported by the French government, through the 3IA Côte d’Azur, Investment in the Future, project
@@ -183,7 +195,7 @@ insights on the development.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick start on gemclus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick start on GemClus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

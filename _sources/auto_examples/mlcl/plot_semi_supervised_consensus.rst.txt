@@ -45,7 +45,7 @@ can go together or not.
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-39
 
-.. code-block:: default
+.. code-block:: Python
 
     # We start by loading 
     from gemclus.nonparametric import CategoricalWasserstein
@@ -71,7 +71,7 @@ Load the dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-48
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We take a small challenging dataset with 3 clusters where the true cluster means are close
@@ -91,7 +91,7 @@ Multiple model clustering
 
 .. GENERATED FROM PYTHON SOURCE LINES 53-64
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We fit several model on this dataset with various kernel
@@ -127,7 +127,7 @@ Build the consensus matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 69-80
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Build the consensus matrix, i.e. the number of times pairs of samples
@@ -158,7 +158,7 @@ superfluous
 
 .. GENERATED FROM PYTHON SOURCE LINES 89-98
 
-.. code-block:: default
+.. code-block:: Python
 
 
     consensus_model = CategoricalWasserstein(n_clusters=3, random_state = 0, metric="precomputed")
@@ -197,7 +197,7 @@ We will try to use the samples that have the most confident predictions
 
 .. GENERATED FROM PYTHON SOURCE LINES 109-128
 
-.. code-block:: default
+.. code-block:: Python
 
     sorted_confidence_samples = sorted(range(len(X)), key=lambda i: y_pred_consensus[i].max(), reverse=True)
 
@@ -233,7 +233,7 @@ We start over with the same model for consensus
 
 .. GENERATED FROM PYTHON SOURCE LINES 135-146
 
-.. code-block:: default
+.. code-block:: Python
 
 
     base_model = CategoricalWasserstein(n_clusters=3, random_state=0, metric="precomputed")
@@ -266,7 +266,7 @@ Plotting the consensus matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 149-153
 
-.. code-block:: default
+.. code-block:: Python
 
 
     consensus_order = np.argsort(y_pred_mlcl_consensus)
@@ -287,7 +287,7 @@ Plotting the consensus matrix
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 8.726 seconds)
+   **Total running time of the script:** (0 minutes 7.966 seconds)
 
 
 .. _sphx_glr_download_auto_examples_mlcl_plot_semi_supervised_consensus.py:
@@ -296,16 +296,13 @@ Plotting the consensus matrix
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_semi_supervised_consensus.ipynb <plot_semi_supervised_consensus.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_semi_supervised_consensus.py <plot_semi_supervised_consensus.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_semi_supervised_consensus.ipynb <plot_semi_supervised_consensus.ipynb>`
 
 
 .. only:: html

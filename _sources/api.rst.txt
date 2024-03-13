@@ -1,5 +1,5 @@
 ####################
-GEMCLUS API
+GemClus API
 ####################
 
 The GEMINI-clustering package currently contains simple MLP and logistic regression for all-feature clustering as well as
@@ -17,11 +17,12 @@ clustering.
     :toctree: generated/
     :template: class.rst
 
-    gemini.MMDOvA
-    gemini.MMDOvO
-    gemini.WassersteinOvA
-    gemini.WassersteinOvO
+    gemini.MMDGEMINI
+    gemini.WassersteinGEMINI
     gemini.MI
+    gemini.KLGEMINI
+    gemini.TVGEMINI
+    gemini.HellingerGEMINI
 
 Clustering models
 ==================
@@ -36,9 +37,12 @@ clustering.
    :toctree: generated/
    :template: class.rst
 
+    linear.LinearModel
     linear.LinearMMD
     linear.LinearWasserstein
     linear.RIM
+    linear.KernelRIM
+    mlp.MLPModel
     mlp.MLPMMD
     mlp.MLPWasserstein
 
@@ -54,6 +58,7 @@ unseen samples for prediction.
    :toctree: generated/
    :template: class.rst
 
+    nonparametric.CategoricalModel
     nonparametric.CategoricalMMD
     nonparametric.CategoricalWasserstein
 
@@ -67,8 +72,10 @@ for selecting a subset of features which may enhance interpretability of cluster
    :toctree: generated/
    :template: class.rst
 
+    sparse.SparseLinearModel
     sparse.SparseLinearMI
     sparse.SparseLinearMMD
+    sparse.SparseMLPModel
     sparse.SparseMLPMMD
 
 Tree models
@@ -93,7 +100,16 @@ inner rules.
     
     tree.print_kauri_tree
     
-    
+Generic models
+--------------
+
+This model provides the skeleton for creating any model that must be trained with GEMINI.
+
+.. autosummary::
+    :toctree: generated/
+    :template: class.rst
+
+    DiscriminativeModel
     
 Constraints
 ===========

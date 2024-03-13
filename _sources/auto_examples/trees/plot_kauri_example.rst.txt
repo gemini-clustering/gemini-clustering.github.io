@@ -30,7 +30,7 @@ to KMeans optimisation.
 
 .. GENERATED FROM PYTHON SOURCE LINES 12-15
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn import datasets, metrics
     from gemclus.tree import Kauri, print_kauri_tree
@@ -49,7 +49,7 @@ Load the dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 20-25
 
-.. code-block:: default
+.. code-block:: Python
 
 
     iris = datasets.load_iris()
@@ -70,7 +70,7 @@ Create a first tree using a linear kernel
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-37
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Notice that we limit the depth of the tree for simplicity
@@ -99,7 +99,7 @@ Create a second tree using an additive chi2 kernel
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-47
 
-.. code-block:: default
+.. code-block:: Python
 
 
     additive_chi2_model = Kauri(max_clusters=3, kernel="additive_chi2", max_depth=3)
@@ -126,7 +126,7 @@ Evaluate the performances of the model
 
 .. GENERATED FROM PYTHON SOURCE LINES 52-56
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print("ARI of linear kernel: ", metrics.adjusted_rand_score(y,y_pred_linear))
@@ -153,7 +153,7 @@ Visualise the tree structure
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-63
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print("Structure of the additive chi2 model")
@@ -167,10 +167,10 @@ Visualise the tree structure
 
     Structure of the additive chi2 model
     Node 0
-    |=petal width (cm) <= 0.6
+    |=petal length (cm) <= 1.9
     | Node 1
-    |  Cluster: 0
-    |=petal width (cm) > 0.6
+    |  Cluster: 1
+    |=petal length (cm) > 1.9
     | Node 2
     | |=petal length (cm) <= 4.7
     | | Node 3
@@ -182,7 +182,7 @@ Visualise the tree structure
     | | |  Cluster: 2
     | | |=petal width (cm) > 1.5
     | | | Node 6
-    | | |  Cluster: 1
+    | | |  Cluster: 0
 
 
 
@@ -190,7 +190,7 @@ Visualise the tree structure
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.230 seconds)
+   **Total running time of the script:** (0 minutes 0.232 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_kauri_example.py:
@@ -199,16 +199,13 @@ Visualise the tree structure
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_kauri_example.ipynb <plot_kauri_example.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_kauri_example.py <plot_kauri_example.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_kauri_example.ipynb <plot_kauri_example.ipynb>`
 
 
 .. only:: html

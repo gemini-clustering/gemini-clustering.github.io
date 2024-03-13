@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.linear.RIM &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>gemclus.linear.RIM &mdash; gemclus 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/documentation_options.js?v=8d563738"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/js/copybutton.js?v=26522df0"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gemclus.mlp.MLPMMD" href="gemclus.mlp.MLPMMD.html" />
+    <link rel="next" title="gemclus.linear.KernelRIM" href="gemclus.linear.KernelRIM.html" />
     <link rel="prev" title="gemclus.linear.LinearWasserstein" href="gemclus.linear.LinearWasserstein.html" /> 
 </head>
 
@@ -38,7 +41,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -50,18 +53,21 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide.html">User Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GEMCLUS API</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">GemClus API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#scoring-with-gemini">Scoring with GEMINI</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../api.html#dense-models">Dense models</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearModel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearModel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.linear.LinearWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.LinearWasserstein</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.linear.KernelRIM.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.KernelRIM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPModel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPModel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPMMD.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPMMD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gemclus.mlp.MLPWasserstein.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.mlp</span></code>.MLPWasserstein</a></li>
 </ul>
@@ -69,16 +75,18 @@
 <li class="toctree-l3"><a class="reference internal" href="../api.html#nonparametric-models">Nonparametric models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#sparse-models">Sparse models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api.html#tree-models">Tree models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#generic-models">Generic models</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#constraints">Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#dataset-generation">Dataset generation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">General examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 </ul>
 
         </div>
@@ -95,7 +103,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../api.html">GEMCLUS API</a></li>
+          <li class="breadcrumb-item"><a href="../api.html">GemClus API</a></li>
       <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/generated/gemclus.linear.RIM.rst.txt" rel="nofollow"> View page source</a>
@@ -110,9 +118,9 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.linear</span></code>.RIM<a class="headerlink" href="#gemclus-linear-rim" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="gemclus.linear.RIM">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.linear.</span></span><span class="sig-name descname"><span class="pre">RIM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.linear.</span></span><span class="sig-name descname"><span class="pre">RIM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM" title="Link to this definition">¶</a></dt>
 <dd><p>Implementation of the maximisation of the classical mutual information using a logistic regression with an
-<span class="math">\ell_2</span> penalty on the weights. This implementation follows the framework described by Krause et al. in the
+<span class="math notranslate nohighlight">\(\ell_2\)</span> penalty on the weights. This implementation follows the framework described by Krause et al. in the
 RIM paper.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -123,7 +131,7 @@ RIM paper.</p>
 </dd>
 <dt><strong>learning_rate: float, default=1e-3</strong></dt><dd><p>Initial learning rate used. It controls the step-size in updating the weights.</p>
 </dd>
-<dt><strong>reg: float, default=1.0</strong></dt><dd><p>Regularisation hyperparameter for the $ell_2$ weight penalty.</p>
+<dt><strong>reg: float, default=0.1</strong></dt><dd><p>Regularisation hyperparameter for the $ell_2$ weight penalty.</p>
 </dd>
 <dt><strong>solver: {‘sgd’,’adam’}, default=’adam’</strong></dt><dd><p>The solver for weight optimisation.</p>
 <ul class="simple">
@@ -144,6 +152,10 @@ Pass an int for reproducible results across multiple function calls.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
+<dt><a class="reference internal" href="gemclus.linear.LinearModel.html#gemclus.linear.LinearModel" title="gemclus.linear.LinearModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearModel</span></code></a></dt><dd><p>logistic regression trained for clustering with any GEMINI</p>
+</dd>
+<dt><a class="reference internal" href="gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein" title="gemclus.linear.LinearWasserstein"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearWasserstein</span></code></a></dt><dd><p>logistic regression trained for clustering with the Wasserstein GEMINI</p>
+</dd>
 <dt><a class="reference internal" href="gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD" title="gemclus.linear.LinearMMD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearMMD</span></code></a></dt><dd><p>logistic regression trained for clustering with the MMD GEMINI</p>
 </dd>
 </dl>
@@ -157,13 +169,13 @@ Pass an int for reproducible results across multiple function calls.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">gemclus.linear</span> <span class="kn">import</span> <span class="n">RIM</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">RIM</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">RIM</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span>
 <span class="go">array([0, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:])</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="go">0.00962912118121384</span>
+<span class="go">0.4390485754</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -184,7 +196,7 @@ Pass an int for reproducible results across multiple function calls.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.linear.RIM.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -235,12 +247,29 @@ construction. Otherwise, it is not used and present here for API consistency by 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.linear.RIM.get_gemini">
-<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#RIM.get_gemini"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.RIM.get_gemini" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_gemini</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.RIM.get_gemini" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise a <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance that will be used to train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>gemini: <code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.GEMINI</span></code> instance</dt><dd></dd>
+<dt>gemini: a GEMINI instance</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gemclus.linear.RIM.get_metadata_routing">
+<span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.RIM.get_metadata_routing" title="Link to this definition">¶</a></dt>
+<dd><p>Get metadata routing of this object.</p>
+<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.4)"><span class="xref std std-ref">User Guide</span></a> on how the routing
+mechanism works.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
+routing information.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -339,7 +368,7 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.RIM.set_params" title="Link to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
-(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
@@ -363,7 +392,7 @@ possible to update each component of a nested object.</p>
 <section id="examples-using-gemclus-linear-rim">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.linear.RIM</span></code><a class="headerlink" href="#examples-using-gemclus-linear-rim" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RIM (regularised mutual information) is a proposal of model by Krause et al. (2010) which consi..."><img alt="" src="../_images/sphx_glr_plot_rim_thumb.png" />
-<p><a class="reference internal" href="../auto_examples/plot_rim.html#sphx-glr-auto-examples-plot-rim-py"><span class="std std-ref">Simple logistic regression with RIM</span></a></p>
+<p><a class="reference internal" href="../auto_examples/_general/plot_rim.html#sphx-glr-auto-examples-general-plot-rim-py"><span class="std std-ref">Simple logistic regression with RIM</span></a></p>
   <div class="sphx-glr-thumbnail-title">Simple logistic regression with RIM</div>
 </div></div><div style='clear:both'></div></section>
 </section>
@@ -373,7 +402,7 @@ possible to update each component of a nested object.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="gemclus.linear.LinearWasserstein.html" class="btn btn-neutral float-left" title="gemclus.linear.LinearWasserstein" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gemclus.mlp.MLPMMD.html" class="btn btn-neutral float-right" title="gemclus.mlp.MLPMMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gemclus.linear.KernelRIM.html" class="btn btn-neutral float-right" title="gemclus.linear.KernelRIM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

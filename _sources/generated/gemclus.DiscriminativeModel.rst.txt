@@ -1,0 +1,18 @@
+﻿:mod:`gemclus`.DiscriminativeModel
+=========================================
+
+.. currentmodule:: gemclus
+
+.. autoclass:: DiscriminativeModel
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.DiscriminativeModel.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>

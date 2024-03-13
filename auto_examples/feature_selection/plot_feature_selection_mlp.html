@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feature selection using the Sparse MMD OvA (MLP) &mdash; gemclus 0.2.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/gemclus.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-binder.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-dataframe.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sg_gallery-rendered-html.css" type="text/css" />
+  <title>Feature selection using the Sparse MMD OvA (MLP) &mdash; gemclus 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Consensus clustering" href="../mlcl/index.html" />
+    <link rel="next" title="Consensus clustering with linking constraints on sample pairs" href="../mlcl/plot_semi_supervised_consensus.html" />
     <link rel="prev" title="Grouped Feature selection with a linear model" href="plot_grouped_selection.html" /> 
 </head>
 
@@ -38,7 +40,7 @@
             gemclus
           </a>
               <div class="version">
-                0.2.0
+                1.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -50,33 +52,34 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on gemclus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start on GemClus</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../api.html">GEMCLUS API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">GemClus API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">RELEASES</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial - Examples</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">General examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../index.html#discriminative-clustering">Discriminative clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#feature-selection">Feature selection</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Example gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#general-examples">General examples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#feature-selection">Feature selection</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_feature_selection_logreg_mi.html">Feature selection using the Sparse Linear MI (Logistic regression)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_grouped_selection.html">Grouped Feature selection with a linear model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Feature selection using the Sparse MMD OvA (MLP)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#load-a-simple-synthetic-dataset">Load a simple synthetic dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#path-results">Path results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#final-clustering">Final Clustering</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#consensus-clustering">Consensus clustering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#scoring-with-gemini">Scoring with GEMINI</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html#trees">Trees</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Feature selection</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="plot_feature_selection_linear.html">Feature selection using the Sparse MMD OvO (Logistic regression)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_feature_selection_logreg_mi.html">Feature selection using the Sparse Linear MI (Logistic regression)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="plot_grouped_selection.html">Grouped Feature selection with a linear model</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Feature selection using the Sparse MMD OvA (MLP)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../mlcl/index.html">Consensus clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../scoring/index.html">Scoring with GEMINI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../trees/index.html">Trees</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#trees">Trees</a></li>
 </ul>
 </li>
 </ul>
@@ -95,8 +98,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../index.html">General examples</a></li>
-          <li class="breadcrumb-item"><a href="index.html">Feature selection</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Example gallery</a></li>
       <li class="breadcrumb-item active">Feature selection using the Sparse MMD OvA (MLP)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/auto_examples/feature_selection/plot_feature_selection_mlp.rst.txt" rel="nofollow"> View page source</a>
@@ -120,7 +122,7 @@ minimum number of features that maintains a GEMINI score close to 90% of the max
 the path.</p>
 <p>The dataset consists of 3 isotropic Gaussian distributions (so 3 clusters to find) in 2d with 48 noisy variables. Thus,
 the optimal solution should find that only 2 features are relevant and sufficient to get the correct clustering.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -129,7 +131,7 @@ the optimal solution should find that only 2 features are relevant and sufficien
 </div>
 <section id="load-a-simple-synthetic-dataset">
 <h2>Load a simple synthetic dataset<a class="headerlink" href="#load-a-simple-synthetic-dataset" title="Link to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate samples on that are simple to separate</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate samples on that are simple to separate</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html#sklearn.datasets.make_blobs" title="sklearn.datasets.make_blobs" class="sphx-glr-backref-module-sklearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span></a><span class="p">(</span><span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Add extra noisy variables</span>
@@ -142,7 +144,7 @@ the optimal solution should find that only 2 features are relevant and sufficien
 <h2>Train the model<a class="headerlink" href="#train-the-model" title="Link to this heading">¶</a></h2>
 <p>Create the GEMINI clustering model (just a logistic regression) and call the .path method to iteratively select
 features through gradient descent.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseMLPMMD</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">clf</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD" title="gemclus.sparse.SparseMLPMMD" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseMLPMMD</span></a><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
 
 <span class="c1"># Perform a path search to eliminate all features</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">geminis</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">penalties</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">alphas</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_features</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD.path" title="gemclus.sparse.SparseMLPMMD.path" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">path</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
@@ -152,7 +154,7 @@ features through gradient descent.</p>
 <section id="path-results">
 <h2>Path results<a class="headerlink" href="#path-results" title="Link to this heading">¶</a></h2>
 <p>Take a look at how our features are distributed</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Highlight the number of selected features and the GEMINI along decreasing increasing alphas</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Highlight the number of selected features and the GEMINI along decreasing increasing alphas</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib.pyplot.subplot" title="matplotlib.pyplot.subplot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s2">&quot;Number of features depending on $</span><span class="se">\\</span><span class="s2">alpha$&quot;</span><span class="p">)</span>
@@ -185,13 +187,13 @@ features through gradient descent.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_feature_selection_mlp_001.png" srcset="../../_images/sphx_glr_plot_feature_selection_mlp_001.png" alt="Number of features depending on $\alpha$, GEMINI score depending on $\alpha$, Group-Lasso penalty depending on $\alpha$, Total score depending on $\alpha$" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features: [0 1]
 The model score is 1.4596486286280377
-Top gemini score was 1.5824499242836225, which settles an optimum of 1.4242049318552603
+Top gemini score was 1.5824499242836227, which settles an optimum of 1.4242049318552605
 </pre></div>
 </div>
 </section>
 <section id="final-clustering">
 <h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Link to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, show the cluster predictions</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, show the cluster predictions</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../generated/gemclus.sparse.SparseMLPMMD.html#gemclus.sparse.SparseMLPMMD.predict" title="gemclus.sparse.SparseMLPMMD.predict" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-method"><span class="n">clf</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_0</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_1</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
@@ -212,13 +214,13 @@ Top gemini score was 1.5824499242836225, which settles an optimum of 1.424204931
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_feature_selection_mlp_002.png" srcset="../../_images/sphx_glr_plot_feature_selection_mlp_002.png" alt="plot feature selection mlp" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.295 seconds)</p>
+<img src="../../_images/sphx_glr_plot_feature_selection_mlp_002.png" srcset="../../_images/sphx_glr_plot_feature_selection_mlp_002.png" alt="plot feature selection mlp" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.613 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-plot-feature-selection-mlp-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/595746cc9c316ee3816ea07834e3591b/plot_feature_selection_mlp.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_feature_selection_mlp.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a67de8235c583649c9c00b85508423b1/plot_feature_selection_mlp.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_feature_selection_mlp.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/595746cc9c316ee3816ea07834e3591b/plot_feature_selection_mlp.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_feature_selection_mlp.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -230,7 +232,7 @@ Top gemini score was 1.5824499242836225, which settles an optimum of 1.424204931
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_grouped_selection.html" class="btn btn-neutral float-left" title="Grouped Feature selection with a linear model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../mlcl/index.html" class="btn btn-neutral float-right" title="Consensus clustering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../mlcl/plot_semi_supervised_consensus.html" class="btn btn-neutral float-right" title="Consensus clustering with linking constraints on sample pairs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

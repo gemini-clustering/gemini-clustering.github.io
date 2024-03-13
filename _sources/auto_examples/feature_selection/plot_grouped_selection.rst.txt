@@ -33,7 +33,7 @@ clustering.
 
 .. GENERATED FROM PYTHON SOURCE LINES 15-23
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -57,7 +57,7 @@ Load a simple synthetic dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 28-63
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Generate the informative variables that will be the outcome of multinomial distributions
@@ -79,8 +79,8 @@ Load a simple synthetic dataset
 
     # Finally, write out the partition of the dataset
     groups = [np.arange(4), np.arange(4, 7)]
-    for i in range(8):
-        groups += [np.array([i + 7])]
+    # for i in range(8):
+    #     groups += [np.array([i + 7])]
 
     print(groups, X.shape)
 
@@ -107,7 +107,7 @@ Load a simple synthetic dataset
 
  .. code-block:: none
 
-    [array([0, 1, 2, 3]), array([4, 5, 6]), array([7]), array([8]), array([9]), array([10]), array([11]), array([12]), array([13]), array([14])] (100, 15)
+    [array([0, 1, 2, 3]), array([4, 5, 6])] (100, 15)
 
 
 
@@ -121,7 +121,7 @@ features through gradient descent.
 
 .. GENERATED FROM PYTHON SOURCE LINES 70-76
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clf = SparseLinearMMD(groups=groups, random_state=0, alpha=1, max_iter=100, batch_size=50, learning_rate=1e-2)
@@ -145,7 +145,7 @@ Take a look at how our features are distributed
 
 .. GENERATED FROM PYTHON SOURCE LINES 83-86
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(f"Selected features: {clf.get_selection()}")
@@ -160,7 +160,7 @@ Take a look at how our features are distributed
 
     Selected features: [0 1 2 3 4 5 6]
     The model score is 1.4935152433868388
-    Top gemini score was 0.8084378363828286, which settles an optimum of 0.646750269106263
+    Top gemini score was 0.8084378363828292, which settles an optimum of 0.6467502691062634
 
 
 
@@ -168,7 +168,7 @@ Take a look at how our features are distributed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.085 seconds)
+   **Total running time of the script:** (0 minutes 3.076 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_plot_grouped_selection.py:
@@ -177,16 +177,13 @@ Take a look at how our features are distributed
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
-
+      :download:`Download Jupyter notebook: plot_grouped_selection.ipynb <plot_grouped_selection.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_grouped_selection.py <plot_grouped_selection.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_grouped_selection.ipynb <plot_grouped_selection.ipynb>`
 
 
 .. only:: html
