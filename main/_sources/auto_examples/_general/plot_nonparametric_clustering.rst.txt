@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples__general_plot_nonparametric_clustering.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -130,7 +130,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.286 seconds)
+   **Total running time of the script:** (0 minutes 0.276 seconds)
 
 
 .. _sphx_glr_download_auto_examples__general_plot_nonparametric_clustering.py:
@@ -146,6 +146,10 @@ Final Clustering
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_nonparametric_clustering.py <plot_nonparametric_clustering.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_nonparametric_clustering.zip <plot_nonparametric_clustering.zip>`
 
 
 .. only:: html

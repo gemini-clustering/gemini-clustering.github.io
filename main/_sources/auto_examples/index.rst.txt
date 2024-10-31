@@ -10,6 +10,9 @@ We provide here different examples on how to use the GemClus library, from clust
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -23,10 +26,11 @@ General examples
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how to use the gemclus.mlp.MLPMMD to fit a simple mixture of Gaussian d...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how to use the gemclus.mlp.MLPMMD to fit a simple mixture of Gaussian distributions. The architecture here is a two-layer neural network trained with the MMD GEMINI, an objective equivalent to kernel KMeans.">
 
 .. only:: html
 
@@ -43,7 +47,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI. The specificity ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI. The specificity of this model is that the decision of model is not dependent on the position of the inputs, but only on the parameters associated to the input. Consequently, this model cannot be used for unseen samples as it will always return the same predictions.">
 
 .. only:: html
 
@@ -60,7 +64,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Since the MMD GEMINI objective is equivalent in OvO mode to a kernel KMeans objective, we can u...">
+    <div class="sphx-glr-thumbcontainer" tooltip="Since the MMD GEMINI objective is equivalent in OvO mode to a kernel KMeans objective, we can use it with the nonparametric model that directly associates a cluster to each sample. The overall model would thus behave as a kernel KMeans algorithm. However, its training is done by gradient descent.">
 
 .. only:: html
 
@@ -77,7 +81,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters in a mixture of Gaussian that incorporates a low-degree-of-freedom student t-distribution. Consequently, this distribution generates sample that may seem like outliers if we are to expect only Gaussian distribution.">
 
 .. only:: html
 
@@ -94,7 +98,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show here a simple dataset consisting in two centred circle that can be challenging for some...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show here a simple dataset consisting in two centred circle that can be challenging for some clustering algorithms. We solve this case using the kernel RIM algorithm. This algorithm fits a logistic regression on the kernel matrix derived from the dataset.">
 
 .. only:: html
 
@@ -111,7 +115,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find...">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters in between two facing moons. To do so, the trick is to use a specific distance using the &quot;precomputed&quot; option which will guide the clustering algorithm to the desired solution.">
 
 .. only:: html
 
@@ -128,7 +132,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="RIM (regularised mutual information) is a proposal of model by Krause et al. (2010) which consi...">
+    <div class="sphx-glr-thumbcontainer" tooltip="RIM (regularised mutual information) is a proposal of model by Krause et al. (2010) which consists in maximising for a linear model under \ell_2 penalty. In this example, we show how to do clustering of a Gaussian mixture using RIM.">
 
 .. only:: html
 
@@ -145,7 +149,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We create here a random graph by following a simplified version of the Latent Position Model ge...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We create here a random graph by following a simplified version of the Latent Position Model generative procedure. To create the graph, we sample latent positions from a Gaussian Mixture Model and create a graph with as many nodes as samples. Edges are then determined according to probability depending only on the distance between samples.">
 
 .. only:: html
 
@@ -162,7 +166,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show here a simple dataset consisting in two centred circle that can be challenging for some...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show here a simple dataset consisting in two centred circle that can be challenging for some clustering algorithms. This dataset can be challenging for GEMINI as well, unless we change the kernel adequately.">
 
 .. only:: html
 
@@ -179,7 +183,7 @@ General examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="It is possible that the model we wish to use is not available among the choices of GemClus. To ...">
+    <div class="sphx-glr-thumbcontainer" tooltip="It is possible that the model we wish to use is not available among the choices of GemClus. To that end, it is possible to extend the framework and define custom models that can still be trained by GEMINI.">
 
 .. only:: html
 
@@ -193,6 +197,8 @@ General examples
       <div class="sphx-glr-thumbnail-title">Extending GemClus to build your own discriminative clustering model</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -222,10 +228,11 @@ Feature selection
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. The model then keeps the best weights with the minimum number of features that maintains a GEMINI score close to 90% of the maximum GEMINI value encountered during the path.">
 
 .. only:: html
 
@@ -242,7 +249,7 @@ Feature selection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMI to perform a path where the regularis...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMI to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. The model then keeps the best weights with the minimum number of features that maintains a GEMINI score close to 50% of the maximum GEMINI value encountered during the path.">
 
 .. only:: html
 
@@ -259,7 +266,7 @@ Feature selection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. Moreover, we will produce some categorical variables that are one-hot-encoded and constrain the model to consider these features altogether using the groups option of the model.">
 
 .. only:: html
 
@@ -276,7 +283,7 @@ Feature selection
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseMLPMMD to perform a path where the regularisat...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseMLPMMD to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. The model then keeps the best weights with the minimum number of features that maintains a GEMINI score close to 90% of the maximum GEMINI value encountered during the path.">
 
 .. only:: html
 
@@ -290,6 +297,8 @@ Feature selection
       <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvA (MLP)</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -312,6 +321,7 @@ Consensus clustering
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
@@ -329,6 +339,8 @@ Consensus clustering
       <div class="sphx-glr-thumbnail-title">Consensus clustering with linking constraints on sample pairs</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -348,10 +360,11 @@ Scoring with GEMINI
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do no...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show in this example how we can score the prediction of another model using GEMINI. We do not seek to perform clustering but rather to evaluate.">
 
 .. only:: html
 
@@ -365,6 +378,8 @@ Scoring with GEMINI
       <div class="sphx-glr-thumbnail-title">Scoring any model with GEMINI</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 
@@ -384,6 +399,7 @@ Trees
 
     <div class="sphx-glr-thumbnails">
 
+.. thumbnail-parent-div-open
 
 .. raw:: html
 
@@ -404,7 +420,7 @@ Trees
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="We show here how to obtain two different decision trees for clustering using two different kern...">
+    <div class="sphx-glr-thumbcontainer" tooltip="We show here how to obtain two different decision trees for clustering using two different kernels to accompanny the KAURI method.">
 
 .. only:: html
 
@@ -418,6 +434,8 @@ Trees
       <div class="sphx-glr-thumbnail-title">Building an unsupervised tree with kernel-kmeans objective: KAURI</div>
     </div>
 
+
+.. thumbnail-parent-div-close
 
 .. raw:: html
 

@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_trees_plot_kauri_example.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -167,10 +167,10 @@ Visualise the tree structure
 
     Structure of the additive chi2 model
     Node 0
-    |=petal length (cm) <= 1.9
+    |=petal width (cm) <= 0.6
     | Node 1
-    |  Cluster: 1
-    |=petal length (cm) > 1.9
+    |  Cluster: 0
+    |=petal width (cm) > 0.6
     | Node 2
     | |=petal length (cm) <= 4.7
     | | Node 3
@@ -182,7 +182,7 @@ Visualise the tree structure
     | | |  Cluster: 2
     | | |=petal width (cm) > 1.5
     | | | Node 6
-    | | |  Cluster: 0
+    | | |  Cluster: 1
 
 
 
@@ -190,7 +190,7 @@ Visualise the tree structure
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.141 seconds)
+   **Total running time of the script:** (0 minutes 0.013 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_kauri_example.py:
@@ -206,6 +206,10 @@ Visualise the tree structure
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_kauri_example.py <plot_kauri_example.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_kauri_example.zip <plot_kauri_example.zip>`
 
 
 .. only:: html

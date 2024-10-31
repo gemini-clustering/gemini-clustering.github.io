@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.sparse.SparseLinearMMD &mdash; gemclus 1.0.0 documentation</title>
+  <title>gemclus.sparse.SparseLinearMMD &mdash; gemclus 1.0.1.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../_static/documentation_options.js?v=49291813"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,9 +37,6 @@
           <a href="../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -160,6 +155,22 @@ Pass an int for reproducible results across multiple function calls.</p>
 </dd>
 </dl>
 </dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>W_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
+</dd>
+<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
+</dd>
+<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
+</dd>
+<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.sparse.SparseLinearMMD.fit" title="gemclus.sparse.SparseLinearMMD.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
+</dd>
+<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
+</dd>
+<dt><strong>groups_: list of lists of int or None</strong></dt><dd><p>The explicit partition of the variables formed by the groups parameter if it was not None.</p>
+</dd>
+</dl>
+</dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -192,24 +203,6 @@ Arnaud Droit, Frederic Precioso</p>
 <span class="go">1.7040618744</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>W_: ndarray of shape (n_features, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
-</dd>
-<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
-</dd>
-<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
-</dd>
-<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.sparse.SparseLinearMMD.fit" title="gemclus.sparse.SparseLinearMMD.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
-</dd>
-<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
-</dd>
-<dt><strong>groups_: list of lists of int or None</strong></dt><dd><p>The explicit partition of the variables formed by the groups parameter if it was not None.</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMMD.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/sparse/_linear_sparse.html#SparseLinearMMD.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.sparse.SparseLinearMMD.__init__" title="Link to this definition">¶</a></dt>
@@ -278,12 +271,12 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <dt class="sig sig-object py" id="gemclus.sparse.SparseLinearMMD.get_metadata_routing">
 <span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMMD.get_metadata_routing" title="Link to this definition">¶</a></dt>
 <dd><p>Get metadata routing of this object.</p>
-<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.4)"><span class="xref std std-ref">User Guide</span></a> on how the routing
+<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.5)"><span class="xref std std-ref">User Guide</span></a> on how the routing
 mechanism works.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
 routing information.</p>
 </dd>
 </dl>
@@ -450,7 +443,7 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.sparse.SparseLinearMMD.set_params" title="Link to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
-(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
@@ -473,10 +466,10 @@ possible to update each component of a nested object.</p>
 
 <section id="examples-using-gemclus-sparse-sparselinearmmd">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMMD</span></code><a class="headerlink" href="#examples-using-gemclus-sparse-sparselinearmmd" title="Link to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_feature_selection_linear_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. The model then keeps the best weights with the minimum number of features that maintains a GEMINI score close to 90% of the maximum GEMINI value encountered during the path."><img alt="" src="../_images/sphx_glr_plot_feature_selection_linear_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/feature_selection/plot_feature_selection_linear.html#sphx-glr-auto-examples-feature-selection-plot-feature-selection-linear-py"><span class="std std-ref">Feature selection using the Sparse MMD OvO (Logistic regression)</span></a></p>
   <div class="sphx-glr-thumbnail-title">Feature selection using the Sparse MMD OvO (Logistic regression)</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regulari..."><img alt="" src="../_images/sphx_glr_plot_grouped_selection_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we ask the gemclus.sparse.SparseLinearMMD to perform a path where the regularisation penalty is progressively increased until all features but 2 are discarded. Moreover, we will produce some categorical variables that are one-hot-encoded and constrain the model to consider these features altogether using the groups option of the model."><img alt="" src="../_images/sphx_glr_plot_grouped_selection_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/feature_selection/plot_grouped_selection.html#sphx-glr-auto-examples-feature-selection-plot-grouped-selection-py"><span class="std std-ref">Grouped Feature selection with a linear model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Grouped Feature selection with a linear model</div>
 </div></div><div style='clear:both'></div></section>

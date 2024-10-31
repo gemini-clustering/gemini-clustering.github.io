@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feature selection using the Sparse MMD OvO (Logistic regression) &mdash; gemclus 1.0.0 documentation</title>
+  <title>Feature selection using the Sparse MMD OvO (Logistic regression) &mdash; gemclus 1.0.1.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../_static/documentation_options.js?v=49291813"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,9 +37,6 @@
           <a href="../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -112,7 +107,7 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-feature-selection-plot-feature-selection-linear-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="feature-selection-using-the-sparse-mmd-ovo-logistic-regression">
 <span id="sphx-glr-auto-examples-feature-selection-plot-feature-selection-linear-py"></span><h1>Feature selection using the Sparse MMD OvO (Logistic regression)<a class="headerlink" href="#feature-selection-using-the-sparse-mmd-ovo-logistic-regression" title="Link to this heading">¶</a></h1>
@@ -166,8 +161,8 @@ features through gradient descent.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_feature_selection_linear_001.png" srcset="../../_images/sphx_glr_plot_feature_selection_linear_001.png" alt="GEMINI score depending on $\alpha$" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The model score is 2.8259728240495163
-Top gemini score was 3.0249912491496707, which settles an optimum of 2.7224921242347038
+<img src="../../_images/sphx_glr_plot_feature_selection_linear_001.png" srcset="../../_images/sphx_glr_plot_feature_selection_linear_001.png" alt="GEMINI score depending on $\alpha$" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The model score is 2.825972824049516
+Top gemini score was 3.024991249149671, which settles an optimum of 2.722492124234704
 Selected features: (array([0, 1, 2, 3, 4]),)
 </pre></div>
 </div>
@@ -182,13 +177,16 @@ Selected features: (array([0, 1, 2, 3, 4]),)
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI score is 0.83290627605772
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 4.949 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 4.533 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-plot-feature-selection-linear-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1423453a1e655450d0ac73968004dd08/plot_feature_selection_linear.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_feature_selection_linear.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/112268edfd8e14b9a407f20d0abed528/plot_feature_selection_linear.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_feature_selection_linear.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/0525f789b6d6dab464f0e25c91780ac3/plot_feature_selection_linear.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_feature_selection_linear.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

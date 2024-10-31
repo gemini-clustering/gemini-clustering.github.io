@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples__general_plot_rim.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -553,7 +553,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
  .. code-block:: none
 
-    0.4486538478231719
+    0.44865384782317197
 
 
 
@@ -561,7 +561,7 @@ Let us take a look at the decision boundaries according to the probabilities
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.340 seconds)
+   **Total running time of the script:** (0 minutes 0.300 seconds)
 
 
 .. _sphx_glr_download_auto_examples__general_plot_rim.py:
@@ -577,6 +577,10 @@ Let us take a look at the decision boundaries according to the probabilities
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_rim.py <plot_rim.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_rim.zip <plot_rim.zip>`
 
 
 .. only:: html

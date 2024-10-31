@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drawing a decision boundary between two interlacing moons &mdash; gemclus 1.0.0 documentation</title>
+  <title>Drawing a decision boundary between two interlacing moons &mdash; gemclus 1.0.1.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../_static/documentation_options.js?v=49291813"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,9 +37,6 @@
           <a href="../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -118,14 +113,15 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-general-plot-moon-clustering-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="drawing-a-decision-boundary-between-two-interlacing-moons">
 <span id="sphx-glr-auto-examples-general-plot-moon-clustering-py"></span><h1>Drawing a decision boundary between two interlacing moons<a class="headerlink" href="#drawing-a-decision-boundary-between-two-interlacing-moons" title="Link to this heading">¶</a></h1>
 <p>This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters
 in between two facing moons. To do so, the trick is to use a specific distance using the “precomputed” option
 which will guide the clustering algorithm to the desired solution.</p>
-<p>Note that we use <cite>gemclus.mlp.MLPWasserstein</cite> because a linear model would not be able to find the optimal boundary.</p>
+<p>Note that we use <a class="reference internal" href="../../generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.mlp.MLPWasserstein</span></code></a> because a linear model would not be able to find the optimal
+boundary.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csgraph</span>
@@ -178,13 +174,16 @@ which will guide the clustering algorithm to the desired solution.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_moon_clustering_001.png" srcset="../../_images/sphx_glr_plot_moon_clustering_001.png" alt="plot moon clustering" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.135 seconds)</p>
+<img src="../../_images/sphx_glr_plot_moon_clustering_001.png" srcset="../../_images/sphx_glr_plot_moon_clustering_001.png" alt="plot moon clustering" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.132 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-general-plot-moon-clustering-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a065abc544b596aa33de6601a2d475a2/plot_moon_clustering.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_moon_clustering.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/de2100ec7d1bb64db056ed61a0e8c463/plot_moon_clustering.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_moon_clustering.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d669f79cfc4590f799b14f786d4fde4a/plot_moon_clustering.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_moon_clustering.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

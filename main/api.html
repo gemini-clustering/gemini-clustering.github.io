@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GemClus API &mdash; gemclus 1.0.0 documentation</title>
+  <title>GemClus API &mdash; gemclus 1.0.1.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/documentation_options.js?v=8d563738"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/copybutton.js?v=26522df0"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/documentation_options.js?v=49291813"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/js/copybutton.js?v=26522df0"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -40,9 +38,6 @@
           <a href="index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -66,6 +61,7 @@
 <li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.KLGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.KLGEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.TVGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.TVGEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.HellingerGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.HellingerGEMINI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/gemclus.gemini.ChiSquareGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.ChiSquareGEMINI</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#clustering-models">Clustering models</a><ul>
@@ -153,8 +149,6 @@
              
   <section id="gemclus-api">
 <h1>GemClus API<a class="headerlink" href="#gemclus-api" title="Link to this heading">¶</a></h1>
-<p>The GEMINI-clustering package currently contains simple MLP and logistic regression for all-feature clustering as well as
-sparsity-constrained variants of these models.</p>
 <section id="scoring-with-gemini">
 <h2>Scoring with GEMINI<a class="headerlink" href="#scoring-with-gemini" title="Link to this heading">¶</a></h2>
 <p>The following classes implement the basic GEMINIs for scoring and evaluating any conditional distribution for
@@ -178,6 +172,9 @@ clustering.</p>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI" title="gemclus.gemini.HellingerGEMINI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.HellingerGEMINI</span></code></a>([ovo, epsilon])</p></td>
 <td><p>Implements the one-vs-all and one-vs-one Squared Hellinger distance GEMINI.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/gemclus.gemini.ChiSquareGEMINI.html#gemclus.gemini.ChiSquareGEMINI" title="gemclus.gemini.ChiSquareGEMINI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gemini.ChiSquareGEMINI</span></code></a>([ovo, epsilon])</p></td>
+<td><p>Implements the one-vs-all and one-vs-one Chi Squared divergence GEMINI.</p></td>
 </tr>
 </tbody>
 </table>

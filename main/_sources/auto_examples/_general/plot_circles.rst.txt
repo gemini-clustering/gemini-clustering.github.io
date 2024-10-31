@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples__general_plot_circles.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -177,7 +177,7 @@ Display predictions and decision boundaries
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 44.464 seconds)
+   **Total running time of the script:** (0 minutes 15.667 seconds)
 
 
 .. _sphx_glr_download_auto_examples__general_plot_circles.py:
@@ -193,6 +193,10 @@ Display predictions and decision boundaries
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_circles.py <plot_circles.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_circles.zip <plot_circles.zip>`
 
 
 .. only:: html

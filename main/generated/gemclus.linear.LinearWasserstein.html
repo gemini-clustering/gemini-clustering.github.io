@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.linear.LinearWasserstein &mdash; gemclus 1.0.0 documentation</title>
+  <title>gemclus.linear.LinearWasserstein &mdash; gemclus 1.0.1.dev documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/js/copybutton.js?v=26522df0"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/documentation_options.js?v=49291813"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/copybutton.js?v=26522df0"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,9 +38,6 @@
           <a href="../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -155,6 +150,20 @@ Pass an int for reproducible results across multiple function calls.</p>
 </dd>
 </dl>
 </dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>W_: ndarray of shape (n_features_in, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
+</dd>
+<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
+</dd>
+<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
+</dd>
+<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.linear.LinearWasserstein.fit" title="gemclus.linear.LinearWasserstein.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
+</dd>
+<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
+</dd>
+</dl>
+</dd>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -186,22 +195,6 @@ Arnaud Droit, Frederic Precioso</p>
 <span class="go">1.7103992986</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>W_: ndarray of shape (n_features_in, n_clusters)</strong></dt><dd><p>The linear weights of model</p>
-</dd>
-<dt><strong>b_: ndarray of shape (1, n_clusters)</strong></dt><dd><p>The biases of the model</p>
-</dd>
-<dt><strong>optimiser_: `AdamOptimizer` or `SGDOptimizer`</strong></dt><dd><p>The optimisation algorithm used for training depending on the chosen solver parameter.</p>
-</dd>
-<dt><strong>labels_: ndarray of shape (n_samples)</strong></dt><dd><p>The labels that were assigned to the samples passed to the <a class="reference internal" href="#gemclus.linear.LinearWasserstein.fit" title="gemclus.linear.LinearWasserstein.fit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fit()</span></code></a> method.</p>
-</dd>
-<dt><strong>n_iter_: int</strong></dt><dd><p>The number of iterations that the model took for converging.</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.linear.LinearWasserstein.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/linear/_linear_geminis.html#LinearWasserstein.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.linear.LinearWasserstein.__init__" title="Link to this definition">¶</a></dt>
@@ -270,12 +263,12 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <dt class="sig sig-object py" id="gemclus.linear.LinearWasserstein.get_metadata_routing">
 <span class="sig-name descname"><span class="pre">get_metadata_routing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.LinearWasserstein.get_metadata_routing" title="Link to this definition">¶</a></dt>
 <dd><p>Get metadata routing of this object.</p>
-<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.4)"><span class="xref std std-ref">User Guide</span></a> on how the routing
+<p>Please check <a class="reference external" href="https://scikit-learn.org/stable/metadata_routing.html#metadata-routing" title="(in scikit-learn v1.5)"><span class="xref std std-ref">User Guide</span></a> on how the routing
 mechanism works.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
+<dt><strong>routing</strong><span class="classifier">MetadataRequest</span></dt><dd><p>A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.metadata_routing.MetadataRequest.html#sklearn.utils.metadata_routing.MetadataRequest" title="(in scikit-learn v1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetadataRequest</span></code></a> encapsulating
 routing information.</p>
 </dd>
 </dl>
@@ -376,7 +369,7 @@ construction. Otherwise, it is not used and present here for API consistency by 
 <span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gemclus.linear.LinearWasserstein.set_params" title="Link to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
-(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
+(such as <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code></a>). The latter have
 parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
 possible to update each component of a nested object.</p>
 <dl class="field-list simple">
@@ -399,7 +392,7 @@ possible to update each component of a nested object.</p>
 
 <section id="examples-using-gemclus-linear-linearwasserstein">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.linear.LinearWasserstein</span></code><a class="headerlink" href="#examples-using-gemclus-linear-linearwasserstein" title="Link to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find..."><img alt="" src="../_images/sphx_glr_plot_gstm_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters in a mixture of Gaussian that incorporates a low-degree-of-freedom student t-distribution. Consequently, this distribution generates sample that may seem like outliers if we are to expect only Gaussian distribution."><img alt="" src="../_images/sphx_glr_plot_gstm_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/_general/plot_gstm.html#sphx-glr-auto-examples-general-plot-gstm-py"><span class="std std-ref">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</span></a></p>
   <div class="sphx-glr-thumbnail-title">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</div>
 </div></div><div style='clear:both'></div></section>

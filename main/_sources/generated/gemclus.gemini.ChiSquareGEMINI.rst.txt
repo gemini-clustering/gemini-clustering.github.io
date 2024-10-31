@@ -1,0 +1,18 @@
+﻿:mod:`gemclus.gemini`.ChiSquareGEMINI
+============================================
+
+.. currentmodule:: gemclus.gemini
+
+.. autoclass:: ChiSquareGEMINI
+   :members:
+   :inherited-members: set_params, get_params
+
+   
+   .. automethod:: __init__
+   
+
+.. include:: gemclus.gemini.ChiSquareGEMINI.examples
+
+.. raw:: html
+
+    <div style='clear:both'></div>
