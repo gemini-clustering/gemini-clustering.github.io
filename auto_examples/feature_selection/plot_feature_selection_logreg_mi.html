@@ -1,26 +1,24 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feature selection using the Sparse Linear MI (Logistic regression) &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>Feature selection using the Sparse Linear MI (Logistic regression) &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,9 +37,6 @@
           <a href="../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -111,7 +106,7 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-feature-selection-plot-feature-selection-logreg-mi-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="feature-selection-using-the-sparse-linear-mi-logistic-regression">
 <span id="sphx-glr-auto-examples-feature-selection-plot-feature-selection-logreg-mi-py"></span><h1>Feature selection using the Sparse Linear MI (Logistic regression)<a class="headerlink" href="#feature-selection-using-the-sparse-linear-mi-logistic-regression" title="Link to this heading">¶</a></h1>
@@ -124,12 +119,12 @@ acceptance threshold for best score is lowered to 50% instead of 90% like other 
 found in <cite>Discriminative Clustering and Feature Selection for Brain MRI Segmentation</cite> proposed by Kong et al. (2014).</p>
 <p>The dataset consists of 3 isotropic Gaussian distributions (so 3 clusters to find) in 5d with 20 noisy variables. Thus,
 the optimal solution should find that only 5 features are relevant and sufficient to get the correct clustering.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">decomposition</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">decomposition</span>
 
-<span class="kn">from</span> <span class="nn">gemclus.data</span> <span class="kn">import</span> <a href="../../generated/gemclus.data.celeux_one.html#gemclus.data.celeux_one" title="gemclus.data.celeux_one" class="sphx-glr-backref-module-gemclus-data sphx-glr-backref-type-py-function"><span class="n">celeux_one</span></a>
-<span class="kn">from</span> <span class="nn">gemclus.sparse</span> <span class="kn">import</span> <a href="../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI" title="gemclus.sparse.SparseLinearMI" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMI</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus.data</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/gemclus.data.celeux_one.html#gemclus.data.celeux_one" title="gemclus.data.celeux_one" class="sphx-glr-backref-module-gemclus-data sphx-glr-backref-type-py-function"><span class="n">celeux_one</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus.sparse</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/gemclus.sparse.SparseLinearMI.html#gemclus.sparse.SparseLinearMI" title="gemclus.sparse.SparseLinearMI" class="sphx-glr-backref-module-gemclus-sparse sphx-glr-backref-type-py-class"><span class="n">SparseLinearMI</span></a>
 </pre></div>
 </div>
 <section id="load-a-simple-synthetic-dataset">
@@ -152,7 +147,11 @@ features through gradient descent.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected features: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_weights</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Selected features: (array([ 0,  1,  2,  3,  4,  6, 11]),)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+Selected features: (array([ 0,  1,  2,  3,  4,  6, 11]),)
 </pre></div>
 </div>
 </section>
@@ -176,13 +175,16 @@ features through gradient descent.</p>
 <img src="../../_images/sphx_glr_plot_feature_selection_logreg_mi_001.png" srcset="../../_images/sphx_glr_plot_feature_selection_logreg_mi_001.png" alt="PCA of celeux 1 dataset clustered with a MI-trained LASSO" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI score is 0.458336976163333
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.995 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.134 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-feature-selection-plot-feature-selection-logreg-mi-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0a2694fb3cccfe6283b4756d9c080286/plot_feature_selection_logreg_mi.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_feature_selection_logreg_mi.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/360603270936b91348da7b1eed38d6ef/plot_feature_selection_logreg_mi.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_feature_selection_logreg_mi.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/abc86594678363aa0d55ceb6a0598fa0/plot_feature_selection_logreg_mi.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_feature_selection_logreg_mi.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

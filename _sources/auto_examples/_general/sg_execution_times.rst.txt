@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:53.917** total execution time for 10 files **from auto_examples/_general**:
+**00:55.870** total execution time for 11 files **from auto_examples/_general**:
 
 .. container::
 
@@ -33,32 +33,35 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples__general_plot_circles.py` (``plot_circles.py``)
-     - 00:19.970
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_gstm.py` (``plot_gstm.py``)
-     - 00:08.286
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py` (``plot_graph_node_clustering.py``)
-     - 00:07.195
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_moon_clustering.py` (``plot_moon_clustering.py``)
-     - 00:07.189
+     - 00:16.256
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py` (``plot_kernel_kmeans.py``)
-     - 00:06.606
+     - 00:10.002
      - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py` (``plot_kernel_rim.py``)
-     - 00:01.878
+   * - :ref:`sphx_glr_auto_examples__general_plot_gstm.py` (``plot_gstm.py``)
+     - 00:09.427
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py` (``plot_graph_node_clustering.py``)
+     - 00:08.324
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_moon_clustering.py` (``plot_moon_clustering.py``)
+     - 00:07.955
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_custom_model.py` (``plot_custom_model.py``)
-     - 00:01.614
+     - 00:01.802
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_intro_mlp_mmd.py` (``plot_intro_mlp_mmd.py``)
-     - 00:00.614
+     - 00:00.710
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py` (``plot_kernel_rim.py``)
+     - 00:00.388
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_squared_loss_mi.py` (``plot_squared_loss_mi.py``)
+     - 00:00.367
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_rim.py` (``plot_rim.py``)
-     - 00:00.294
+     - 00:00.349
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_nonparametric_clustering.py` (``plot_nonparametric_clustering.py``)
-     - 00:00.273
+     - 00:00.289
      - 0.0

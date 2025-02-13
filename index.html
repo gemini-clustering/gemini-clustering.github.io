@@ -1,26 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to GemClus documentation! &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>Welcome to GemClus documentation! &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/documentation_options.js?v=8d563738"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/js/copybutton.js?v=26522df0"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/js/copybutton.js?v=26522df0"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,9 +37,6 @@
           <a href="#" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -90,17 +86,37 @@
              
   <section id="welcome-to-gemclus-documentation">
 <h1>Welcome to GemClus documentation!<a class="headerlink" href="#welcome-to-gemclus-documentation" title="Link to this heading">¶</a></h1>
-<p>Welcome and thank you for checking GEMINI out, this really pleasures us.</p>
-<p>GEMINI is a clustering-dedicated function derived from information theory that allows to do clustering without hypotheses
-on the data distributions. We try to provide overall some implementations of small-scale discriminative clustering
-methods in this package. These methods include small neural networks, logistic regression, decision trees and work from
-other paper that we will relevant to the discriminative clustering field in the GEMINI spirit.</p>
+<p>Welcome and thank you for checking GemClus out, this really pleasures us.</p>
+<section id="about-the-package">
+<h2>About the package<a class="headerlink" href="#about-the-package" title="Link to this heading">¶</a></h2>
+<section id="what-is-gemclus">
+<h3>What is GemClus?<a class="headerlink" href="#what-is-gemclus" title="Link to this heading">¶</a></h3>
+<p>GemClus is a Python package intended for discriminative clustering. This packages aims at providing different
+clustering models that share the same discriminative nature, specifically in the sense of Minka <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="why-gemclus">
+<h3>Why GemClus?<a class="headerlink" href="#why-gemclus" title="Link to this heading">¶</a></h3>
+<p>GemClus originates from our work on the <em>generalised mutual information</em> (GEMINI).
+GEMINI is a clustering-dedicated function derived from information theory that allows to do clustering without hypotheses
+on the data distributions. This work led us to realise that multiple discriminative models lacked implementations in
+Python. We tried to bridge this gap by providing a tool that simultaneously offers all of the GEMINI spectrum and
+implementations of other discriminative clustering methods. These methods include small neural networks, logistic
+regression, decision trees and work from other paper that we will relevant to the discriminative clustering field in
+the GEMINI spirit.</p>
+</section>
+<section id="scope-of-gemclus">
+<h3>Scope of GemClus<a class="headerlink" href="#scope-of-gemclus" title="Link to this heading">¶</a></h3>
+<p>The scope of this package is especially for small-scale models: we provide implementations of linear models, trees,
+small neural networks using only NumPy. We try to provide also some synthetic datasets which could be of interest to
+the scientific community. We welcome any novel contribution, missing discriminative model or even unimplemented dataset.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
+</section>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -127,7 +143,7 @@ The package was written to be a scikit-learn compatible extension.</p>
 <section id="official-package">
 <h5>Official package<a class="headerlink" href="#official-package" title="Link to this heading">¶</a></h5>
 <p>Use the following instruction for installing the package:</p>
-<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>pip install gemclus
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">gemclus</span>
 </pre></div>
 </div>
 <p>The library requires a couple scientific package to run:</p>
@@ -141,15 +157,15 @@ The package was written to be a scikit-learn compatible extension.</p>
 <section id="latest-version">
 <h5>Latest version<a class="headerlink" href="#latest-version" title="Link to this heading">¶</a></h5>
 <p>You may download the latest version of the package by installing the content of the repo.</p>
-<div class="highlight-commandline notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/gemini-clustering/GemClus
-cd GemClus
-pip install .
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gemini</span><span class="o">-</span><span class="n">clustering</span><span class="o">/</span><span class="n">GemClus</span>
+<span class="n">cd</span> <span class="n">GemClus</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="reference">
-<h4>Reference<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h4>
+<section id="related-paper">
+<h4>Related paper<a class="headerlink" href="#related-paper" title="Link to this heading">¶</a></h4>
 <p>If this work helped you, please cite our original NeurIPS work:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ohl</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="p">,</span> <span class="n">Mattei</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span> <span class="n">A</span><span class="o">.</span><span class="p">,</span> <span class="n">Bouveyron</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="p">,</span> <span class="n">Harchaoui</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="p">,</span> <span class="n">Leclercq</span><span class="p">,</span> <span class="n">M</span><span class="o">.</span><span class="p">,</span> <span class="n">Droit</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="p">,</span> <span class="o">&amp;</span> <span class="n">Precioso</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span>
 <span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="n">October</span><span class="p">)</span><span class="o">.</span>
@@ -184,10 +200,24 @@ in the GEMINI project, as well as Mickaël Leclercq and Arnaud Droit. Special th
 insights on the development.</p>
 </section>
 </section>
-<a class="reference internal image-reference" href="_images/logo_3ia.png"><img alt="3IA, Université Côte d'Azur" src="_images/logo_3ia.png" style="height: 80px;" /></a>
-<a class="reference internal image-reference" href="_images/logo_ul.png"><img alt="Université Laval" src="_images/logo_ul.png" style="height: 80px;" /></a>
-<a class="reference internal image-reference" href="_images/logo_inria.png"><img alt="INRIA" src="_images/logo_inria.png" style="height: 80px;" /></a>
-<a class="reference internal image-reference" href="_images/logo_i3s.png"><img alt="Laboratoire d Informatique Signaux et Systèmes" src="_images/logo_i3s.png" style="height: 80px;" /></a>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Minka, T. (2005). <a class="reference external" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-2005-144.pdf">Discriminative models, not discriminative training</a>.
+Technical Report MSR-TR-2005-144, Microsoft Research.</p>
+</aside>
+</aside>
+<a class="reference internal image-reference" href="_images/logo_3ia.png"><img alt="3IA, Université Côte d'Azur" src="_images/logo_3ia.png" style="height: 80px;" />
+</a>
+<a class="reference internal image-reference" href="_images/logo_ul.png"><img alt="Université Laval" src="_images/logo_ul.png" style="height: 80px;" />
+</a>
+<a class="reference internal image-reference" href="_images/logo_inria.png"><img alt="INRIA" src="_images/logo_inria.png" style="height: 80px;" />
+</a>
+<a class="reference internal image-reference" href="_images/logo_i3s.png"><img alt="Laboratoire d Informatique Signaux et Systèmes" src="_images/logo_i3s.png" style="height: 80px;" />
+</a>
 </section>
 </section>
 

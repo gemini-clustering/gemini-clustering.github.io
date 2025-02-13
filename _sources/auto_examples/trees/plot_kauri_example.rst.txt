@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_trees_plot_kauri_example.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -87,6 +87,8 @@ Create a first tree using a linear kernel
 
  .. code-block:: none
 
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
     Score of model is:  9459.167022308022
 
 
@@ -114,6 +116,8 @@ Create a second tree using an additive chi2 kernel
 
  .. code-block:: none
 
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
     Score of model is:  -22.43532371061057
 
 
@@ -167,10 +171,10 @@ Visualise the tree structure
 
     Structure of the additive chi2 model
     Node 0
-    |=petal length (cm) <= 1.9
+    |=petal width (cm) <= 0.6
     | Node 1
-    |  Cluster: 1
-    |=petal length (cm) > 1.9
+    |  Cluster: 0
+    |=petal width (cm) > 0.6
     | Node 2
     | |=petal length (cm) <= 4.7
     | | Node 3
@@ -182,7 +186,7 @@ Visualise the tree structure
     | | |  Cluster: 2
     | | |=petal width (cm) > 1.5
     | | | Node 6
-    | | |  Cluster: 0
+    | | |  Cluster: 1
 
 
 
@@ -190,7 +194,7 @@ Visualise the tree structure
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.232 seconds)
+   **Total running time of the script:** (0 minutes 0.017 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_kauri_example.py:
@@ -206,6 +210,10 @@ Visualise the tree structure
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_kauri_example.py <plot_kauri_example.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_kauri_example.zip <plot_kauri_example.zip>`
 
 
 .. only:: html

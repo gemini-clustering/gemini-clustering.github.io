@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_mlcl_plot_semi_supervised_consensus.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -112,6 +112,14 @@ Multiple model clustering
 
  .. code-block:: none
 
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
     Sub-model ARI:  0.11914066061963555
     Sub-model ARI:  0.11176053892324672
     Sub-model ARI:  0.11421905413971052
@@ -177,6 +185,8 @@ superfluous
 
  .. code-block:: none
 
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
     Consensus ARI:  0.10728640074310927
 
 
@@ -254,6 +264,8 @@ We start over with the same model for consensus
 
  .. code-block:: none
 
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
     ARI of constrained consensus:  0.16976700304809886
 
 
@@ -287,7 +299,7 @@ Plotting the consensus matrix
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 7.966 seconds)
+   **Total running time of the script:** (0 minutes 8.388 seconds)
 
 
 .. _sphx_glr_download_auto_examples_mlcl_plot_semi_supervised_consensus.py:
@@ -303,6 +315,10 @@ Plotting the consensus matrix
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_semi_supervised_consensus.py <plot_semi_supervised_consensus.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_semi_supervised_consensus.zip <plot_semi_supervised_consensus.zip>`
 
 
 .. only:: html

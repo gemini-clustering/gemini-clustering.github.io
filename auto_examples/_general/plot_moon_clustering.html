@@ -1,31 +1,29 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drawing a decision boundary between two interlacing moons &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>Drawing a decision boundary between two interlacing moons &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Simple logistic regression with RIM" href="plot_rim.html" />
-    <link rel="prev" title="Clustering circles with kernel RIM" href="plot_kernel_rim.html" /> 
+    <link rel="prev" title="Clustering with the squared-loss mutual information" href="plot_squared_loss_mi.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,9 +37,6 @@
           <a href="../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -69,6 +64,7 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_kernel_kmeans.html">Kernel KMeans clustering with GEMINI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_gstm.html">Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_kernel_rim.html">Clustering circles with kernel RIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_squared_loss_mi.html">Clustering with the squared-loss mutual information</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Drawing a decision boundary between two interlacing moons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#generate-two-interlacing-moons">Generate two interlacing moons</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pre-compute-a-specific-metric-between-samples">Pre-compute a specific metric between samples</a></li>
@@ -118,20 +114,21 @@
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
 <p><a class="reference internal" href="#sphx-glr-download-auto-examples-general-plot-moon-clustering-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+to download the full example code.</p>
 </div>
 <section class="sphx-glr-example-title" id="drawing-a-decision-boundary-between-two-interlacing-moons">
 <span id="sphx-glr-auto-examples-general-plot-moon-clustering-py"></span><h1>Drawing a decision boundary between two interlacing moons<a class="headerlink" href="#drawing-a-decision-boundary-between-two-interlacing-moons" title="Link to this heading">¶</a></h1>
 <p>This example is a retake from the experiment in the original GEMINI paper where we want to find the true clusters
 in between two facing moons. To do so, the trick is to use a specific distance using the “precomputed” option
 which will guide the clustering algorithm to the desired solution.</p>
-<p>Note that we use <cite>gemclus.mlp.MLPWasserstein</cite> because a linear model would not be able to find the optimal boundary.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csgraph</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">metrics</span>
+<p>Note that we use <a class="reference internal" href="../../generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein"><code class="xref py py-class docutils literal notranslate"><span class="pre">gemclus.mlp.MLPWasserstein</span></code></a> because a linear model would not be able to find the optimal
+boundary.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">csgraph</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">metrics</span>
 
-<span class="kn">from</span> <span class="nn">gemclus.mlp</span> <span class="kn">import</span> <a href="../../generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein" class="sphx-glr-backref-module-gemclus-mlp sphx-glr-backref-type-py-class"><span class="n">MLPWasserstein</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus.mlp</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein" title="gemclus.mlp.MLPWasserstein" class="sphx-glr-backref-module-gemclus-mlp sphx-glr-backref-type-py-class"><span class="n">MLPWasserstein</span></a>
 </pre></div>
 </div>
 <section id="generate-two-interlacing-moons">
@@ -163,6 +160,10 @@ which will guide the clustering algorithm to the desired solution.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../generated/gemclus.mlp.MLPWasserstein.html#gemclus.mlp.MLPWasserstein.fit_predict" title="gemclus.mlp.MLPWasserstein.fit_predict" class="sphx-glr-backref-module-gemclus-mlp sphx-glr-backref-type-py-method"><span class="n">model</span><span class="o">.</span><span class="n">fit_predict</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distances</span></a><span class="p">)</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+</pre></div>
+</div>
 </section>
 <section id="final-clustering">
 <h2>Final Clustering<a class="headerlink" href="#final-clustering" title="Link to this heading">¶</a></h2>
@@ -178,13 +179,16 @@ which will guide the clustering algorithm to the desired solution.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_moon_clustering_001.png" srcset="../../_images/sphx_glr_plot_moon_clustering_001.png" alt="plot moon clustering" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.189 seconds)</p>
+<img src="../../_images/sphx_glr_plot_moon_clustering_001.png" srcset="../../_images/sphx_glr_plot_moon_clustering_001.png" alt="plot moon clustering" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.955 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-general-plot-moon-clustering-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a065abc544b596aa33de6601a2d475a2/plot_moon_clustering.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_moon_clustering.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/de2100ec7d1bb64db056ed61a0e8c463/plot_moon_clustering.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_moon_clustering.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d669f79cfc4590f799b14f786d4fde4a/plot_moon_clustering.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">plot_moon_clustering.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -195,7 +199,7 @@ which will guide the clustering algorithm to the desired solution.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plot_kernel_rim.html" class="btn btn-neutral float-left" title="Clustering circles with kernel RIM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plot_squared_loss_mi.html" class="btn btn-neutral float-left" title="Clustering with the squared-loss mutual information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="plot_rim.html" class="btn btn-neutral float-right" title="Simple logistic regression with RIM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

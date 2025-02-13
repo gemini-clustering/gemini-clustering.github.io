@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.data.draw_gmm &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+  <title>gemclus.data.draw_gmm &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/js/copybutton.js?v=26522df0"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/copybutton.js?v=26522df0"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,9 +38,6 @@
           <a href="../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -112,7 +107,7 @@
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.data</span></code>.draw_gmm<a class="headerlink" href="#gemclus-data-draw-gmm" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="gemclus.data.draw_gmm">
-<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.12)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gemclus.data.</span></span><span class="sig-name descname"><span class="pre">draw_gmm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pvals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/gemclus/data/synthetic_data.html#draw_gmm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.data.draw_gmm" title="Link to this definition">¶</a></dt>
 <dd><p>Returns <span class="math notranslate nohighlight">\(n\)</span> samples drawn from a mixture of Gaussian distributions. The number of components
 is determined by the number of elements in the lists of the parameters.</p>
 <dl class="field-list simple">
@@ -144,13 +139,13 @@ multiple runs.</p>
 
 <section id="examples-using-gemclus-data-draw-gmm">
 <h2>Examples using <code class="docutils literal notranslate"><span class="pre">gemclus.data.draw_gmm</span></code><a class="headerlink" href="#examples-using-gemclus-data-draw-gmm" title="Link to this heading">¶</a></h2>
-<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI. The specificity ..."><img alt="" src="../_images/sphx_glr_plot_nonparametric_clustering_thumb.png" />
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This example illustrates how we can run nonparametric clustering using GEMINI. The specificity of this model is that the decision of model is not dependent on the position of the inputs, but only on the parameters associated to the input. Consequently, this model cannot be used for unseen samples as it will always return the same predictions."><img alt="" src="../_images/sphx_glr_plot_nonparametric_clustering_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/_general/plot_nonparametric_clustering.html#sphx-glr-auto-examples-general-plot-nonparametric-clustering-py"><span class="std std-ref">Non parametric clustering</span></a></p>
   <div class="sphx-glr-thumbnail-title">Non parametric clustering</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="We create here a random graph by following a simplified version of the Latent Position Model ge..."><img alt="" src="../_images/sphx_glr_plot_graph_node_clustering_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="We create here a random graph by following a simplified version of the Latent Position Model generative procedure. To create the graph, we sample latent positions from a Gaussian Mixture Model and create a graph with as many nodes as samples. Edges are then determined according to probability depending only on the distance between samples."><img alt="" src="../_images/sphx_glr_plot_graph_node_clustering_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/_general/plot_graph_node_clustering.html#sphx-glr-auto-examples-general-plot-graph-node-clustering-py"><span class="std std-ref">Graph node clustering with a nonparametric model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Graph node clustering with a nonparametric model</div>
-</div><div class="sphx-glr-thumbcontainer" tooltip="It is possible that the model we wish to use is not available among the choices of GemClus. To ..."><img alt="" src="../_images/sphx_glr_plot_custom_model_thumb.png" />
+</div><div class="sphx-glr-thumbcontainer" tooltip="It is possible that the model we wish to use is not available among the choices of GemClus. To that end, it is possible to extend the framework and define custom models that can still be trained by GEMINI."><img alt="" src="../_images/sphx_glr_plot_custom_model_thumb.png" />
 <p><a class="reference internal" href="../auto_examples/_general/plot_custom_model.html#sphx-glr-auto-examples-general-plot-custom-model-py"><span class="std std-ref">Extending GemClus to build your own discriminative clustering model</span></a></p>
   <div class="sphx-glr-thumbnail-title">Extending GemClus to build your own discriminative clustering model</div>
 </div></div><div style='clear:both'></div></section>

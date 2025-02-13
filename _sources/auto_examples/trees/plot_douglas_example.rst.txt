@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_trees_plot_douglas_example.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -86,7 +86,9 @@ Create the douglas tree and fit it
 
  .. code-block:: none
 
-    Score of model is:  1.4741506860502533
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+    Score of model is:  1.4741506860502334
     ARI of model is:  0.5681159420289855
 
 
@@ -95,7 +97,7 @@ Create the douglas tree and fit it
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.288 seconds)
+   **Total running time of the script:** (0 minutes 1.137 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_douglas_example.py:
@@ -111,6 +113,10 @@ Create the douglas tree and fit it
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_douglas_example.py <plot_douglas_example.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_douglas_example.zip <plot_douglas_example.zip>`
 
 
 .. only:: html

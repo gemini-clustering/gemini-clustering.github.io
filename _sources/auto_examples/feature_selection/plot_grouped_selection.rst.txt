@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples_feature_selection_plot_grouped_selection.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -133,6 +133,15 @@ features through gradient descent.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+
 
 
 
@@ -159,8 +168,8 @@ Take a look at how our features are distributed
  .. code-block:: none
 
     Selected features: [0 1 2 3 4 5 6]
-    The model score is 1.4935152433868388
-    Top gemini score was 0.8084378363828292, which settles an optimum of 0.6467502691062634
+    The model score is 1.4935152433868386
+    Top gemini score was 0.8084378363828287, which settles an optimum of 0.646750269106263
 
 
 
@@ -168,7 +177,7 @@ Take a look at how our features are distributed
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.076 seconds)
+   **Total running time of the script:** (0 minutes 3.583 seconds)
 
 
 .. _sphx_glr_download_auto_examples_feature_selection_plot_grouped_selection.py:
@@ -184,6 +193,10 @@ Take a look at how our features are distributed
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_grouped_selection.py <plot_grouped_selection.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_grouped_selection.zip <plot_grouped_selection.zip>`
 
 
 .. only:: html

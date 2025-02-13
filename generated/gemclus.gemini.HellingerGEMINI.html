@@ -1,31 +1,29 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.gemini.HellingerGEMINI &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+  <title>gemclus.gemini.HellingerGEMINI &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/js/copybutton.js?v=26522df0"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/copybutton.js?v=26522df0"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gemclus.linear.LinearModel" href="gemclus.linear.LinearModel.html" />
+    <link rel="next" title="gemclus.gemini.ChiSquareGEMINI" href="gemclus.gemini.ChiSquareGEMINI.html" />
     <link rel="prev" title="gemclus.gemini.TVGEMINI" href="gemclus.gemini.TVGEMINI.html" /> 
 </head>
 
@@ -40,9 +38,6 @@
           <a href="../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -69,6 +64,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#gemclus.gemini.HellingerGEMINI"><code class="docutils literal notranslate"><span class="pre">HellingerGEMINI</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="gemclus.gemini.ChiSquareGEMINI.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gemclus.gemini</span></code>.ChiSquareGEMINI</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#clustering-models">Clustering models</a></li>
@@ -114,7 +110,7 @@
 <dt class="sig sig-object py" id="gemclus.gemini.HellingerGEMINI">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gemclus.gemini.</span></span><span class="sig-name descname"><span class="pre">HellingerGEMINI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_fdivergences.html#HellingerGEMINI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.HellingerGEMINI" title="Link to this definition">¶</a></dt>
 <dd><p>Implements the one-vs-all and one-vs-one Squared Hellinger distance GEMINI.</p>
-<p>The one-vs-all version compares the squared Hellinger distance distance between a cluster distribution
+<p>The one-vs-all version compares the squared Hellinger distance between a cluster distribution
 and the data distribution.</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{H}^2(p(x|y)\|p(x))]\]</div>
@@ -152,7 +148,7 @@ and the data distribution.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gemclus.gemini.HellingerGEMINI.evaluate">
 <span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affinity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_grad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gemclus/gemini/_fdivergences.html#HellingerGEMINI.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gemclus.gemini.HellingerGEMINI.evaluate" title="Link to this definition">¶</a></dt>
-<dd><p>Compute the GEMINI objective given the predictions <span class="math notranslate nohighlight">\($p(y|x)$\)</span> and an affinity matrix. The
+<dd><p>Compute the GEMINI objective given the predictions <span class="math notranslate nohighlight">\(p(y|x)\)</span> and an affinity matrix. The
 computation must return as well the gradients of the GEMINI w.r.t. the predictions. Depending on the context,
 the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a distance matrix resulting from the
 <cite>compute_affinity</cite> method.</p>
@@ -163,7 +159,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 </dd>
 <dt><strong>affinity: ndarray of shape (n_samples, n_samples)</strong></dt><dd><p>The affinity matrix resulting from the <cite>compute_affinity</cite> method. The matrix must be symmetric.</p>
 </dd>
-<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <span class="math notranslate nohighlight">\($p(y|x)$\)</span>.</p>
+<dt><strong>return_grad: bool, default=False</strong></dt><dd><p>If True, the method should return the gradient of the GEMINI w.r.t. the predictions <span class="math notranslate nohighlight">\(p(y|x)\)</span>.</p>
 </dd>
 </dl>
 </dd>
@@ -171,7 +167,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
 <dd class="field-even"><dl class="simple">
 <dt>gemini: float</dt><dd><p>The gemini score of the model given the predictions and affinities.</p>
 </dd>
-<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <span class="math notranslate nohighlight">\($\nabla_{p (y|x)} \mathcal{I} $\)</span></p>
+<dt>gradients: ndarray of shape (n_samples, n_clusters)</dt><dd><p>The derivative w.r.t. the predictions <cite>y_pred</cite>: <span class="math notranslate nohighlight">\(\nabla_{p (y|x)} \mathcal{I}\)</span></p>
 </dd>
 </dl>
 </dd>
@@ -187,7 +183,7 @@ the affinity matrix <cite>affinity</cite> can be either a kernel matrix or a dis
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="gemclus.gemini.TVGEMINI.html" class="btn btn-neutral float-left" title="gemclus.gemini.TVGEMINI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gemclus.linear.LinearModel.html" class="btn btn-neutral float-right" title="gemclus.linear.LinearModel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gemclus.gemini.ChiSquareGEMINI.html" class="btn btn-neutral float-right" title="gemclus.gemini.ChiSquareGEMINI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

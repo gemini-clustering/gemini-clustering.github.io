@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.nonparametric._categorical_models &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>gemclus.nonparametric._categorical_models &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -36,9 +34,6 @@
           <a href="../../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -87,17 +82,17 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gemclus.nonparametric._categorical_models</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">,</span> <span class="n">PAIRWISE_DISTANCE_FUNCTIONS</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">StrOptions</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.extmath</span> <span class="kn">import</span> <span class="n">softmax</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">,</span> <span class="n">PAIRWISE_DISTANCE_FUNCTIONS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils._param_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrOptions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.extmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">softmax</span>
 
-<span class="kn">from</span> <span class="nn">.._base_gemini</span> <span class="kn">import</span> <span class="n">DiscriminativeModel</span>
-<span class="kn">from</span> <span class="nn">..gemini</span> <span class="kn">import</span> <span class="n">MMDGEMINI</span><span class="p">,</span> <span class="n">WassersteinGEMINI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._base_gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiscriminativeModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">MMDGEMINI</span><span class="p">,</span> <span class="n">WassersteinGEMINI</span>
 
 
 <div class="viewcode-block" id="CategoricalModel">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalModel.html#gemclus.nonparametric.CategoricalModel">[docs]</a>
-<span class="k">class</span> <span class="nc">CategoricalModel</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CategoricalModel</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; The CategoricalModel is a nonparametric model where each sample is directly assign a probability vector of</span>
 <span class="sd">    as conditional clustering distribution. Consequently, the parameters do not depend on the value of :math:`$x$`.</span>
 
@@ -176,7 +171,7 @@
 
 <div class="viewcode-block" id="CategoricalModel.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalModel.html#gemclus.nonparametric.CategoricalModel.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
                  <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -189,28 +184,28 @@
         <span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logits_</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
         <span class="n">tau_hat_grad</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">*</span> <span class="p">(</span><span class="n">gradient</span> <span class="o">-</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">*</span> <span class="n">gradient</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># Shape NxK</span>
 
         <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">tau_hat_grad</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">logits_</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logits_</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_batchify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">affinity_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_batchify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">affinity_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">yield</span> <span class="n">X</span><span class="p">,</span> <span class="n">affinity_matrix</span></div>
 
 
 
 <div class="viewcode-block" id="CategoricalMMD">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD">[docs]</a>
-<span class="k">class</span> <span class="nc">CategoricalMMD</span><span class="p">(</span><span class="n">CategoricalModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CategoricalMMD</span><span class="p">(</span><span class="n">CategoricalModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; The CategoricalMMD is a nonparametric model where each sample is directly assign a probability vector of</span>
 <span class="sd">    as conditional clustering distribution. Consequently, the parameters do not depend on the value of :math:`$x$`.</span>
 
@@ -299,7 +294,7 @@
 
 <div class="viewcode-block" id="CategoricalMMD.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -317,7 +312,7 @@
 
 <div class="viewcode-block" id="CategoricalMMD.get_gemini">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalMMD.html#gemclus.nonparametric.CategoricalMMD.get_gemini">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MMDGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">)</span></div>
 </div>
 
@@ -325,7 +320,7 @@
 
 <div class="viewcode-block" id="CategoricalWasserstein">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein">[docs]</a>
-<span class="k">class</span> <span class="nc">CategoricalWasserstein</span><span class="p">(</span><span class="n">CategoricalModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CategoricalWasserstein</span><span class="p">(</span><span class="n">CategoricalModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; The CategoricalWasserstein is a nonparametric model where each sample is directly assign a probability vector of</span>
 <span class="sd">    as conditional clustering distribution. Consequently, the parameters do not depend on the value of :math:`$x$`.</span>
 
@@ -414,7 +409,7 @@
 
 <div class="viewcode-block" id="CategoricalWasserstein.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -432,7 +427,7 @@
 
 <div class="viewcode-block" id="CategoricalWasserstein.get_gemini">
 <a class="viewcode-back" href="../../../generated/gemclus.nonparametric.CategoricalWasserstein.html#gemclus.nonparametric.CategoricalWasserstein.get_gemini">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">WassersteinGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span></div>
 </div>
 

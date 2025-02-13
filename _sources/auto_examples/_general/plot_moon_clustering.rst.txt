@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples__general_plot_moon_clustering.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -26,9 +26,10 @@ This example is a retake from the experiment in the original GEMINI paper where 
 in between two facing moons. To do so, the trick is to use a specific distance using the "precomputed" option
 which will guide the clustering algorithm to the desired solution.
 
-Note that we use `gemclus.mlp.MLPWasserstein` because a linear model would not be able to find the optimal boundary.
+Note that we use :class:`gemclus.mlp.MLPWasserstein` because a linear model would not be able to find the optimal
+boundary.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-20
+.. GENERATED FROM PYTHON SOURCE LINES 13-21
 
 .. code-block:: Python
 
@@ -47,12 +48,12 @@ Note that we use `gemclus.mlp.MLPWasserstein` because a linear model would not b
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
 
 Generate two interlacing moons
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
 
 .. code-block:: Python
 
@@ -65,12 +66,12 @@ Generate two interlacing moons
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
+.. GENERATED FROM PYTHON SOURCE LINES 29-31
 
 Pre-compute a specific metric between samples
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-45
+.. GENERATED FROM PYTHON SOURCE LINES 33-46
 
 .. code-block:: Python
 
@@ -94,13 +95,13 @@ Pre-compute a specific metric between samples
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-49
+.. GENERATED FROM PYTHON SOURCE LINES 47-50
 
 Train the model
 --------------------------------------------------------------
 Note that we use the precomputed option and pass our distance to the `.fit` function along `X`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-54
+.. GENERATED FROM PYTHON SOURCE LINES 52-55
 
 .. code-block:: Python
 
@@ -111,15 +112,22 @@ Note that we use the precomputed option and pass our distance to the `.fit` func
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-57
+
+.. GENERATED FROM PYTHON SOURCE LINES 56-58
 
 Final Clustering
 -----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-70
+.. GENERATED FROM PYTHON SOURCE LINES 60-71
 
 .. code-block:: Python
 
@@ -149,7 +157,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 7.189 seconds)
+   **Total running time of the script:** (0 minutes 7.955 seconds)
 
 
 .. _sphx_glr_download_auto_examples__general_plot_moon_clustering.py:
@@ -165,6 +173,10 @@ Final Clustering
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_moon_clustering.py <plot_moon_clustering.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_moon_clustering.zip <plot_moon_clustering.zip>`
 
 
 .. only:: html

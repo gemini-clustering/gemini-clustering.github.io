@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.gemini._fdivergences &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>gemclus.gemini._fdivergences &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -36,9 +34,6 @@
           <a href="../../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -87,19 +82,19 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gemclus.gemini._fdivergences</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
-<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Real</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils._param_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span>
 
-<span class="kn">from</span> <span class="nn">.._constraints</span> <span class="kn">import</span> <span class="n">constraint_params</span>
-<span class="kn">from</span> <span class="nn">._base_loss</span> <span class="kn">import</span> <span class="n">_GEMINI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._constraints</span><span class="w"> </span><span class="kn">import</span> <span class="n">constraint_params</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._base_loss</span><span class="w"> </span><span class="kn">import</span> <span class="n">_GEMINI</span>
 
 
-<span class="k">class</span> <span class="nc">_FDivergence</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_FDivergence</span><span class="p">(</span><span class="n">_GEMINI</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
     <span class="c1"># This helper intermediate class simply defines the compute_affinity for all f-divergences</span>
-    <span class="k">def</span> <span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_affinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unused for f-divergences.</span>
 
@@ -112,20 +107,20 @@
 
 <div class="viewcode-block" id="KLGEMINI">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI">[docs]</a>
-<span class="k">class</span> <span class="nc">KLGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">KLGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one KL GEMINI.</span>
 
 <span class="sd">    The one-vs-all version compares the KL divergence between a cluster distribution</span>
 <span class="sd">    and the data distribution. It is the classical mutual information.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{KL}(p(x|y)\|p(x))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{KL}(p(x|y)\|p(x))]</span>
 
 <span class="sd">    The one-vs-one version compares the KL divergence between two cluster distributions.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\\text{KL}(p(x|y_a)\|p(x|y_b))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\text{KL}(p(x|y_a)\|p(x|y_b))]</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -144,14 +139,14 @@
             <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
         <span class="p">}</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span></div>
 
 
 <div class="viewcode-block" id="KLGEMINI.evaluate">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.KLGEMINI.html#gemclus.gemini.KLGEMINI.evaluate">[docs]</a>
-    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="n">p_y_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -183,13 +178,13 @@
 
 <div class="viewcode-block" id="MI">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI">[docs]</a>
-<span class="k">class</span> <span class="nc">MI</span><span class="p">(</span><span class="n">KLGEMINI</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MI</span><span class="p">(</span><span class="n">KLGEMINI</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the classical mutual information between cluster conditional probabilities and the complete data</span>
 <span class="sd">    probabilities:</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{KL}(p(x|y)\|p(x))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{KL}(p(x|y)\|p(x))]</span>
 
 <span class="sd">    This class is a simplified shortcut for KLGEMINI(ovo=False).</span>
 
@@ -201,7 +196,7 @@
 
 <div class="viewcode-block" id="MI.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.MI.html#gemclus.gemini.MI.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">)</span></div>
 </div>
 
@@ -209,20 +204,20 @@
 
 <div class="viewcode-block" id="TVGEMINI">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI">[docs]</a>
-<span class="k">class</span> <span class="nc">TVGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TVGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one Total Variation distance GEMINI.</span>
 
 <span class="sd">    The one-vs-all version compares the total variation distance between a cluster distribution</span>
 <span class="sd">    and the data distribution.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{TV}(p(x|y)\|p(x))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{TV}(p(x|y)\|p(x))]</span>
 
 <span class="sd">    The one-vs-one version compares the TV distance between two cluster distributions.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\\text{TV}(p(x|y_a)\|p(x|y_b))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\text{TV}(p(x|y_a)\|p(x|y_b))]</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -241,14 +236,14 @@
             <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
         <span class="p">}</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span></div>
 
 
 <div class="viewcode-block" id="TVGEMINI.evaluate">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.TVGEMINI.html#gemclus.gemini.TVGEMINI.evaluate">[docs]</a>
-    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="n">p_y_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -293,20 +288,20 @@
 
 <div class="viewcode-block" id="HellingerGEMINI">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI">[docs]</a>
-<span class="k">class</span> <span class="nc">HellingerGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HellingerGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implements the one-vs-all and one-vs-one Squared Hellinger distance GEMINI.</span>
 
-<span class="sd">    The one-vs-all version compares the squared Hellinger distance distance between a cluster distribution</span>
+<span class="sd">    The one-vs-all version compares the squared Hellinger distance between a cluster distribution</span>
 <span class="sd">    and the data distribution.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\\text{H}^2(p(x|y)\|p(x))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[\text{H}^2(p(x|y)\|p(x))]</span>
 
 <span class="sd">    The one-vs-one version compares the squared Hellinger distance between two cluster distributions.</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\\text{H}^2(p(x|y_a)\|p(x|y_b))]</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[\text{H}^2(p(x|y_a)\|p(x|y_b))]</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -325,14 +320,14 @@
             <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
         <span class="p">}</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span></div>
 
 
 <div class="viewcode-block" id="HellingerGEMINI.evaluate">
 <a class="viewcode-back" href="../../../generated/gemclus.gemini.HellingerGEMINI.html#gemclus.gemini.HellingerGEMINI.evaluate">[docs]</a>
-    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># Use a clip mask for numerical stability in gradients</span>
         <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
         <span class="n">p_y_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
@@ -358,6 +353,85 @@
             <span class="k">return</span> <span class="n">hellinger_gemini</span><span class="p">,</span> <span class="n">gradients</span> <span class="o">*</span> <span class="n">clip_mask</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">hellinger_gemini</span></div>
+</div>
+
+
+<div class="viewcode-block" id="ChiSquareGEMINI">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.ChiSquareGEMINI.html#gemclus.gemini.ChiSquareGEMINI">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ChiSquareGEMINI</span><span class="p">(</span><span class="n">_FDivergence</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implements the one-vs-all and one-vs-one Chi Squared divergence GEMINI.</span>
+
+<span class="sd">    The one-vs-all version compares the chi square divergence between a cluster distribution</span>
+<span class="sd">    and the data distribution.</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y \sim p(y)}[D_{\chi^2}(p(x|y)\|p(x))]</span>
+
+<span class="sd">    The one-vs-one version compares the chi square divergence between two cluster distributions.</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \mathcal{I} = \mathbb{E}_{y_a,y_b \sim p(y)}[D_{\chi^2}(p(x|y_a)\|p(x|y_b))]</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ovo: bool, default=False</span>
+<span class="sd">        Whether to use the one-vs-all objective (False) or the one-vs-one objective (True).</span>
+
+<span class="sd">    epsilon: float, default=1e-12</span>
+<span class="sd">        The precision for clipping the prediction values in order to avoid numerical instabilities.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Sugiyama, M., Yamada, M., Kimura, M., &amp; Hachiya, H. (2011). On information-maximization clustering: Tuning</span>
+<span class="sd">    parameter selection and analytic solution. In Proceedings of the 28th International Conference on Machine</span>
+<span class="sd">    Learning (ICML-11) (pp. 65-72).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ChiSquareGEMINI.__init__">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.ChiSquareGEMINI.html#gemclus.gemini.ChiSquareGEMINI.__init__">[docs]</a>
+    <span class="nd">@constraint_params</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;ovo&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+            <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interval</span><span class="p">(</span><span class="n">Real</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s2">&quot;neither&quot;</span><span class="p">)]</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">epsilon</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span> <span class="o">=</span> <span class="n">ovo</span></div>
+
+
+<div class="viewcode-block" id="ChiSquareGEMINI.evaluate">
+<a class="viewcode-back" href="../../../generated/gemclus.gemini.ChiSquareGEMINI.html#gemclus.gemini.ChiSquareGEMINI.evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">affinity</span><span class="p">,</span> <span class="n">return_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># Use a clip mask for numerical stability in gradients</span>
+        <span class="n">clip_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+        <span class="n">p_y_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">)</span>
+        <span class="n">p_y</span> <span class="o">=</span> <span class="n">p_y_x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">cluster_wise_estimates</span> <span class="o">=</span> <span class="n">p_y_x</span> <span class="o">/</span> <span class="n">p_y</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_y_x</span><span class="o">*</span><span class="n">cluster_wise_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_y</span><span class="o">/</span><span class="n">cluster_wise_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">chi2_gemini</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">beta</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">chi2_gemini</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_y_x</span><span class="o">*</span><span class="n">cluster_wise_estimates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">return_grad</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">:</span>
+                <span class="n">single_beta</span> <span class="o">=</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">cluster_wise_estimates</span>
+                <span class="n">double_beta</span> <span class="o">=</span> <span class="n">single_beta</span> <span class="o">*</span> <span class="n">cluster_wise_estimates</span>
+                <span class="n">single_alpha</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span>
+                <span class="n">double_alpha</span> <span class="o">=</span> <span class="n">single_alpha</span> <span class="o">/</span> <span class="n">cluster_wise_estimates</span>
+
+                <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">single_beta</span><span class="o">-</span><span class="n">double_alpha</span>  <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">single_alpha</span><span class="o">-</span><span class="n">double_beta</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gradients</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">cluster_wise_estimates</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">cluster_wise_estimates</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">gradients</span> <span class="o">/=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">chi2_gemini</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">gradients</span> <span class="o">*</span> <span class="n">clip_mask</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">chi2_gemini</span></div>
 </div>
 
 </pre></div>

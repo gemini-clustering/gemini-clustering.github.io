@@ -11,7 +11,7 @@
         :class: sphx-glr-download-link-note
 
         :ref:`Go to the end <sphx_glr_download_auto_examples__general_plot_kernel_kmeans.py>`
-        to download the full example code
+        to download the full example code.
 
 .. rst-class:: sphx-glr-example-title
 
@@ -98,6 +98,13 @@ assignment of the nodes
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+      warnings.warn(
+
 
 
 
@@ -139,7 +146,7 @@ Final Clustering
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.606 seconds)
+   **Total running time of the script:** (0 minutes 10.002 seconds)
 
 
 .. _sphx_glr_download_auto_examples__general_plot_kernel_kmeans.py:
@@ -155,6 +162,10 @@ Final Clustering
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_kernel_kmeans.py <plot_kernel_kmeans.py>`
+
+    .. container:: sphx-glr-download sphx-glr-download-zip
+
+      :download:`Download zipped: plot_kernel_kmeans.zip <plot_kernel_kmeans.zip>`
 
 
 .. only:: html

@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.linear._linear_geminis &mdash; gemclus 1.0.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+  <title>gemclus.linear._linear_geminis &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/gemclus.css?v=d1d1afb3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/documentation_options.js?v=8d563738"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
+      <script src="../../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -36,9 +34,6 @@
           <a href="../../../index.html" class="icon icon-home">
             gemclus
           </a>
-              <div class="version">
-                1.0.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -87,24 +82,24 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gemclus.linear._linear_geminis</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
-<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Real</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">,</span> <span class="n">PAIRWISE_DISTANCE_FUNCTIONS</span><span class="p">,</span> <span class="n">pairwise_kernels</span>
-<span class="kn">from</span> <span class="nn">sklearn.neural_network._stochastic_optimizers</span> <span class="kn">import</span> <span class="n">AdamOptimizer</span><span class="p">,</span> <span class="n">SGDOptimizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils._param_validation</span> <span class="kn">import</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">StrOptions</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.extmath</span> <span class="kn">import</span> <span class="n">softmax</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">PAIRWISE_KERNEL_FUNCTIONS</span><span class="p">,</span> <span class="n">PAIRWISE_DISTANCE_FUNCTIONS</span><span class="p">,</span> <span class="n">pairwise_kernels</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network._stochastic_optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdamOptimizer</span><span class="p">,</span> <span class="n">SGDOptimizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils._param_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">StrOptions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.extmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">softmax</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span>
 
-<span class="kn">from</span> <span class="nn">.._base_gemini</span> <span class="kn">import</span> <span class="n">DiscriminativeModel</span>
-<span class="kn">from</span> <span class="nn">..gemini</span> <span class="kn">import</span> <span class="n">MMDGEMINI</span><span class="p">,</span> <span class="n">WassersteinGEMINI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._base_gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiscriminativeModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">MMDGEMINI</span><span class="p">,</span> <span class="n">WassersteinGEMINI</span>
 
 
 <div class="viewcode-block" id="LinearModel">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel">[docs]</a>
-<span class="k">class</span> <span class="nc">LinearModel</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearModel</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of a logistic regression as a clustering distribution :math:`p(y|x)`. Any GEMINI can be</span>
 <span class="sd">    used to train this model.</span>
 
@@ -185,7 +180,7 @@
 
 <div class="viewcode-block" id="LinearModel.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearModel.html#gemclus.linear.LinearModel.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">gemini</span><span class="o">=</span><span class="s2">&quot;mmd_ova&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -199,12 +194,12 @@
         <span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">in_threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">in_threshold</span><span class="p">,</span> <span class="n">in_threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b_</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">in_threshold</span><span class="p">,</span> <span class="n">in_threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
         <span class="n">tau_hat_grad</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">*</span> <span class="p">(</span><span class="n">gradient</span> <span class="o">-</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">*</span> <span class="n">gradient</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># Shape NxK</span>
 
         <span class="n">W_grad</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">tau_hat_grad</span>
@@ -215,10 +210,10 @@
 
         <span class="k">return</span> <span class="n">gradients</span>
 
-    <span class="k">def</span> <span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">H</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span>
         <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="n">H</span><span class="p">)</span></div>
 
@@ -226,7 +221,7 @@
 
 <div class="viewcode-block" id="LinearMMD">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD">[docs]</a>
-<span class="k">class</span> <span class="nc">LinearMMD</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearMMD</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the MMD GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
 
@@ -317,7 +312,7 @@
 
 <div class="viewcode-block" id="LinearMMD.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -336,7 +331,7 @@
 
 <div class="viewcode-block" id="LinearMMD.get_gemini">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearMMD.html#gemclus.linear.LinearMMD.get_gemini">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MMDGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel</span><span class="p">,</span> <span class="n">kernel_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kernel_params</span><span class="p">)</span></div>
 </div>
 
@@ -344,7 +339,7 @@
 
 <div class="viewcode-block" id="LinearWasserstein">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein">[docs]</a>
-<span class="k">class</span> <span class="nc">LinearWasserstein</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearWasserstein</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the Wasserstein GEMINI using a logistic regression as a clustering</span>
 <span class="sd">    distribution :math:`p(y|x)`.</span>
 
@@ -435,7 +430,7 @@
 
 <div class="viewcode-block" id="LinearWasserstein.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">,</span> <span class="n">ovo</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span>
@@ -454,7 +449,7 @@
 
 <div class="viewcode-block" id="LinearWasserstein.get_gemini">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.LinearWasserstein.html#gemclus.linear.LinearWasserstein.get_gemini">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_gemini</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">WassersteinGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ovo</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span> <span class="n">metric_params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_params</span><span class="p">)</span></div>
 </div>
 
@@ -462,8 +457,8 @@
 
 <div class="viewcode-block" id="RIM">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM">[docs]</a>
-<span class="k">class</span> <span class="nc">RIM</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a logistic regression with an</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RIM</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a logistic regression with an</span>
 <span class="sd">        :math:`\ell_2` penalty on the weights. This implementation follows the framework described by Krause et al. in the</span>
 <span class="sd">        RIM paper.</span>
 
@@ -542,7 +537,7 @@
 
 <div class="viewcode-block" id="RIM.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.RIM.html#gemclus.linear.RIM.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">LinearModel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -558,7 +553,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">=</span> <span class="n">reg</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_update_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">):</span>
         <span class="c1"># Add the regularisation gradient on the weight matrix</span>
         <span class="n">gradients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">optimiser_</span><span class="o">.</span><span class="n">update_params</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">gradients</span><span class="p">)</span></div>
@@ -567,8 +562,8 @@
 
 <div class="viewcode-block" id="KernelRIM">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM">[docs]</a>
-<span class="k">class</span> <span class="nc">KernelRIM</span><span class="p">(</span><span class="n">DiscriminativeModel</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a kernelised version of the</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">KernelRIM</span><span class="p">(</span><span class="n">LinearModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot; Implementation of the maximisation of the classical mutual information using a kernelised version of the</span>
 <span class="sd">        logistic regression with an :math:`\ell_2` penalty on the weights. This implementation follows the framework</span>
 <span class="sd">        described by Krause et al. in the RIM paper.</span>
 
@@ -637,15 +632,13 @@
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; from sklearn.datasets import load_iris</span>
-<span class="sd">        &gt;&gt;&gt; from gemclus.linear import RIM</span>
+<span class="sd">        &gt;&gt;&gt; from gemclus.linear import KernelRIM</span>
 <span class="sd">        &gt;&gt;&gt; X,y=load_iris(return_X_y=True)</span>
-<span class="sd">        &gt;&gt;&gt; clf = RIM(random_state=0).fit(X)</span>
+<span class="sd">        &gt;&gt;&gt; clf = KernelRIM(random_state=0).fit(X)</span>
 <span class="sd">        &gt;&gt;&gt; clf.predict(X[:2,:])</span>
-<span class="sd">        array([0, 0])</span>
+<span class="sd">        array([2, 2])</span>
 <span class="sd">        &gt;&gt;&gt; clf.predict_proba(X[:2,:]).shape</span>
 <span class="sd">        (2, 3)</span>
-<span class="sd">        &gt;&gt;&gt; clf.score(X)</span>
-<span class="sd">        0.4390485754</span>
 <span class="sd">        &quot;&quot;&quot;</span>
     <span class="n">_parameter_constraints</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="o">**</span><span class="n">DiscriminativeModel</span><span class="o">.</span><span class="n">_parameter_constraints</span><span class="p">,</span>
@@ -656,7 +649,7 @@
 
 <div class="viewcode-block" id="KernelRIM.__init__">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>
                  <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">base_kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">base_kernel_params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -674,56 +667,45 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_params</span> <span class="o">=</span> <span class="n">base_kernel_params</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_compute_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="c1"># Compute the kernel term between X and the input data</span>
         <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_kernel</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Parameters passed through kernel_params are ignored when kernel is a callable.&quot;</span><span class="p">)</span>
-            <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_data_</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_params</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_params</span>
             <span class="n">kernel</span> <span class="o">=</span> <span class="n">pairwise_kernels</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_data_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">base_kernel</span><span class="p">,</span> <span class="o">**</span><span class="n">_params</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">kernel</span>
 
-    <span class="k">def</span> <span class="nf">_init_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">in_threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">in_threshold</span><span class="p">,</span> <span class="n">in_threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b_</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">in_threshold</span><span class="p">,</span> <span class="n">in_threshold</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_clusters</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">_get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">H</span> <span class="o">=</span> <span class="n">kernel</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b_</span>
-        <span class="k">return</span> <span class="n">softmax</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-
 <div class="viewcode-block" id="KernelRIM.fit">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.fit">[docs]</a>
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># We start by storing the input data for later kernel computations</span>
         <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_data_</span> <span class="o">=</span> <span class="n">X</span>
 
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+        <span class="n">training_kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_kernel</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
-        <span class="n">tau_hat_grad</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">*</span> <span class="p">(</span><span class="n">gradient</span> <span class="o">-</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">*</span> <span class="n">gradient</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>  <span class="c1"># Shape NxK</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_compute_grads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">):</span>
+        <span class="n">base_grads</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_compute_grads</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">gradient</span><span class="p">)</span>
+        <span class="c1"># Add the regularisation gradient on the weight matrix</span>
+        <span class="n">base_grads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">base_grads</span>
 
+
+<div class="viewcode-block" id="KernelRIM.predict_proba">
+<a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.predict_proba">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-        <span class="n">W_grad</span> <span class="o">=</span> <span class="n">kernel</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">tau_hat_grad</span>
-        <span class="n">b_grad</span> <span class="o">=</span> <span class="n">tau_hat_grad</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="c1"># Then, add the regularisation grads</span>
-        <span class="n">complete_kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_data_</span><span class="p">)</span>
-        <span class="n">W_grad</span> <span class="o">-=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">complete_kernel</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_</span><span class="p">)</span>
-
-        <span class="c1"># Negative sign to force the optimiser to maximise instead of minimise</span>
-        <span class="n">gradients</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">W_grad</span><span class="p">,</span> <span class="o">-</span><span class="n">b_grad</span><span class="p">]</span>
-
-        <span class="k">return</span> <span class="n">gradients</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span></div>
+</div>
 
 </pre></div>
 
