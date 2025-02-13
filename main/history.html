@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RELEASES &mdash; gemclus 1.0.1.dev documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>RELEASES &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="_static/documentation_options.js?v=49291813"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/js/copybutton.js?v=26522df0"></script>
@@ -55,12 +55,12 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">GemClus API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RELEASES</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#history-of-changes">History of changes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-development-1-1-0">In development (1.1.0)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#latest">1.0.0 (Latest)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">0.2.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">0.1.1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">0.1.0</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">0.0.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#latest">1.1.0 (Latest)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.0.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">0.2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">0.1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">0.1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">0.0.2</a></li>
 </ul>
 </li>
 </ul>
@@ -99,8 +99,8 @@
 <h1>RELEASES<a class="headerlink" href="#releases" title="Link to this heading">¶</a></h1>
 <section id="history-of-changes">
 <h2>History of changes<a class="headerlink" href="#history-of-changes" title="Link to this heading">¶</a></h2>
-<section id="in-development-1-1-0">
-<h3>In development (1.1.0)<a class="headerlink" href="#in-development-1-1-0" title="Link to this heading">¶</a></h3>
+<section id="latest">
+<h3>1.1.0 (Latest)<a class="headerlink" href="#latest" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Updating documentation introduction of the package</p></li>
 <li><p>Added the chi square divergence in GEMINIs: <code class="docutils literal notranslate"><span class="pre">gemclus.gemini.ChiSquareGEMINI</span></code></p></li>
@@ -108,8 +108,8 @@
 <li><p>Fixing compatibility with numpy&gt;=2</p></li>
 </ul>
 </section>
-<section id="latest">
-<h3>1.0.0 (Latest)<a class="headerlink" href="#latest" title="Link to this heading">¶</a></h3>
+<section id="id1">
+<h3>1.0.0<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Adding the kernelised version of RIM with: <code class="docutils literal notranslate"><span class="pre">KernelRIM</span></code></p></li>
 <li><p>Adding the dynamic version of paths for feature selection in sparse models. A simply argument <code class="docutils literal notranslate"><span class="pre">dynamic=True</span></code> activates the dynamic mode.</p></li>
@@ -134,8 +134,8 @@
 <li><p>Fixing a gradient mistake in the <code class="docutils literal notranslate"><span class="pre">gemclus.MI</span></code></p></li>
 </ul>
 </section>
-<section id="id1">
-<h3>0.2.0<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="id2">
+<h3>0.2.0<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Adding a new sparse logistic regression model trained with mutual information instead of MMD GEMINI: <code class="docutils literal notranslate"><span class="pre">gemclus.sparse.SparseLinearMI</span></code></p></li>
 <li><p>Adding new package containing methods for unsupervised tree clustering with end-to-end training: <code class="docutils literal notranslate"><span class="pre">gemclus.tree</span></code>. The package features a CART-like algorithm for clustering named <code class="docutils literal notranslate"><span class="pre">Kauri</span></code> and a differentiable tree named <code class="docutils literal notranslate"><span class="pre">Douglas</span></code></p></li>
@@ -144,24 +144,24 @@
 <li><p>Better compatibility with scikit learn 1.3.0 regarding parameter constraint check</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>0.1.1<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="id3">
+<h3>0.1.1<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Fixing the ABCMeta parameter validation problem for the <code class="docutils literal notranslate"><span class="pre">draw_gmm</span></code> method for retrocompatibility with Python 3.8.</p></li>
 <li><p>Constraining the package to Python&gt;=3.8 to respect the requirements of the package.</p></li>
 <li><p>Minor fix on the <code class="docutils literal notranslate"><span class="pre">get_selection</span></code> method for the Linear sparse models to respect the 1d output shape of the array.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>0.1.0<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>0.1.0<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Isolating the definition of GEMINIs in a separate classes for external usages: <code class="docutils literal notranslate"><span class="pre">gemini.MMDOvO</span></code>, <code class="docutils literal notranslate"><span class="pre">gemini.WassersteinOvA</span></code> etc.</p></li>
 <li><p>Adding the nonparametric models in package <code class="docutils literal notranslate"><span class="pre">gemclus.nonparametric</span></code> with 2 additional examples for its usage in graph node clustering.</p></li>
 <li><p>Fixing control variables in the <code class="docutils literal notranslate"><span class="pre">path</span></code> method for spars models.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>0.0.2<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h3>0.0.2<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Adding the Gaussian+Student-t mixture dataset: <code class="docutils literal notranslate"><span class="pre">gstm</span></code></p></li>
 <li><p>Method for sampling multivariate student-t distributions: <code class="docutils literal notranslate"><span class="pre">multivariate_student_t</span></code></p></li>

@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scoring any model with GEMINI &mdash; gemclus 1.0.1.dev documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>Scoring any model with GEMINI &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="../../_static/documentation_options.js?v=49291813"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/js/copybutton.js?v=26522df0"></script>
@@ -110,9 +110,9 @@ to download the full example code.</p>
 <span id="sphx-glr-auto-examples-scoring-plot-gemini-scoring-py"></span><h1>Scoring any model with GEMINI<a class="headerlink" href="#scoring-any-model-with-gemini" title="Link to this heading">¶</a></h1>
 <p>We show in this example how we can score the prediction of another model using GEMINI. We do not seek to perform
 clustering but rather to evaluate.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">naive_bayes</span>
-<span class="kn">from</span> <span class="nn">gemclus</span> <span class="kn">import</span> <span class="n">gemini</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">naive_bayes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus</span><span class="w"> </span><span class="kn">import</span> <span class="n">gemini</span>
 </pre></div>
 </div>
 <section id="load-a-simple-real-dataset">
@@ -181,7 +181,7 @@ we can obtain a supervised metric.</p>
         =&gt;Naive Bayes: 0.403
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.322 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.507 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-scoring-plot-gemini-scoring-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/096d4f7a070045f1cf0e80516d1dea0a/plot_gemini_scoring.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_gemini_scoring.ipynb</span></code></a></p>

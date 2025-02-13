@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clustering circles with kernel RIM &mdash; gemclus 1.0.1.dev documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>Clustering circles with kernel RIM &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -15,14 +15,14 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="../../_static/documentation_options.js?v=49291813"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/js/copybutton.js?v=26522df0"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Drawing a decision boundary between two interlacing moons" href="plot_moon_clustering.html" />
+    <link rel="next" title="Clustering with the squared-loss mutual information" href="plot_squared_loss_mi.html" />
     <link rel="prev" title="Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions" href="plot_gstm.html" /> 
 </head>
 
@@ -69,6 +69,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#show-predictions-on-similar-samples">Show predictions on similar samples</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="plot_squared_loss_mi.html">Clustering with the squared-loss mutual information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_moon_clustering.html">Drawing a decision boundary between two interlacing moons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_rim.html">Simple logistic regression with RIM</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_graph_node_clustering.html">Graph node clustering with a nonparametric model</a></li>
@@ -119,11 +120,11 @@ to download the full example code.</p>
 <p>We show here a simple dataset consisting in two centred circle that can be challenging for some clustering algorithms.
 We solve this case using the kernel RIM algorithm. This algorithm fits a logistic regression on the kernel
 matrix derived from the dataset.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span>
 
-<span class="kn">from</span> <span class="nn">gemclus.linear</span> <span class="kn">import</span> <a href="../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM" title="gemclus.linear.KernelRIM" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class"><span class="n">KernelRIM</span></a>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus.linear</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM" title="gemclus.linear.KernelRIM" class="sphx-glr-backref-module-gemclus-linear sphx-glr-backref-type-py-class"><span class="n">KernelRIM</span></a>
 </pre></div>
 </div>
 <section id="draw-samples-for-the-circle-dataset">
@@ -144,7 +145,9 @@ matrix derived from the dataset.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ARI = </span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score" title="sklearn.metrics.adjusted_rand_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span><span class="w"> </span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI = 1.0
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+ARI = 1.0
 </pre></div>
 </div>
 </section>
@@ -166,7 +169,7 @@ matrix derived from the dataset.</p>
 <img src="../../_images/sphx_glr_plot_kernel_rim_001.png" srcset="../../_images/sphx_glr_plot_kernel_rim_001.png" alt="plot kernel rim" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ARI = 1.0
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.367 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.452 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-general-plot-kernel-rim-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/cdbec0b69b0e16b4b40293ae9773c4c4/plot_kernel_rim.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_kernel_rim.ipynb</span></code></a></p>
@@ -187,7 +190,7 @@ matrix derived from the dataset.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="plot_gstm.html" class="btn btn-neutral float-left" title="Example of decision boundary map for a mixture of Gaussian and low-degree Student distributions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="plot_moon_clustering.html" class="btn btn-neutral float-right" title="Drawing a decision boundary between two interlacing moons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plot_squared_loss_mi.html" class="btn btn-neutral float-right" title="Clustering with the squared-loss mutual information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

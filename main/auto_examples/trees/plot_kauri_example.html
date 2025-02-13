@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building an unsupervised tree with kernel-kmeans objective: KAURI &mdash; gemclus 1.0.1.dev documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+  <title>Building an unsupervised tree with kernel-kmeans objective: KAURI &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="../../_static/documentation_options.js?v=49291813"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/js/copybutton.js?v=26522df0"></script>
@@ -113,8 +113,8 @@ to download the full example code.</p>
 the KAURI method.</p>
 <p>The KAURI model builds decision trees using gain metrics derived from the squared MMD-GEMINI which are equivalent
 to KMeans optimisation.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">gemclus.tree</span> <span class="kn">import</span> <a href="../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri" title="gemclus.tree.Kauri" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-class"><span class="n">Kauri</span></a><span class="p">,</span> <a href="../../generated/gemclus.tree.print_kauri_tree.html#gemclus.tree.print_kauri_tree" title="gemclus.tree.print_kauri_tree" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-function"><span class="n">print_kauri_tree</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus.tree</span><span class="w"> </span><span class="kn">import</span> <a href="../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri" title="gemclus.tree.Kauri" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-class"><span class="n">Kauri</span></a><span class="p">,</span> <a href="../../generated/gemclus.tree.print_kauri_tree.html#gemclus.tree.print_kauri_tree" title="gemclus.tree.print_kauri_tree" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-function"><span class="n">print_kauri_tree</span></a>
 </pre></div>
 </div>
 <section id="load-the-dataset">
@@ -134,7 +134,9 @@ to KMeans optimisation.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score of model is: &quot;</span><span class="p">,</span> <a href="../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.score" title="gemclus.tree.Kauri.score" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-method"><span class="n">linear_model</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Score of model is:  9459.167022308022
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+Score of model is:  9459.167022308022
 </pre></div>
 </div>
 </section>
@@ -145,7 +147,9 @@ to KMeans optimisation.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score of model is: &quot;</span><span class="p">,</span> <a href="../../generated/gemclus.tree.Kauri.html#gemclus.tree.Kauri.score" title="gemclus.tree.Kauri.score" class="sphx-glr-backref-module-gemclus-tree sphx-glr-backref-type-py-method"><span class="n">additive_chi2_model</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Score of model is:  -22.43532371061057
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+Score of model is:  -22.43532371061057
 </pre></div>
 </div>
 </section>
@@ -186,7 +190,7 @@ Node 0
 | | |  Cluster: 1
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.013 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.019 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-trees-plot-kauri-example-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/dee5bb77f391beebbe255f515bd44e50/plot_kauri_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_kauri_example.ipynb</span></code></a></p>

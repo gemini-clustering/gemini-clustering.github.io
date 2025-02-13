@@ -6,8 +6,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick start on GemClus &mdash; gemclus 1.0.1.dev documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  <title>Quick start on GemClus &mdash; gemclus 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
@@ -15,7 +15,7 @@
       <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="_static/documentation_options.js?v=49291813"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/js/copybutton.js?v=26522df0"></script>
@@ -90,8 +90,8 @@
 function to do clustering. Let us use for example a logistic regression or a multi-layered perceptron (MLP) as
 clustering models. In GemClus, generic models come by default with the one-vs-all MMD GEMINI.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import model definitions</span>
-<span class="kn">from</span> <span class="nn">gemclus</span> <span class="kn">import</span> <span class="n">mlp</span>
-<span class="kn">from</span> <span class="nn">gemclus</span> <span class="kn">import</span> <span class="n">linear</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gemclus</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear</span>
 
 <span class="c1"># Create a 2-layer neural network for clustering</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">MLPModel</span><span class="p">()</span>
@@ -112,7 +112,7 @@ clustering models. In GemClus, generic models come by default with the one-vs-al
 </div>
 <p>Another approach is to instanciate the desired gemini and pass it as argument. Here, we pass the argument <cite>ovo=True</cite>.
 Otherwise, geminis are in OvA mode by default.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gemclus</span> <span class="kn">import</span> <span class="n">gemini</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gemclus</span><span class="w"> </span><span class="kn">import</span> <span class="n">gemini</span>
 
 <span class="n">objective</span> <span class="o">=</span> <span class="n">gemini</span><span class="o">.</span><span class="n">TVGEMINI</span><span class="p">(</span><span class="n">ovo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">MLPModel</span><span class="p">(</span><span class="n">gemini</span><span class="o">=</span><span class="n">objective</span><span class="p">)</span>
