@@ -169,7 +169,7 @@ We now specify that the metric is precomputed instead
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.507 seconds)
+   **Total running time of the script:** (0 minutes 0.513 seconds)
 
 
 .. _sphx_glr_download_auto_examples_scoring_plot_gemini_scoring.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:21.787** total execution time for 4 files **from auto_examples/feature_selection**:
+**00:16.403** total execution time for 4 files **from auto_examples/feature_selection**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_mlp.py` (``plot_feature_selection_mlp.py``)
-     - 00:08.525
+     - 00:06.494
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_linear.py` (``plot_feature_selection_linear.py``)
-     - 00:07.029
+     - 00:04.628
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_grouped_selection.py` (``plot_grouped_selection.py``)
-     - 00:03.896
+     - 00:03.208
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_logreg_mi.py` (``plot_feature_selection_logreg_mi.py``)
-     - 00:02.337
+     - 00:02.072
      - 0.0

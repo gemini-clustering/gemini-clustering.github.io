@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gemclus.linear._linear_geminis &mdash; gemclus 1.1.0 documentation</title>
+  <title>gemclus.linear._linear_geminis &mdash; gemclus 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/gemclus.css?v=d1d1afb3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
 
   
-      <script src="../../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/js/copybutton.js?v=26522df0"></script>
@@ -91,7 +91,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network._stochastic_optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdamOptimizer</span><span class="p">,</span> <span class="n">SGDOptimizer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils._param_validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Interval</span><span class="p">,</span> <span class="n">StrOptions</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.extmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">softmax</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_is_fitted</span><span class="p">,</span> <span class="n">check_array</span><span class="p">,</span> <span class="n">validate_data</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">.._base_gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiscriminativeModel</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..gemini</span><span class="w"> </span><span class="kn">import</span> <span class="n">MMDGEMINI</span><span class="p">,</span> <span class="n">WassersteinGEMINI</span>
@@ -703,6 +703,8 @@
 <div class="viewcode-block" id="KernelRIM.predict_proba">
 <a class="viewcode-back" href="../../../generated/gemclus.linear.KernelRIM.html#gemclus.linear.KernelRIM.predict_proba">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">validate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">kernel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_kernel</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span></div>
 </div>
