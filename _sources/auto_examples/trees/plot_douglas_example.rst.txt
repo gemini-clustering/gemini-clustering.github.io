@@ -86,8 +86,6 @@ Create the douglas tree and fit it
 
  .. code-block:: none
 
-    /home/circleci/.local/lib/python3.10/site-packages/sklearn/base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
-      warnings.warn(
     Score of model is:  1.4741506860502334
     ARI of model is:  0.5681159420289855
 
@@ -97,7 +95,7 @@ Create the douglas tree and fit it
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.137 seconds)
+   **Total running time of the script:** (0 minutes 1.104 seconds)
 
 
 .. _sphx_glr_download_auto_examples_trees_plot_douglas_example.py:

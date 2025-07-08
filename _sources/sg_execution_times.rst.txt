@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:23.820** total execution time for 19 files **from all galleries**:
+**01:15.324** total execution time for 19 files **from all galleries**:
 
 .. container::
 
@@ -33,59 +33,59 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples__general_plot_circles.py` (``../examples/_general/plot_circles.py``)
-     - 00:16.256
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py` (``../examples/_general/plot_kernel_kmeans.py``)
-     - 00:10.002
+     - 00:18.121
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_gstm.py` (``../examples/_general/plot_gstm.py``)
-     - 00:09.427
+     - 00:08.425
      - 0.0
    * - :ref:`sphx_glr_auto_examples_mlcl_plot_semi_supervised_consensus.py` (``../examples/mlcl/plot_semi_supervised_consensus.py``)
-     - 00:08.388
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py` (``../examples/_general/plot_graph_node_clustering.py``)
-     - 00:08.324
+     - 00:08.018
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_moon_clustering.py` (``../examples/_general/plot_moon_clustering.py``)
-     - 00:07.955
+     - 00:07.411
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_graph_node_clustering.py` (``../examples/_general/plot_graph_node_clustering.py``)
+     - 00:07.377
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_kmeans.py` (``../examples/_general/plot_kernel_kmeans.py``)
+     - 00:05.876
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_mlp.py` (``../examples/feature_selection/plot_feature_selection_mlp.py``)
-     - 00:06.522
+     - 00:05.691
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_linear.py` (``../examples/feature_selection/plot_feature_selection_linear.py``)
-     - 00:05.635
+     - 00:04.389
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_grouped_selection.py` (``../examples/feature_selection/plot_grouped_selection.py``)
-     - 00:03.583
+     - 00:02.918
      - 0.0
    * - :ref:`sphx_glr_auto_examples_feature_selection_plot_feature_selection_logreg_mi.py` (``../examples/feature_selection/plot_feature_selection_logreg_mi.py``)
-     - 00:02.134
+     - 00:01.880
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_custom_model.py` (``../examples/_general/plot_custom_model.py``)
-     - 00:01.802
+     - 00:01.663
      - 0.0
    * - :ref:`sphx_glr_auto_examples_trees_plot_douglas_example.py` (``../examples/trees/plot_douglas_example.py``)
-     - 00:01.137
+     - 00:01.104
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_intro_mlp_mmd.py` (``../examples/_general/plot_intro_mlp_mmd.py``)
-     - 00:00.710
+     - 00:00.638
      - 0.0
    * - :ref:`sphx_glr_auto_examples_scoring_plot_gemini_scoring.py` (``../examples/scoring/plot_gemini_scoring.py``)
-     - 00:00.534
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py` (``../examples/_general/plot_kernel_rim.py``)
-     - 00:00.388
+     - 00:00.446
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_squared_loss_mi.py` (``../examples/_general/plot_squared_loss_mi.py``)
-     - 00:00.367
+     - 00:00.418
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples__general_plot_kernel_rim.py` (``../examples/_general/plot_kernel_rim.py``)
+     - 00:00.369
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_rim.py` (``../examples/_general/plot_rim.py``)
-     - 00:00.349
+     - 00:00.291
      - 0.0
    * - :ref:`sphx_glr_auto_examples__general_plot_nonparametric_clustering.py` (``../examples/_general/plot_nonparametric_clustering.py``)
-     - 00:00.289
+     - 00:00.274
      - 0.0
    * - :ref:`sphx_glr_auto_examples_trees_plot_kauri_example.py` (``../examples/trees/plot_kauri_example.py``)
-     - 00:00.017
+     - 00:00.014
      - 0.0
